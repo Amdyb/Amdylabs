@@ -1,0 +1,12 @@
+{
+  "name": "AMDY LABS",
+  "short_name": "AMDY LABS",
+  "description": "Building Africa's Digital Future",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#050709",
+  "theme_color": "#1a6ef5",
+  "icons": [
+    { "src": "/favicon.ico", "sizes": "any", "type": "image/x-icon" }
+  ]
+}
