@@ -30,9 +30,9 @@ const PROJECTS = [
     name: 'Mon Livreur',
     sub: 'Delivery & Logistics Platform',
     desc: 'A complete delivery and logistics platform built for African businesses and local delivery services. Real-time tracking, smart driver dispatch, automated WhatsApp customer notifications, and a full business dashboard.',
-    logo: null,
-    emoji: '🚚',
-    logoBg: '#0d2a1a',
+    logo: '/logo-monlivreur.png',
+    
+    logoBg: '#fff',
     color: 'linear-gradient(135deg, #0d2a1a, #1a6e3a)',
     tags: ['React Native', 'Node.js', 'Google Maps', 'WhatsApp API', 'Socket.io'],
     features: ['Real-Time Tracking', 'Driver Dispatch', 'Route Optimization', 'WhatsApp Alerts', 'Customer App', 'Business Dashboard', 'Order Management', 'Delivery Analytics'],
@@ -75,13 +75,9 @@ export default function ProjectsPage() {
               {/* Visual — left for even */}
               {i % 2 === 0 && (
                 <div style={{ background: p.color, display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center', padding: 48, gap: 20, minHeight: 340 }}>
-                  {p.logo ? (
-                    <div style={{ width: 140, height: 140, borderRadius: p.name === 'VYBZ Social' ? 20 : 28, overflow: 'hidden', background: p.logoBg, display: 'flex', alignItems: 'center', justifyContent: 'center', boxShadow: '0 20px 60px rgba(0,0,0,0.5)' }}>
-                      <Image src={p.logo} alt={p.name} width={140} height={140} style={{ objectFit: 'contain' }} />
-                    </div>
-                  ) : (
-                    <div style={{ fontSize: 80 }}>{p.emoji}</div>
-                  )}
+                  <div style={{ width: 140, height: 140, borderRadius: p.name === 'VYBZ Social' ? 20 : 28, overflow: 'hidden', background: p.logoBg, display: 'flex', alignItems: 'center', justifyContent: 'center', boxShadow: '0 20px 60px rgba(0,0,0,0.5)' }}>
+                    <Image src={p.logo} alt={p.name} width={140} height={140} style={{ objectFit: 'contain' }} />
+                  </div>
                   <span style={{ background: p.status === 'Live' ? 'rgba(0,230,118,0.15)' : 'rgba(96,165,250,0.15)', color: p.status === 'Live' ? '#00e676' : '#60a5fa', border: `1px solid ${p.status === 'Live' ? 'rgba(0,230,118,0.3)' : 'rgba(96,165,250,0.3)'}`, borderRadius: 20, padding: '6px 16px', fontSize: 12, fontWeight: 700 }}>
                     {p.status === 'Live' ? '✅ Live' : '🔨 In Development'}
                   </span>
@@ -113,13 +109,9 @@ export default function ProjectsPage() {
               {/* Visual — right for odd */}
               {i % 2 !== 0 && (
                 <div style={{ background: p.color, display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center', padding: 48, gap: 20, minHeight: 340 }}>
-                  {p.logo ? (
-                    <div style={{ width: 140, height: 140, borderRadius: 20, overflow: 'hidden', background: p.logoBg, display: 'flex', alignItems: 'center', justifyContent: 'center', boxShadow: '0 20px 60px rgba(0,0,0,0.5)' }}>
-                      <Image src={p.logo} alt={p.name} width={140} height={140} style={{ objectFit: 'contain' }} />
-                    </div>
-                  ) : (
-                    <div style={{ fontSize: 80 }}>{p.emoji}</div>
-                  )}
+                  <div style={{ width: 140, height: 140, borderRadius: 20, overflow: 'hidden', background: p.logoBg, display: 'flex', alignItems: 'center', justifyContent: 'center', boxShadow: '0 20px 60px rgba(0,0,0,0.5)' }}>
+                    <Image src={p.logo} alt={p.name} width={140} height={140} style={{ objectFit: 'contain' }} />
+                  </div>
                   <span style={{ background: 'rgba(96,165,250,0.15)', color: '#60a5fa', border: '1px solid rgba(96,165,250,0.3)', borderRadius: 20, padding: '6px 16px', fontSize: 12, fontWeight: 700 }}>🔨 In Development</span>
                 </div>
               )}
