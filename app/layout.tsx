@@ -2,11 +2,11 @@ import type { Metadata } from 'next'
 import './globals.css'
 
 export const metadata: Metadata = {
-  title: 'AMDY LABS — Building Africa\'s Digital Future',
-  description: 'AMDY LABS builds custom mobile apps, websites, software, POS systems, and digital platforms for African businesses.',
+  title: 'AMDY LABS — Construire l\'Avenir Numérique de l\'Afrique',
+  description: 'AMDY LABS conçoit des applications mobiles, sites web, logiciels et plateformes numériques pour les entreprises africaines.',
   keywords: 'African technology company, software development Africa, app development Senegal, POS system Africa',
   openGraph: {
-    title: 'AMDY LABS — Building Africa\'s Digital Future',
+    title: 'AMDY LABS — Construire l\'Avenir Numérique de l\'Afrique',
     description: 'We create modern apps, websites, and software solutions that help African businesses grow, compete, and scale.',
     url: 'https://amdylabs.com',
     siteName: 'AMDY LABS',
