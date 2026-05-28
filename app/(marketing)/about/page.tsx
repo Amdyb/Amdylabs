@@ -1,12 +1,13 @@
 import Link from 'next/link'
+import { Trophy, Handshake, Lightbulb, Lock, Zap, Leaf, Target, Telescope, Globe, MessageCircle, ArrowRight } from 'lucide-react'
 
 const VALUES = [
-  { icon: '🏆', title: 'Excellence', desc: 'Silicon Valley quality at African prices. No shortcuts, no compromises on craft.' },
-  { icon: '🤝', title: 'Partnership', desc: 'We become your long-term technology ally — not just a vendor.' },
-  { icon: '💡', title: 'Innovation', desc: 'Cutting-edge global tech fused with deep African market knowledge.' },
-  { icon: '🔒', title: 'Trust', desc: 'Transparent pricing, honest timelines, and reliable delivery. Always.' },
-  { icon: '⚡', title: 'Speed', desc: 'Agile delivery and rapid iteration. We move at the speed of your business.' },
-  { icon: '🌱', title: 'Growth', desc: 'Every product is designed to scale with you across Africa and beyond.' },
+  { Icon: Trophy, title: 'Excellence', desc: 'Silicon Valley quality at African prices. No shortcuts, no compromises on craft.' },
+  { Icon: Handshake, title: 'Partnership', desc: 'We become your long-term technology ally — not just a vendor.' },
+  { Icon: Lightbulb, title: 'Innovation', desc: 'Cutting-edge global tech fused with deep African market knowledge.' },
+  { Icon: Lock, title: 'Trust', desc: 'Transparent pricing, honest timelines, and reliable delivery. Always.' },
+  { Icon: Zap, title: 'Speed', desc: 'Agile delivery and rapid iteration. We move at the speed of your business.' },
+  { Icon: Leaf, title: 'Growth', desc: 'Every product is designed to scale with you across Africa and beyond.' },
 ]
 
 const TEAM_LOCATIONS = [
@@ -112,7 +113,7 @@ export default function AboutPage() {
           <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(220px, 1fr))', gap: 14 }}>
             {TEAM_LOCATIONS.map(loc => (
               <div key={loc.country} style={{ background: 'rgba(13,20,37,0.8)', border: '1px solid rgba(30,45,74,0.5)', borderRadius: 14, padding: '22px 20px', textAlign: 'center' }}>
-                <div style={{ fontSize: 36, marginBottom: 12 }}>{loc.flag}</div>
+                <div style={{ width: 44, height: 44, background: 'rgba(26,110,245,0.1)', border: '1px solid rgba(26,110,245,0.2)', borderRadius: 10, display: 'flex', alignItems: 'center', justifyContent: 'center', marginBottom: 12 }}><Globe size={20} color='#60a5fa' /></div>
                 <div style={{ fontFamily: 'Syne, system-ui', fontWeight: 700, fontSize: 15, marginBottom: 6 }}>{loc.country}</div>
                 <div style={{ fontSize: 12, color: '#475569' }}>{loc.desc}</div>
               </div>
@@ -131,7 +132,7 @@ export default function AboutPage() {
           <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(260px, 1fr))', gap: 16 }}>
             {VALUES.map(v => (
               <div key={v.title} style={{ background: 'rgba(13,20,37,0.7)', border: '1px solid rgba(30,45,74,0.5)', borderRadius: 16, padding: 28 }}>
-                <div style={{ fontSize: 32, marginBottom: 16 }}>{v.icon}</div>
+                <div style={{ marginBottom: 16 }}><v.Icon size={28} color='#60a5fa' /></div>
                 <h4 style={{ fontFamily: 'Syne, system-ui', fontSize: 17, fontWeight: 700, marginBottom: 10 }}>{v.title}</h4>
                 <p style={{ fontSize: 14, color: '#64748b', lineHeight: 1.7 }}>{v.desc}</p>
               </div>
@@ -146,7 +147,7 @@ export default function AboutPage() {
         <p style={{ color: '#64748b', fontSize: 16, marginBottom: 36, maxWidth: 500, margin: '0 auto 36px' }}>Whether you&apos;re a client, investor, or developer — AMDY LABS is where Africa&apos;s digital future is being built.</p>
         <div style={{ display: 'flex', gap: 14, justifyContent: 'center', flexWrap: 'wrap' }}>
           <Link href="/contact" style={{ background: 'linear-gradient(135deg,#1a6ef5,#0050c8)', color: '#fff', padding: '15px 36px', borderRadius: 10, fontWeight: 700, fontSize: 15, textDecoration: 'none', boxShadow: '0 8px 32px rgba(26,110,245,0.3)' }}>Work With Us →</Link>
-          <a href="https://wa.me/15863442378" target="_blank" rel="noreferrer" style={{ background: '#25d366', color: '#000', padding: '15px 36px', borderRadius: 10, fontWeight: 700, fontSize: 15, textDecoration: 'none' }}>💬 WhatsApp</a>
+          <a href="https://wa.me/15863442378" target="_blank" rel="noreferrer" style={{ background: '#25d366', color: '#000', padding: '15px 36px', borderRadius: 10, fontWeight: 700, fontSize: 15, textDecoration: 'none' }}>WhatsApp</a>
         </div>
       </section>
     </div>

@@ -2,7 +2,7 @@
 import { useEffect, useRef, useState } from 'react'
 import Link from 'next/link'
 import Image from 'next/image'
-import { ArrowRight, CheckCircle2, ChevronDown } from 'lucide-react'
+import { ArrowRight, CheckCircle2, ChevronDown, Smartphone, Globe, Store, Cloud, ShoppingCart, Bot, Zap, Palette, DollarSign, MessageCircle, Languages, Wifi, Coins, Monitor, Shield, TrendingUp, Users, MapPin, Phone, Rocket } from 'lucide-react'
 
 function useCountUp(target: number, duration = 1600, start = false) {
   const [val, setVal] = useState(0)
@@ -29,12 +29,12 @@ function useInView(threshold = 0.15) {
 }
 
 const SERVICES = [
-  { icon: '📱', label: 'Mobile Apps', desc: 'Native & cross-platform Android and iOS apps built for African consumers.' },
-  { icon: '🌐', label: 'Websites', desc: 'Modern responsive websites that convert visitors into paying customers.' },
-  { icon: '🏪', label: 'POS Systems', desc: 'CaissePro-powered point-of-sale with Wave, Orange Money & mobile payments.' },
-  { icon: '☁️', label: 'SaaS Platforms', desc: 'Full multi-tenant software platforms built to scale across Africa.' },
-  { icon: '🛒', label: 'E-Commerce', desc: 'Online stores with African payment gateways and WhatsApp integration.' },
-  { icon: '🤖', label: 'AI Solutions', desc: 'Smart automation, chatbots, and AI-powered analytics for your business.' },
+  { Icon: Smartphone, label: 'Mobile Apps', desc: 'Native & cross-platform Android and iOS apps built for African consumers.' },
+  { Icon: Globe, label: 'Websites', desc: 'Modern responsive websites that convert visitors into paying customers.' },
+  { Icon: Store, label: 'POS Systems', desc: 'CaissePro-powered point-of-sale with Wave, Orange Money & mobile payments.' },
+  { Icon: Cloud, label: 'SaaS Platforms', desc: 'Full multi-tenant software platforms built to scale across Africa.' },
+  { Icon: ShoppingCart, label: 'E-Commerce', desc: 'Online stores with African payment gateways and WhatsApp integration.' },
+  { Icon: Bot, label: 'AI Solutions', desc: 'Smart automation, chatbots, and AI-powered analytics for your business.' },
 ]
 
 const PROJECTS = [
@@ -44,12 +44,12 @@ const PROJECTS = [
 ]
 
 const AFRICA_FEATURES = [
-  { icon: '💸', title: 'Wave & Orange Money', desc: 'Native mobile money integrations' },
-  { icon: '📲', title: 'WhatsApp Commerce', desc: 'Sell & notify via WhatsApp' },
-  { icon: '🇫🇷', title: 'Multilingual', desc: 'French, English & Wolof' },
-  { icon: '📶', title: 'Offline-First', desc: 'Works on 2G & without internet' },
-  { icon: '🪙', title: 'CFA & Local Currencies', desc: 'XOF, XAF, GHS, NGN support' },
-  { icon: '📱', title: 'Mobile-First', desc: 'Designed for smartphone users' },
+  { Icon: DollarSign, title: 'Wave & Orange Money', desc: 'Native mobile money integrations' },
+  { Icon: MessageCircle, title: 'WhatsApp Commerce', desc: 'Sell & notify via WhatsApp' },
+  { Icon: Languages, title: 'Multilingual', desc: 'French, English & Wolof' },
+  { Icon: Wifi, title: 'Offline-First', desc: 'Works on 2G & without internet' },
+  { Icon: Coins, title: 'CFA & Local Currencies', desc: 'XOF, XAF, GHS, NGN support' },
+  { Icon: Smartphone, title: 'Mobile-First', desc: 'Designed for smartphone users' },
 ]
 
 const FAQ = [
@@ -71,24 +71,24 @@ export default function HomePage() {
   return (
     <div>
 
-      {/* ══════ HERO — full bleed with real image ══════ */}
+      {/* ══════ HERO ══════ */}
       <section style={{ position: 'relative', minHeight: '100vh', display: 'flex', alignItems: 'center', overflow: 'hidden', paddingTop: 72 }}>
-        {/* Real hero background image */}
+        {/* Full bleed background image */}
         <Image
           src="/hero-bg.webp"
           alt="AMDY LABS — Building Africa's Digital Future"
           fill
           priority
           style={{ objectFit: 'cover', objectPosition: 'center center' }}
-          quality={90}
+          quality={95}
         />
-        {/* Dark overlay so text stays readable */}
-        <div style={{ position: 'absolute', inset: 0, background: 'linear-gradient(90deg, rgba(4,8,26,0.88) 0%, rgba(4,8,26,0.65) 40%, rgba(4,8,26,0.15) 65%, rgba(4,8,26,0.0) 100%)' }} />
-        {/* Bottom fade */}
-        <div style={{ position: 'absolute', bottom: 0, left: 0, right: 0, height: 120, background: 'linear-gradient(transparent, #050709)' }} />
+        {/* Gradient: readable on left, fully transparent on right so image shows */}
+        <div style={{ position: 'absolute', inset: 0, background: 'linear-gradient(100deg, rgba(4,8,26,0.92) 0%, rgba(4,8,26,0.75) 38%, rgba(4,8,26,0.25) 60%, rgba(4,8,26,0.0) 80%)' }} />
+        {/* Bottom fade into page */}
+        <div style={{ position: 'absolute', bottom: 0, left: 0, right: 0, height: 100, background: 'linear-gradient(transparent, #050709)' }} />
 
         <div style={{ position: 'relative', zIndex: 2, maxWidth: 1200, margin: '0 auto', padding: '80px 24px', width: '100%' }}>
-          <div style={{ maxWidth: 620 }}>
+          <div style={{ maxWidth: 580 }}>
             {/* Badge */}
             <div style={{ display: 'inline-flex', alignItems: 'center', gap: 8, background: 'rgba(26,110,245,0.12)', border: '1px solid rgba(26,110,245,0.4)', borderRadius: 100, padding: '6px 16px 6px 10px', fontSize: 12, fontWeight: 600, color: '#60a5fa', marginBottom: 28, letterSpacing: '0.04em' }}>
               <span style={{ width: 7, height: 7, background: '#00e676', borderRadius: '50%', display: 'inline-block', animation: 'blink 2s ease-in-out infinite' }} />
@@ -101,31 +101,31 @@ export default function HomePage() {
               de l&apos;Afrique
             </h1>
 
-            <p style={{ fontSize: 17, color: '#94a3b8', maxWidth: 520, marginBottom: 40, lineHeight: 1.78 }}>
-              AMDY LABS conçoit des solutions digitales modernes, innovantes et évolutives pour aider les entreprises africaines à se développer, se digitaliser et conquérir le monde.
+            <p style={{ fontSize: 17, color: '#94a3b8', maxWidth: 500, marginBottom: 40, lineHeight: 1.78 }}>
+              AMDY LABS conçoit des solutions digitales modernes pour aider les entreprises africaines à se développer, se digitaliser et conquérir le monde.
             </p>
 
             <div style={{ display: 'flex', gap: 14, flexWrap: 'wrap', marginBottom: 56 }}>
               <Link href="/contact" style={{ display: 'inline-flex', alignItems: 'center', gap: 8, background: 'linear-gradient(135deg,#1a6ef5,#0050c8)', color: '#fff', padding: '15px 32px', borderRadius: 10, fontWeight: 700, fontSize: 15, textDecoration: 'none', boxShadow: '0 8px 32px rgba(26,110,245,0.4)' }}>
-                🚀 Démarrer un projet
+                <Rocket size={16} /> Démarrer un projet
               </Link>
               <Link href="/projects" style={{ display: 'inline-flex', alignItems: 'center', gap: 8, background: 'rgba(255,255,255,0.06)', color: '#fff', padding: '15px 32px', borderRadius: 10, fontWeight: 600, fontSize: 15, textDecoration: 'none', border: '1px solid rgba(255,255,255,0.14)', backdropFilter: 'blur(10px)' }}>
-                ▷ Découvrir nos solutions
+                <Monitor size={16} /> Découvrir nos solutions
               </Link>
             </div>
 
-            {/* 4 pillars from the reference image */}
-            <div style={{ display: 'grid', gridTemplateColumns: 'repeat(2,1fr)', gap: 12, maxWidth: 520 }}>
+            {/* 4 pillars */}
+            <div style={{ display: 'grid', gridTemplateColumns: 'repeat(2,1fr)', gap: 10, maxWidth: 480 }}>
               {[
-                { icon: '🚀', title: 'Innovation', desc: 'Des solutions modernes et performantes' },
-                { icon: '🛡️', title: 'Fiabilité', desc: 'Sécurisé, stable et conçu pour durer' },
-                { icon: '🌍', title: 'Impact', desc: 'Nous aidons les entreprises à grandir' },
-                { icon: '🌐', title: 'Présence Mondiale', desc: 'Une équipe africaine présente partout' },
-              ].map(p => (
-                <div key={p.title} style={{ background: 'rgba(255,255,255,0.04)', border: '1px solid rgba(255,255,255,0.08)', borderRadius: 10, padding: '14px 16px', backdropFilter: 'blur(10px)' }}>
-                  <div style={{ fontSize: 18, marginBottom: 6 }}>{p.icon}</div>
-                  <div style={{ fontFamily: 'Syne, system-ui', fontWeight: 700, fontSize: 12, color: '#e2e8f0', marginBottom: 3, textTransform: 'uppercase', letterSpacing: '0.06em' }}>{p.title}</div>
-                  <div style={{ fontSize: 11, color: '#475569', lineHeight: 1.5 }}>{p.desc}</div>
+                { Icon: Zap, title: 'Innovation', desc: 'Des solutions modernes et performantes' },
+                { Icon: Shield, title: 'Fiabilité', desc: 'Sécurisé, stable et conçu pour durer' },
+                { Icon: TrendingUp, title: 'Impact', desc: 'Nous aidons les entreprises à grandir' },
+                { Icon: MapPin, title: 'Présence Mondiale', desc: 'Une équipe africaine présente partout' },
+              ].map(({ Icon, title, desc }) => (
+                <div key={title} style={{ background: 'rgba(255,255,255,0.04)', border: '1px solid rgba(255,255,255,0.08)', borderRadius: 10, padding: '14px 16px', backdropFilter: 'blur(10px)' }}>
+                  <Icon size={18} color="#60a5fa" style={{ marginBottom: 6 }} />
+                  <div style={{ fontFamily: 'Syne, system-ui', fontWeight: 700, fontSize: 12, color: '#e2e8f0', marginBottom: 3, textTransform: 'uppercase', letterSpacing: '0.06em' }}>{title}</div>
+                  <div style={{ fontSize: 11, color: '#475569', lineHeight: 1.5 }}>{desc}</div>
                 </div>
               ))}
             </div>
@@ -158,14 +158,16 @@ export default function HomePage() {
             <p style={{ fontSize: 16, color: '#64748b', maxWidth: 520, lineHeight: 1.7 }}>From idea to production — we build, launch, and support world-class digital products for African businesses.</p>
           </div>
           <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(280px, 1fr))', gap: 16 }}>
-            {SERVICES.map((s, i) => (
+            {SERVICES.map(({ Icon, label, desc }, i) => (
               <div key={i} style={{ background: 'rgba(13,20,37,0.6)', border: '1px solid rgba(30,45,74,0.5)', borderRadius: 16, padding: 28, backdropFilter: 'blur(10px)', transition: 'all 0.3s', cursor: 'default' }}
                 onMouseEnter={e => { const el = e.currentTarget as HTMLElement; el.style.borderColor = 'rgba(26,110,245,0.5)'; el.style.transform = 'translateY(-4px)'; el.style.boxShadow = '0 20px 60px rgba(26,110,245,0.1)' }}
                 onMouseLeave={e => { const el = e.currentTarget as HTMLElement; el.style.borderColor = 'rgba(30,45,74,0.5)'; el.style.transform = 'none'; el.style.boxShadow = 'none' }}>
-                <div style={{ fontSize: 32, marginBottom: 16 }}>{s.icon}</div>
-                <h3 style={{ fontFamily: 'Syne, system-ui', fontSize: 16, fontWeight: 700, marginBottom: 10 }}>{s.label}</h3>
-                <p style={{ fontSize: 13, color: '#64748b', lineHeight: 1.7, marginBottom: 16 }}>{s.desc}</p>
-                <Link href="/services" style={{ fontSize: 12, color: '#60a5fa', fontWeight: 600, textDecoration: 'none' }}>Learn more →</Link>
+                <div style={{ width: 48, height: 48, background: 'rgba(26,110,245,0.1)', border: '1px solid rgba(26,110,245,0.2)', borderRadius: 12, display: 'flex', alignItems: 'center', justifyContent: 'center', marginBottom: 18 }}>
+                  <Icon size={22} color="#60a5fa" />
+                </div>
+                <h3 style={{ fontFamily: 'Syne, system-ui', fontSize: 16, fontWeight: 700, marginBottom: 10 }}>{label}</h3>
+                <p style={{ fontSize: 13, color: '#64748b', lineHeight: 1.7, marginBottom: 16 }}>{desc}</p>
+                <Link href="/services" style={{ fontSize: 12, color: '#60a5fa', fontWeight: 600, textDecoration: 'none', display: 'flex', alignItems: 'center', gap: 4 }}>Learn more <ArrowRight size={12} /></Link>
               </div>
             ))}
           </div>
@@ -202,7 +204,7 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* ══════ PROJECTS with real logos ══════ */}
+      {/* ══════ PROJECTS ══════ */}
       <section style={{ padding: '110px 24px' }}>
         <div style={{ maxWidth: 1200, margin: '0 auto' }}>
           <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-end', marginBottom: 56, flexWrap: 'wrap', gap: 16 }}>
@@ -210,14 +212,13 @@ export default function HomePage() {
               <p style={{ fontSize: 11, fontWeight: 700, color: '#1a6ef5', letterSpacing: '0.15em', textTransform: 'uppercase', marginBottom: 14 }}>Our Products</p>
               <h2 style={{ fontFamily: 'Syne, system-ui', fontSize: 'clamp(30px,4vw,48px)', fontWeight: 800, letterSpacing: '-0.02em' }}>What we&apos;ve built</h2>
             </div>
-            <Link href="/projects" style={{ color: '#60a5fa', textDecoration: 'none', fontSize: 14, fontWeight: 600 }}>See all projects →</Link>
+            <Link href="/projects" style={{ color: '#60a5fa', textDecoration: 'none', fontSize: 14, fontWeight: 600, display: 'flex', alignItems: 'center', gap: 4 }}>See all projects <ArrowRight size={14} /></Link>
           </div>
           <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(300px,1fr))', gap: 20 }}>
             {PROJECTS.map((p, i) => (
               <div key={i} style={{ background: 'rgba(13,20,37,0.6)', border: '1px solid rgba(30,45,74,0.5)', borderRadius: 20, overflow: 'hidden', transition: 'all 0.3s' }}
                 onMouseEnter={e => { const el = e.currentTarget as HTMLElement; el.style.transform = 'translateY(-6px)'; el.style.borderColor = 'rgba(26,110,245,0.4)'; el.style.boxShadow = '0 30px 80px rgba(0,0,0,0.4)' }}
                 onMouseLeave={e => { const el = e.currentTarget as HTMLElement; el.style.transform = 'none'; el.style.borderColor = 'rgba(30,45,74,0.5)'; el.style.boxShadow = 'none' }}>
-                {/* Logo card */}
                 <div style={{ height: 190, background: p.color, display: 'flex', alignItems: 'center', justifyContent: 'center', position: 'relative', padding: 20 }}>
                   <div style={{ width: 120, height: 120, borderRadius: p.name === 'VYBZ Social' ? 16 : 24, overflow: 'hidden', background: p.logoBg, display: 'flex', alignItems: 'center', justifyContent: 'center', boxShadow: '0 16px 48px rgba(0,0,0,0.5)' }}>
                     <Image src={p.logo} alt={p.name} width={120} height={120} style={{ objectFit: 'contain' }} />
@@ -241,18 +242,18 @@ export default function HomePage() {
       <section style={{ padding: '110px 24px', background: 'linear-gradient(135deg,#04081a,#060d1e,#04081a)', borderTop: '1px solid rgba(30,45,74,0.4)' }}>
         <div style={{ maxWidth: 1200, margin: '0 auto', display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(320px,1fr))', gap: 70, alignItems: 'start' }}>
           <div>
-            <p style={{ fontSize: 11, fontWeight: 700, color: '#00e676', letterSpacing: '0.15em', textTransform: 'uppercase', marginBottom: 14 }}>🌍 Built for Africa</p>
+            <p style={{ fontSize: 11, fontWeight: 700, color: '#00e676', letterSpacing: '0.15em', textTransform: 'uppercase', marginBottom: 14 }}>Built for Africa</p>
             <h2 style={{ fontFamily: 'Syne, system-ui', fontSize: 'clamp(30px,4vw,48px)', fontWeight: 800, marginBottom: 18, letterSpacing: '-0.02em' }}>Technology that<br />speaks your language</h2>
             <p style={{ fontSize: 15, color: '#64748b', lineHeight: 1.75, marginBottom: 36 }}>Our solutions are designed from the ground up for African markets — built with African realities, languages, and payment systems at the core.</p>
             <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: 12 }}>
-              {AFRICA_FEATURES.map(a => (
-                <div key={a.title} style={{ background: 'rgba(26,110,245,0.05)', border: '1px solid rgba(30,45,74,0.5)', borderRadius: 12, padding: '16px 14px', display: 'flex', gap: 12, alignItems: 'flex-start', transition: 'all 0.2s' }}
+              {AFRICA_FEATURES.map(({ Icon, title, desc }) => (
+                <div key={title} style={{ background: 'rgba(26,110,245,0.05)', border: '1px solid rgba(30,45,74,0.5)', borderRadius: 12, padding: '16px 14px', display: 'flex', gap: 12, alignItems: 'flex-start', transition: 'all 0.2s' }}
                   onMouseEnter={e => { (e.currentTarget as HTMLElement).style.borderColor='rgba(26,110,245,0.4)'; (e.currentTarget as HTMLElement).style.background='rgba(26,110,245,0.09)' }}
                   onMouseLeave={e => { (e.currentTarget as HTMLElement).style.borderColor='rgba(30,45,74,0.5)'; (e.currentTarget as HTMLElement).style.background='rgba(26,110,245,0.05)' }}>
-                  <span style={{ fontSize: 20 }}>{a.icon}</span>
+                  <Icon size={18} color="#60a5fa" style={{ flexShrink: 0, marginTop: 2 }} />
                   <div>
-                    <div style={{ fontSize: 12, fontWeight: 600, marginBottom: 3 }}>{a.title}</div>
-                    <div style={{ fontSize: 11, color: '#475569' }}>{a.desc}</div>
+                    <div style={{ fontSize: 12, fontWeight: 600, marginBottom: 3 }}>{title}</div>
+                    <div style={{ fontSize: 11, color: '#475569' }}>{desc}</div>
                   </div>
                 </div>
               ))}
@@ -274,8 +275,8 @@ export default function HomePage() {
                   { type: 'out', text: '✓ Enabling offline-first PWA mode...' },
                   { type: 'out', text: '✓ CFA (XOF) set as base currency...' },
                   { type: 'cmd', text: 'amdy deploy --region=west-africa' },
-                  { type: 'success', text: '🚀 Live at yourapp.amdylabs.com' },
-                  { type: 'success', text: '✅ African users can now access it!' },
+                  { type: 'success', text: '> Live at yourapp.amdylabs.com' },
+                  { type: 'success', text: '> African users can now access it!' },
                 ].map((line, i) => (
                   <div key={i}>
                     {line.type==='cmd' && <div style={{ display:'flex', gap:10 }}><span style={{ color:'#00e676' }}>$</span><span style={{ color:'#60a5fa' }}>{line.text}</span></div>}
@@ -287,7 +288,7 @@ export default function HomePage() {
               </div>
             </div>
             <div style={{ background:'rgba(13,20,37,0.8)', border:'1px solid rgba(30,45,74,0.5)', borderRadius:14, padding:20, marginTop:14, display:'flex', gap:16, alignItems:'center' }}>
-              <span style={{ fontSize:30 }}>📊</span>
+              <TrendingUp size={28} color="#60a5fa" style={{ flexShrink: 0 }} />
               <div>
                 <div style={{ fontWeight:700, fontSize:13, marginBottom:4 }}>African Digital Economy</div>
                 <div style={{ fontSize:12, color:'#475569', lineHeight:1.6 }}>Projected to reach <strong style={{ color:'#60a5fa' }}>$712B</strong> by 2050. AMDY LABS is building the infrastructure today.</div>
@@ -307,8 +308,12 @@ export default function HomePage() {
               <h2 style={{ fontFamily: 'Syne, system-ui', fontSize: 'clamp(32px,5vw,56px)', fontWeight: 800, marginBottom: 20, letterSpacing: '-0.02em' }}>Ready to transform<br />your business?</h2>
               <p style={{ color: '#64748b', fontSize: 17, marginBottom: 44, maxWidth: 540, marginLeft: 'auto', marginRight: 'auto', lineHeight: 1.7 }}>Tell us your idea. We&apos;ll turn it into a world-class digital product. Free discovery call — no commitment.</p>
               <div style={{ display: 'flex', gap: 14, justifyContent: 'center', flexWrap: 'wrap' }}>
-                <Link href="/contact" style={{ display: 'inline-flex', alignItems: 'center', gap: 8, background: 'linear-gradient(135deg,#1a6ef5,#0050c8)', color: '#fff', padding: '16px 38px', borderRadius: 10, fontWeight: 700, fontSize: 16, textDecoration: 'none', boxShadow: '0 8px 40px rgba(26,110,245,0.35)' }}>🚀 Start a Project</Link>
-                <a href="https://wa.me/15863442378" target="_blank" rel="noreferrer" style={{ display: 'inline-flex', alignItems: 'center', gap: 8, background: '#25d366', color: '#000', padding: '16px 38px', borderRadius: 10, fontWeight: 700, fontSize: 16, textDecoration: 'none', boxShadow: '0 8px 40px rgba(37,211,102,0.25)' }}>💬 WhatsApp Us</a>
+                <Link href="/contact" style={{ display: 'inline-flex', alignItems: 'center', gap: 8, background: 'linear-gradient(135deg,#1a6ef5,#0050c8)', color: '#fff', padding: '16px 38px', borderRadius: 10, fontWeight: 700, fontSize: 16, textDecoration: 'none', boxShadow: '0 8px 40px rgba(26,110,245,0.35)' }}>
+                  <Rocket size={18} /> Start a Project
+                </Link>
+                <a href="https://wa.me/15863442378" target="_blank" rel="noreferrer" style={{ display: 'inline-flex', alignItems: 'center', gap: 8, background: '#25d366', color: '#000', padding: '16px 38px', borderRadius: 10, fontWeight: 700, fontSize: 16, textDecoration: 'none', boxShadow: '0 8px 40px rgba(37,211,102,0.25)' }}>
+                  <MessageCircle size={18} /> WhatsApp Us
+                </a>
               </div>
             </div>
           </div>
@@ -335,10 +340,10 @@ export default function HomePage() {
       </section>
 
       <style>{`
-        @keyframes float{0%,100%{transform:translateY(0)}50%{transform:translateY(-14px)}}
-        @keyframes blink{0%,100%{opacity:1}50%{opacity:0}}
-        @keyframes bounce{0%,100%{transform:translateX(-50%) translateY(0)}50%{transform:translateX(-50%) translateY(-8px)}}
-        @keyframes marquee{0%{transform:translateX(0)}100%{transform:translateX(-50%)}}
+        @keyframes float { 0%,100%{transform:translateY(0)} 50%{transform:translateY(-14px)} }
+        @keyframes blink { 0%,100%{opacity:1} 50%{opacity:0} }
+        @keyframes bounce { 0%,100%{transform:translateX(-50%) translateY(0)} 50%{transform:translateX(-50%) translateY(-8px)} }
+        @keyframes marquee { 0%{transform:translateX(0)} 100%{transform:translateX(-50%)} }
       `}</style>
     </div>
   )

@@ -1,5 +1,6 @@
 import Link from 'next/link'
 import Image from 'next/image'
+import { X, Link2, Globe2, Share2 } from 'lucide-react'
 
 export default function Footer() {
   const year = new Date().getFullYear()
@@ -19,8 +20,8 @@ export default function Footer() {
               Building Africa&apos;s digital future — one solution at a time.<br />
               Founded by <strong style={{ color: '#64748b' }}>Amdy Boubacar</strong>.
             </p>
-            <a href="tel:+15863442378" style={{ display: 'block', fontSize: 13, color: '#60a5fa', textDecoration: 'none', marginBottom: 5 }}>📞 +1 (586) 344-2378</a>
-            <a href="mailto:hello@amdylabs.com" style={{ display: 'block', fontSize: 13, color: '#60a5fa', textDecoration: 'none', marginBottom: 20 }}>📧 hello@amdylabs.com</a>
+            <a href="tel:+15863442378" style={{ display: 'block', fontSize: 13, color: '#60a5fa', textDecoration: 'none', marginBottom: 5 }}>+1 (586) 344-2378</a>
+            <a href="mailto:hello@amdylabs.com" style={{ display: 'block', fontSize: 13, color: '#60a5fa', textDecoration: 'none', marginBottom: 20 }}>hello@amdylabs.com</a>
             <div style={{ display: 'flex', gap: 8 }}>
               {[['𝕏','#'],['in','#'],['f','#'],['◎','#'],['▶','#']].map(([s,href],i) => (
                 <a key={i} href={href} style={{ width: 32, height: 32, background: 'rgba(13,20,37,0.8)', border: '1px solid rgba(30,45,74,0.5)', borderRadius: 7, display: 'flex', alignItems: 'center', justifyContent: 'center', color: '#334155', textDecoration: 'none', fontSize: 11 }}>{s}</a>
@@ -46,7 +47,7 @@ export default function Footer() {
 
         {/* WhatsApp strip */}
         <div style={{ background: 'rgba(37,211,102,0.05)', border: '1px solid rgba(37,211,102,0.15)', borderRadius: 12, padding: '16px 24px', marginBottom: 28, display: 'flex', justifyContent: 'space-between', alignItems: 'center', flexWrap: 'wrap', gap: 12 }}>
-          <span style={{ fontSize: 13, color: '#475569' }}>💬 Got a project in mind? Chat with Amdy on WhatsApp</span>
+          <span style={{ fontSize: 13, color: '#475569' }}>Got a project in mind? Chat with Amdy on WhatsApp</span>
           <a href="https://wa.me/15863442378" target="_blank" rel="noreferrer" style={{ background: '#25d366', color: '#000', padding: '9px 20px', borderRadius: 8, fontWeight: 700, fontSize: 13, textDecoration: 'none', whiteSpace: 'nowrap' }}>
             +1 (586) 344-2378 →
           </a>
@@ -54,7 +55,7 @@ export default function Footer() {
 
         <div style={{ borderTop: '1px solid rgba(30,45,74,0.4)', paddingTop: 24, display: 'flex', justifyContent: 'space-between', alignItems: 'center', flexWrap: 'wrap', gap: 12 }}>
           <span style={{ fontSize: 12, color: '#1e3a5f' }}>© {year} AMDY LABS. All rights reserved.</span>
-          <span style={{ fontSize: 12, color: '#1e3a5f' }}>Made with ❤️ in Africa · amdylabs.com</span>
+          <span style={{ fontSize: 12, color: '#1e3a5f' }}>Made with love in Africa · amdylabs.com</span>
         </div>
       </div>
     </footer>

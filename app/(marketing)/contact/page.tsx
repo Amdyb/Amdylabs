@@ -1,5 +1,6 @@
 'use client'
 import { useState } from 'react'
+import { Mail, Phone, MapPin, Clock, MessageCircle, Calendar, X, Link2, Globe2, Share2, ArrowRight } from 'lucide-react'
 
 export default function ContactPage() {
   const [form, setForm] = useState({ name: '', email: '', phone: '', service: '', message: '' })
@@ -37,9 +38,9 @@ export default function ContactPage() {
             <div style={{ display: 'flex', flexDirection: 'column', gap: 20 }}>
               {[
                 { icon: '📞', title: 'Phone', value: '+1 (586) 344-2378', link: 'tel:+15863442378' },
-                { icon: '📧', title: 'Email', value: 'hello@amdylabs.com', link: 'mailto:hello@amdylabs.com' },
-                { icon: '🌍', title: 'Locations', value: 'USA · Europe · Africa (Dakar)', link: null },
-                { icon: '⏰', title: 'Response Time', value: 'Within 24 hours · Mon–Sat', link: null },
+                { Icon: Mail, title: 'Email', value: 'hello@amdylabs.com', link: 'mailto:hello@amdylabs.com' },
+                { Icon: MapPin, title: 'Locations', value: 'USA · Europe · Africa (Dakar)', link: null },
+                { Icon: Clock, title: 'Response Time', value: 'Within 24 hours · Mon–Sat', link: null },
               ].map(item => (
                 <div key={item.title} style={{ display: 'flex', gap: 16, alignItems: 'flex-start' }}>
                   <div style={{ width: 44, height: 44, background: 'rgba(26,110,245,0.1)', border: '1px solid rgba(26,110,245,0.25)', borderRadius: 10, display: 'flex', alignItems: 'center', justifyContent: 'center', fontSize: 18, flexShrink: 0 }}>{item.icon}</div>
@@ -65,10 +66,10 @@ export default function ContactPage() {
 
             {/* Calendly */}
             <div style={{ background: 'rgba(26,110,245,0.07)', border: '1px solid rgba(26,110,245,0.2)', borderRadius: 16, padding: 24, marginTop: 14 }}>
-              <div style={{ fontWeight: 700, marginBottom: 8, fontSize: 15 }}>📅 Book a Free Call</div>
+              <div style={{ fontWeight: 700, marginBottom: 8, fontSize: 15 }}>Book a Free Call</div>
               <p style={{ fontSize: 13, color: '#64748b', marginBottom: 16, lineHeight: 1.6 }}>30-minute discovery call. We review your project and give free advice.</p>
               <a href="https://calendly.com/amdylabs" target="_blank" rel="noreferrer" style={{ display: 'block', background: '#1a6ef5', color: '#fff', padding: '13px', borderRadius: 9, fontWeight: 700, fontSize: 14, textDecoration: 'none', textAlign: 'center' }}>
-                Schedule on Calendly →
+                Schedule on Calendly
               </a>
             </div>
 
