@@ -79,13 +79,13 @@ export default function HomePage() {
           alt="AMDY LABS — Building Africa's Digital Future"
           fill
           priority
-          style={{ objectFit: 'cover', objectPosition: 'center right' }}
+          style={{ objectFit: 'cover', objectPosition: 'center center' }}
           quality={90}
         />
         {/* Dark overlay so text stays readable */}
-        <div style={{ position: 'absolute', inset: 0, background: 'linear-gradient(90deg, rgba(4,8,26,0.97) 0%, rgba(4,8,26,0.85) 45%, rgba(4,8,26,0.3) 75%, rgba(4,8,26,0.1) 100%)' }} />
+        <div style={{ position: 'absolute', inset: 0, background: 'linear-gradient(90deg, rgba(4,8,26,0.88) 0%, rgba(4,8,26,0.65) 40%, rgba(4,8,26,0.15) 65%, rgba(4,8,26,0.0) 100%)' }} />
         {/* Bottom fade */}
-        <div style={{ position: 'absolute', bottom: 0, left: 0, right: 0, height: 200, background: 'linear-gradient(transparent, #050709)' }} />
+        <div style={{ position: 'absolute', bottom: 0, left: 0, right: 0, height: 120, background: 'linear-gradient(transparent, #050709)' }} />
 
         <div style={{ position: 'relative', zIndex: 2, maxWidth: 1200, margin: '0 auto', padding: '80px 24px', width: '100%' }}>
           <div style={{ maxWidth: 620 }}>
