@@ -1,4 +1,6 @@
+'use client'
 import Link from 'next/link'
+import { useLang } from '@/lib/lang'
 import Image from 'next/image'
 import { ArrowRight } from 'lucide-react'
 
@@ -11,7 +13,7 @@ const PROJECTS = [
     color: 'linear-gradient(135deg, #0d1f4a, #1a3a8f)',
     tags: ['Next.js 16', 'Supabase', 'PWA', 'Wave API', 'Orange Money', 'TypeScript'],
     features: ['Gestion des stocks','Reçus WhatsApp','Suivi des crédits clients','Rapports & analytiques','Boutique en ligne intégrée','Support devise CFA','Interface mobile-first','Rôles multi-employés'],
-    status: 'En ligne', link: 'https://caissepro.app',
+    status: 'live', link: 'https://caissepro.app',
   },
   {
     name: 'VYBZ Social',
@@ -42,19 +44,16 @@ const AUTRES = [
   { name: 'Logiciels d\'Entreprise', desc: 'ERP, CRM et outils de gestion interne sur mesure pour les entreprises africaines.', tag: 'Entreprise' },
 ]
 
-export const metadata = {
-  title: 'Projets — AMDY LABS | CaissePro, VYBZ, Mon Livreur',
-  description: 'CaissePro, VYBZ Social, Mon Livreur et plus — découvrez ce qu\'AMDY LABS a construit pour les entreprises africaines.',
-}
-
 export default function ProjectsPage() {
+  const { lang } = useLang()
+  const isEn = lang === 'en'
   return (
     <div style={{ paddingTop: 72 }}>
       <section style={{ position: 'relative', padding: '110px 24px 80px', textAlign: 'center', overflow: 'hidden' }}>
         <div style={{ position: 'absolute', inset: 0, background: 'radial-gradient(ellipse 70% 60% at 50% 0%, #0b1d4a 0%, transparent 65%)' }} />
         <div style={{ position: 'relative' }}>
           <p style={{ fontSize: 11, fontWeight: 700, color: '#1a6ef5', letterSpacing: '0.15em', textTransform: 'uppercase', marginBottom: 14 }}>Nos Produits</p>
-          <h1 style={{ fontFamily: 'Syne, system-ui', fontSize: 'clamp(38px,6vw,68px)', fontWeight: 800, marginBottom: 20, letterSpacing: '-0.02em' }}>Ce que nous avons construit</h1>
+          <h1 style={{ fontFamily: 'Syne, system-ui', fontSize: 'clamp(38px,6vw,68px)', fontWeight: 800, marginBottom: 20, letterSpacing: '-0.02em' }}>{isEn ? "What we've built" : 'Ce que nous avons construit'}</h1>
           <p style={{ fontSize: 18, color: '#64748b', maxWidth: 600, margin: '0 auto', lineHeight: 1.75 }}>De vraies solutions pour de vraies problématiques africaines — des systèmes de caisse aux plateformes de livraison.</p>
         </div>
       </section>
@@ -68,7 +67,7 @@ export default function ProjectsPage() {
                   <div style={{ width: 140, height: 140, borderRadius: p.name==='VYBZ Social' ? 20 : 28, overflow: 'hidden', background: p.logoBg, display: 'flex', alignItems: 'center', justifyContent: 'center', boxShadow: '0 20px 60px rgba(0,0,0,0.5)' }}>
                     <Image src={p.logo} alt={p.name} width={140} height={140} style={{ objectFit: 'contain' }} />
                   </div>
-                  <span style={{ background: p.status==='En ligne' ? 'rgba(0,230,118,0.15)' : 'rgba(96,165,250,0.15)', color: p.status==='En ligne' ? '#00e676' : '#60a5fa', border: `1px solid ${p.status==='En ligne' ? 'rgba(0,230,118,0.3)' : 'rgba(96,165,250,0.3)'}`, borderRadius: 20, padding: '6px 16px', fontSize: 12, fontWeight: 700 }}>{p.status}</span>
+                  <span style={{ background: p.status==='live' ? 'rgba(0,230,118,0.15)' : 'rgba(96,165,250,0.15)', color: p.status==='live' ? '#00e676' : '#60a5fa', border: `1px solid ${p.status==='live' ? 'rgba(0,230,118,0.3)' : 'rgba(96,165,250,0.3)'}`, borderRadius: 20, padding: '6px 16px', fontSize: 12, fontWeight: 700 }}>{p.status}</span>
                   {p.link && <a href={p.link} target="_blank" rel="noreferrer" style={{ color: '#60a5fa', fontSize: 12, textDecoration: 'none', opacity: 0.7 }}>{p.link} ↗</a>}
                 </div>
               )}
@@ -87,14 +86,14 @@ export default function ProjectsPage() {
                     </div>
                   ))}
                 </div>
-                <Link href="/contact" style={{ display: 'inline-flex', alignItems: 'center', gap: 8, background: 'linear-gradient(135deg,#1a6ef5,#0050c8)', color: '#fff', padding: '12px 24px', borderRadius: 9, fontWeight: 600, fontSize: 13, textDecoration: 'none' }}>Construire quelque chose de similaire <ArrowRight size={13} /></Link>
+                <Link href="/contact" style={{ display: 'inline-flex', alignItems: 'center', gap: 8, background: 'linear-gradient(135deg,#1a6ef5,#0050c8)', color: '#fff', padding: '12px 24px', borderRadius: 9, fontWeight: 600, fontSize: 13, textDecoration: 'none' }}>{isEn ? 'Build something similar' : 'Construire quelque chose de similaire'} <ArrowRight size={13} /></Link>
               </div>
               {i%2!==0 && (
                 <div style={{ background: p.color, display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center', padding: 48, gap: 20, minHeight: 340 }}>
                   <div style={{ width: 140, height: 140, borderRadius: p.name==='VYBZ Social' ? 20 : 28, overflow: 'hidden', background: p.logoBg, display: 'flex', alignItems: 'center', justifyContent: 'center', boxShadow: '0 20px 60px rgba(0,0,0,0.5)' }}>
                     <Image src={p.logo} alt={p.name} width={140} height={140} style={{ objectFit: 'contain' }} />
                   </div>
-                  <span style={{ background: 'rgba(96,165,250,0.15)', color: '#60a5fa', border: '1px solid rgba(96,165,250,0.3)', borderRadius: 20, padding: '6px 16px', fontSize: 12, fontWeight: 700 }}>En développement</span>
+                  <span style={{ background: 'rgba(96,165,250,0.15)', color: '#60a5fa', border: '1px solid rgba(96,165,250,0.3)', borderRadius: 20, padding: '6px 16px', fontSize: 12, fontWeight: 700 }}>{isEn ? 'In development' : 'En développement'}</span>
                 </div>
               )}
             </div>
@@ -104,8 +103,8 @@ export default function ProjectsPage() {
 
       <section style={{ padding: '60px 24px 100px', background: '#080d1a', borderTop: '1px solid rgba(30,45,74,0.4)' }}>
         <div style={{ maxWidth: 1200, margin: '0 auto' }}>
-          <h2 style={{ fontFamily: 'Syne, system-ui', fontSize: 32, fontWeight: 800, marginBottom: 8, letterSpacing: '-0.02em' }}>Et bien plus encore</h2>
-          <p style={{ color: '#64748b', fontSize: 15, marginBottom: 36 }}>AMDY LABS construit continuellement des solutions dans tous les secteurs.</p>
+          <h2 style={{ fontFamily: 'Syne, system-ui', fontSize: 32, fontWeight: 800, marginBottom: 8, letterSpacing: '-0.02em' }}>{isEn ? 'And much more' : 'Et bien plus encore'}</h2>
+          <p style={{ color: '#64748b', fontSize: 15, marginBottom: 36 }}>{isEn ? 'AMDY LABS continuously builds' : 'AMDY LABS construit continuellement'} des solutions dans tous les secteurs.</p>
           <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(250px, 1fr))', gap: 16 }}>
             {AUTRES.map(p => (
               <div key={p.name} style={{ background: 'rgba(13,20,37,0.8)', border: '1px solid rgba(30,45,74,0.5)', borderRadius: 16, padding: 28 }}>

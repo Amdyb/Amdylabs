@@ -1,4 +1,6 @@
+'use client'
 import Link from 'next/link'
+import { useLang } from '@/lib/lang'
 import { Smartphone, Globe, Store, Cloud, ShoppingCart, Zap, Palette, Bot, CheckCircle2, ArrowRight, MessageCircle } from 'lucide-react'
 
 const SERVICES = [
@@ -12,19 +14,20 @@ const SERVICES = [
   { Icon: Bot, label: 'Intégrations IA', color: '#c77dff', desc: 'Intégrez l\'IA de pointe dans vos produits — chatbots, analyses intelligentes, moteurs de personnalisation et assistants vocaux.', benefits: ['Chatbots IA','Analyses intelligentes','Recommandations produits','Support client automatisé','NLP français & wolof'] },
 ]
 
-export const metadata = { title: 'Services — AMDY LABS', description: 'Applications mobiles, sites web, systèmes POS, plateformes SaaS — services digitaux complets pour les entreprises africaines.' }
-
+// metadata removed for client component
 export default function ServicesPage() {
+  const { lang } = useLang()
+  const isEn = lang === 'en'
   return (
     <div style={{ paddingTop: 72 }}>
       <section style={{ position: 'relative', padding: '110px 24px 80px', textAlign: 'center', overflow: 'hidden' }}>
         <div style={{ position: 'absolute', inset: 0, background: 'radial-gradient(ellipse 70% 60% at 50% 0%, #0b1d4a 0%, transparent 65%)' }} />
         <div style={{ position: 'relative' }}>
           <p style={{ fontSize: 11, fontWeight: 700, color: '#1a6ef5', letterSpacing: '0.15em', textTransform: 'uppercase', marginBottom: 14 }}>Ce que nous construisons</p>
-          <h1 style={{ fontFamily: 'Syne, system-ui', fontSize: 'clamp(38px,6vw,68px)', fontWeight: 800, marginBottom: 20, letterSpacing: '-0.02em' }}>Tout ce qu&apos;il faut pour<br />vous digitaliser</h1>
-          <p style={{ fontSize: 18, color: '#64748b', maxWidth: 600, margin: '0 auto 32px', lineHeight: 1.75 }}>De l&apos;idée à la production — AMDY LABS construit, lance et soutient des produits digitaux de classe mondiale pour les entreprises africaines.</p>
+          <h1 style={{ fontFamily: 'Syne, system-ui', fontSize: 'clamp(38px,6vw,68px)', fontWeight: 800, marginBottom: 20, letterSpacing: '-0.02em' }}>{isEn ? 'Everything you need to go digital' : "Tout ce qu'il faut pour vous digitaliser"}</h1>
+          <p style={{ fontSize: 18, color: '#64748b', maxWidth: 600, margin: '0 auto 32px', lineHeight: 1.75 }}>{isEn ? 'From idea to production — AMDY LABS builds, launches, and supports world-class digital products for African businesses.' : "De l'idée à la production — AMDY LABS construit, lance et soutient des produits digitaux de classe mondiale."}</p>
           <Link href="/contact" style={{ display: 'inline-flex', alignItems: 'center', gap: 8, background: 'linear-gradient(135deg,#1a6ef5,#0050c8)', color: '#fff', padding: '14px 30px', borderRadius: 10, fontWeight: 700, fontSize: 15, textDecoration: 'none', boxShadow: '0 8px 32px rgba(26,110,245,0.3)' }}>
-            Obtenir un devis gratuit <ArrowRight size={15} />
+            {isEn ? 'Get a Free Quote' : 'Obtenir un devis gratuit'} <ArrowRight size={15} />
           </Link>
         </div>
       </section>
@@ -48,7 +51,7 @@ export default function ServicesPage() {
                   </li>
                 ))}
               </ul>
-              <Link href="/contact" style={{ display: 'inline-flex', alignItems: 'center', gap: 6, color: s.color, fontWeight: 600, fontSize: 13, textDecoration: 'none' }}>Commencer <ArrowRight size={13} /></Link>
+              <Link href="/contact" style={{ display: 'inline-flex', alignItems: 'center', gap: 6, color: s.color, fontWeight: 600, fontSize: 13, textDecoration: 'none' }}>{isEn ? 'Get started' : 'Commencer'} <ArrowRight size={13} /></Link>
             </div>
           ))}
         </div>
@@ -56,11 +59,11 @@ export default function ServicesPage() {
 
       <div style={{ padding: '0 24px 100px' }}>
         <div style={{ maxWidth: 860, margin: '0 auto', background: 'linear-gradient(135deg,#0a1628,#0d1f4a)', border: '1px solid rgba(30,45,74,0.6)', borderRadius: 20, padding: '60px 40px', textAlign: 'center' }}>
-          <h2 style={{ fontFamily: 'Syne, system-ui', fontSize: 36, fontWeight: 800, marginBottom: 16, letterSpacing: '-0.02em' }}>Pas sûr par où commencer ?</h2>
-          <p style={{ color: '#64748b', fontSize: 16, marginBottom: 32, lineHeight: 1.7 }}>Réservez un appel de découverte gratuit de 30 minutes avec Amdy. Nous élaborerons ensemble la solution idéale pour votre entreprise.</p>
+          <h2 style={{ fontFamily: 'Syne, system-ui', fontSize: 36, fontWeight: 800, marginBottom: 16, letterSpacing: '-0.02em' }}>{isEn ? "Not sure where to start?" : 'Pas sûr par où commencer ?'}</h2>
+          <p style={{ color: '#64748b', fontSize: 16, marginBottom: 32, lineHeight: 1.7 }}>{isEn ? 'Book a free 30-minute discovery call with Amdy. We will design the ideal solution for your business.' : 'Réservez un appel de découverte gratuit de 30 minutes avec Amdy.'} Nous élaborerons ensemble la solution idéale pour votre entreprise.</p>
           <div style={{ display: 'flex', gap: 14, justifyContent: 'center', flexWrap: 'wrap' }}>
             <Link href="/contact" style={{ background: 'linear-gradient(135deg,#1a6ef5,#0050c8)', color: '#fff', padding: '14px 32px', borderRadius: 10, fontWeight: 700, fontSize: 15, textDecoration: 'none', boxShadow: '0 8px 32px rgba(26,110,245,0.3)', display: 'inline-flex', alignItems: 'center', gap: 8 }}>
-              Réserver une consultation gratuite
+              {isEn ? 'Book a Free Call' : 'Réserver une consultation gratuite'}
             </Link>
             <a href="https://wa.me/15863442378" target="_blank" rel="noreferrer" style={{ background: '#25d366', color: '#000', padding: '14px 32px', borderRadius: 10, fontWeight: 700, fontSize: 15, textDecoration: 'none', display: 'inline-flex', alignItems: 'center', gap: 8 }}>
               <MessageCircle size={16} /> +1 (586) 344-2378

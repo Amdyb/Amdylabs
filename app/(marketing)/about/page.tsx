@@ -1,4 +1,6 @@
+'use client'
 import Link from 'next/link'
+import { useLang } from '@/lib/lang'
 import { Trophy, Handshake, Lightbulb, Lock, Zap, Leaf, Target, Telescope, Globe, MessageCircle, ArrowRight } from 'lucide-react'
 
 const VALEURS = [
@@ -19,12 +21,9 @@ const EQUIPE = [
   { pays: 'Et plus...', desc: 'Talents africains distribués dans le monde' },
 ]
 
-export const metadata = {
-  title: 'À propos d\'AMDY LABS — Notre histoire & mission',
-  description: 'Découvrez AMDY LABS, fondé par Amdy Boubacar — une entreprise tech africaine construisant des solutions numériques de classe mondiale.',
-}
-
 export default function AboutPage() {
+  const { lang } = useLang()
+  const isEn = lang === 'en'
   return (
     <div style={{ paddingTop: 72 }}>
       <section style={{ position: 'relative', padding: '110px 24px 80px', overflow: 'hidden' }}>
@@ -115,7 +114,7 @@ export default function AboutPage() {
         <div style={{ maxWidth: 1200, margin: '0 auto' }}>
           <div style={{ textAlign: 'center', marginBottom: 52 }}>
             <p style={{ fontSize: 11, fontWeight: 700, color: '#1a6ef5', letterSpacing: '0.15em', textTransform: 'uppercase', marginBottom: 14 }}>Ce en quoi nous croyons</p>
-            <h2 style={{ fontFamily: 'Syne, system-ui', fontSize: 'clamp(28px,4vw,44px)', fontWeight: 800, letterSpacing: '-0.02em' }}>Nos valeurs fondamentales</h2>
+            <h2 style={{ fontFamily: 'Syne, system-ui', fontSize: 'clamp(28px,4vw,44px)', fontWeight: 800, letterSpacing: '-0.02em' }}>{isEn ? 'Our Core Values' : 'Nos valeurs fondamentales'}</h2>
           </div>
           <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(260px, 1fr))', gap: 16 }}>
             {VALEURS.map(({ Icon, title, desc }) => (
@@ -130,11 +129,11 @@ export default function AboutPage() {
       </section>
 
       <section style={{ padding: '80px 24px', textAlign: 'center', background: '#080d1a', borderTop: '1px solid rgba(30,45,74,0.4)' }}>
-        <h2 style={{ fontFamily: 'Syne, system-ui', fontSize: 40, fontWeight: 800, marginBottom: 16, letterSpacing: '-0.02em' }}>Rejoignez la mission</h2>
+        <h2 style={{ fontFamily: 'Syne, system-ui', fontSize: 40, fontWeight: 800, marginBottom: 16, letterSpacing: '-0.02em' }}>{isEn ? 'Join the Mission' : 'Rejoignez la mission'}</h2>
         <p style={{ color: '#64748b', fontSize: 16, marginBottom: 36, maxWidth: 500, margin: '0 auto 36px' }}>Que vous soyez client, investisseur ou développeur — AMDY LABS est l&apos;endroit où se construit l&apos;avenir numérique de l&apos;Afrique.</p>
         <div style={{ display: 'flex', gap: 14, justifyContent: 'center', flexWrap: 'wrap' }}>
           <Link href="/contact" style={{ background: 'linear-gradient(135deg,#1a6ef5,#0050c8)', color: '#fff', padding: '15px 36px', borderRadius: 10, fontWeight: 700, fontSize: 15, textDecoration: 'none', boxShadow: '0 8px 32px rgba(26,110,245,0.3)', display: 'inline-flex', alignItems: 'center', gap: 8 }}>
-            Travailler avec nous <ArrowRight size={15} />
+            {isEn ? 'Work With Us' : 'Travailler avec nous'} <ArrowRight size={15} />
           </Link>
           <a href="https://wa.me/15863442378" target="_blank" rel="noreferrer" style={{ background: '#25d366', color: '#000', padding: '15px 36px', borderRadius: 10, fontWeight: 700, fontSize: 15, textDecoration: 'none', display: 'inline-flex', alignItems: 'center', gap: 8 }}>
             <MessageCircle size={15} /> WhatsApp
