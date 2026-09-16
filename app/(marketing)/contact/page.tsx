@@ -43,7 +43,7 @@ export default function ContactPage() {
                 { Icon: Mail, title: 'Support technique', value: 'support@amdylabs.com', link: 'mailto:support@amdylabs.com' },
                 { Icon: Mail, title: 'Facturation', value: 'billing@amdylabs.com', link: 'mailto:billing@amdylabs.com' },
                 { Icon: Mail, title: 'Amdy directement', value: 'amdy@amdylabs.com', link: 'mailto:amdy@amdylabs.com' },
-                { Icon: MapPin, title: 'Localisations', value: 'Portland, Oregon, USA · Dakar, Sénégal', link: null },
+                { Icon: MapPin, title: 'Adresse', value: '10629 W 7 Mile, Detroit, MI 48221', link: 'https://maps.google.com/?q=10629+W+7+Mile+Detroit+MI+48221' },
                 { Icon: Clock, title: 'Délai de réponse', value: 'Sous 24 heures · Lun–Sam', link: null },
               ].map(item => (
                 <div key={item.title} style={{ display: 'flex', gap: 16, alignItems: 'flex-start' }}>
