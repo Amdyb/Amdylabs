@@ -262,7 +262,7 @@ export default function HomePage() {
             </div>
             <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: 10 }}>
               {([{ Icon: Zap }, { Icon: Shield }, { Icon: TrendingUp }, { Icon: MapPin }] as any[]).map(({ Icon }, i) => (
-                <div key={i} style={{ background: 'rgba(255,255,255,0.03)', border: '1px solid rgba(255,255,255,0.07)', borderRadius: 10, padding: '13px 15px', backdropFilter: 'blur(10px)' }}>
+                <div key={i} style={{ background: 'rgba(255,255,255,0.04)', backdropFilter: 'blur(20px)', WebkitBackdropFilter: 'blur(20px)', border: '1px solid rgba(255,255,255,0.1)', borderRadius: 10, padding: '13px 15px', boxShadow: '0 4px 20px rgba(0,0,0,0.3), inset 0 1px 0 rgba(255,255,255,0.08)' }}>
                   <Icon size={17} color="#60a5fa" style={{ marginBottom: 6 }} />
                   <div style={{ fontFamily: 'Syne, system-ui', fontWeight: 700, fontSize: 11, color: '#e2e8f0', marginBottom: 2, textTransform: 'uppercase', letterSpacing: '0.06em' }}>{t.pillars[i].title}</div>
                   <div style={{ fontSize: 11, color: '#334155' }}>{t.pillars[i].desc}</div>
@@ -273,7 +273,7 @@ export default function HomePage() {
 
           {/* Hero right — terminal */}
           <div style={{ display: 'flex', flexDirection: 'column', gap: 14 }}>
-            <div style={{ background: 'rgba(6,12,26,0.9)', border: '1px solid rgba(30,45,74,0.6)', borderRadius: 14, overflow: 'hidden', backdropFilter: 'blur(20px)' }}>
+            <div style={{ background: 'rgba(6,12,26,0.55)', backdropFilter: 'blur(24px)', WebkitBackdropFilter: 'blur(24px)', border: '1px solid rgba(96,165,250,0.18)', borderRadius: 14, overflow: 'hidden', boxShadow: '0 8px 40px rgba(0,0,0,0.4), inset 0 1px 0 rgba(255,255,255,0.06)' }}>
               <div style={{ display: 'flex', alignItems: 'center', gap: 7, padding: '11px 16px', background: 'rgba(10,16,32,0.8)', borderBottom: '1px solid rgba(30,45,74,0.4)' }}>
                 {['#ff5f57','#ffbd2e','#28ca42'].map((c,i) => <span key={i} style={{ width: 10, height: 10, borderRadius: '50%', background: c, display: 'inline-block' }} />)}
                 <span style={{ fontSize: 11, color: '#334155', marginLeft: 8, fontFamily: 'monospace' }}>amdylabs — terminal</span>
@@ -305,7 +305,7 @@ export default function HomePage() {
             {/* Stats bar */}
             <div style={{ display: 'grid', gridTemplateColumns: 'repeat(4,1fr)', gap: 10 }}>
               {[['38+', lang === 'fr' ? 'Marchands' : 'Merchants'], ['4', lang === 'fr' ? 'Produits' : 'Products'], ['5', lang === 'fr' ? 'Pays' : 'Countries'], ['$712B', 'Market']].map(([val, label]) => (
-                <div key={label} style={{ background: 'rgba(6,12,26,0.8)', border: '1px solid rgba(30,45,74,0.5)', borderRadius: 10, padding: '14px 10px', textAlign: 'center', backdropFilter: 'blur(10px)' }}>
+                <div key={label} style={{ background: 'rgba(6,12,26,0.5)', backdropFilter: 'blur(20px)', WebkitBackdropFilter: 'blur(20px)', border: '1px solid rgba(96,165,250,0.15)', borderRadius: 10, padding: '14px 10px', textAlign: 'center', boxShadow: '0 4px 20px rgba(0,0,0,0.3), inset 0 1px 0 rgba(96,165,250,0.08)' }}>
                   <div style={{ fontFamily: 'Syne, system-ui', fontSize: 20, fontWeight: 800, color: '#60a5fa', letterSpacing: '-0.02em' }}>{val}</div>
                   <div style={{ fontSize: 10, color: '#334155', marginTop: 3 }}>{label}</div>
                 </div>
@@ -347,7 +347,7 @@ export default function HomePage() {
           </div>
           <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(260px, 1fr))', gap: 14 }}>
             {SERVICES.map(({ Icon, fr, en: en_, color }, i) => (
-              <div key={i} style={{ background: '#fff', border: '1px solid #e2e8f0', borderRadius: 14, padding: '26px 22px', transition: 'all 0.25s' }}
+              <div key={i} style={{ background: 'rgba(255,255,255,0.7)', backdropFilter: 'blur(16px)', WebkitBackdropFilter: 'blur(16px)', border: '1px solid rgba(255,255,255,0.9)', borderRadius: 14, padding: '26px 22px', transition: 'all 0.25s', boxShadow: '0 4px 24px rgba(26,110,245,0.06)' }}
                 onMouseEnter={e => { const el = e.currentTarget as HTMLElement; el.style.transform = 'translateY(-5px)'; el.style.boxShadow = `0 16px 48px rgba(0,0,0,0.1)`; el.style.borderColor = '#bfdbfe' }}
                 onMouseLeave={e => { const el = e.currentTarget as HTMLElement; el.style.transform = 'none'; el.style.boxShadow = 'none'; el.style.borderColor = '#e2e8f0' }}>
                 <div style={{ width: 46, height: 46, background: `${color}12`, border: `1px solid ${color}25`, borderRadius: 12, display: 'flex', alignItems: 'center', justifyContent: 'center', marginBottom: 16 }}>
@@ -385,7 +385,7 @@ export default function HomePage() {
           </div>
           <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: 12 }}>
             {[[c1,'+',0],[c2,'+',1],[c3,'',2],[c4,'',3]].map(([n,s,i]) => (
-              <div key={Number(i)} style={{ background: 'rgba(6,12,26,0.9)', border: '1px solid rgba(30,45,74,0.6)', borderRadius: 16, padding: '28px 20px', textAlign: 'center' }}>
+              <div key={Number(i)} style={{ background: 'rgba(6,12,26,0.5)', backdropFilter: 'blur(20px)', WebkitBackdropFilter: 'blur(20px)', border: '1px solid rgba(96,165,250,0.15)', borderRadius: 16, padding: '28px 20px', textAlign: 'center', boxShadow: '0 8px 32px rgba(0,0,0,0.3), inset 0 1px 0 rgba(96,165,250,0.08)' }}>
                 <div style={{ fontFamily: 'Syne, system-ui', fontSize: 48, fontWeight: 800, color: '#60a5fa', letterSpacing: '-0.03em', lineHeight: 1 }}>{n}{s}</div>
                 <div style={{ fontSize: 12, color: '#334155', marginTop: 8 }}>{t.stats[Number(i)]}</div>
               </div>
@@ -408,7 +408,7 @@ export default function HomePage() {
           </div>
           <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(300px,1fr))', gap: 18 }}>
             {PROJECTS.map((p, i) => (
-              <a key={i} href={p.link} target="_blank" rel="noreferrer" style={{ background: '#f8fafc', border: '1px solid #e2e8f0', borderRadius: 18, overflow: 'hidden', textDecoration: 'none', transition: 'all 0.25s', display: 'block' }}
+              <a key={i} href={p.link} target="_blank" rel="noreferrer" style={{ background: 'rgba(255,255,255,0.75)', backdropFilter: 'blur(16px)', WebkitBackdropFilter: 'blur(16px)', border: '1px solid rgba(255,255,255,0.95)', borderRadius: 18, overflow: 'hidden', textDecoration: 'none', transition: 'all 0.25s', display: 'block', boxShadow: '0 4px 24px rgba(26,110,245,0.07)' }}
                 onMouseEnter={e => { const el = e.currentTarget as HTMLElement; el.style.transform = 'translateY(-6px)'; el.style.boxShadow = '0 20px 60px rgba(0,0,0,0.1)'; el.style.borderColor = '#bfdbfe' }}
                 onMouseLeave={e => { const el = e.currentTarget as HTMLElement; el.style.transform = 'none'; el.style.boxShadow = 'none'; el.style.borderColor = '#e2e8f0' }}>
                 <div style={{ height: 160, background: p.logoBg, display: 'flex', alignItems: 'center', justifyContent: 'center', position: 'relative' }}>
@@ -442,7 +442,7 @@ export default function HomePage() {
             {t.africaFeatures.map((title, i) => {
               const Icon = AFRICA_ICONS[i]
               return (
-                <div key={i} style={{ background: 'rgba(6,12,26,0.8)', border: '1px solid rgba(30,45,74,0.5)', borderRadius: 12, padding: '20px 18px', display: 'flex', gap: 14, alignItems: 'flex-start', transition: 'all 0.2s' }}
+                <div key={i} style={{ background: 'rgba(6,12,26,0.45)', backdropFilter: 'blur(20px)', WebkitBackdropFilter: 'blur(20px)', border: '1px solid rgba(0,230,118,0.12)', borderRadius: 12, padding: '20px 18px', display: 'flex', gap: 14, alignItems: 'flex-start', transition: 'all 0.2s', boxShadow: '0 4px 24px rgba(0,0,0,0.2), inset 0 1px 0 rgba(0,230,118,0.06)' }}
                   onMouseEnter={e => { const el = e.currentTarget as HTMLElement; el.style.borderColor = 'rgba(0,230,118,0.3)'; el.style.background = 'rgba(0,230,118,0.04)' }}
                   onMouseLeave={e => { const el = e.currentTarget as HTMLElement; el.style.borderColor = 'rgba(30,45,74,0.5)'; el.style.background = 'rgba(6,12,26,0.8)' }}>
                   <Icon size={18} color="#00e676" style={{ flexShrink: 0, marginTop: 2 }} />

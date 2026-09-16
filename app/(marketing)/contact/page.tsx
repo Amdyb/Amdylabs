@@ -9,7 +9,6 @@ const T = {
     sub: 'Partagez votre idée. Nous vous répondrons dans les 24 heures. Appel de découverte gratuit, sans engagement.',
     infoTitle: 'Informations de contact',
     contacts: [
-      { title: 'Téléphone', value: '+1 (586) 344-2378', link: 'tel:+15863442378' },
       { title: 'Contact général', value: 'contact@amdylabs.com', link: 'mailto:contact@amdylabs.com' },
       { title: 'Support', value: 'support@amdylabs.com', link: 'mailto:support@amdylabs.com' },
       { title: 'Facturation', value: 'billing@amdylabs.com', link: 'mailto:billing@amdylabs.com' },
@@ -24,14 +23,13 @@ const T = {
     services: ['Développement mobile', 'Développement web', 'Logiciel POS', 'Plateforme SaaS', 'E-Commerce', 'Branding & Marketing', 'Abonnement CaissePro', 'IA & Automatisation', 'Autre'],
     sending: 'Envoi en cours...', sendBtn: 'Envoyer le message',
     sentTitle: 'Message envoyé !', sentDesc: 'Nous vous répondrons dans les 24 heures.',
-    footer: 'contact@amdylabs.com · +1 (586) 344-2378',
+    footer: 'contact@amdylabs.com',
   },
   en: {
     tag: 'Get in touch', title1: 'LET\'S BUILD SOMETHING', title2: 'GREAT TOGETHER',
     sub: 'Share your idea. We\'ll get back to you within 24 hours. Free discovery call — no commitment.',
     infoTitle: 'Contact Information',
     contacts: [
-      { title: 'Phone', value: '+1 (586) 344-2378', link: 'tel:+15863442378' },
       { title: 'General', value: 'contact@amdylabs.com', link: 'mailto:contact@amdylabs.com' },
       { title: 'Support', value: 'support@amdylabs.com', link: 'mailto:support@amdylabs.com' },
       { title: 'Billing', value: 'billing@amdylabs.com', link: 'mailto:billing@amdylabs.com' },
@@ -46,7 +44,7 @@ const T = {
     services: ['Mobile development', 'Web development', 'POS software', 'SaaS platform', 'E-Commerce', 'Branding & Marketing', 'CaissePro subscription', 'AI & Automation', 'Other'],
     sending: 'Sending...', sendBtn: 'Send Message',
     sentTitle: 'Message sent!', sentDesc: 'We\'ll get back to you within 24 hours.',
-    footer: 'contact@amdylabs.com · +1 (586) 344-2378',
+    footer: 'contact@amdylabs.com',
   }
 }
 

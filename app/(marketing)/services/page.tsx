@@ -105,7 +105,7 @@ export default function ServicesPage() {
             {t.why.map((item, i) => {
               const Icon = WHY_ICONS[i]
               return (
-                <div key={i} style={{ background: '#fff', borderRadius: 16, padding: '36px 28px', textAlign: 'center', boxShadow: '0 2px 20px rgba(0,0,0,0.06)', border: '1px solid #f1f5f9', transition: 'all 0.3s' }}
+                <div key={i} style={{ background: 'rgba(255,255,255,0.72)', backdropFilter: 'blur(20px)', WebkitBackdropFilter: 'blur(20px)', borderRadius: 16, padding: '36px 28px', textAlign: 'center', boxShadow: '0 4px 32px rgba(26,110,245,0.08), inset 0 1px 0 rgba(255,255,255,0.9)', border: '1px solid rgba(255,255,255,0.85)', transition: 'all 0.3s' }}
                   onMouseEnter={e => { const el = e.currentTarget as HTMLElement; el.style.transform = 'translateY(-6px)'; el.style.boxShadow = '0 20px 60px rgba(26,110,245,0.12)'; el.style.borderColor = '#dbeafe' }}
                   onMouseLeave={e => { const el = e.currentTarget as HTMLElement; el.style.transform = 'none'; el.style.boxShadow = '0 2px 20px rgba(0,0,0,0.06)'; el.style.borderColor = '#f1f5f9' }}>
                   <div style={{ width: 56, height: 56, background: 'linear-gradient(135deg, #eff6ff, #dbeafe)', borderRadius: 14, display: 'flex', alignItems: 'center', justifyContent: 'center', margin: '0 auto 20px' }}>
@@ -133,7 +133,7 @@ export default function ServicesPage() {
 
           <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(320px, 1fr))', gap: 20 }}>
             {SERVICES.map((s, i) => (
-              <div key={i} style={{ background: '#fff', borderRadius: 16, padding: '32px 28px', boxShadow: '0 2px 20px rgba(0,0,0,0.05)', border: '1px solid #f1f5f9', transition: 'all 0.3s' }}
+              <div key={i} style={{ background: 'rgba(255,255,255,0.72)', backdropFilter: 'blur(20px)', WebkitBackdropFilter: 'blur(20px)', borderRadius: 16, padding: '32px 28px', boxShadow: '0 4px 32px rgba(0,0,0,0.06), inset 0 1px 0 rgba(255,255,255,0.9)', border: '1px solid rgba(255,255,255,0.85)', transition: 'all 0.3s' }}
                 onMouseEnter={e => { const el = e.currentTarget as HTMLElement; el.style.transform = 'translateY(-4px)'; el.style.boxShadow = `0 20px 60px rgba(0,0,0,0.1)`; el.style.borderColor = '#dbeafe' }}
                 onMouseLeave={e => { const el = e.currentTarget as HTMLElement; el.style.transform = 'none'; el.style.boxShadow = '0 2px 20px rgba(0,0,0,0.05)'; el.style.borderColor = '#f1f5f9' }}>
                 {/* Icon */}
