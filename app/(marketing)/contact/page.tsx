@@ -39,7 +39,10 @@ export default function ContactPage() {
             <div style={{ display: 'flex', flexDirection: 'column', gap: 20 }}>
               {[
                 { Icon: Phone, title: 'Téléphone', value: '+1 (586) 344-2378', link: 'tel:+15863442378' },
-                { Icon: Mail, title: 'Email', value: 'hello@amdylabs.com', link: 'mailto:hello@amdylabs.com' },
+                { Icon: Mail, title: 'Contact général', value: 'contact@amdylabs.com', link: 'mailto:contact@amdylabs.com' },
+                { Icon: Mail, title: 'Support technique', value: 'support@amdylabs.com', link: 'mailto:support@amdylabs.com' },
+                { Icon: Mail, title: 'Facturation', value: 'billing@amdylabs.com', link: 'mailto:billing@amdylabs.com' },
+                { Icon: Mail, title: 'Amdy directement', value: 'amdy@amdylabs.com', link: 'mailto:amdy@amdylabs.com' },
                 { Icon: MapPin, title: 'Localisations', value: 'Portland, Oregon, USA · Dakar, Sénégal', link: null },
                 { Icon: Clock, title: 'Délai de réponse', value: 'Sous 24 heures · Lun–Sam', link: null },
               ].map(item => (
@@ -132,7 +135,7 @@ export default function ContactPage() {
                   <button type="submit" disabled={loading} style={{ width: '100%', background: 'linear-gradient(135deg,#1a6ef5,#0050c8)', color: '#fff', border: 'none', borderRadius: 10, padding: '16px', fontSize: 16, fontWeight: 700, cursor: loading ? 'not-allowed' : 'pointer', opacity: loading ? 0.7 : 1, boxShadow: '0 8px 32px rgba(26,110,245,0.3)', display: 'flex', alignItems: 'center', justifyContent: 'center', gap: 8 }}>
                     {loading ? isEn ? 'Sending...' : 'Envoi en cours...' : <><ArrowRight size={18} /> {isEn ? 'Send Message' : 'Envoyer le message'}</> }
                   </button>
-                  <p style={{ textAlign: 'center', fontSize: 12, color: '#334155', marginTop: 14 }}>Réponse sous 24h · WhatsApp : +1 (586) 344-2378</p>
+                  <p style={{ textAlign: 'center', fontSize: 12, color: '#334155', marginTop: 14 }}>contact@amdylabs.com · +1 (586) 344-2378</p>
                 </form>
               </>
             )}

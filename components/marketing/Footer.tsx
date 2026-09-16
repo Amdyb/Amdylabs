@@ -20,7 +20,9 @@ export default function Footer() {
               Fondé par <strong style={{ color: '#64748b' }}>Amdy Boubacar</strong>.
             </p>
             <a href="tel:+15863442378" style={{ display: 'block', fontSize: 13, color: '#60a5fa', textDecoration: 'none', marginBottom: 5 }}>+1 (586) 344-2378</a>
-            <a href="mailto:hello@amdylabs.com" style={{ display: 'block', fontSize: 13, color: '#60a5fa', textDecoration: 'none', marginBottom: 20 }}>hello@amdylabs.com</a>
+            <a href="mailto:contact@amdylabs.com" style={{ display: 'block', fontSize: 13, color: '#60a5fa', textDecoration: 'none', marginBottom: 4 }}>contact@amdylabs.com</a>
+            <a href="mailto:support@amdylabs.com" style={{ display: 'block', fontSize: 13, color: '#60a5fa', textDecoration: 'none', marginBottom: 4 }}>support@amdylabs.com</a>
+            <a href="mailto:amdy@amdylabs.com" style={{ display: 'block', fontSize: 13, color: '#60a5fa', textDecoration: 'none', marginBottom: 20 }}>amdy@amdylabs.com</a>
             <div style={{ display: 'flex', gap: 8 }}>
               {[X, Link2, Globe2, Share2].map((Icon, i) => (
                 <a key={i} href="#" style={{ width: 34, height: 34, background: 'rgba(13,20,37,0.8)', border: '1px solid rgba(30,45,74,0.5)', borderRadius: 8, display: 'flex', alignItems: 'center', justifyContent: 'center', color: '#334155', textDecoration: 'none' }}>
