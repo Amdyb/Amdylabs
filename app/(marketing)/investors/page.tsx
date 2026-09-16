@@ -1,7 +1,7 @@
 'use client'
 import Link from 'next/link'
 import { useState } from 'react'
-import { ArrowRight, TrendingUp, Globe, Users, DollarSign, Shield, Zap, BarChart2, CheckCircle2, MessageCircle, Mail, MapPin } from 'lucide-react'
+import { ArrowRight, TrendingUp, Globe, Users, DollarSign, Shield, Zap, BarChart2, CheckCircle2, MessageCircle, Mail, MapPin, Link2 } from 'lucide-react'
 
 const METRICS = [
   { value: '38+', label: 'Merchants Active', sub: 'on CaissePro platform' },
@@ -237,6 +237,9 @@ export default function InvestorsPage() {
                 </a>
                 <a href="https://wa.me/15863442378" target="_blank" rel="noreferrer" style={{ display: 'inline-flex', alignItems: 'center', gap: 8, background: '#25d366', color: '#000', padding: '13px 28px', borderRadius: 9, fontWeight: 700, fontSize: 14, textDecoration: 'none' }}>
                   <MessageCircle size={15} /> +1 (586) 344-2378
+                </a>
+                <a href="https://www.linkedin.com/in/a-boubacar-52178b437/" target="_blank" rel="noreferrer" style={{ display: 'inline-flex', alignItems: 'center', gap: 8, background: '#0077b5', color: '#fff', padding: '13px 28px', borderRadius: 9, fontWeight: 700, fontSize: 14, textDecoration: 'none' }}>
+                  <Link2 size={15} /> LinkedIn
                 </a>
               </div>
               <div style={{ display: 'flex', gap: 20, justifyContent: 'center', flexWrap: 'wrap' }}>

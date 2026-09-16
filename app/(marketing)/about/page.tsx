@@ -1,7 +1,7 @@
 'use client'
 import Link from 'next/link'
 import { useLang } from '@/lib/lang'
-import { Trophy, Handshake, Lightbulb, Lock, Zap, Leaf, Target, Telescope, Globe, MessageCircle, ArrowRight } from 'lucide-react'
+import { Trophy, Handshake, Lightbulb, Lock, Zap, Leaf, Target, Telescope, Globe, MessageCircle, ArrowRight, Link2 } from 'lucide-react'
 
 const VALEURS = [
   { Icon: Trophy, title: 'Excellence', desc: 'Qualité Silicon Valley aux prix africains. Aucun raccourci, aucun compromis sur la qualité du travail.' },
@@ -151,6 +151,11 @@ export default function AboutPage() {
                 {['SaaS & Product', 'African Markets', 'Mobile Commerce', 'Emerging Markets', 'Detroit, MI'].map(tag => (
                   <span key={tag} style={{ background: 'rgba(26,110,245,0.08)', border: '1px solid rgba(26,110,245,0.18)', borderRadius: 20, padding: '4px 12px', fontSize: 11, color: '#60a5fa', fontWeight: 500 }}>{tag}</span>
                 ))}
+              </div>
+              <div style={{ marginTop: 18 }}>
+                <a href="https://www.linkedin.com/in/a-boubacar-52178b437/" target="_blank" rel="noreferrer" style={{ display: 'inline-flex', alignItems: 'center', gap: 8, background: '#0077b5', color: '#fff', padding: '10px 20px', borderRadius: 8, fontWeight: 600, fontSize: 13, textDecoration: 'none' }}>
+                  <Link2 size={14} /> Voir le profil LinkedIn
+                </a>
               </div>
             </div>
           </div>
