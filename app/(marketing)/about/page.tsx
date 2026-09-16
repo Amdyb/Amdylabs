@@ -128,6 +128,35 @@ export default function AboutPage() {
         </div>
       </section>
 
+
+      {/* FOUNDER */}
+      <section style={{ padding: '70px 24px', borderTop: '1px solid rgba(30,45,74,0.4)' }}>
+        <div style={{ maxWidth: 1100, margin: '0 auto' }}>
+          <div style={{ textAlign: 'center', marginBottom: 44 }}>
+            <p style={{ fontSize: 10, fontWeight: 600, color: '#1a6ef5', letterSpacing: '0.14em', textTransform: 'uppercase', marginBottom: 14 }}>{isEn ? 'Leadership' : 'Direction'}</p>
+            <h2 style={{ fontFamily: 'Syne, system-ui', fontSize: 'clamp(26px,3.5vw,42px)', fontWeight: 800, letterSpacing: '-0.03em' }}>{isEn ? 'The founder' : 'Le fondateur'}</h2>
+          </div>
+          <div style={{ maxWidth: 680, margin: '0 auto', background: 'rgba(13,20,37,0.8)', border: '1px solid rgba(30,45,74,0.5)', borderRadius: 18, padding: 36, display: 'grid', gridTemplateColumns: 'auto 1fr', gap: 28, alignItems: 'start' }}>
+            <div style={{ width: 88, height: 88, borderRadius: '50%', background: 'linear-gradient(135deg,#1a6ef5,#00c8ff)', display: 'flex', alignItems: 'center', justifyContent: 'center', fontFamily: 'Syne, system-ui', fontWeight: 800, fontSize: 28, color: '#fff', flexShrink: 0, border: '3px solid rgba(26,110,245,0.3)' }}>AB</div>
+            <div>
+              <div style={{ fontFamily: 'Syne, system-ui', fontWeight: 800, fontSize: 20, letterSpacing: '-0.02em', marginBottom: 4 }}>Amdy Boubacar</div>
+              <div style={{ fontSize: 12, color: '#60a5fa', fontWeight: 600, marginBottom: 6, textTransform: 'uppercase', letterSpacing: '0.06em' }}>{isEn ? 'Founder & CEO' : 'Fondateur & PDG'}</div>
+              <div style={{ fontSize: 12, color: '#334155', marginBottom: 16 }}>Detroit, Michigan, USA · Dakar, Sénégal</div>
+              <p style={{ fontSize: 14, color: '#64748b', lineHeight: 1.72, marginBottom: 18 }}>
+                {isEn
+                  ? 'Senegalese-American entrepreneur with deep roots in West African markets. Amdy founded AMDY LABS to bridge the technology gap between Silicon Valley-quality software and African business realities. His expertise spans SaaS product development, African payment ecosystems, and emerging market strategy.'
+                  : "Entrepreneur sénégalo-américain avec de profondes racines dans les marchés d'Afrique de l'Ouest. Amdy a fondé AMDY LABS pour combler le fossé technologique entre les logiciels de qualité Silicon Valley et les réalités des entreprises africaines."}
+              </p>
+              <div style={{ display: 'flex', gap: 8, flexWrap: 'wrap' }}>
+                {['SaaS & Product', 'African Markets', 'Mobile Commerce', 'Emerging Markets', 'Detroit, MI'].map(tag => (
+                  <span key={tag} style={{ background: 'rgba(26,110,245,0.08)', border: '1px solid rgba(26,110,245,0.18)', borderRadius: 20, padding: '4px 12px', fontSize: 11, color: '#60a5fa', fontWeight: 500 }}>{tag}</span>
+                ))}
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
       <section style={{ padding: '80px 24px', textAlign: 'center', background: '#080d1a', borderTop: '1px solid rgba(30,45,74,0.4)' }}>
         <h2 style={{ fontFamily: 'Syne, system-ui', fontSize: 40, fontWeight: 800, marginBottom: 16, letterSpacing: '-0.02em' }}>{isEn ? 'Join the Mission' : 'Rejoignez la mission'}</h2>
         <p style={{ color: '#64748b', fontSize: 16, marginBottom: 36, maxWidth: 500, margin: '0 auto 36px' }}>Que vous soyez client, investisseur ou développeur — AMDY LABS est l&apos;endroit où se construit l&apos;avenir numérique de l&apos;Afrique.</p>

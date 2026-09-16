@@ -6,8 +6,8 @@ import { Menu, X } from 'lucide-react'
 import { useLang, type Lang } from '@/lib/lang'
 
 const T = {
-  fr: { home: 'Accueil', services: 'Services', projects: 'Projets', about: 'À propos', contact: 'Contact', cta: 'Démarrer un projet' },
-  en: { home: 'Home', services: 'Services', projects: 'Projects', about: 'About', contact: 'Contact', cta: 'Start a Project' },
+  fr: { home: 'Accueil', services: 'Services', projects: 'Projets', about: 'À propos', investors: 'Investisseurs', contact: 'Contact', cta: 'Démarrer un projet' },
+  en: { home: 'Home', services: 'Services', projects: 'Projects', about: 'About', investors: 'Investors', contact: 'Contact', cta: 'Start a Project' },
 }
 
 function LangToggle() {
@@ -40,6 +40,7 @@ export default function Navbar() {
     { href: '/services', label: t.services },
     { href: '/projects', label: t.projects },
     { href: '/about', label: t.about },
+    { href: '/investors', label: t.investors },
     { href: '/contact', label: t.contact },
   ]
 

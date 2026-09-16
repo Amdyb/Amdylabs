@@ -16,8 +16,7 @@ export default function Footer() {
               </span>
             </div>
             <p style={{ fontSize: 13, color: '#475569', lineHeight: 1.72, maxWidth: 240, marginBottom: 18 }}>
-              Construire l&apos;avenir numérique de l&apos;Afrique — une solution à la fois.<br />
-              Fondé par <strong style={{ color: '#64748b' }}>Amdy Boubacar</strong>.
+              AMDY LABS LLC — Société technologique américaine spécialisée dans les marchés africains. Fondée par <strong style={{ color: '#64748b' }}>Amdy Boubacar</strong>, Detroit, Michigan.
             </p>
             <a href="tel:+15863442378" style={{ display: 'block', fontSize: 13, color: '#60a5fa', textDecoration: 'none', marginBottom: 5 }}>+1 (586) 344-2378</a>
             <a href="mailto:contact@amdylabs.com" style={{ display: 'block', fontSize: 13, color: '#60a5fa', textDecoration: 'none', marginBottom: 4 }}>contact@amdylabs.com</a>
@@ -32,7 +31,7 @@ export default function Footer() {
           </div>
 
           {[
-            { title: 'Entreprise', links: [['À propos','/about'],['Nos projets','/projects'],['Services','/services'],['Contact','/contact']] },
+            { title: 'Entreprise', links: [['À propos','/about'],['Nos projets','/projects'],['Services','/services'],['Investisseurs','/investors'],['Contact','/contact']] },
             { title: 'Services', links: [['Applications Mobiles','/services'],['Sites Web','/services'],['Systèmes POS','/services'],['Plateformes SaaS','/services'],['Solutions IA','/services']] },
             { title: 'Produits', links: [['CaissePro','/projects'],['VYBZ Social','/projects'],['Mon Livreur','/projects'],['Démarrer un projet','/contact']] },
           ].map(col => (
@@ -56,7 +55,7 @@ export default function Footer() {
 
         <div style={{ borderTop: '1px solid rgba(30,45,74,0.4)', paddingTop: 24, display: 'flex', justifyContent: 'space-between', alignItems: 'center', flexWrap: 'wrap', gap: 12 }}>
           <span style={{ fontSize: 12, color: '#1e3a5f' }}>© {year} AMDY LABS. Tous droits réservés.</span>
-          <span style={{ fontSize: 12, color: '#1e3a5f' }}>Fait avec amour en Afrique · amdylabs.com</span>
+          <span style={{ fontSize: 12, color: '#1e3a5f' }}>AMDY LABS LLC · Michigan, USA · Tous droits réservés</span>
         </div>
       </div>
     </footer>

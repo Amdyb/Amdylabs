@@ -2,7 +2,7 @@
 import { useEffect, useRef, useState } from 'react'
 import Link from 'next/link'
 import Image from 'next/image'
-import { ArrowRight, CheckCircle2, ChevronDown, Smartphone, Globe, Store, Cloud, ShoppingCart, Bot, Zap, DollarSign, MessageCircle, Languages, Wifi, Coins, Monitor, Shield, TrendingUp, MapPin, Rocket } from 'lucide-react'
+import { ArrowRight, CheckCircle2, ChevronDown, Smartphone, Globe, Store, Cloud, ShoppingCart, Bot, Zap, DollarSign, MessageCircle, Languages, Wifi, Coins, Monitor, Shield, TrendingUp, MapPin, Rocket, Users } from 'lucide-react'
 import { useLang } from '@/lib/lang'
 
 function useCountUp(target: number, duration = 1600, start = false) {
@@ -352,6 +352,28 @@ export default function HomePage() {
               </div>
             </div>
           </div>
+        </div>
+      </section>
+
+
+      {/* TRUST BAR */}
+      <section style={{ padding: '0 24px 80px' }}>
+        <div style={{ maxWidth: 1100, margin: '0 auto', background: 'rgba(13,20,37,0.8)', border: '1px solid rgba(30,45,74,0.5)', borderRadius: 16, padding: '28px 36px', display: 'flex', justifyContent: 'space-between', alignItems: 'center', flexWrap: 'wrap', gap: 20 }}>
+          {[
+            { Icon: Shield, label: 'Michigan LLC', sub: 'US Registered Company' },
+            { Icon: MapPin, label: 'Detroit, MI 48221', sub: '10629 W 7 Mile' },
+            { Icon: Globe, label: '4 Live Products', sub: 'caissepro.app · vybz.city · immopro.agency' },
+            { Icon: Users, label: '38+ Active Merchants', sub: 'Real revenue, real traction' },
+            { Icon: TrendingUp, label: 'Seed Round Open', sub: 'contact@amdylabs.com' },
+          ].map(({ Icon, label, sub }, i) => (
+            <div key={i} style={{ display: 'flex', alignItems: 'center', gap: 12 }}>
+              <Icon size={18} color="#60a5fa" style={{ flexShrink: 0 }} />
+              <div>
+                <div style={{ fontSize: 13, fontWeight: 700, color: '#e2e8f0' }}>{label}</div>
+                <div style={{ fontSize: 11, color: '#475569' }}>{sub}</div>
+              </div>
+            </div>
+          ))}
         </div>
       </section>
 
