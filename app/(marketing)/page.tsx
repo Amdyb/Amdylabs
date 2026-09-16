@@ -29,105 +29,191 @@ function useInView(threshold = 0.15) {
   return { ref, inView }
 }
 
+// Animated tech grid canvas
+function TechGrid() {
+  const canvasRef = useRef<HTMLCanvasElement>(null)
+  useEffect(() => {
+    const canvas = canvasRef.current
+    if (!canvas) return
+    const ctx = canvas.getContext('2d')
+    if (!ctx) return
+    let animId: number
+    let t = 0
+
+    const resize = () => {
+      canvas.width = canvas.offsetWidth
+      canvas.height = canvas.offsetHeight
+    }
+    resize()
+    window.addEventListener('resize', resize)
+
+    const dots: { x: number; y: number; vx: number; vy: number; r: number }[] = Array.from({ length: 60 }, () => ({
+      x: Math.random() * canvas.width,
+      y: Math.random() * canvas.height,
+      vx: (Math.random() - 0.5) * 0.3,
+      vy: (Math.random() - 0.5) * 0.3,
+      r: Math.random() * 1.5 + 0.5,
+    }))
+
+    const draw = () => {
+      ctx.clearRect(0, 0, canvas.width, canvas.height)
+      t += 0.005
+
+      // Grid lines
+      ctx.strokeStyle = 'rgba(26,110,245,0.04)'
+      ctx.lineWidth = 1
+      const gs = 60
+      for (let x = 0; x < canvas.width; x += gs) {
+        ctx.beginPath(); ctx.moveTo(x, 0); ctx.lineTo(x, canvas.height); ctx.stroke()
+      }
+      for (let y = 0; y < canvas.height; y += gs) {
+        ctx.beginPath(); ctx.moveTo(0, y); ctx.lineTo(canvas.width, y); ctx.stroke()
+      }
+
+      // Moving dots + connections
+      dots.forEach(d => {
+        d.x += d.vx; d.y += d.vy
+        if (d.x < 0 || d.x > canvas.width) d.vx *= -1
+        if (d.y < 0 || d.y > canvas.height) d.vy *= -1
+      })
+
+      dots.forEach((a, i) => {
+        dots.slice(i + 1).forEach(b => {
+          const dist = Math.hypot(a.x - b.x, a.y - b.y)
+          if (dist < 120) {
+            ctx.strokeStyle = `rgba(26,110,245,${0.12 * (1 - dist / 120)})`
+            ctx.lineWidth = 0.5
+            ctx.beginPath(); ctx.moveTo(a.x, a.y); ctx.lineTo(b.x, b.y); ctx.stroke()
+          }
+        })
+        ctx.fillStyle = 'rgba(96,165,250,0.5)'
+        ctx.beginPath(); ctx.arc(a.x, a.y, a.r, 0, Math.PI * 2); ctx.fill()
+      })
+
+      // Scanning line
+      const scanY = (Math.sin(t) * 0.5 + 0.5) * canvas.height
+      const grad = ctx.createLinearGradient(0, scanY - 40, 0, scanY + 40)
+      grad.addColorStop(0, 'rgba(26,110,245,0)')
+      grad.addColorStop(0.5, 'rgba(26,110,245,0.04)')
+      grad.addColorStop(1, 'rgba(26,110,245,0)')
+      ctx.fillStyle = grad
+      ctx.fillRect(0, scanY - 40, canvas.width, 80)
+
+      animId = requestAnimationFrame(draw)
+    }
+    draw()
+    return () => { cancelAnimationFrame(animId); window.removeEventListener('resize', resize) }
+  }, [])
+  return <canvas ref={canvasRef} style={{ position: 'absolute', inset: 0, width: '100%', height: '100%', opacity: 1 }} />
+}
+
 const T = {
   fr: {
-    badge: 'TECHNOLOGIE · INNOVATION · IMPACT',
+    badge: 'TECHNOLOGIE · INNOVATION · IMPACT AFRICAIN',
     h1a: 'Nous construisons', h1b: "l'avenir numérique", h1c: "de l'Afrique",
     sub: "AMDY LABS conçoit des solutions digitales modernes pour aider les entreprises africaines à se développer, se digitaliser et conquérir le monde.",
-    cta1: 'Démarrer un projet', cta2: 'Découvrir nos solutions',
-    pillars: [{ title: 'Innovation', desc: 'Des solutions modernes et performantes' }, { title: 'Fiabilité', desc: 'Sécurisé, stable et conçu pour durer' }, { title: 'Impact', desc: "Nous aidons les entreprises à grandir" }, { title: 'Présence Mondiale', desc: 'Une équipe africaine présente partout' }],
+    cta1: 'Démarrer un projet', cta2: 'Voir nos solutions',
+    pillars: [
+      { title: 'Innovation', desc: 'Solutions modernes et performantes' },
+      { title: 'Fiabilité', desc: 'Sécurisé, stable, conçu pour durer' },
+      { title: 'Impact', desc: 'Nous aidons les entreprises à grandir' },
+      { title: 'Présence Mondiale', desc: 'Équipe africaine présente partout' },
+    ],
     partnersLabel: "Partenaires de l'écosystème",
-    servicesTag: 'Ce que nous construisons',
-    servicesTitle: 'Tout ce dont votre entreprise\na besoin pour se digitaliser',
-    servicesSub: "De l'idée à la mise en production — nous construisons, lançons et soutenons des produits numériques de classe mondiale.",
+    servicesTag: 'Ce que nous construisons', servicesTitle1: 'TOUT CE DONT VOTRE', servicesTitle2: 'ENTREPRISE A BESOIN',
+    servicesSub: "De l'idée à la mise en production — nous construisons, lançons et soutenons des produits de classe mondiale.",
     learnMore: 'En savoir plus',
-    whyTag: 'Pourquoi AMDY LABS',
-    whyTitle: "Nous comprenons l'Afrique.\nNous construisons pour l'Afrique.",
-    whySub: "Fondé par Amdy Boubacar avec une équipe distribuée à travers les États-Unis, l'Europe et l'Afrique — qualité Silicon Valley, âme africaine.",
+    whyTag: 'Pourquoi AMDY LABS', whyTitle1: 'NOUS COMPRENONS', whyTitle2: "L'AFRIQUE",
+    whySub: "Fondé par Amdy Boubacar avec une équipe distribuée aux États-Unis, en Europe et en Afrique.",
     checks: ['Conçu pour les marchés, langues et réalités africaines', 'Solutions abordables, évolutives et maintenables', 'Intégrations Mobile Money et paiements africains', 'Français, anglais, wolof — produits multilingues', 'Optimisé pour les réseaux 2G/3G et appareils bas de gamme', 'Support continu, communication WhatsApp en priorité'],
     buildWith: 'Construire avec nous',
     stats: ['Projets réalisés', 'Clients satisfaits', 'Produits sur le marché', 'Pays atteints'],
-    projectsTag: 'Nos Produits', projectsTitle: "Ce que nous avons construit", seeAll: 'Voir tous les projets',
-    africaTag: "Conçu pour l'Afrique", africaTitle: 'Une technologie qui\nparle votre langue',
-    africaSub: "Nos solutions sont conçues de A à Z pour les marchés africains — avec les réalités, les langues et les systèmes de paiement africains au cœur de chaque décision.",
+    projectsTag: 'Nos Produits', projectsTitle1: 'CE QUE NOUS', projectsTitle2: 'AVONS CONSTRUIT', seeAll: 'Voir tous →',
+    africaTag: "Conçu pour l'Afrique", africaTitle1: 'UNE TECHNOLOGIE QUI', africaTitle2: 'PARLE VOTRE LANGUE',
+    africaSub: "Nos solutions sont conçues de A à Z pour les marchés africains — avec les réalités, les langues et les systèmes de paiement africains au cœur.",
     africaFeatures: ['Wave & Orange Money', 'Commerce WhatsApp', 'Multilingue', 'Hors Connexion', 'CFA & Devises Locales', 'Mobile d\'abord'],
-    africaFeatureDescs: ['Intégrations mobiles natives', 'Vendre et notifier via WhatsApp', 'Français, anglais et wolof', 'Fonctionne sur 2G et sans internet', 'XOF, XAF, GHS, NGN supportés', 'Conçu pour les utilisateurs smartphone'],
-    termCmd1: 'amdy créer app-africaine --lang=fr,wo',
-    termLines: ['✓ Configuration passerelle Wave...', '✓ Intégration Orange Money...', '✓ Chargement packs langue FR + Wolof...', '✓ Mode PWA hors connexion activé...', '✓ CFA (XOF) défini comme devise principale...'],
-    termCmd2: 'amdy déployer --region=afrique-ouest',
-    termSuccess1: '> En ligne sur votreapp.amdylabs.com', termSuccess2: '> Les utilisateurs africains peuvent y accéder !',
-    economyTitle: 'Économie Numérique Africaine',
-    economyDesc: "Projetée à 712 milliards $ d'ici 2050. AMDY LABS construit l'infrastructure aujourd'hui.",
-    ctaTag: 'Prêt à commencer ?', ctaTitle: 'Prêt à transformer\nvotre entreprise ?',
-    ctaSub: "Partagez votre idée. Nous la transformerons en produit numérique de classe mondiale. Appel de découverte gratuit — sans engagement.",
+    africaFeatureDescs: ['Intégrations mobiles natives', 'Vendre et notifier via WhatsApp', 'Français, anglais et wolof', 'Fonctionne sur 2G sans internet', 'XOF, XAF, GHS, NGN supportés', 'Conçu pour les utilisateurs smartphone'],
+    trustTag: 'Crédibilité', trustItems: [
+      { label: 'Michigan LLC', sub: 'Entreprise enregistrée aux USA' },
+      { label: 'Detroit, MI 48221', sub: '10629 W 7 Mile' },
+      { label: '4 Produits Live', sub: 'caissepro.app · vybz.city · immopro.agency' },
+      { label: '38+ Marchands', sub: 'Revenus réels, traction réelle' },
+      { label: 'Seed Round', sub: 'contact@amdylabs.com' },
+    ],
+    ctaTag: 'Prêt à commencer ?', ctaTitle1: 'PRÊT À TRANSFORMER', ctaTitle2: 'VOTRE ENTREPRISE ?',
+    ctaSub: "Partagez votre idée. Appel de découverte gratuit — sans engagement.",
     ctaBtn1: 'Démarrer un projet', ctaBtn2: 'WhatsApp',
-    faqTag: 'Questions fréquentes', faqTitle: 'Questions courantes',
+    faqTag: 'Questions fréquentes', faqTitle1: 'QUESTIONS', faqTitle2: 'COURANTES',
     faq: [
-      ["Combien de temps faut-il pour créer une application mobile ?", "En général 6 à 16 semaines selon la complexité. Un MVP simple peut être livré en 4 à 6 semaines. Nous fournissons un calendrier détaillé après un appel de découverte gratuit."],
+      ["Combien de temps faut-il pour créer une application ?", "En général 6 à 16 semaines selon la complexité. Un MVP peut être livré en 4 à 6 semaines. Nous fournissons un calendrier détaillé après un appel gratuit."],
       ["Intégrez-vous les méthodes de paiement africaines ?", "Oui — Wave, Orange Money, Free Money, MTN, PayDunya, CinetPay et autres passerelles africaines sont intégrées nativement dans tous nos produits."],
-      ["Quels sont vos modèles de tarification ?", "Nous proposons des projets à prix fixe, des retainers mensuels et des abonnements SaaS. Devis transparents à l'avance, sans surprises."],
-      ["Assurez-vous le support après le lancement ?", "Absolument. Nous proposons des forfaits de maintenance, corrections de bugs, mises à jour et support d'urgence 24h/7j via WhatsApp."],
-      ["Un fondateur non-technique peut-il travailler avec vous ?", "C'est notre spécialité. Vous apportez la vision, nous gérons toute la technologie. Aucune connaissance en code requise, jamais."],
+      ["Quels sont vos modèles de tarification ?", "Projets à prix fixe, retainers mensuels et abonnements SaaS. Devis transparents à l'avance, sans surprises."],
+      ["Assurez-vous le support après le lancement ?", "Absolument. Maintenance, corrections de bugs, mises à jour et support d'urgence 24h/7j via WhatsApp."],
+      ["Un fondateur non-technique peut-il travailler avec vous ?", "C'est notre spécialité. Vous apportez la vision, nous gérons toute la technologie. Aucune connaissance en code requise."],
     ],
   },
   en: {
-    badge: 'TECHNOLOGY · INNOVATION · IMPACT',
+    badge: 'TECHNOLOGY · INNOVATION · AFRICAN IMPACT',
     h1a: 'We build', h1b: "Africa's digital", h1c: "future",
     sub: "AMDY LABS creates modern digital solutions to help African businesses grow, digitize, and compete globally.",
     cta1: 'Start a Project', cta2: 'Explore Our Work',
-    pillars: [{ title: 'Innovation', desc: 'Modern, high-performance solutions' }, { title: 'Reliability', desc: 'Secure, stable, built to last' }, { title: 'Impact', desc: 'We help businesses grow and scale' }, { title: 'Global Presence', desc: 'An African team present everywhere' }],
+    pillars: [
+      { title: 'Innovation', desc: 'Modern, high-performance solutions' },
+      { title: 'Reliability', desc: 'Secure, stable, built to last' },
+      { title: 'Impact', desc: 'We help businesses grow and scale' },
+      { title: 'Global Presence', desc: 'African team present everywhere' },
+    ],
     partnersLabel: 'Ecosystem partners',
-    servicesTag: 'What We Build',
-    servicesTitle: "Everything your business\nneeds to go digital",
+    servicesTag: 'What We Build', servicesTitle1: 'EVERYTHING YOUR', servicesTitle2: 'BUSINESS NEEDS',
     servicesSub: "From idea to production — we build, launch, and support world-class digital products for African businesses.",
     learnMore: 'Learn more',
-    whyTag: 'Why AMDY LABS',
-    whyTitle: "We understand Africa.\nWe build for Africa.",
-    whySub: "Founded by Amdy Boubacar with a distributed team across the US, Europe, and Africa — Silicon Valley quality with African soul.",
+    whyTag: 'Why AMDY LABS', whyTitle1: 'WE UNDERSTAND', whyTitle2: 'AFRICA',
+    whySub: "Founded by Amdy Boubacar with a distributed team across the US, Europe, and Africa.",
     checks: ['Built for African markets, languages & realities', 'Affordable, scalable & maintainable solutions', 'Mobile money & African payment integrations', 'French, English, Wolof — multilingual products', 'Optimized for 2G/3G and low-end devices', 'Ongoing support, WhatsApp-first communication'],
     buildWith: 'Build With Us',
     stats: ['Projects Completed', 'Happy Clients', 'Products in Market', 'Countries Reached'],
-    projectsTag: 'Our Products', projectsTitle: "What we've built", seeAll: 'See all projects',
-    africaTag: 'Built for Africa', africaTitle: 'Technology that\nspeaks your language',
-    africaSub: "Our solutions are designed from the ground up for African markets — with African realities, languages, and payment systems at the core of every decision.",
+    projectsTag: 'Our Products', projectsTitle1: 'WHAT WE HAVE', projectsTitle2: 'BUILT', seeAll: 'See all →',
+    africaTag: 'Built for Africa', africaTitle1: 'TECHNOLOGY THAT', africaTitle2: 'SPEAKS YOUR LANGUAGE',
+    africaSub: "Our solutions are designed from the ground up for African markets — with African realities, languages, and payment systems at the core.",
     africaFeatures: ['Wave & Orange Money', 'WhatsApp Commerce', 'Multilingual', 'Offline-First', 'CFA & Local Currencies', 'Mobile-First'],
     africaFeatureDescs: ['Native mobile money integrations', 'Sell & notify via WhatsApp', 'French, English & Wolof', 'Works on 2G & without internet', 'XOF, XAF, GHS, NGN support', 'Designed for smartphone users'],
-    termCmd1: 'amdy create african-app --lang=fr,wo',
-    termLines: ['✓ Configuring Wave payment gateway...', '✓ Setting up Orange Money...', '✓ Loading FR + Wolof language packs...', '✓ Enabling offline-first PWA mode...', '✓ CFA (XOF) set as base currency...'],
-    termCmd2: 'amdy deploy --region=west-africa',
-    termSuccess1: '> Live at yourapp.amdylabs.com', termSuccess2: '> African users can now access it!',
-    economyTitle: 'African Digital Economy',
-    economyDesc: 'Projected to reach $712B by 2050. AMDY LABS is building the infrastructure today.',
-    ctaTag: 'Ready to start?', ctaTitle: 'Ready to transform\nyour business?',
-    ctaSub: "Share your idea. We'll turn it into a world-class digital product. Free discovery call — no commitment.",
+    trustTag: 'Credibility', trustItems: [
+      { label: 'Michigan LLC', sub: 'US Registered Company' },
+      { label: 'Detroit, MI 48221', sub: '10629 W 7 Mile' },
+      { label: '4 Live Products', sub: 'caissepro.app · vybz.city · immopro.agency' },
+      { label: '38+ Merchants', sub: 'Real revenue, real traction' },
+      { label: 'Seed Round Open', sub: 'contact@amdylabs.com' },
+    ],
+    ctaTag: 'Ready to start?', ctaTitle1: 'READY TO TRANSFORM', ctaTitle2: 'YOUR BUSINESS?',
+    ctaSub: "Share your idea. Free discovery call — no commitment.",
     ctaBtn1: 'Start a Project', ctaBtn2: 'WhatsApp',
-    faqTag: 'FAQ', faqTitle: 'Common Questions',
+    faqTag: 'FAQ', faqTitle1: 'COMMON', faqTitle2: 'QUESTIONS',
     faq: [
-      ['How long does it take to build a mobile app?', 'Typically 6–16 weeks depending on complexity. A simple MVP can be delivered in 4–6 weeks. We provide a detailed timeline after a free discovery call.'],
+      ['How long does it take to build an app?', 'Typically 6–16 weeks depending on complexity. A simple MVP can be delivered in 4–6 weeks. We provide a detailed timeline after a free discovery call.'],
       ['Do you integrate African payment methods?', 'Yes — Wave, Orange Money, Free Money, MTN, PayDunya, CinetPay, and other African gateways are natively integrated in all our products.'],
-      ['What are your pricing models?', 'We offer fixed-price projects, monthly retainers, and SaaS subscriptions. Transparent quotes upfront, no surprises.'],
-      ['Do you provide support after launch?', 'Absolutely. We offer maintenance packages, bug fixes, feature updates, and 24/7 emergency support via WhatsApp.'],
+      ['What are your pricing models?', 'Fixed-price projects, monthly retainers, and SaaS subscriptions. Transparent quotes upfront, no surprises.'],
+      ['Do you provide support after launch?', 'Absolutely. Maintenance packages, bug fixes, feature updates, and 24/7 emergency support via WhatsApp.'],
       ['Can non-technical founders work with you?', "That's our specialty. You bring the vision — we handle all the technology. No coding knowledge needed, ever."],
     ],
   }
 }
 
 const SERVICES = [
-  { Icon: Smartphone, fr: 'Applications Mobiles', en: 'Mobile Apps', descFr: 'Applications Android et iOS natives conçues pour les consommateurs africains.', descEn: 'Native Android & iOS apps built for African consumers.' },
-  { Icon: Globe, fr: 'Sites Web', en: 'Websites', descFr: 'Sites web modernes qui transforment vos visiteurs en clients payants.', descEn: 'Modern websites that convert visitors into paying customers.' },
-  { Icon: Store, fr: 'Systèmes POS', en: 'POS Systems', descFr: 'Caisse CaissePro intégrée avec Wave, Orange Money et les paiements mobiles.', descEn: 'CaissePro-powered POS with Wave, Orange Money & mobile payments.' },
-  { Icon: Cloud, fr: 'Plateformes SaaS', en: 'SaaS Platforms', descFr: "Plateformes logicielles multi-tenant conçues pour évoluer à travers l'Afrique.", descEn: 'Full multi-tenant software platforms built to scale across Africa.' },
-  { Icon: ShoppingCart, fr: 'E-Commerce', en: 'E-Commerce', descFr: 'Boutiques en ligne avec passerelles africaines et intégration WhatsApp.', descEn: 'Online stores with African payment gateways and WhatsApp integration.' },
-  { Icon: Bot, fr: 'Solutions IA', en: 'AI Solutions', descFr: 'Automatisation intelligente, chatbots et analyses alimentées par IA.', descEn: 'Smart automation, chatbots, and AI-powered analytics.' },
-]
-
-const PROJECTS = [
-  { name: 'CaissePro', link: 'https://caissepro.app', subFr: "Caisse & Gestion d'entreprise", subEn: 'POS & Business Management', descFr: "Système de caisse moderne pour commerçants africains. Inventaire, reçus WhatsApp, Wave/Orange Money, support CFA.", descEn: 'Modern POS for African merchants. Inventory, WhatsApp receipts, Wave/Orange Money, CFA support.', logo: '/logo-caissepro.png', logoBg: '#fff', color: 'linear-gradient(135deg,#0d1f4a,#1a3a8f)', tags: ['Next.js','Supabase','PWA','Wave API'] },
-  { name: 'VYBZ Social', link: 'https://vybz.city', subFr: 'Plateforme Sociale — Dakar', subEn: 'Social Platform — Dakar', descFr: '"C\'est quoi les VYBZ ce soir ?" — Événements, vie nocturne et expériences à Dakar et dans la diaspora africaine.', descEn: '"What are the VYBZ tonight?" — Events, nightlife & experiences connecting Dakar and the African diaspora.', logo: '/logo-vybz.png', logoBg: '#0a0010', color: 'linear-gradient(135deg,#150020,#3d0060)', tags: ['React Native','Firebase','Maps'] },
-  { name: 'ImmoPro', link: 'https://immopro.agency', subFr: 'Plateforme Immobilière', subEn: 'Real Estate Platform', descFr: 'Plateforme immobilière moderne pour le marché sénégalais. Annonces, agents certifiés et transactions sécurisées.', descEn: 'Modern real estate platform for the Senegalese market. Listings, certified agents and secure transactions.', logo: '/logo-immopro.png', logoBg: '#0a1a6e', color: 'linear-gradient(135deg,#040d3a,#0a1a6e)', tags: ['Next.js','Supabase','Maps'] },
+  { Icon: Smartphone, fr: 'Applications Mobiles', en: 'Mobile Apps', color: '#1a6ef5' },
+  { Icon: Globe, fr: 'Sites Web', en: 'Websites', color: '#0891b2' },
+  { Icon: Store, fr: 'Systèmes POS', en: 'POS Systems', color: '#059669' },
+  { Icon: Cloud, fr: 'Plateformes SaaS', en: 'SaaS Platforms', color: '#7c3aed' },
+  { Icon: ShoppingCart, fr: 'E-Commerce', en: 'E-Commerce', color: '#dc2626' },
+  { Icon: Bot, fr: 'Solutions IA', en: 'AI Solutions', color: '#d97706' },
 ]
 
 const AFRICA_ICONS = [DollarSign, MessageCircle, Languages, Wifi, Coins, Smartphone]
+
+const PROJECTS = [
+  { name: 'CaissePro', link: 'https://caissepro.app', subFr: "Caisse & Gestion d'entreprise", subEn: 'POS & Business Management', descFr: "Système de caisse moderne pour commerçants africains. Reçus WhatsApp, Wave/Orange Money, support CFA.", descEn: 'Modern POS for African merchants. WhatsApp receipts, Wave/Orange Money, CFA support.', logo: '/logo-caissepro.png', logoBg: '#0d1f4a', color: '#1a6ef5' },
+  { name: 'ImmoPro', link: 'https://immopro.agency', subFr: 'Plateforme Immobilière', subEn: 'Real Estate Platform', descFr: 'Plateforme immobilière moderne pour le marché sénégalais. Annonces, agents certifiés.', descEn: 'Modern real estate platform for the Senegalese market. Listings, certified agents.', logo: '/logo-immopro.png', logoBg: '#0a1a6e', color: '#f59e0b' },
+  { name: 'VYBZ Social', link: 'https://vybz.city', subFr: 'Plateforme Sociale — Dakar', subEn: 'Social Platform — Dakar', descFr: '"C\'est quoi les VYBZ ce soir ?" — Événements et vie nocturne à Dakar.', descEn: '"What are the VYBZ tonight?" — Events & nightlife in Dakar.', logo: '/logo-vybz.png', logoBg: '#150020', color: '#8b5cf6' },
+]
 
 export default function HomePage() {
   const { lang } = useLang()
@@ -141,50 +227,101 @@ export default function HomePage() {
 
   return (
     <div>
-      {/* HERO */}
-      <section style={{ position: 'relative', minHeight: '100vh', display: 'flex', alignItems: 'center', overflow: 'hidden', paddingTop: 72 }}>
-        <Image src="/hero-bg.webp" alt="AMDY LABS" fill priority style={{ objectFit: 'cover', objectPosition: 'center center' }} quality={95} />
-        <div style={{ position: 'absolute', inset: 0, background: 'linear-gradient(100deg, rgba(4,8,26,0.92) 0%, rgba(4,8,26,0.75) 38%, rgba(4,8,26,0.25) 60%, rgba(4,8,26,0.0) 80%)' }} />
-        <div style={{ position: 'absolute', bottom: 0, left: 0, right: 0, height: 100, background: 'linear-gradient(transparent, #050709)' }} />
-        <div style={{ position: 'relative', zIndex: 2, maxWidth: 1200, margin: '0 auto', padding: '80px 24px', width: '100%' }}>
-          <div style={{ maxWidth: 580 }}>
-            <div style={{ display: 'inline-flex', alignItems: 'center', gap: 8, background: 'rgba(26,110,245,0.12)', border: '1px solid rgba(26,110,245,0.4)', borderRadius: 100, padding: '6px 16px 6px 10px', fontSize: 12, fontWeight: 600, color: '#60a5fa', marginBottom: 28 }}>
+
+      {/* ══ HERO — dark, techy background ══════════════════════════════════ */}
+      <section style={{ position: 'relative', minHeight: '100vh', display: 'flex', alignItems: 'center', overflow: 'hidden', background: 'linear-gradient(135deg, #020714 0%, #04081a 40%, #060d22 70%, #030a18 100%)', paddingTop: 72 }}>
+        {/* Animated canvas */}
+        <TechGrid />
+
+        {/* Radial glow accents */}
+        <div style={{ position: 'absolute', top: '20%', left: '5%', width: 600, height: 600, background: 'radial-gradient(circle, rgba(26,110,245,0.1) 0%, transparent 65%)', borderRadius: '50%', pointerEvents: 'none' }} />
+        <div style={{ position: 'absolute', bottom: '10%', right: '5%', width: 400, height: 400, background: 'radial-gradient(circle, rgba(0,230,118,0.06) 0%, transparent 65%)', borderRadius: '50%', pointerEvents: 'none' }} />
+
+        {/* Bottom fade */}
+        <div style={{ position: 'absolute', bottom: 0, left: 0, right: 0, height: 120, background: 'linear-gradient(transparent, #020714)', pointerEvents: 'none' }} />
+
+        <div style={{ position: 'relative', zIndex: 2, maxWidth: 1200, margin: '0 auto', padding: '60px 24px', width: '100%', display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(300px, 1fr))', gap: 60, alignItems: 'center' }}>
+          <div>
+            <div style={{ display: 'inline-flex', alignItems: 'center', gap: 8, background: 'rgba(26,110,245,0.1)', border: '1px solid rgba(26,110,245,0.3)', borderRadius: 100, padding: '6px 16px 6px 10px', fontSize: 10, fontWeight: 600, color: '#60a5fa', marginBottom: 28, letterSpacing: '0.08em' }}>
               <span style={{ width: 7, height: 7, background: '#00e676', borderRadius: '50%', display: 'inline-block', animation: 'blink 2s ease-in-out infinite' }} />
               {t.badge}
             </div>
-            <h1 style={{ fontFamily: 'Syne, system-ui', fontSize: 'clamp(38px,5.5vw,72px)', fontWeight: 800, lineHeight: 1.05, marginBottom: 24, letterSpacing: '-0.02em' }}>
+            <h1 style={{ fontFamily: 'Syne, system-ui', fontSize: 'clamp(40px, 5.5vw, 70px)', fontWeight: 800, lineHeight: 1.04, letterSpacing: '-0.03em', color: '#fff', marginBottom: 22 }}>
               {t.h1a}<br />
-              <span style={{ background: 'linear-gradient(135deg,#60a5fa,#00e676)', WebkitBackgroundClip: 'text', WebkitTextFillColor: 'transparent', backgroundClip: 'text' }}>{t.h1b}</span><br />
+              <span style={{ background: 'linear-gradient(135deg, #60a5fa 0%, #00e676 100%)', WebkitBackgroundClip: 'text', WebkitTextFillColor: 'transparent', backgroundClip: 'text' }}>{t.h1b}</span><br />
               {t.h1c}
             </h1>
-            <p style={{ fontSize: 17, color: '#94a3b8', maxWidth: 500, marginBottom: 40, lineHeight: 1.72 }}>{t.sub}</p>
-            <div style={{ display: 'flex', gap: 14, flexWrap: 'wrap', marginBottom: 44 }}>
-              <Link href="/contact" style={{ display: 'inline-flex', alignItems: 'center', gap: 8, background: 'linear-gradient(135deg,#1a6ef5,#0050c8)', color: '#fff', padding: '15px 32px', borderRadius: 10, fontWeight: 700, fontSize: 15, textDecoration: 'none', boxShadow: '0 8px 32px rgba(26,110,245,0.4)' }}>
-                <Rocket size={16} /> {t.cta1}
+            <p style={{ fontSize: 17, color: '#64748b', maxWidth: 480, marginBottom: 36, lineHeight: 1.72 }}>{t.sub}</p>
+            <div style={{ display: 'flex', gap: 12, flexWrap: 'wrap', marginBottom: 48 }}>
+              <Link href="/contact" style={{ display: 'inline-flex', alignItems: 'center', gap: 8, background: 'linear-gradient(135deg,#1a6ef5,#0050c8)', color: '#fff', padding: '14px 28px', borderRadius: 9, fontWeight: 700, fontSize: 14, textDecoration: 'none', boxShadow: '0 8px 32px rgba(26,110,245,0.35)' }}>
+                <Rocket size={15} /> {t.cta1}
               </Link>
-              <Link href="/projects" style={{ display: 'inline-flex', alignItems: 'center', gap: 8, background: 'rgba(255,255,255,0.06)', color: '#fff', padding: '15px 32px', borderRadius: 10, fontWeight: 600, fontSize: 15, textDecoration: 'none', border: '1px solid rgba(255,255,255,0.14)', backdropFilter: 'blur(10px)' }}>
-                <Monitor size={16} /> {t.cta2}
+              <Link href="/projects" style={{ display: 'inline-flex', alignItems: 'center', gap: 8, background: 'rgba(255,255,255,0.05)', color: '#e2e8f0', padding: '14px 28px', borderRadius: 9, fontWeight: 600, fontSize: 14, textDecoration: 'none', border: '1px solid rgba(255,255,255,0.1)', backdropFilter: 'blur(10px)' }}>
+                <Monitor size={15} /> {t.cta2}
               </Link>
             </div>
-            <div style={{ display: 'grid', gridTemplateColumns: 'repeat(2,1fr)', gap: 10, maxWidth: 480 }}>
+            <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: 10 }}>
               {([{ Icon: Zap }, { Icon: Shield }, { Icon: TrendingUp }, { Icon: MapPin }] as any[]).map(({ Icon }, i) => (
-                <div key={i} style={{ background: 'rgba(255,255,255,0.04)', border: '1px solid rgba(255,255,255,0.08)', borderRadius: 10, padding: '14px 16px', backdropFilter: 'blur(10px)' }}>
-                  <Icon size={18} color="#60a5fa" style={{ marginBottom: 6 }} />
-                  <div style={{ fontFamily: 'Syne, system-ui', fontWeight: 700, fontSize: 12, color: '#e2e8f0', marginBottom: 3, textTransform: 'uppercase', letterSpacing: '0.06em' }}>{t.pillars[i].title}</div>
-                  <div style={{ fontSize: 11, color: '#475569', lineHeight: 1.5 }}>{t.pillars[i].desc}</div>
+                <div key={i} style={{ background: 'rgba(255,255,255,0.03)', border: '1px solid rgba(255,255,255,0.07)', borderRadius: 10, padding: '13px 15px', backdropFilter: 'blur(10px)' }}>
+                  <Icon size={17} color="#60a5fa" style={{ marginBottom: 6 }} />
+                  <div style={{ fontFamily: 'Syne, system-ui', fontWeight: 700, fontSize: 11, color: '#e2e8f0', marginBottom: 2, textTransform: 'uppercase', letterSpacing: '0.06em' }}>{t.pillars[i].title}</div>
+                  <div style={{ fontSize: 11, color: '#334155' }}>{t.pillars[i].desc}</div>
+                </div>
+              ))}
+            </div>
+          </div>
+
+          {/* Hero right — terminal */}
+          <div style={{ display: 'flex', flexDirection: 'column', gap: 14 }}>
+            <div style={{ background: 'rgba(6,12,26,0.9)', border: '1px solid rgba(30,45,74,0.6)', borderRadius: 14, overflow: 'hidden', backdropFilter: 'blur(20px)' }}>
+              <div style={{ display: 'flex', alignItems: 'center', gap: 7, padding: '11px 16px', background: 'rgba(10,16,32,0.8)', borderBottom: '1px solid rgba(30,45,74,0.4)' }}>
+                {['#ff5f57','#ffbd2e','#28ca42'].map((c,i) => <span key={i} style={{ width: 10, height: 10, borderRadius: '50%', background: c, display: 'inline-block' }} />)}
+                <span style={{ fontSize: 11, color: '#334155', marginLeft: 8, fontFamily: 'monospace' }}>amdylabs — terminal</span>
+              </div>
+              <div style={{ padding: '18px', fontSize: 12, lineHeight: 2, fontFamily: 'monospace' }}>
+                {[
+                  { t: 'cmd', text: lang === 'fr' ? 'amdy créer app-africaine --lang=fr,wo' : 'amdy create african-app --lang=fr,wo' },
+                  { t: 'out', text: lang === 'fr' ? '✓ Configuration Wave & Orange Money...' : '✓ Configuring Wave & Orange Money...' },
+                  { t: 'out', text: lang === 'fr' ? '✓ Chargement packs FR + Wolof...' : '✓ Loading FR + Wolof language packs...' },
+                  { t: 'out', text: lang === 'fr' ? '✓ Mode PWA hors connexion activé...' : '✓ Enabling offline-first PWA mode...' },
+                  { t: 'out', text: lang === 'fr' ? '✓ CFA (XOF) défini comme devise...' : '✓ CFA (XOF) set as base currency...' },
+                  { t: 'cmd', text: lang === 'fr' ? 'amdy déployer --region=afrique-ouest' : 'amdy deploy --region=west-africa' },
+                  { t: 'ok', text: lang === 'fr' ? '> En ligne sur votreapp.amdylabs.com' : '> Live at yourapp.amdylabs.com' },
+                  { t: 'ok', text: lang === 'fr' ? '> Accessible à tous vos clients !' : '> Accessible to all your clients!' },
+                ].map((line, i) => (
+                  <div key={i} style={{ display: 'flex', gap: 10 }}>
+                    {line.t === 'cmd' && <><span style={{ color: '#00e676' }}>$</span><span style={{ color: '#60a5fa' }}>{line.text}</span></>}
+                    {line.t === 'out' && <span style={{ color: '#334155', paddingLeft: 18 }}>{line.text}</span>}
+                    {line.t === 'ok' && <span style={{ color: '#00e676', paddingLeft: 18 }}>{line.text}</span>}
+                  </div>
+                ))}
+                <div style={{ display: 'flex', gap: 10 }}>
+                  <span style={{ color: '#00e676' }}>$</span>
+                  <span style={{ borderRight: '2px solid #1a6ef5', animation: 'blink 1s step-end infinite' }}>&nbsp;</span>
+                </div>
+              </div>
+            </div>
+
+            {/* Stats bar */}
+            <div style={{ display: 'grid', gridTemplateColumns: 'repeat(4,1fr)', gap: 10 }}>
+              {[['38+', lang === 'fr' ? 'Marchands' : 'Merchants'], ['4', lang === 'fr' ? 'Produits' : 'Products'], ['5', lang === 'fr' ? 'Pays' : 'Countries'], ['$712B', 'Market']].map(([val, label]) => (
+                <div key={label} style={{ background: 'rgba(6,12,26,0.8)', border: '1px solid rgba(30,45,74,0.5)', borderRadius: 10, padding: '14px 10px', textAlign: 'center', backdropFilter: 'blur(10px)' }}>
+                  <div style={{ fontFamily: 'Syne, system-ui', fontSize: 20, fontWeight: 800, color: '#60a5fa', letterSpacing: '-0.02em' }}>{val}</div>
+                  <div style={{ fontSize: 10, color: '#334155', marginTop: 3 }}>{label}</div>
                 </div>
               ))}
             </div>
           </div>
         </div>
-        <div style={{ position: 'absolute', bottom: 32, left: '50%', transform: 'translateX(-50%)', color: '#334155', animation: 'bounce 2s ease-in-out infinite', zIndex: 3 }}>
+
+        <div style={{ position: 'absolute', bottom: 28, left: '50%', transform: 'translateX(-50%)', color: '#1e2d4a', animation: 'bounce 2s ease-in-out infinite', zIndex: 3 }}>
           <ChevronDown size={22} />
         </div>
       </section>
 
-      {/* PARTNERS */}
-      <div style={{ borderTop: '1px solid rgba(30,45,74,0.5)', borderBottom: '1px solid rgba(30,45,74,0.5)', padding: '24px 0', overflow: 'hidden', background: 'rgba(8,13,26,0.5)' }}>
-        <p style={{ textAlign: 'center', fontSize: 10, color: '#334155', letterSpacing: '0.15em', textTransform: 'uppercase', marginBottom: 18 }}>{t.partnersLabel}</p>
+      {/* ══ PARTNERS ══════════════════════════════════════════════════════════ */}
+      <div style={{ background: '#020714', borderTop: '1px solid rgba(26,110,245,0.1)', borderBottom: '1px solid rgba(26,110,245,0.1)', padding: '22px 0', overflow: 'hidden' }}>
+        <p style={{ textAlign: 'center', fontSize: 10, color: '#1e3a5f', letterSpacing: '0.15em', textTransform: 'uppercase', marginBottom: 16 }}>{t.partnersLabel}</p>
         <div style={{ overflow: 'hidden' }}>
           <div style={{ display: 'flex', gap: 56, animation: 'marquee 22s linear infinite', width: 'max-content' }}>
             {['WAVE','Orange Money','MTN Mobile','Free Money','Ecobank','Airtel Money','PayDunya','CinetPay','WAVE','Orange Money','MTN Mobile','Free Money','Ecobank','Airtel Money','PayDunya','CinetPay'].map((p,i) => (
@@ -194,160 +331,171 @@ export default function HomePage() {
         </div>
       </div>
 
-      {/* SERVICES */}
-      <section style={{ padding: '100px 24px' }}>
+      {/* ══ SERVICES — light section ══════════════════════════════════════ */}
+      <section style={{ padding: '90px 24px', background: '#f8fafc' }}>
         <div style={{ maxWidth: 1200, margin: '0 auto' }}>
-          <div style={{ marginBottom: 44 }}>
-            <p style={{ fontSize: 10, fontWeight: 600, color: '#1a6ef5', letterSpacing: '0.14em', textTransform: 'uppercase', marginBottom: 14 }}>{t.servicesTag}</p>
-            <h2 style={{ fontFamily: 'Syne, system-ui', fontSize: 'clamp(30px,4vw,48px)', fontWeight: 800, marginBottom: 16, letterSpacing: '-0.02em', whiteSpace: 'pre-line' }}>{t.servicesTitle}</h2>
-            <p style={{ fontSize: 16, color: '#64748b', maxWidth: 520, lineHeight: 1.7 }}>{t.servicesSub}</p>
+          <div style={{ marginBottom: 48, display: 'flex', justifyContent: 'space-between', alignItems: 'flex-end', flexWrap: 'wrap', gap: 16 }}>
+            <div>
+              <p style={{ fontSize: 10, fontWeight: 600, color: '#1a6ef5', letterSpacing: '0.14em', textTransform: 'uppercase', marginBottom: 12 }}>{t.servicesTag}</p>
+              <h2 style={{ fontFamily: 'Syne, system-ui', fontSize: 'clamp(28px, 4vw, 46px)', fontWeight: 800, letterSpacing: '-0.03em', color: '#0f172a' }}>
+                {t.servicesTitle1}<br /><span style={{ color: '#1a6ef5' }}>{t.servicesTitle2}</span>
+              </h2>
+            </div>
+            <Link href="/services" style={{ color: '#1a6ef5', textDecoration: 'none', fontSize: 14, fontWeight: 600, display: 'flex', alignItems: 'center', gap: 4 }}>
+              {lang === 'fr' ? 'Tous les services' : 'All services'} <ArrowRight size={14} />
+            </Link>
           </div>
-          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(280px,1fr))', gap: 16 }}>
-            {SERVICES.map(({ Icon, fr, en: en_, descFr, descEn }, i) => (
-              <div key={i} style={{ background: 'rgba(13,20,37,0.6)', border: '1px solid rgba(30,45,74,0.5)', borderRadius: 14, padding: 26, backdropFilter: 'blur(10px)', transition: 'all 0.3s' }}
-                onMouseEnter={e => { const el = e.currentTarget as HTMLElement; el.style.borderColor='rgba(26,110,245,0.5)'; el.style.transform='translateY(-4px)'; el.style.boxShadow='0 20px 60px rgba(26,110,245,0.1)' }}
-                onMouseLeave={e => { const el = e.currentTarget as HTMLElement; el.style.borderColor='rgba(30,45,74,0.5)'; el.style.transform='none'; el.style.boxShadow='none' }}>
-                <div style={{ width: 48, height: 48, background: 'rgba(26,110,245,0.1)', border: '1px solid rgba(26,110,245,0.2)', borderRadius: 12, display: 'flex', alignItems: 'center', justifyContent: 'center', marginBottom: 18 }}>
-                  <Icon size={22} color="#60a5fa" />
+          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(260px, 1fr))', gap: 14 }}>
+            {SERVICES.map(({ Icon, fr, en: en_, color }, i) => (
+              <div key={i} style={{ background: '#fff', border: '1px solid #e2e8f0', borderRadius: 14, padding: '26px 22px', transition: 'all 0.25s' }}
+                onMouseEnter={e => { const el = e.currentTarget as HTMLElement; el.style.transform = 'translateY(-5px)'; el.style.boxShadow = `0 16px 48px rgba(0,0,0,0.1)`; el.style.borderColor = '#bfdbfe' }}
+                onMouseLeave={e => { const el = e.currentTarget as HTMLElement; el.style.transform = 'none'; el.style.boxShadow = 'none'; el.style.borderColor = '#e2e8f0' }}>
+                <div style={{ width: 46, height: 46, background: `${color}12`, border: `1px solid ${color}25`, borderRadius: 12, display: 'flex', alignItems: 'center', justifyContent: 'center', marginBottom: 16 }}>
+                  <Icon size={22} color={color} />
                 </div>
-                <h3 style={{ fontFamily: 'Syne, system-ui', fontSize: 16, fontWeight: 700, marginBottom: 10 }}>{lang === 'fr' ? fr : en_}</h3>
-                <p style={{ fontSize: 13, color: '#64748b', lineHeight: 1.65, marginBottom: 16 }}>{lang === 'fr' ? descFr : descEn}</p>
-                <Link href="/services" style={{ fontSize: 12, color: '#60a5fa', fontWeight: 600, textDecoration: 'none', display: 'flex', alignItems: 'center', gap: 4 }}>{t.learnMore} <ArrowRight size={12} /></Link>
+                <h3 style={{ fontFamily: 'Syne, system-ui', fontSize: 15, fontWeight: 700, color: '#0f172a', marginBottom: 8, letterSpacing: '-0.01em' }}>{lang === 'fr' ? fr : en_}</h3>
+                <Link href="/services" style={{ fontSize: 12, color: color, fontWeight: 600, textDecoration: 'none', display: 'flex', alignItems: 'center', gap: 4 }}>{t.learnMore} <ArrowRight size={11} /></Link>
               </div>
             ))}
           </div>
+          <p style={{ fontSize: 14, color: '#64748b', maxWidth: 520, marginTop: 24, lineHeight: 1.7 }}>{t.servicesSub}</p>
         </div>
       </section>
 
-      {/* WHY + STATS */}
-      <section ref={statsRef.ref} style={{ padding: '100px 24px', background: 'linear-gradient(180deg,#050709 0%,#080d1a 50%,#050709 100%)', borderTop: '1px solid rgba(30,45,74,0.4)', borderBottom: '1px solid rgba(30,45,74,0.4)' }}>
-        <div style={{ maxWidth: 1200, margin: '0 auto', display: 'grid', gridTemplateColumns: 'repeat(auto-fit,minmax(320px,1fr))', gap: 70, alignItems: 'center' }}>
+      {/* ══ WHY + STATS — dark ════════════════════════════════════════════ */}
+      <section ref={statsRef.ref} style={{ padding: '90px 24px', background: 'linear-gradient(180deg, #020714 0%, #040a1a 100%)' }}>
+        <div style={{ maxWidth: 1200, margin: '0 auto', display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(300px,1fr))', gap: 60, alignItems: 'center' }}>
           <div>
             <p style={{ fontSize: 10, fontWeight: 600, color: '#1a6ef5', letterSpacing: '0.14em', textTransform: 'uppercase', marginBottom: 14 }}>{t.whyTag}</p>
-            <h2 style={{ fontFamily: 'Syne, system-ui', fontSize: 'clamp(30px,4vw,48px)', fontWeight: 800, marginBottom: 18, letterSpacing: '-0.02em', whiteSpace: 'pre-line' }}>{t.whyTitle}</h2>
-            <p style={{ fontSize: 15, color: '#64748b', marginBottom: 30, lineHeight: 1.75 }}>{t.whySub}</p>
-            <ul style={{ listStyle: 'none', padding: 0, display: 'flex', flexDirection: 'column', gap: 14 }}>
+            <h2 style={{ fontFamily: 'Syne, system-ui', fontSize: 'clamp(28px,4vw,44px)', fontWeight: 800, letterSpacing: '-0.03em', color: '#fff', marginBottom: 16 }}>
+              {t.whyTitle1}<br /><span style={{ color: '#60a5fa' }}>{t.whyTitle2}</span>
+            </h2>
+            <p style={{ fontSize: 15, color: '#475569', marginBottom: 28, lineHeight: 1.72 }}>{t.whySub}</p>
+            <ul style={{ listStyle: 'none', padding: 0, display: 'flex', flexDirection: 'column', gap: 12 }}>
               {t.checks.map(c => (
-                <li key={c} style={{ display: 'flex', alignItems: 'center', gap: 12, fontSize: 14 }}>
-                  <CheckCircle2 size={16} color="#00e676" style={{ flexShrink: 0 }} />
-                  <span style={{ color: '#94a3b8' }}>{c}</span>
+                <li key={c} style={{ display: 'flex', alignItems: 'center', gap: 10, fontSize: 14 }}>
+                  <CheckCircle2 size={15} color="#00e676" style={{ flexShrink: 0 }} />
+                  <span style={{ color: '#64748b' }}>{c}</span>
                 </li>
               ))}
             </ul>
-            <Link href="/contact" style={{ display: 'inline-flex', alignItems: 'center', gap: 8, background: 'linear-gradient(135deg,#1a6ef5,#0050c8)', color: '#fff', padding: '14px 28px', borderRadius: 10, fontWeight: 700, fontSize: 14, textDecoration: 'none', marginTop: 32, boxShadow: '0 8px 32px rgba(26,110,245,0.3)' }}>
-              {t.buildWith} <ArrowRight size={15} />
+            <Link href="/contact" style={{ display: 'inline-flex', alignItems: 'center', gap: 8, background: '#1a6ef5', color: '#fff', padding: '13px 26px', borderRadius: 9, fontWeight: 700, fontSize: 14, textDecoration: 'none', marginTop: 28 }}>
+              {t.buildWith} <ArrowRight size={14} />
             </Link>
           </div>
-          <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: 14 }}>
+          <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: 12 }}>
             {[[c1,'+',0],[c2,'+',1],[c3,'',2],[c4,'',3]].map(([n,s,i]) => (
-              <div key={Number(i)} style={{ background: 'rgba(13,20,37,0.8)', border: '1px solid rgba(30,45,74,0.5)', borderRadius: 18, padding: 30, textAlign: 'center' }}>
-                <div style={{ fontFamily: 'Syne, system-ui', fontSize: 52, fontWeight: 800, color: '#60a5fa', lineHeight: 1 }}>{n}{s}</div>
-                <div style={{ fontSize: 13, color: '#475569', marginTop: 10 }}>{t.stats[Number(i)]}</div>
+              <div key={Number(i)} style={{ background: 'rgba(6,12,26,0.9)', border: '1px solid rgba(30,45,74,0.6)', borderRadius: 16, padding: '28px 20px', textAlign: 'center' }}>
+                <div style={{ fontFamily: 'Syne, system-ui', fontSize: 48, fontWeight: 800, color: '#60a5fa', letterSpacing: '-0.03em', lineHeight: 1 }}>{n}{s}</div>
+                <div style={{ fontSize: 12, color: '#334155', marginTop: 8 }}>{t.stats[Number(i)]}</div>
               </div>
             ))}
           </div>
         </div>
       </section>
 
-      {/* PROJECTS */}
-      <section style={{ padding: '100px 24px' }}>
+      {/* ══ PROJECTS — light ══════════════════════════════════════════════ */}
+      <section style={{ padding: '90px 24px', background: '#fff' }}>
         <div style={{ maxWidth: 1200, margin: '0 auto' }}>
           <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-end', marginBottom: 44, flexWrap: 'wrap', gap: 16 }}>
             <div>
-              <p style={{ fontSize: 10, fontWeight: 600, color: '#1a6ef5', letterSpacing: '0.14em', textTransform: 'uppercase', marginBottom: 14 }}>{t.projectsTag}</p>
-              <h2 style={{ fontFamily: 'Syne, system-ui', fontSize: 'clamp(30px,4vw,48px)', fontWeight: 800, letterSpacing: '-0.02em' }}>{t.projectsTitle}</h2>
+              <p style={{ fontSize: 10, fontWeight: 600, color: '#1a6ef5', letterSpacing: '0.14em', textTransform: 'uppercase', marginBottom: 12 }}>{t.projectsTag}</p>
+              <h2 style={{ fontFamily: 'Syne, system-ui', fontSize: 'clamp(28px,4vw,44px)', fontWeight: 800, letterSpacing: '-0.03em', color: '#0f172a' }}>
+                {t.projectsTitle1}<br /><span style={{ color: '#1a6ef5' }}>{t.projectsTitle2}</span>
+              </h2>
             </div>
-            <Link href="/projects" style={{ color: '#60a5fa', textDecoration: 'none', fontSize: 14, fontWeight: 600, display: 'flex', alignItems: 'center', gap: 4 }}>{t.seeAll} <ArrowRight size={14} /></Link>
+            <Link href="/projects" style={{ color: '#1a6ef5', textDecoration: 'none', fontSize: 14, fontWeight: 600 }}>{t.seeAll}</Link>
           </div>
-          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit,minmax(300px,1fr))', gap: 20 }}>
+          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(300px,1fr))', gap: 18 }}>
             {PROJECTS.map((p, i) => (
-              <div key={i} style={{ background: 'rgba(13,20,37,0.6)', border: '1px solid rgba(30,45,74,0.5)', borderRadius: 20, overflow: 'hidden', transition: 'all 0.3s' }}
-                onMouseEnter={e => { const el = e.currentTarget as HTMLElement; el.style.transform='translateY(-6px)'; el.style.borderColor='rgba(26,110,245,0.4)'; el.style.boxShadow='0 30px 80px rgba(0,0,0,0.4)' }}
-                onMouseLeave={e => { const el = e.currentTarget as HTMLElement; el.style.transform='none'; el.style.borderColor='rgba(30,45,74,0.5)'; el.style.boxShadow='none' }}>
-                <div style={{ height: 190, background: p.color, display: 'flex', alignItems: 'center', justifyContent: 'center', position: 'relative', padding: 20 }}>
-                  <div style={{ width: 120, height: 120, borderRadius: p.name==='VYBZ Social' ? 16 : 24, overflow: 'hidden', background: p.logoBg, display: 'flex', alignItems: 'center', justifyContent: 'center', boxShadow: '0 16px 48px rgba(0,0,0,0.5)' }}>
-                    <Image src={p.logo} alt={p.name} width={120} height={120} style={{ objectFit: 'contain' }} />
+              <a key={i} href={p.link} target="_blank" rel="noreferrer" style={{ background: '#f8fafc', border: '1px solid #e2e8f0', borderRadius: 18, overflow: 'hidden', textDecoration: 'none', transition: 'all 0.25s', display: 'block' }}
+                onMouseEnter={e => { const el = e.currentTarget as HTMLElement; el.style.transform = 'translateY(-6px)'; el.style.boxShadow = '0 20px 60px rgba(0,0,0,0.1)'; el.style.borderColor = '#bfdbfe' }}
+                onMouseLeave={e => { const el = e.currentTarget as HTMLElement; el.style.transform = 'none'; el.style.boxShadow = 'none'; el.style.borderColor = '#e2e8f0' }}>
+                <div style={{ height: 160, background: p.logoBg, display: 'flex', alignItems: 'center', justifyContent: 'center', position: 'relative' }}>
+                  <div style={{ width: 90, height: 90, borderRadius: 20, overflow: 'hidden', display: 'flex', alignItems: 'center', justifyContent: 'center', boxShadow: '0 8px 32px rgba(0,0,0,0.4)' }}>
+                    <Image src={p.logo} alt={p.name} width={90} height={90} style={{ objectFit: 'contain' }} />
                   </div>
-                  <span style={{ position: 'absolute', top: 14, right: 14, background: 'rgba(0,0,0,0.5)', backdropFilter: 'blur(10px)', border: '1px solid rgba(255,255,255,0.1)', borderRadius: 6, padding: '4px 10px', fontSize: 10, fontWeight: 600, color: '#60a5fa' }}>{lang==='fr' ? p.subFr : p.subEn}</span>
+                  <span style={{ position: 'absolute', top: 12, right: 12, background: 'rgba(0,230,118,0.15)', color: '#00e676', border: '1px solid rgba(0,230,118,0.3)', borderRadius: 20, padding: '3px 10px', fontSize: 10, fontWeight: 700 }}>Live</span>
                 </div>
-                <div style={{ padding: 24 }}>
-                  <div style={{ display: 'flex', flexWrap: 'wrap', gap: 6, marginBottom: 14 }}>
-                    {p.tags.map(tag => <span key={tag} style={{ background: 'rgba(26,110,245,0.1)', border: '1px solid rgba(26,110,245,0.2)', borderRadius: 4, padding: '3px 9px', fontSize: 10, color: '#60a5fa' }}>{tag}</span>)}
-                  </div>
-                  <h3 style={{ fontFamily: 'Syne, system-ui', fontSize: 20, fontWeight: 700, marginBottom: 10 }}>{p.name}</h3>
-                  <p style={{ fontSize: 13, color: '#64748b', lineHeight: 1.65 }}>{lang==='fr' ? p.descFr : p.descEn}</p>
+                <div style={{ padding: '22px 20px' }}>
+                  <div style={{ fontSize: 10, color: p.color, fontWeight: 600, marginBottom: 6, textTransform: 'uppercase', letterSpacing: '0.06em' }}>{lang === 'fr' ? p.subFr : p.subEn}</div>
+                  <h3 style={{ fontFamily: 'Syne, system-ui', fontSize: 18, fontWeight: 800, color: '#0f172a', marginBottom: 8, letterSpacing: '-0.02em' }}>{p.name}</h3>
+                  <p style={{ fontSize: 13, color: '#64748b', lineHeight: 1.65 }}>{lang === 'fr' ? p.descFr : p.descEn}</p>
                 </div>
-              </div>
+              </a>
             ))}
           </div>
         </div>
       </section>
 
-      {/* BUILT FOR AFRICA */}
-      <section style={{ padding: '100px 24px', background: 'linear-gradient(135deg,#04081a,#060d1e,#04081a)', borderTop: '1px solid rgba(30,45,74,0.4)' }}>
-        <div style={{ maxWidth: 1200, margin: '0 auto', display: 'grid', gridTemplateColumns: 'repeat(auto-fit,minmax(320px,1fr))', gap: 70, alignItems: 'start' }}>
-          <div>
+      {/* ══ BUILT FOR AFRICA — dark ════════════════════════════════════════ */}
+      <section style={{ padding: '90px 24px', background: 'linear-gradient(135deg, #020714, #040a1a)' }}>
+        <div style={{ maxWidth: 1200, margin: '0 auto' }}>
+          <div style={{ textAlign: 'center', marginBottom: 52 }}>
             <p style={{ fontSize: 10, fontWeight: 600, color: '#00e676', letterSpacing: '0.14em', textTransform: 'uppercase', marginBottom: 14 }}>{t.africaTag}</p>
-            <h2 style={{ fontFamily: 'Syne, system-ui', fontSize: 'clamp(30px,4vw,48px)', fontWeight: 800, marginBottom: 18, letterSpacing: '-0.02em', whiteSpace: 'pre-line' }}>{t.africaTitle}</h2>
-            <p style={{ fontSize: 15, color: '#64748b', lineHeight: 1.7, marginBottom: 36 }}>{t.africaSub}</p>
-            <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: 12 }}>
-              {t.africaFeatures.map((title, i) => {
-                const Icon = AFRICA_ICONS[i]
-                return (
-                  <div key={i} style={{ background: 'rgba(26,110,245,0.05)', border: '1px solid rgba(30,45,74,0.5)', borderRadius: 12, padding: '16px 14px', display: 'flex', gap: 12, alignItems: 'flex-start', transition: 'all 0.2s' }}
-                    onMouseEnter={e => { (e.currentTarget as HTMLElement).style.borderColor='rgba(26,110,245,0.4)'; (e.currentTarget as HTMLElement).style.background='rgba(26,110,245,0.09)' }}
-                    onMouseLeave={e => { (e.currentTarget as HTMLElement).style.borderColor='rgba(30,45,74,0.5)'; (e.currentTarget as HTMLElement).style.background='rgba(26,110,245,0.05)' }}>
-                    <Icon size={18} color="#60a5fa" style={{ flexShrink: 0, marginTop: 2 }} />
-                    <div>
-                      <div style={{ fontSize: 12, fontWeight: 600, marginBottom: 3 }}>{title}</div>
-                      <div style={{ fontSize: 11, color: '#475569' }}>{t.africaFeatureDescs[i]}</div>
-                    </div>
-                  </div>
-                )
-              })}
-            </div>
+            <h2 style={{ fontFamily: 'Syne, system-ui', fontSize: 'clamp(28px,4vw,44px)', fontWeight: 800, letterSpacing: '-0.03em', color: '#fff', marginBottom: 14 }}>
+              {t.africaTitle1}<br /><span style={{ color: '#00e676' }}>{t.africaTitle2}</span>
+            </h2>
+            <p style={{ fontSize: 15, color: '#475569', maxWidth: 520, margin: '0 auto', lineHeight: 1.7 }}>{t.africaSub}</p>
           </div>
-          <div>
-            <div style={{ background: '#060c1a', border: '1px solid rgba(30,45,74,0.6)', borderRadius: 16, overflow: 'hidden', fontFamily: 'monospace' }}>
-              <div style={{ display: 'flex', alignItems: 'center', gap: 7, padding: '12px 18px', background: '#0a1020', borderBottom: '1px solid rgba(30,45,74,0.4)' }}>
-                {['#ff5f57','#ffbd2e','#28ca42'].map((c,i) => <span key={i} style={{ width: 11, height: 11, borderRadius: '50%', background: c, display: 'inline-block' }} />)}
-                <span style={{ fontSize: 11, color: '#334155', marginLeft: 8, fontFamily: 'system-ui' }}>amdylabs-deploy.sh</span>
-              </div>
-              <div style={{ padding: '20px', fontSize: 12, lineHeight: 2.1 }}>
-                <div style={{ display:'flex', gap:10 }}><span style={{ color:'#00e676' }}>$</span><span style={{ color:'#60a5fa' }}>{t.termCmd1}</span></div>
-                {t.termLines.map((line, i) => <div key={i} style={{ color:'#334155', paddingLeft:22 }}>{line}</div>)}
-                <div style={{ display:'flex', gap:10 }}><span style={{ color:'#00e676' }}>$</span><span style={{ color:'#60a5fa' }}>{t.termCmd2}</span></div>
-                <div style={{ color:'#00e676', paddingLeft:22 }}>{t.termSuccess1}</div>
-                <div style={{ color:'#00e676', paddingLeft:22 }}>{t.termSuccess2}</div>
-                <div style={{ display:'flex', gap:10 }}><span style={{ color:'#00e676' }}>$</span><span style={{ borderRight:'2px solid #1a6ef5', animation:'blink 1s step-end infinite' }}>&nbsp;</span></div>
-              </div>
-            </div>
-            <div style={{ background:'rgba(13,20,37,0.8)', border:'1px solid rgba(30,45,74,0.5)', borderRadius:14, padding:20, marginTop:14, display:'flex', gap:16, alignItems:'center' }}>
-              <TrendingUp size={28} color="#60a5fa" style={{ flexShrink: 0 }} />
-              <div>
-                <div style={{ fontWeight:700, fontSize:13, marginBottom:4 }}>{t.economyTitle}</div>
-                <div style={{ fontSize:12, color:'#475569', lineHeight:1.6 }}>{t.economyDesc}</div>
-              </div>
-            </div>
+          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(220px, 1fr))', gap: 12 }}>
+            {t.africaFeatures.map((title, i) => {
+              const Icon = AFRICA_ICONS[i]
+              return (
+                <div key={i} style={{ background: 'rgba(6,12,26,0.8)', border: '1px solid rgba(30,45,74,0.5)', borderRadius: 12, padding: '20px 18px', display: 'flex', gap: 14, alignItems: 'flex-start', transition: 'all 0.2s' }}
+                  onMouseEnter={e => { const el = e.currentTarget as HTMLElement; el.style.borderColor = 'rgba(0,230,118,0.3)'; el.style.background = 'rgba(0,230,118,0.04)' }}
+                  onMouseLeave={e => { const el = e.currentTarget as HTMLElement; el.style.borderColor = 'rgba(30,45,74,0.5)'; el.style.background = 'rgba(6,12,26,0.8)' }}>
+                  <Icon size={18} color="#00e676" style={{ flexShrink: 0, marginTop: 2 }} />
+                  <div>
+                    <div style={{ fontSize: 13, fontWeight: 600, color: '#e2e8f0', marginBottom: 3 }}>{title}</div>
+                    <div style={{ fontSize: 11, color: '#334155' }}>{t.africaFeatureDescs[i]}</div>
+                  </div>
+                </div>
+              )
+            })}
           </div>
         </div>
       </section>
 
-      {/* CTA */}
-      <section style={{ padding: '80px 24px' }}>
+      {/* ══ TRUST BAR — light ═════════════════════════════════════════════ */}
+      <section style={{ padding: '48px 24px', background: '#f8fafc', borderTop: '1px solid #e2e8f0', borderBottom: '1px solid #e2e8f0' }}>
         <div style={{ maxWidth: 1100, margin: '0 auto' }}>
-          <div style={{ background: 'linear-gradient(135deg,#0a1628,#0d1f4a)', border: '1px solid rgba(30,45,74,0.6)', borderRadius: 24, padding: '80px 48px', textAlign: 'center', position: 'relative', overflow: 'hidden' }}>
-            <div style={{ position: 'absolute', width: 500, height: 500, background: '#1a6ef5', borderRadius: '50%', filter: 'blur(130px)', top: '50%', left: '50%', transform: 'translate(-50%,-50%)', opacity: 0.08 }} />
+          <p style={{ fontSize: 10, fontWeight: 600, color: '#1a6ef5', letterSpacing: '0.14em', textTransform: 'uppercase', marginBottom: 20, textAlign: 'center' }}>{t.trustTag}</p>
+          <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', flexWrap: 'wrap', gap: 20 }}>
+            {t.trustItems.map(({ label, sub }, i) => {
+              const icons = [Shield, MapPin, Globe, Users, TrendingUp]
+              const Icon = icons[i]
+              return (
+                <div key={i} style={{ display: 'flex', alignItems: 'center', gap: 10 }}>
+                  <Icon size={16} color="#1a6ef5" style={{ flexShrink: 0 }} />
+                  <div>
+                    <div style={{ fontSize: 13, fontWeight: 700, color: '#0f172a' }}>{label}</div>
+                    <div style={{ fontSize: 11, color: '#94a3b8' }}>{sub}</div>
+                  </div>
+                </div>
+              )
+            })}
+          </div>
+        </div>
+      </section>
+
+      {/* ══ CTA ═══════════════════════════════════════════════════════════ */}
+      <section style={{ padding: '80px 24px', background: '#fff' }}>
+        <div style={{ maxWidth: 1000, margin: '0 auto' }}>
+          <div style={{ background: 'linear-gradient(135deg, #020714, #0d1f4a)', border: '1px solid rgba(26,110,245,0.2)', borderRadius: 20, padding: '72px 48px', textAlign: 'center', position: 'relative', overflow: 'hidden' }}>
+            <div style={{ position: 'absolute', width: 500, height: 500, background: '#1a6ef5', borderRadius: '50%', filter: 'blur(120px)', top: '50%', left: '50%', transform: 'translate(-50%,-50%)', opacity: 0.07 }} />
             <div style={{ position: 'relative' }}>
               <p style={{ fontSize: 10, fontWeight: 600, color: '#60a5fa', letterSpacing: '0.14em', textTransform: 'uppercase', marginBottom: 16 }}>{t.ctaTag}</p>
-              <h2 style={{ fontFamily: 'Syne, system-ui', fontSize: 'clamp(32px,5vw,56px)', fontWeight: 800, marginBottom: 20, letterSpacing: '-0.02em', whiteSpace: 'pre-line' }}>{t.ctaTitle}</h2>
-              <p style={{ color: '#64748b', fontSize: 17, marginBottom: 44, maxWidth: 540, marginLeft: 'auto', marginRight: 'auto', lineHeight: 1.7 }}>{t.ctaSub}</p>
-              <div style={{ display: 'flex', gap: 14, justifyContent: 'center', flexWrap: 'wrap' }}>
-                <Link href="/contact" style={{ display: 'inline-flex', alignItems: 'center', gap: 8, background: 'linear-gradient(135deg,#1a6ef5,#0050c8)', color: '#fff', padding: '16px 38px', borderRadius: 10, fontWeight: 700, fontSize: 16, textDecoration: 'none', boxShadow: '0 8px 40px rgba(26,110,245,0.35)' }}>
-                  <Rocket size={18} /> {t.ctaBtn1}
+              <h2 style={{ fontFamily: 'Syne, system-ui', fontSize: 'clamp(30px,5vw,52px)', fontWeight: 800, letterSpacing: '-0.03em', color: '#fff', marginBottom: 18 }}>
+                {t.ctaTitle1}<br /><span style={{ color: '#60a5fa' }}>{t.ctaTitle2}</span>
+              </h2>
+              <p style={{ color: '#475569', fontSize: 16, marginBottom: 40, maxWidth: 480, marginLeft: 'auto', marginRight: 'auto', lineHeight: 1.7 }}>{t.ctaSub}</p>
+              <div style={{ display: 'flex', gap: 12, justifyContent: 'center', flexWrap: 'wrap' }}>
+                <Link href="/contact" style={{ display: 'inline-flex', alignItems: 'center', gap: 8, background: 'linear-gradient(135deg,#1a6ef5,#0050c8)', color: '#fff', padding: '15px 36px', borderRadius: 10, fontWeight: 700, fontSize: 15, textDecoration: 'none', boxShadow: '0 8px 40px rgba(26,110,245,0.35)' }}>
+                  <Rocket size={17} /> {t.ctaBtn1}
                 </Link>
-                <a href="https://wa.me/15863442378" target="_blank" rel="noreferrer" style={{ display: 'inline-flex', alignItems: 'center', gap: 8, background: '#25d366', color: '#000', padding: '16px 38px', borderRadius: 10, fontWeight: 700, fontSize: 16, textDecoration: 'none' }}>
-                  <MessageCircle size={18} /> {t.ctaBtn2}
+                <a href="https://wa.me/15863442378" target="_blank" rel="noreferrer" style={{ display: 'inline-flex', alignItems: 'center', gap: 8, background: '#25d366', color: '#000', padding: '15px 36px', borderRadius: 10, fontWeight: 700, fontSize: 15, textDecoration: 'none' }}>
+                  <MessageCircle size={17} /> {t.ctaBtn2}
                 </a>
               </div>
             </div>
@@ -355,40 +503,20 @@ export default function HomePage() {
         </div>
       </section>
 
-
-      {/* TRUST BAR */}
-      <section style={{ padding: '0 24px 80px' }}>
-        <div style={{ maxWidth: 1100, margin: '0 auto', background: 'rgba(13,20,37,0.8)', border: '1px solid rgba(30,45,74,0.5)', borderRadius: 16, padding: '28px 36px', display: 'flex', justifyContent: 'space-between', alignItems: 'center', flexWrap: 'wrap', gap: 20 }}>
-          {[
-            { Icon: Shield, label: 'Michigan LLC', sub: 'US Registered Company' },
-            { Icon: MapPin, label: 'Detroit, MI 48221', sub: '10629 W 7 Mile' },
-            { Icon: Globe, label: '4 Live Products', sub: 'caissepro.app · vybz.city · immopro.agency' },
-            { Icon: Users, label: '38+ Active Merchants', sub: 'Real revenue, real traction' },
-            { Icon: TrendingUp, label: 'Seed Round Open', sub: 'contact@amdylabs.com' },
-          ].map(({ Icon, label, sub }, i) => (
-            <div key={i} style={{ display: 'flex', alignItems: 'center', gap: 12 }}>
-              <Icon size={18} color="#60a5fa" style={{ flexShrink: 0 }} />
-              <div>
-                <div style={{ fontSize: 13, fontWeight: 700, color: '#e2e8f0' }}>{label}</div>
-                <div style={{ fontSize: 11, color: '#475569' }}>{sub}</div>
-              </div>
-            </div>
-          ))}
-        </div>
-      </section>
-
-      {/* FAQ */}
-      <section style={{ padding: '80px 24px', background: '#080d1a', borderTop: '1px solid rgba(30,45,74,0.4)' }}>
-        <div style={{ maxWidth: 860, margin: '0 auto' }}>
+      {/* ══ FAQ — light ═══════════════════════════════════════════════════ */}
+      <section style={{ padding: '80px 24px', background: '#f8fafc', borderTop: '1px solid #e2e8f0' }}>
+        <div style={{ maxWidth: 800, margin: '0 auto' }}>
           <p style={{ fontSize: 10, fontWeight: 600, color: '#1a6ef5', letterSpacing: '0.14em', textTransform: 'uppercase', marginBottom: 14, textAlign: 'center' }}>{t.faqTag}</p>
-          <h2 style={{ fontFamily: 'Syne, system-ui', fontSize: 'clamp(28px,4vw,44px)', fontWeight: 800, textAlign: 'center', marginBottom: 48, letterSpacing: '-0.02em' }}>{t.faqTitle}</h2>
+          <h2 style={{ fontFamily: 'Syne, system-ui', fontSize: 'clamp(28px,4vw,44px)', fontWeight: 800, letterSpacing: '-0.03em', color: '#0f172a', textAlign: 'center', marginBottom: 44 }}>
+            {t.faqTitle1} <span style={{ color: '#1a6ef5' }}>{t.faqTitle2}</span>
+          </h2>
           <div style={{ display: 'flex', flexDirection: 'column', gap: 10 }}>
             {t.faq.map(([q, a], i) => (
-              <div key={i} style={{ background: 'rgba(13,20,37,0.7)', border: '1px solid rgba(30,45,74,0.5)', borderRadius: 12, overflow: 'hidden' }}>
-                <button onClick={() => setOpenFaq(openFaq===i ? null : i)} style={{ width: '100%', display: 'flex', justifyContent: 'space-between', alignItems: 'center', padding: '20px 24px', background: 'none', border: 'none', color: '#e2e8f0', cursor: 'pointer', fontSize: 14, fontWeight: 600, textAlign: 'left', gap: 16, fontFamily: 'inherit' }}>
-                  {q}<span style={{ fontSize: 20, color: '#1a6ef5', transform: openFaq===i ? 'rotate(45deg)' : 'none', transition: 'transform 0.3s', flexShrink: 0 }}>+</span>
+              <div key={i} style={{ background: '#fff', border: '1px solid #e2e8f0', borderRadius: 12, overflow: 'hidden', transition: 'border-color 0.2s' }}>
+                <button onClick={() => setOpenFaq(openFaq === i ? null : i)} style={{ width: '100%', display: 'flex', justifyContent: 'space-between', alignItems: 'center', padding: '18px 22px', background: 'none', border: 'none', color: '#0f172a', cursor: 'pointer', fontSize: 14, fontWeight: 600, textAlign: 'left', gap: 16, fontFamily: 'inherit' }}>
+                  {q}<span style={{ fontSize: 20, color: '#1a6ef5', transform: openFaq === i ? 'rotate(45deg)' : 'none', transition: 'transform 0.25s', flexShrink: 0 }}>+</span>
                 </button>
-                {openFaq===i && <div style={{ padding: '0 24px 20px', fontSize: 14, color: '#64748b', lineHeight: 1.7 }}>{a}</div>}
+                {openFaq === i && <div style={{ padding: '0 22px 18px', fontSize: 14, color: '#64748b', lineHeight: 1.72 }}>{a}</div>}
               </div>
             ))}
           </div>
