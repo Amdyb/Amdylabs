@@ -59,10 +59,10 @@ export default function ProjectsPage() {
   const isEn = lang === 'en'
   return (
     <div style={{ paddingTop: 72 }}>
-      <section style={{ position: 'relative', padding: '110px 24px 80px', textAlign: 'center', overflow: 'hidden' }}>
+      <section style={{ position: 'relative', padding: '100px 24px 70px', textAlign: 'center', overflow: 'hidden' }}>
         <div style={{ position: 'absolute', inset: 0, background: 'radial-gradient(ellipse 70% 60% at 50% 0%, #0b1d4a 0%, transparent 65%)' }} />
         <div style={{ position: 'relative' }}>
-          <p style={{ fontSize: 11, fontWeight: 700, color: '#1a6ef5', letterSpacing: '0.15em', textTransform: 'uppercase', marginBottom: 14 }}>Nos Produits</p>
+          <p style={{ fontSize: 10, fontWeight: 600, color: '#1a6ef5', letterSpacing: '0.14em', textTransform: 'uppercase', marginBottom: 14 }}>Nos Produits</p>
           <h1 style={{ fontFamily: 'Syne, system-ui', fontSize: 'clamp(38px,6vw,68px)', fontWeight: 800, marginBottom: 20, letterSpacing: '-0.02em' }}>{isEn ? "What we've built" : 'Ce que nous avons construit'}</h1>
           <p style={{ fontSize: 18, color: '#64748b', maxWidth: 600, margin: '0 auto', lineHeight: 1.75 }}>De vraies solutions pour de vraies problématiques africaines — des systèmes de caisse aux plateformes de livraison.</p>
         </div>
@@ -84,7 +84,7 @@ export default function ProjectsPage() {
               <div style={{ padding: '40px 36px' }}>
                 <div style={{ display: 'inline-block', background: 'rgba(26,110,245,0.1)', border: '1px solid rgba(26,110,245,0.2)', borderRadius: 6, padding: '4px 12px', fontSize: 11, color: '#60a5fa', fontWeight: 600, marginBottom: 16 }}>{p.sub}</div>
                 <h3 style={{ fontFamily: 'Syne, system-ui', fontSize: 34, fontWeight: 800, marginBottom: 14, letterSpacing: '-0.02em' }}>{p.name}</h3>
-                <p style={{ fontSize: 14, color: '#64748b', lineHeight: 1.82, marginBottom: 22 }}>{p.desc}</p>
+                <p style={{ fontSize: 14, color: '#64748b', lineHeight: 1.72, marginBottom: 22 }}>{p.desc}</p>
                 <div style={{ display: 'flex', flexWrap: 'wrap', gap: 7, marginBottom: 24 }}>
                   {p.tags.map(t => <span key={t} style={{ background: 'rgba(30,45,74,0.6)', border: '1px solid rgba(30,45,74,0.8)', borderRadius: 5, padding: '4px 10px', fontSize: 11, color: '#475569' }}>{t}</span>)}
                 </div>
@@ -111,7 +111,7 @@ export default function ProjectsPage() {
         </div>
       </section>
 
-      <section style={{ padding: '60px 24px 100px', background: '#080d1a', borderTop: '1px solid rgba(30,45,74,0.4)' }}>
+      <section style={{ padding: '50px 24px 90px', background: '#080d1a', borderTop: '1px solid rgba(30,45,74,0.4)' }}>
         <div style={{ maxWidth: 1200, margin: '0 auto' }}>
           <h2 style={{ fontFamily: 'Syne, system-ui', fontSize: 32, fontWeight: 800, marginBottom: 8, letterSpacing: '-0.02em' }}>{isEn ? 'And much more' : 'Et bien plus encore'}</h2>
           <p style={{ color: '#64748b', fontSize: 15, marginBottom: 36 }}>{isEn ? 'AMDY LABS continuously builds' : 'AMDY LABS construit continuellement'} des solutions dans tous les secteurs.</p>
@@ -120,7 +120,7 @@ export default function ProjectsPage() {
               <div key={p.name} style={{ background: 'rgba(13,20,37,0.8)', border: '1px solid rgba(30,45,74,0.5)', borderRadius: 16, padding: 28 }}>
                 <div style={{ display: 'inline-block', background: 'rgba(26,110,245,0.08)', border: '1px solid rgba(26,110,245,0.15)', borderRadius: 4, padding: '3px 8px', fontSize: 10, color: '#60a5fa', marginBottom: 14 }}>{p.tag}</div>
                 <h4 style={{ fontFamily: 'Syne, system-ui', fontSize: 16, fontWeight: 700, marginBottom: 10 }}>{p.name}</h4>
-                <p style={{ fontSize: 13, color: '#64748b', lineHeight: 1.7 }}>{p.desc}</p>
+                <p style={{ fontSize: 13, color: '#64748b', lineHeight: 1.65 }}>{p.desc}</p>
               </div>
             ))}
           </div>

@@ -7,15 +7,15 @@ export default function Footer() {
   return (
     <footer style={{ background: '#04081a', borderTop: '1px solid rgba(30,45,74,0.5)', padding: '70px 24px 32px' }}>
       <div style={{ maxWidth: 1200, margin: '0 auto' }}>
-        <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(180px, 1fr))', gap: 44, marginBottom: 52 }}>
+        <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(180px, 1fr))', gap: 44, marginBottom: 44 }}>
           <div>
             <div style={{ display: 'flex', alignItems: 'center', gap: 10, marginBottom: 16 }}>
               <Image src="/logo-amdylabs.png" alt="AMDY LABS" width={42} height={42} style={{ borderRadius: '50%' }} />
-              <span style={{ fontFamily: 'Syne, system-ui', fontWeight: 800, fontSize: 20, color: '#fff', letterSpacing: '-0.01em' }}>
+              <span style={{ fontFamily: 'Syne, system-ui', fontWeight: 800, fontSize: 20, color: '#fff', letterSpacing: '-0.02em' }}>
                 AMDY <span style={{ color: '#60a5fa' }}>LABS</span>
               </span>
             </div>
-            <p style={{ fontSize: 13, color: '#475569', lineHeight: 1.8, maxWidth: 240, marginBottom: 18 }}>
+            <p style={{ fontSize: 13, color: '#475569', lineHeight: 1.72, maxWidth: 240, marginBottom: 18 }}>
               Construire l&apos;avenir numérique de l&apos;Afrique — une solution à la fois.<br />
               Fondé par <strong style={{ color: '#64748b' }}>Amdy Boubacar</strong>.
             </p>

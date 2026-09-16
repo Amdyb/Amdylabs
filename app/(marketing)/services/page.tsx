@@ -20,10 +20,10 @@ export default function ServicesPage() {
   const isEn = lang === 'en'
   return (
     <div style={{ paddingTop: 72 }}>
-      <section style={{ position: 'relative', padding: '110px 24px 80px', textAlign: 'center', overflow: 'hidden' }}>
+      <section style={{ position: 'relative', padding: '100px 24px 70px', textAlign: 'center', overflow: 'hidden' }}>
         <div style={{ position: 'absolute', inset: 0, background: 'radial-gradient(ellipse 70% 60% at 50% 0%, #0b1d4a 0%, transparent 65%)' }} />
         <div style={{ position: 'relative' }}>
-          <p style={{ fontSize: 11, fontWeight: 700, color: '#1a6ef5', letterSpacing: '0.15em', textTransform: 'uppercase', marginBottom: 14 }}>Ce que nous construisons</p>
+          <p style={{ fontSize: 10, fontWeight: 600, color: '#1a6ef5', letterSpacing: '0.14em', textTransform: 'uppercase', marginBottom: 14 }}>Ce que nous construisons</p>
           <h1 style={{ fontFamily: 'Syne, system-ui', fontSize: 'clamp(38px,6vw,68px)', fontWeight: 800, marginBottom: 20, letterSpacing: '-0.02em' }}>{isEn ? 'Everything you need to go digital' : "Tout ce qu'il faut pour vous digitaliser"}</h1>
           <p style={{ fontSize: 18, color: '#64748b', maxWidth: 600, margin: '0 auto 32px', lineHeight: 1.75 }}>{isEn ? 'From idea to production — AMDY LABS builds, launches, and supports world-class digital products for African businesses.' : "De l'idée à la production — AMDY LABS construit, lance et soutient des produits digitaux de classe mondiale."}</p>
           <Link href="/contact" style={{ display: 'inline-flex', alignItems: 'center', gap: 8, background: 'linear-gradient(135deg,#1a6ef5,#0050c8)', color: '#fff', padding: '14px 30px', borderRadius: 10, fontWeight: 700, fontSize: 15, textDecoration: 'none', boxShadow: '0 8px 32px rgba(26,110,245,0.3)' }}>
@@ -32,17 +32,17 @@ export default function ServicesPage() {
         </div>
       </section>
 
-      <section style={{ padding: '60px 24px 100px' }}>
+      <section style={{ padding: '50px 24px 90px' }}>
         <div style={{ maxWidth: 1200, margin: '0 auto', display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(340px, 1fr))', gap: 20 }}>
           {SERVICES.map((s, i) => (
-            <div key={i} style={{ background: 'rgba(13,20,37,0.7)', border: '1px solid rgba(30,45,74,0.5)', borderRadius: 20, padding: 32 }}>
+            <div key={i} style={{ background: 'rgba(13,20,37,0.7)', border: '1px solid rgba(30,45,74,0.5)', borderRadius: 16, padding: 28 }}>
               <div style={{ display: 'flex', alignItems: 'center', gap: 16, marginBottom: 20 }}>
                 <div style={{ width: 52, height: 52, background: `${s.color}15`, border: `1px solid ${s.color}33`, borderRadius: 14, display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
                   <s.Icon size={24} color={s.color} />
                 </div>
                 <h3 style={{ fontFamily: 'Syne, system-ui', fontSize: 17, fontWeight: 700 }}>{s.label}</h3>
               </div>
-              <p style={{ fontSize: 14, color: '#64748b', lineHeight: 1.75, marginBottom: 20 }}>{s.desc}</p>
+              <p style={{ fontSize: 14, color: '#64748b', lineHeight: 1.7, marginBottom: 20 }}>{s.desc}</p>
               <ul style={{ listStyle: 'none', padding: 0, display: 'flex', flexDirection: 'column', gap: 9, marginBottom: 24 }}>
                 {s.benefits.map(b => (
                   <li key={b} style={{ display: 'flex', alignItems: 'center', gap: 10, fontSize: 13 }}>

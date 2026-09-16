@@ -157,8 +157,8 @@ export default function HomePage() {
               <span style={{ background: 'linear-gradient(135deg,#60a5fa,#00e676)', WebkitBackgroundClip: 'text', WebkitTextFillColor: 'transparent', backgroundClip: 'text' }}>{t.h1b}</span><br />
               {t.h1c}
             </h1>
-            <p style={{ fontSize: 17, color: '#94a3b8', maxWidth: 500, marginBottom: 40, lineHeight: 1.78 }}>{t.sub}</p>
-            <div style={{ display: 'flex', gap: 14, flexWrap: 'wrap', marginBottom: 52 }}>
+            <p style={{ fontSize: 17, color: '#94a3b8', maxWidth: 500, marginBottom: 40, lineHeight: 1.72 }}>{t.sub}</p>
+            <div style={{ display: 'flex', gap: 14, flexWrap: 'wrap', marginBottom: 44 }}>
               <Link href="/contact" style={{ display: 'inline-flex', alignItems: 'center', gap: 8, background: 'linear-gradient(135deg,#1a6ef5,#0050c8)', color: '#fff', padding: '15px 32px', borderRadius: 10, fontWeight: 700, fontSize: 15, textDecoration: 'none', boxShadow: '0 8px 32px rgba(26,110,245,0.4)' }}>
                 <Rocket size={16} /> {t.cta1}
               </Link>
@@ -195,23 +195,23 @@ export default function HomePage() {
       </div>
 
       {/* SERVICES */}
-      <section style={{ padding: '110px 24px' }}>
+      <section style={{ padding: '100px 24px' }}>
         <div style={{ maxWidth: 1200, margin: '0 auto' }}>
-          <div style={{ marginBottom: 64 }}>
-            <p style={{ fontSize: 11, fontWeight: 700, color: '#1a6ef5', letterSpacing: '0.15em', textTransform: 'uppercase', marginBottom: 14 }}>{t.servicesTag}</p>
+          <div style={{ marginBottom: 44 }}>
+            <p style={{ fontSize: 10, fontWeight: 600, color: '#1a6ef5', letterSpacing: '0.14em', textTransform: 'uppercase', marginBottom: 14 }}>{t.servicesTag}</p>
             <h2 style={{ fontFamily: 'Syne, system-ui', fontSize: 'clamp(30px,4vw,48px)', fontWeight: 800, marginBottom: 16, letterSpacing: '-0.02em', whiteSpace: 'pre-line' }}>{t.servicesTitle}</h2>
             <p style={{ fontSize: 16, color: '#64748b', maxWidth: 520, lineHeight: 1.7 }}>{t.servicesSub}</p>
           </div>
           <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(280px,1fr))', gap: 16 }}>
             {SERVICES.map(({ Icon, fr, en: en_, descFr, descEn }, i) => (
-              <div key={i} style={{ background: 'rgba(13,20,37,0.6)', border: '1px solid rgba(30,45,74,0.5)', borderRadius: 16, padding: 28, backdropFilter: 'blur(10px)', transition: 'all 0.3s' }}
+              <div key={i} style={{ background: 'rgba(13,20,37,0.6)', border: '1px solid rgba(30,45,74,0.5)', borderRadius: 14, padding: 26, backdropFilter: 'blur(10px)', transition: 'all 0.3s' }}
                 onMouseEnter={e => { const el = e.currentTarget as HTMLElement; el.style.borderColor='rgba(26,110,245,0.5)'; el.style.transform='translateY(-4px)'; el.style.boxShadow='0 20px 60px rgba(26,110,245,0.1)' }}
                 onMouseLeave={e => { const el = e.currentTarget as HTMLElement; el.style.borderColor='rgba(30,45,74,0.5)'; el.style.transform='none'; el.style.boxShadow='none' }}>
                 <div style={{ width: 48, height: 48, background: 'rgba(26,110,245,0.1)', border: '1px solid rgba(26,110,245,0.2)', borderRadius: 12, display: 'flex', alignItems: 'center', justifyContent: 'center', marginBottom: 18 }}>
                   <Icon size={22} color="#60a5fa" />
                 </div>
                 <h3 style={{ fontFamily: 'Syne, system-ui', fontSize: 16, fontWeight: 700, marginBottom: 10 }}>{lang === 'fr' ? fr : en_}</h3>
-                <p style={{ fontSize: 13, color: '#64748b', lineHeight: 1.7, marginBottom: 16 }}>{lang === 'fr' ? descFr : descEn}</p>
+                <p style={{ fontSize: 13, color: '#64748b', lineHeight: 1.65, marginBottom: 16 }}>{lang === 'fr' ? descFr : descEn}</p>
                 <Link href="/services" style={{ fontSize: 12, color: '#60a5fa', fontWeight: 600, textDecoration: 'none', display: 'flex', alignItems: 'center', gap: 4 }}>{t.learnMore} <ArrowRight size={12} /></Link>
               </div>
             ))}
@@ -220,10 +220,10 @@ export default function HomePage() {
       </section>
 
       {/* WHY + STATS */}
-      <section ref={statsRef.ref} style={{ padding: '110px 24px', background: 'linear-gradient(180deg,#050709 0%,#080d1a 50%,#050709 100%)', borderTop: '1px solid rgba(30,45,74,0.4)', borderBottom: '1px solid rgba(30,45,74,0.4)' }}>
+      <section ref={statsRef.ref} style={{ padding: '100px 24px', background: 'linear-gradient(180deg,#050709 0%,#080d1a 50%,#050709 100%)', borderTop: '1px solid rgba(30,45,74,0.4)', borderBottom: '1px solid rgba(30,45,74,0.4)' }}>
         <div style={{ maxWidth: 1200, margin: '0 auto', display: 'grid', gridTemplateColumns: 'repeat(auto-fit,minmax(320px,1fr))', gap: 70, alignItems: 'center' }}>
           <div>
-            <p style={{ fontSize: 11, fontWeight: 700, color: '#1a6ef5', letterSpacing: '0.15em', textTransform: 'uppercase', marginBottom: 14 }}>{t.whyTag}</p>
+            <p style={{ fontSize: 10, fontWeight: 600, color: '#1a6ef5', letterSpacing: '0.14em', textTransform: 'uppercase', marginBottom: 14 }}>{t.whyTag}</p>
             <h2 style={{ fontFamily: 'Syne, system-ui', fontSize: 'clamp(30px,4vw,48px)', fontWeight: 800, marginBottom: 18, letterSpacing: '-0.02em', whiteSpace: 'pre-line' }}>{t.whyTitle}</h2>
             <p style={{ fontSize: 15, color: '#64748b', marginBottom: 30, lineHeight: 1.75 }}>{t.whySub}</p>
             <ul style={{ listStyle: 'none', padding: 0, display: 'flex', flexDirection: 'column', gap: 14 }}>
@@ -250,11 +250,11 @@ export default function HomePage() {
       </section>
 
       {/* PROJECTS */}
-      <section style={{ padding: '110px 24px' }}>
+      <section style={{ padding: '100px 24px' }}>
         <div style={{ maxWidth: 1200, margin: '0 auto' }}>
-          <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-end', marginBottom: 56, flexWrap: 'wrap', gap: 16 }}>
+          <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-end', marginBottom: 44, flexWrap: 'wrap', gap: 16 }}>
             <div>
-              <p style={{ fontSize: 11, fontWeight: 700, color: '#1a6ef5', letterSpacing: '0.15em', textTransform: 'uppercase', marginBottom: 14 }}>{t.projectsTag}</p>
+              <p style={{ fontSize: 10, fontWeight: 600, color: '#1a6ef5', letterSpacing: '0.14em', textTransform: 'uppercase', marginBottom: 14 }}>{t.projectsTag}</p>
               <h2 style={{ fontFamily: 'Syne, system-ui', fontSize: 'clamp(30px,4vw,48px)', fontWeight: 800, letterSpacing: '-0.02em' }}>{t.projectsTitle}</h2>
             </div>
             <Link href="/projects" style={{ color: '#60a5fa', textDecoration: 'none', fontSize: 14, fontWeight: 600, display: 'flex', alignItems: 'center', gap: 4 }}>{t.seeAll} <ArrowRight size={14} /></Link>
@@ -275,7 +275,7 @@ export default function HomePage() {
                     {p.tags.map(tag => <span key={tag} style={{ background: 'rgba(26,110,245,0.1)', border: '1px solid rgba(26,110,245,0.2)', borderRadius: 4, padding: '3px 9px', fontSize: 10, color: '#60a5fa' }}>{tag}</span>)}
                   </div>
                   <h3 style={{ fontFamily: 'Syne, system-ui', fontSize: 20, fontWeight: 700, marginBottom: 10 }}>{p.name}</h3>
-                  <p style={{ fontSize: 13, color: '#64748b', lineHeight: 1.7 }}>{lang==='fr' ? p.descFr : p.descEn}</p>
+                  <p style={{ fontSize: 13, color: '#64748b', lineHeight: 1.65 }}>{lang==='fr' ? p.descFr : p.descEn}</p>
                 </div>
               </div>
             ))}
@@ -284,12 +284,12 @@ export default function HomePage() {
       </section>
 
       {/* BUILT FOR AFRICA */}
-      <section style={{ padding: '110px 24px', background: 'linear-gradient(135deg,#04081a,#060d1e,#04081a)', borderTop: '1px solid rgba(30,45,74,0.4)' }}>
+      <section style={{ padding: '100px 24px', background: 'linear-gradient(135deg,#04081a,#060d1e,#04081a)', borderTop: '1px solid rgba(30,45,74,0.4)' }}>
         <div style={{ maxWidth: 1200, margin: '0 auto', display: 'grid', gridTemplateColumns: 'repeat(auto-fit,minmax(320px,1fr))', gap: 70, alignItems: 'start' }}>
           <div>
-            <p style={{ fontSize: 11, fontWeight: 700, color: '#00e676', letterSpacing: '0.15em', textTransform: 'uppercase', marginBottom: 14 }}>{t.africaTag}</p>
+            <p style={{ fontSize: 10, fontWeight: 600, color: '#00e676', letterSpacing: '0.14em', textTransform: 'uppercase', marginBottom: 14 }}>{t.africaTag}</p>
             <h2 style={{ fontFamily: 'Syne, system-ui', fontSize: 'clamp(30px,4vw,48px)', fontWeight: 800, marginBottom: 18, letterSpacing: '-0.02em', whiteSpace: 'pre-line' }}>{t.africaTitle}</h2>
-            <p style={{ fontSize: 15, color: '#64748b', lineHeight: 1.75, marginBottom: 36 }}>{t.africaSub}</p>
+            <p style={{ fontSize: 15, color: '#64748b', lineHeight: 1.7, marginBottom: 36 }}>{t.africaSub}</p>
             <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: 12 }}>
               {t.africaFeatures.map((title, i) => {
                 const Icon = AFRICA_ICONS[i]
@@ -334,12 +334,12 @@ export default function HomePage() {
       </section>
 
       {/* CTA */}
-      <section style={{ padding: '90px 24px' }}>
+      <section style={{ padding: '80px 24px' }}>
         <div style={{ maxWidth: 1100, margin: '0 auto' }}>
           <div style={{ background: 'linear-gradient(135deg,#0a1628,#0d1f4a)', border: '1px solid rgba(30,45,74,0.6)', borderRadius: 24, padding: '80px 48px', textAlign: 'center', position: 'relative', overflow: 'hidden' }}>
             <div style={{ position: 'absolute', width: 500, height: 500, background: '#1a6ef5', borderRadius: '50%', filter: 'blur(130px)', top: '50%', left: '50%', transform: 'translate(-50%,-50%)', opacity: 0.08 }} />
             <div style={{ position: 'relative' }}>
-              <p style={{ fontSize: 11, fontWeight: 700, color: '#60a5fa', letterSpacing: '0.15em', textTransform: 'uppercase', marginBottom: 16 }}>{t.ctaTag}</p>
+              <p style={{ fontSize: 10, fontWeight: 600, color: '#60a5fa', letterSpacing: '0.14em', textTransform: 'uppercase', marginBottom: 16 }}>{t.ctaTag}</p>
               <h2 style={{ fontFamily: 'Syne, system-ui', fontSize: 'clamp(32px,5vw,56px)', fontWeight: 800, marginBottom: 20, letterSpacing: '-0.02em', whiteSpace: 'pre-line' }}>{t.ctaTitle}</h2>
               <p style={{ color: '#64748b', fontSize: 17, marginBottom: 44, maxWidth: 540, marginLeft: 'auto', marginRight: 'auto', lineHeight: 1.7 }}>{t.ctaSub}</p>
               <div style={{ display: 'flex', gap: 14, justifyContent: 'center', flexWrap: 'wrap' }}>
@@ -356,9 +356,9 @@ export default function HomePage() {
       </section>
 
       {/* FAQ */}
-      <section style={{ padding: '90px 24px', background: '#080d1a', borderTop: '1px solid rgba(30,45,74,0.4)' }}>
+      <section style={{ padding: '80px 24px', background: '#080d1a', borderTop: '1px solid rgba(30,45,74,0.4)' }}>
         <div style={{ maxWidth: 860, margin: '0 auto' }}>
-          <p style={{ fontSize: 11, fontWeight: 700, color: '#1a6ef5', letterSpacing: '0.15em', textTransform: 'uppercase', marginBottom: 14, textAlign: 'center' }}>{t.faqTag}</p>
+          <p style={{ fontSize: 10, fontWeight: 600, color: '#1a6ef5', letterSpacing: '0.14em', textTransform: 'uppercase', marginBottom: 14, textAlign: 'center' }}>{t.faqTag}</p>
           <h2 style={{ fontFamily: 'Syne, system-ui', fontSize: 'clamp(28px,4vw,44px)', fontWeight: 800, textAlign: 'center', marginBottom: 48, letterSpacing: '-0.02em' }}>{t.faqTitle}</h2>
           <div style={{ display: 'flex', flexDirection: 'column', gap: 10 }}>
             {t.faq.map(([q, a], i) => (
@@ -366,7 +366,7 @@ export default function HomePage() {
                 <button onClick={() => setOpenFaq(openFaq===i ? null : i)} style={{ width: '100%', display: 'flex', justifyContent: 'space-between', alignItems: 'center', padding: '20px 24px', background: 'none', border: 'none', color: '#e2e8f0', cursor: 'pointer', fontSize: 14, fontWeight: 600, textAlign: 'left', gap: 16, fontFamily: 'inherit' }}>
                   {q}<span style={{ fontSize: 20, color: '#1a6ef5', transform: openFaq===i ? 'rotate(45deg)' : 'none', transition: 'transform 0.3s', flexShrink: 0 }}>+</span>
                 </button>
-                {openFaq===i && <div style={{ padding: '0 24px 20px', fontSize: 14, color: '#64748b', lineHeight: 1.75 }}>{a}</div>}
+                {openFaq===i && <div style={{ padding: '0 24px 20px', fontSize: 14, color: '#64748b', lineHeight: 1.7 }}>{a}</div>}
               </div>
             ))}
           </div>

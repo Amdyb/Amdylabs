@@ -23,10 +23,10 @@ export default function ContactPage() {
 
   return (
     <div style={{ paddingTop: 72 }}>
-      <section style={{ position: 'relative', padding: '110px 24px 80px', textAlign: 'center', overflow: 'hidden' }}>
+      <section style={{ position: 'relative', padding: '100px 24px 70px', textAlign: 'center', overflow: 'hidden' }}>
         <div style={{ position: 'absolute', inset: 0, background: 'radial-gradient(ellipse 70% 60% at 50% 0%, #0b1d4a 0%, transparent 65%)' }} />
         <div style={{ position: 'relative' }}>
-          <p style={{ fontSize: 11, fontWeight: 700, color: '#1a6ef5', letterSpacing: '0.15em', textTransform: 'uppercase', marginBottom: 14 }}>Nous contacter</p>
+          <p style={{ fontSize: 10, fontWeight: 600, color: '#1a6ef5', letterSpacing: '0.14em', textTransform: 'uppercase', marginBottom: 14 }}>Nous contacter</p>
           <h1 style={{ fontFamily: 'Syne, system-ui', fontSize: 'clamp(38px,6vw,68px)', fontWeight: 800, marginBottom: 20, letterSpacing: '-0.02em' }}>{isEn ? "Let's build something great together" : 'Construisons quelque chose de grand ensemble'}</h1>
           <p style={{ fontSize: 18, color: '#64748b', maxWidth: 560, margin: '0 auto', lineHeight: 1.75 }}>Parlez-nous de votre projet et nous vous répondrons dans les 24 heures. Appel de découverte gratuit — sans engagement.</p>
         </div>
@@ -35,7 +35,7 @@ export default function ContactPage() {
       <section style={{ padding: '40px 24px 100px' }}>
         <div style={{ maxWidth: 1100, margin: '0 auto', display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(300px, 1fr))', gap: 60 }}>
           <div>
-            <h2 style={{ fontFamily: 'Syne, system-ui', fontSize: 26, fontWeight: 800, marginBottom: 36, letterSpacing: '-0.01em' }}>{isEn ? 'Contact AMDY LABS' : 'Contacter AMDY LABS'}</h2>
+            <h2 style={{ fontFamily: 'Syne, system-ui', fontSize: 26, fontWeight: 800, marginBottom: 36, letterSpacing: '-0.02em' }}>{isEn ? 'Contact AMDY LABS' : 'Contacter AMDY LABS'}</h2>
             <div style={{ display: 'flex', flexDirection: 'column', gap: 20 }}>
               {[
                 { Icon: Phone, title: 'Téléphone', value: '+1 (586) 344-2378', link: 'tel:+15863442378' },
@@ -96,7 +96,7 @@ export default function ContactPage() {
               </div>
             ) : (
               <>
-                <h3 style={{ fontFamily: 'Syne, system-ui', fontSize: 22, fontWeight: 800, marginBottom: 28, letterSpacing: '-0.01em' }}>{isEn ? 'Send us a message' : 'Envoyez-nous un message'}</h3>
+                <h3 style={{ fontFamily: 'Syne, system-ui', fontSize: 22, fontWeight: 800, marginBottom: 28, letterSpacing: '-0.02em' }}>{isEn ? 'Send us a message' : 'Envoyez-nous un message'}</h3>
                 <form onSubmit={handleSubmit}>
                   <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: 14, marginBottom: 14 }}>
                     <div>

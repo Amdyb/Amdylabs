@@ -19,12 +19,55 @@ html { scroll-behavior: smooth; }
 body {
   background: var(--black);
   color: #fff;
-  font-family: var(--font-dm-sans, system-ui), sans-serif;
+  font-family: 'DM Sans', system-ui, -apple-system, sans-serif;
+  font-size: 15px;
+  line-height: 1.6;
   -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
   overflow-x: hidden;
+  letter-spacing: -0.01em;
 }
 
-/* Scrollbar */
+/* ── Typography scale ───────────────────────────────────────── */
+h1, h2, h3, h4, h5, h6 {
+  font-family: 'Syne', system-ui, sans-serif;
+  font-weight: 800;
+  line-height: 1.05;
+  letter-spacing: -0.03em;
+  color: #fff;
+}
+
+h1 { font-size: clamp(36px, 5.5vw, 68px); }
+h2 { font-size: clamp(26px, 3.5vw, 46px); }
+h3 { font-size: clamp(18px, 2vw, 22px); }
+h4 { font-size: 16px; letter-spacing: -0.02em; }
+
+p {
+  font-family: 'DM Sans', system-ui, sans-serif;
+  font-weight: 400;
+  line-height: 1.72;
+  color: #64748b;
+}
+
+a { color: inherit; }
+
+/* ── Tag / label style ──────────────────────────────────────── */
+.tag {
+  font-family: 'DM Sans', system-ui, sans-serif;
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: #1a6ef5;
+}
+
+/* ── Buttons ────────────────────────────────────────────────── */
+button { font-family: 'DM Sans', system-ui, sans-serif; }
+
+/* ── Scrollbar ──────────────────────────────────────────────── */
 ::-webkit-scrollbar { width: 4px; }
 ::-webkit-scrollbar-track { background: var(--navy); }
 ::-webkit-scrollbar-thumb { background: var(--border); border-radius: 4px; }
+
+/* ── Selection ──────────────────────────────────────────────── */
+::selection { background: rgba(26,110,245,0.3); color: #fff; }

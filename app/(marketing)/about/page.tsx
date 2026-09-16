@@ -26,10 +26,10 @@ export default function AboutPage() {
   const isEn = lang === 'en'
   return (
     <div style={{ paddingTop: 72 }}>
-      <section style={{ position: 'relative', padding: '110px 24px 80px', overflow: 'hidden' }}>
+      <section style={{ position: 'relative', padding: '100px 24px 70px', overflow: 'hidden' }}>
         <div style={{ position: 'absolute', inset: 0, background: 'radial-gradient(ellipse 70% 70% at 50% 0%, #0b1d4a 0%, transparent 65%)' }} />
         <div style={{ position: 'relative', maxWidth: 900, margin: '0 auto', textAlign: 'center' }}>
-          <p style={{ fontSize: 11, fontWeight: 700, color: '#1a6ef5', letterSpacing: '0.15em', textTransform: 'uppercase', marginBottom: 14 }}>Notre Histoire</p>
+          <p style={{ fontSize: 10, fontWeight: 600, color: '#1a6ef5', letterSpacing: '0.14em', textTransform: 'uppercase', marginBottom: 14 }}>Notre Histoire</p>
           <h1 style={{ fontFamily: 'Syne, system-ui', fontSize: 'clamp(38px,6vw,68px)', fontWeight: 800, marginBottom: 24, letterSpacing: '-0.02em', lineHeight: 1.05 }}>
             Construit en Afrique,<br />
             <span style={{ background: 'linear-gradient(135deg,#60a5fa,#00c8ff)', WebkitBackgroundClip: 'text', WebkitTextFillColor: 'transparent', backgroundClip: 'text' }}>pour l&apos;Afrique</span>,<br />
@@ -45,16 +45,16 @@ export default function AboutPage() {
         <div style={{ maxWidth: 1200, margin: '0 auto', display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(300px, 1fr))', gap: 60, alignItems: 'start' }}>
           <div>
             <h2 style={{ fontFamily: 'Syne, system-ui', fontSize: 34, fontWeight: 800, marginBottom: 24, letterSpacing: '-0.02em' }}>L&apos;histoire d&apos;AMDY LABS</h2>
-            <p style={{ fontSize: 15, color: '#64748b', lineHeight: 1.85, marginBottom: 18 }}>
+            <p style={{ fontSize: 15, color: '#64748b', lineHeight: 1.7, marginBottom: 18 }}>
               AMDY LABS a été fondé par <strong style={{ color: '#e2e8f0' }}>Amdy Boubacar</strong> aux côtés d&apos;un réseau de talentueux développeurs et créatifs africains vivant aux États-Unis, en Europe et en Afrique.
             </p>
-            <p style={{ fontSize: 15, color: '#64748b', lineHeight: 1.85, marginBottom: 18 }}>
+            <p style={{ fontSize: 15, color: '#64748b', lineHeight: 1.7, marginBottom: 18 }}>
               L&apos;entreprise est née d&apos;une vision simple mais puissante : les entrepreneurs africains méritent des logiciels de classe mondiale, des outils digitaux modernes et des systèmes d&apos;entreprise évolutifs — à des prix adaptés aux réalités africaines.
             </p>
-            <p style={{ fontSize: 15, color: '#64748b', lineHeight: 1.85, marginBottom: 18 }}>
+            <p style={{ fontSize: 15, color: '#64748b', lineHeight: 1.7, marginBottom: 18 }}>
               De CaissePro, notre système de caisse phare au service des commerçants africains, à VYBZ Social et Mon Livreur — chaque produit que nous construisons résout un vrai problème d&apos;entreprise africaine.
             </p>
-            <p style={{ fontSize: 15, color: '#64748b', lineHeight: 1.85 }}>
+            <p style={{ fontSize: 15, color: '#64748b', lineHeight: 1.7 }}>
               Nous croyons que l&apos;Afrique n&apos;est pas seulement un marché — c&apos;est l&apos;avenir. Et nous sommes là pour construire cet avenir, un produit à la fois.
             </p>
           </div>
@@ -91,8 +91,8 @@ export default function AboutPage() {
 
       <section style={{ padding: '70px 24px 90px', background: '#080d1a', borderTop: '1px solid rgba(30,45,74,0.4)' }}>
         <div style={{ maxWidth: 1200, margin: '0 auto' }}>
-          <div style={{ textAlign: 'center', marginBottom: 52 }}>
-            <p style={{ fontSize: 11, fontWeight: 700, color: '#1a6ef5', letterSpacing: '0.15em', textTransform: 'uppercase', marginBottom: 14 }}>Notre Équipe</p>
+          <div style={{ textAlign: 'center', marginBottom: 44 }}>
+            <p style={{ fontSize: 10, fontWeight: 600, color: '#1a6ef5', letterSpacing: '0.14em', textTransform: 'uppercase', marginBottom: 14 }}>Notre Équipe</p>
             <h2 style={{ fontFamily: 'Syne, system-ui', fontSize: 'clamp(28px,4vw,44px)', fontWeight: 800, marginBottom: 16, letterSpacing: '-0.02em' }}>Une équipe distribuée<br />de talents africains</h2>
             <p style={{ fontSize: 16, color: '#64748b', maxWidth: 560, margin: '0 auto', lineHeight: 1.7 }}>Développeurs, designers et stratèges du continent africain et de la diaspora — unis par une mission commune.</p>
           </div>
@@ -110,10 +110,10 @@ export default function AboutPage() {
         </div>
       </section>
 
-      <section style={{ padding: '90px 24px' }}>
+      <section style={{ padding: '80px 24px' }}>
         <div style={{ maxWidth: 1200, margin: '0 auto' }}>
-          <div style={{ textAlign: 'center', marginBottom: 52 }}>
-            <p style={{ fontSize: 11, fontWeight: 700, color: '#1a6ef5', letterSpacing: '0.15em', textTransform: 'uppercase', marginBottom: 14 }}>Ce en quoi nous croyons</p>
+          <div style={{ textAlign: 'center', marginBottom: 44 }}>
+            <p style={{ fontSize: 10, fontWeight: 600, color: '#1a6ef5', letterSpacing: '0.14em', textTransform: 'uppercase', marginBottom: 14 }}>Ce en quoi nous croyons</p>
             <h2 style={{ fontFamily: 'Syne, system-ui', fontSize: 'clamp(28px,4vw,44px)', fontWeight: 800, letterSpacing: '-0.02em' }}>{isEn ? 'Our Core Values' : 'Nos valeurs fondamentales'}</h2>
           </div>
           <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(260px, 1fr))', gap: 16 }}>
