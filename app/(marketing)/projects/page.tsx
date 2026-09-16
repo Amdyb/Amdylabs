@@ -33,7 +33,17 @@ const PROJECTS = [
     color: 'linear-gradient(135deg, #0d2a1a, #1a6e3a)',
     tags: ['React Native', 'Node.js', 'Google Maps', 'API WhatsApp', 'Socket.io'],
     features: ['Suivi en temps réel','Dispatch livreurs','Optimisation des routes','Alertes WhatsApp','Application client','Tableau de bord','Gestion des commandes','Analytiques livraison'],
-    status: 'En développement', link: null,
+    status: 'dev', link: null,
+  },
+  {
+    name: 'ImmoPro',
+    sub: 'Plateforme Immobilière — Sénégal',
+    desc: 'Plateforme immobilière moderne pour le marché sénégalais. Annonces, visites virtuelles, agents certifiés et transactions sécurisées.',
+    logo: '/logo-caissepro.png', logoBg: '#fff',
+    color: 'linear-gradient(135deg, #1a0a00, #5c2d00)',
+    tags: ['Next.js', 'Supabase', 'Maps', 'Sénégal'],
+    features: ['Annonces immobilières','Visites virtuelles','Agents certifiés','Transactions sécurisées','Marché sénégalais','Recherche avancée','Estimations de prix','Multi-villes'],
+    status: 'live', link: 'https://immopro.agency',
   },
 ]
 
