@@ -170,7 +170,7 @@ export default function ProjectsPage() {
                   {p.tags.map(tag => <span key={tag} style={{ background: '#f1f5f9', border: '1px solid #e2e8f0', borderRadius: 5, padding: '3px 10px', fontSize: 11, color: '#64748b' }}>{tag}</span>)}
                 </div>
                 <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: 7, marginBottom: 24 }}>
-                  {p.features[lang].map(f => (
+                  {p.features[lang === 'ar' ? 'en' : lang].map(f => (
                     <div key={f} style={{ display: 'flex', alignItems: 'center', gap: 7, fontSize: 12, color: '#64748b' }}>
                       <span style={{ width: 14, height: 14, background: p.accentColor, color: '#fff', borderRadius: '50%', display: 'inline-flex', alignItems: 'center', justifyContent: 'center', fontSize: 8, fontWeight: 900, flexShrink: 0 }}>✓</span>
                       {f}

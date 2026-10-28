@@ -146,7 +146,7 @@ export default function ServicesPage() {
                 <p style={{ fontSize: 13, color: '#64748b', lineHeight: 1.7, marginBottom: 18 }}>{isEn ? s.descEn : s.descFr}</p>
                 {/* Benefits */}
                 <ul style={{ listStyle: 'none', padding: 0, display: 'flex', flexDirection: 'column', gap: 8, marginBottom: 20 }}>
-                  {s.benefits[lang].map(b => (
+                  {s.benefits[lang === 'ar' ? 'en' : lang].map(b => (
                     <li key={b} style={{ display: 'flex', alignItems: 'center', gap: 9, fontSize: 13, color: '#475569' }}>
                       <CheckCircle2 size={14} color={s.color} style={{ flexShrink: 0 }} />
                       {b}
