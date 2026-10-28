@@ -43,7 +43,7 @@ const T = {
     nav: { home: 'Accueil', services: 'Services', projects: 'Projets', about: 'À propos', investors: 'Investisseurs', contact: 'Contact', cta: 'Démarrer un projet' },
     tagline: 'Studio Logiciel',
     h1: 'Nous construisons des produits\nqui fonctionnent vraiment.',
-    sub: 'AMDY LABS est un studio basé à Detroit qui conçoit et déploie des logiciels pour entrepreneurs africains et américains.',
+    sub: 'Nous construisons des logiciels pour les entrepreneurs aux États-Unis et à travers l\'Afrique.',
     cta1: 'Démarrer un projet', cta2: 'Voir nos solutions',
     stats: [
       { val: 38, suffix: '+', label: 'Marchands actifs' },
@@ -96,7 +96,7 @@ const T = {
     nav: { home: 'Home', services: 'Services', projects: 'Projects', about: 'About', investors: 'Investors', contact: 'Contact', cta: 'Start a Project' },
     tagline: 'Software Studio',
     h1: 'We build products\nthat actually work.',
-    sub: 'AMDY LABS is a Detroit-based studio that designs and ships software for African and American entrepreneurs.',
+    sub: 'We build software for entrepreneurs in the US and across Africa.',
     cta1: 'Start a Project', cta2: 'Explore Our Work',
     stats: [
       { val: 38, suffix: '+', label: 'Active merchants' },
@@ -145,16 +145,69 @@ const T = {
       ['Can non-technical founders work with you?', "That's our specialty. You bring the vision — we handle all the technology."],
     ],
   },
+  ar: {
+  nav: { home: 'الرئيسية', services: 'الخدمات', projects: 'المشاريع', about: 'من نحن', investors: 'المستثمرون', contact: 'تواصل', cta: 'ابدأ مشروعك' },
+  tagline: 'استوديو برمجيات',
+  h1: 'نبني منتجات\nتعمل فعلاً.',
+  sub: 'نبني برمجيات لرواد الأعمال في الولايات المتحدة وعبر أفريقيا.',
+  cta1: 'ابدأ مشروعك', cta2: 'اكتشف أعمالنا',
+  stats: [
+    { val: 38, suffix: '+', label: 'تاجر نشط' },
+    { val: 4,  suffix: '',  label: 'منتج مطلق' },
+    { val: 5,  suffix: '',  label: 'دول' },
+  ],
+  productsLabel: 'منتجاتنا', seeAll: 'عرض الكل',
+  servicesLabel: 'ما نبنيه',
+  servicesTitle: 'تطبيقات. منصات. أدوات أعمال.',
+  servicesSub: 'من الفكرة إلى الإطلاق — نصمّم ونطوّر ونُدير منتجات رقمية عالمية المستوى.',
+  services: [
+    { name: 'تطبيقات الجوال', desc: 'تطبيقات iOS وAndroid أصيلة ومتعددة المنصات بـ React Native وExpo.' },
+    { name: 'الويب والـ SaaS', desc: 'منصات ويب قابلة للتوسع، لوحات تحكم، بوابات، وحلول تجارة إلكترونية.' },
+    { name: 'أنظمة نقاط البيع', desc: 'صناديق دفع حديثة مع Mobile Money وإيصالات واتساب وإدارة مخزون.' },
+    { name: 'حلول الذكاء الاصطناعي', desc: 'أتمتة ذكية وروبوتات دردشة وتحليل بيانات لعملك.' },
+  ],
+  whyLabel: 'لماذا AMDY LABS',
+  whyTitle: 'استوديو واحد، سوقان.',
+  whySub: 'تأسس من قِبل أمدي بوبكر — رجل أعمال سنغالي مقيم في ديترويت. نفهم الجانبين: المعايير الأمريكية والواقع الأفريقي.',
+  checks: [
+    'تكاملات Wave وOrange Money وMTN Mobile Money',
+    'منتجات متعددة اللغات — فرنسية، إنجليزية، ولوف',
+    'محسّن لشبكات 2G/3G والأجهزة المتوسطة',
+    'دعم مستمر عبر واتساب',
+    'أسعار ثابتة وشفافة — بلا مفاجآت',
+  ],
+  buildWith: 'اعمل معنا',
+  trustLabel: 'المصداقية',
+  trust: [
+    { label: 'AMDY LABS LLC', sub: 'شركة مسجلة في ميشيغان، الولايات المتحدة' },
+    { label: 'ديترويت، ميشيغان', sub: '10629 W 7 Mile, Suite 1, 48221' },
+    { label: '4 منتجات مطلقة', sub: 'caissepro.app · vybz.city · immopro.agency' },
+    { label: '38+ تاجر', sub: 'إيرادات حقيقية، نمو حقيقي' },
+    { label: 'جولة تمويل أولية مفتوحة', sub: 'contact@amdylabs.com' },
+  ],
+  ctaTitle: 'مستعد للبناء؟',
+  ctaSub: 'مكالمة اكتشاف مجانية. بلا التزام.',
+  ctaBtn1: 'ابدأ مشروعك', ctaBtn2: 'واتساب',
+  faqLabel: 'الأسئلة الشائعة',
+  faqTitle: 'ما يُسألنا كثيراً.',
+  faq: [
+    ['كم من الوقت يستغرق بناء تطبيق؟', 'عادةً من 6 إلى 16 أسبوعاً حسب التعقيد. يمكن تسليم MVP في 4 إلى 6 أسابيع. نقدم جدولاً زمنياً تفصيلياً بعد مكالمة الاكتشاف المجانية.'],
+    ['هل تدعمون طرق الدفع الأفريقية؟', 'نعم — Wave وOrange Money وFree Money وMTN وPayDunya وCinetPay وغيرها مدمجة أصلاً في جميع منتجاتنا.'],
+    ['ما هي نماذج التسعير لديكم؟', 'مشاريع بسعر ثابت، عقود شهرية، واشتراكات SaaS. عروض أسعار شفافة مسبقاً، بلا مفاجآت.'],
+    ['هل تقدمون دعماً بعد الإطلاق؟', 'بالتأكيد. صيانة، إصلاح أخطاء، تحديثات، ودعم طارئ عبر واتساب.'],
+    ['هل يمكن لمؤسسين غير تقنيين العمل معكم؟', 'هذا تخصصنا. أنت تأتي بالرؤية — نحن نتولى كل الجانب التقني.'],
+  ],
+  },
 }
 
 const PROJECTS = [
   {
     name: 'RigCoach',
     status: 'soon',
-    subFr: 'App mobile · USA',
-    subEn: 'Mobile app · USA',
+    subFr: 'App mobile · USA', subEn: 'Mobile app · USA', subAr: 'تطبيق جوال · الولايات المتحدة',
     descFr: "L'application financière pour owner-operators : revenu net réel par chargement, IFTA, scan de documents.",
     descEn: 'The money app for truck drivers: real take-home per load, IFTA, paperwork scanning.',
+    descAr: 'تطبيق المال لسائقي الشاحنات: صافي الربح الحقيقي لكل شحنة، IFTA، ومسح الوثائق.',
     logo: '/portfolio/rigcoach/logo-on-dark.svg',
     logoBg: '#0a1628',
     accent: '#00c853',
@@ -163,10 +216,10 @@ const PROJECTS = [
   {
     name: 'CaissePro',
     status: 'live',
-    subFr: "Caisse & gestion",
-    subEn: 'POS & management',
+    subFr: "Caisse & gestion", subEn: 'POS & management', subAr: 'نقطة بيع وإدارة',
     descFr: "Système de caisse pour commerçants africains. Wave, Orange Money, reçus WhatsApp.",
     descEn: 'POS for African merchants. Wave, Orange Money, WhatsApp receipts.',
+    descAr: 'نظام نقطة بيع للتجار الأفارقة. Wave وOrange Money وإيصالات واتساب.',
     logo: '/logo-caissepro.png',
     logoBg: '#0d1f4a',
     accent: '#1a6ef5',
@@ -175,10 +228,10 @@ const PROJECTS = [
   {
     name: 'ImmoPro',
     status: 'live',
-    subFr: 'Immobilier',
-    subEn: 'Real estate',
+    subFr: 'Immobilier', subEn: 'Real estate', subAr: 'عقارات',
     descFr: "Plateforme immobilière pour le marché sénégalais. Annonces, agents certifiés.",
     descEn: 'Real estate platform for the Senegalese market. Listings, certified agents.',
+    descAr: 'منصة عقارية للسوق السنغالية. إعلانات ووكلاء معتمدون.',
     logo: '/logo-immopro.png',
     logoBg: '#0a1a6e',
     accent: '#f59e0b',
@@ -187,10 +240,10 @@ const PROJECTS = [
   {
     name: 'VYBZ Social',
     status: 'live',
-    subFr: 'Événements · Dakar',
-    subEn: 'Events · Dakar',
+    subFr: 'Événements · Dakar', subEn: 'Events · Dakar', subAr: 'فعاليات · داكار',
     descFr: '"C\'est quoi les VYBZ ce soir ?" — Événements et vie nocturne à Dakar.',
     descEn: '"What are the VYBZ tonight?" — Events & nightlife in Dakar.',
+    descAr: '"ما هي VYBZ الليلة؟" — فعاليات وحياة ليلية في داكار.',
     logo: '/logo-vybz.png',
     logoBg: '#150020',
     accent: '#8b5cf6',
@@ -201,7 +254,8 @@ const PROJECTS = [
 /* ─── component ─────────────────────────────────────────────────────────── */
 export default function HomePage() {
   const { lang } = useLang()
-  const t = T[lang]
+  const t = T[lang] ?? T.en
+  const isRTL = lang === 'ar'
   const statsSection = useInView(0.2)
   const c0 = useCountUp(38, 1200, statsSection.inView)
   const c1 = useCountUp(4,  1200, statsSection.inView)
@@ -219,7 +273,7 @@ export default function HomePage() {
   }
 
   return (
-    <div style={{ fontFamily: 'Inter, system-ui, sans-serif', color: '#0D0E12', background: '#F7F6F3' }}>
+    <div dir={isRTL ? 'rtl' : 'ltr'} style={{ fontFamily: isRTL ? '"Noto Sans Arabic", "Segoe UI", system-ui, sans-serif' : 'Inter, system-ui, sans-serif', color: '#0D0E12', background: '#F7F6F3' }}>
 
       {/* ── HERO ──────────────────────────────────────────────────────────── */}
       <section style={{
@@ -383,20 +437,20 @@ export default function HomePage() {
                       color: isSoon ? '#00A550' : '#1B5FED',
                       border: `1px solid ${isSoon ? 'rgba(0,165,80,0.25)' : 'rgba(27,95,237,0.2)'}`,
                     }}>
-                      {isSoon ? (lang === 'fr' ? 'Bientôt' : 'Coming soon') : 'Live'}
+                      {isSoon ? (lang === 'fr' ? 'Bientôt' : lang === 'ar' ? 'قريباً' : 'Coming soon') : 'Live'}
                     </span>
                   </div>
 
                   {/* Text */}
                   <div style={{ padding: '18px 20px 22px' }}>
                     <div style={{ fontSize: 11, fontWeight: 600, color: p.accent, marginBottom: 5, textTransform: 'uppercase', letterSpacing: '0.07em' }}>
-                      {lang === 'fr' ? p.subFr : p.subEn}
+                      {lang === 'fr' ? p.subFr : lang === 'ar' ? p.subAr : p.subEn}
                     </div>
                     <h3 style={{ fontSize: 17, fontWeight: 700, letterSpacing: '-0.02em', color: '#0D0E12', marginBottom: 8 }}>
                       {p.name}
                     </h3>
                     <p style={{ fontSize: 13, color: '#5A5F6B', lineHeight: 1.6, margin: 0 }}>
-                      {lang === 'fr' ? p.descFr : p.descEn}
+                      {lang === 'fr' ? p.descFr : lang === 'ar' ? p.descAr : p.descEn}
                     </p>
                   </div>
                 </a>

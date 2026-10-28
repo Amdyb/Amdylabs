@@ -8,14 +8,15 @@ import { useLang, type Lang } from '@/lib/lang'
 const T = {
   fr: { home: 'Accueil', services: 'Services', projects: 'Projets', about: 'À propos', investors: 'Investisseurs', contact: 'Contact', cta: 'Démarrer un projet' },
   en: { home: 'Home', services: 'Services', projects: 'Projects', about: 'About', investors: 'Investors', contact: 'Contact', cta: 'Start a Project' },
+  ar: { home: 'الرئيسية', services: 'الخدمات', projects: 'المشاريع', about: 'من نحن', investors: 'المستثمرون', contact: 'تواصل', cta: 'ابدأ مشروعك' },
 }
 
 function LangToggle() {
   const { lang, setLang } = useLang()
   return (
     <div style={{ display: 'flex', background: 'rgba(255,255,255,0.06)', border: '1px solid rgba(255,255,255,0.12)', borderRadius: 8, overflow: 'hidden' }}>
-      {(['fr', 'en'] as Lang[]).map(l => (
-        <button key={l} onClick={() => setLang(l)} style={{ padding: '7px 13px', background: lang === l ? '#1a6ef5' : 'transparent', border: 'none', color: lang === l ? '#fff' : 'rgba(255,255,255,0.4)', fontSize: 12, fontWeight: 700, cursor: 'pointer', textTransform: 'uppercase', letterSpacing: '0.06em', transition: 'all 0.2s', fontFamily: 'inherit' }}>
+      {(['fr', 'en', 'ar'] as Lang[]).map(l => (
+        <button key={l} onClick={() => setLang(l)} style={{ padding: '7px 11px', background: lang === l ? '#1a6ef5' : 'transparent', border: 'none', color: lang === l ? '#fff' : 'rgba(255,255,255,0.4)', fontSize: 12, fontWeight: 700, cursor: 'pointer', textTransform: 'uppercase', letterSpacing: '0.06em', transition: 'all 0.2s', fontFamily: 'inherit' }}>
           {l}
         </button>
       ))}

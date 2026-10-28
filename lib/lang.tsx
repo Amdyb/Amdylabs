@@ -1,7 +1,7 @@
 'use client'
 import { createContext, useContext, useState, useEffect, ReactNode } from 'react'
 
-export type Lang = 'fr' | 'en'
+export type Lang = 'fr' | 'en' | 'ar'
 
 interface LangCtx { lang: Lang; setLang: (l: Lang) => void }
 export const LangContext = createContext<LangCtx>({ lang: 'fr', setLang: () => {} })
@@ -16,8 +16,9 @@ export function LangProvider({ children }: { children: ReactNode }) {
     if (saved === 'fr' || saved === 'en') { setLangState(saved); return }
     // 2. Fall back to device/browser locale
     const preferred = navigator.languages ?? [navigator.language]
-    const match = preferred.find(l => l.startsWith('fr') || l.startsWith('en'))
+    const match = preferred.find(l => l.startsWith('fr') || l.startsWith('en') || l.startsWith('ar'))
     if (match?.startsWith('en')) setLangState('en')
+    else if (match?.startsWith('ar')) setLangState('ar')
     // else keep 'fr' as default
   }, [])
 
