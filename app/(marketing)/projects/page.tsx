@@ -7,11 +7,12 @@ import { useLang } from '@/lib/lang'
 const T = {
   fr: {
     tag: 'Nos Produits', title1: 'CE QUE NOUS', title2: 'AVONS CONSTRUIT',
-    sub: 'De vraies solutions pour de vraies problématiques africaines — des systèmes de caisse aux plateformes sociales.',
-    live: 'En ligne', dev: 'En développement',
+    sub: 'De vraies solutions pour de vraies problèmes — des systèmes de caisse africains aux applications pour camionneurs américains.',
+    live: 'En ligne', dev: 'En développement', soon: 'Bientôt disponible',
     similarBtn: 'Construire quelque chose de similaire',
+    visitBtn: 'Visiter rigcoach.com',
     moreTag: 'Et bien plus', moreTitle1: 'TOUJOURS EN', moreTitle2: 'CONSTRUCTION',
-    moreSub: 'AMDY LABS construit continuellement de nouvelles solutions pour les marchés africains.',
+    moreSub: 'AMDY LABS construit continuellement de nouvelles solutions pour l\'Afrique et au-delà.',
     others: [
       { name: 'Tableaux de Bord', desc: 'Analytiques personnalisés pour entreprises africaines.', tag: 'Sur mesure' },
       { name: 'Boutiques E-Commerce', desc: 'Boutiques avec paiements africains et commandes WhatsApp.', tag: 'E-Commerce' },
@@ -23,10 +24,11 @@ const T = {
   en: {
     tag: 'Our Products', title1: 'WHAT WE HAVE', title2: 'BUILT',
     sub: 'Real solutions for real African problems — from POS systems to social platforms.',
-    live: 'Live', dev: 'In Development',
+    live: 'Live', dev: 'In Development', soon: 'Coming soon · iPhone & Android',
     similarBtn: 'Build something similar',
+    visitBtn: 'Visit rigcoach.com',
     moreTag: 'And more', moreTitle1: 'ALWAYS', moreTitle2: 'BUILDING',
-    moreSub: 'AMDY LABS continuously builds new solutions for African markets.',
+    moreSub: 'AMDY LABS continuously builds new solutions for Africa and beyond.',
     others: [
       { name: 'Dashboards', desc: 'Custom analytics for African businesses across all sectors.', tag: 'Custom' },
       { name: 'E-Commerce Stores', desc: 'Online stores with African payment gateways and WhatsApp ordering.', tag: 'E-Commerce' },
@@ -72,6 +74,20 @@ const PROJECTS = [
     link: 'https://vybz.city',
   },
   {
+    name: 'RigCoach', status: 'soon',
+    subFr: 'Application Mobile · iPhone & Android', subEn: 'Mobile App · iPhone & Android',
+    taglineFr: 'L\'application indispensable pour les camionneurs',
+    taglineEn: 'The must-have app for truck drivers',
+    descFr: 'L\'application financière pour owner-operators et camionneurs : revenu net réel par chargement, vérification des sous-paiements, carburant et IFTA, numérisation des documents, alertes météo sur votre route. Conçu par un vrai camionneur.',
+    descEn: 'The money app for owner-operators and truck drivers: real take-home on every load, short-pay checks, fuel and IFTA, paperwork scanning, weather alerts on your route. Built by a trucker.',
+    logo: '/portfolio/rigcoach/logo-on-dark.svg', logoBg: '#0a1628',
+    screenshot: '/portfolio/rigcoach/store/play-screenshots/01-know-your-real-take-home.png',
+    accentColor: '#00c853',
+    tags: ['React Native', 'Expo', 'iOS', 'Android', 'USA'],
+    features: { fr: ['Revenu net par chargement', 'Vérification sous-paiements', 'Suivi carburant & IFTA', 'Scan de documents', 'Alertes météo sur route', 'Plans Free & Pro'], en: ['Real take-home per load', 'Short-pay checker', 'Fuel & IFTA tracking', 'Paperwork scanning', 'Weather alerts on route', 'Free & Pro plans'] },
+    link: 'https://www.rigcoach.com',
+  },
+  {
     name: 'Mon Livreur', status: 'dev',
     subFr: 'Livraison & Logistique', subEn: 'Delivery & Logistics',
     descFr: '"Livrer plus vite, plus loin, pour vous." Plateforme complète de livraison et logistique en temps réel pour les entreprises africaines. Dispatch intelligent, suivi GPS et notifications WhatsApp.',
@@ -87,6 +103,34 @@ const PROJECTS = [
 export default function ProjectsPage() {
   const { lang } = useLang()
   const t = T[lang]
+
+  // Helper — logo panel (shared left/right)
+  const LogoPanel = ({ p }: { p: typeof PROJECTS[0] }) => (
+    <div style={{ background: p.logoBg, display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center', padding: 40, gap: 16, minHeight: 280, position: 'relative', overflow: 'hidden' }}>
+      {/* screenshot strip for RigCoach */}
+      {'screenshot' in p && p.screenshot && (
+        <div style={{ position: 'absolute', inset: 0, opacity: 0.13 }}>
+          <Image src={p.screenshot} alt="" fill style={{ objectFit: 'cover', objectPosition: 'top' }} />
+        </div>
+      )}
+      <div style={{ position: 'relative', width: 160, display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
+        <Image src={p.logo} alt={p.name} width={160} height={64} style={{ objectFit: 'contain', width: '100%', height: 'auto' }} />
+      </div>
+      <span style={{
+        background: p.status === 'live' ? 'rgba(0,200,83,0.15)' : p.status === 'soon' ? 'rgba(0,200,83,0.12)' : 'rgba(255,255,255,0.1)',
+        color: p.status === 'live' ? '#00e676' : p.status === 'soon' ? '#00c853' : 'rgba(255,255,255,0.6)',
+        border: `1px solid ${p.status === 'live' ? 'rgba(0,230,118,0.3)' : p.status === 'soon' ? 'rgba(0,200,83,0.3)' : 'rgba(255,255,255,0.2)'}`,
+        borderRadius: 20, padding: '5px 14px', fontSize: 11, fontWeight: 700, position: 'relative', textAlign: 'center'
+      }}>
+        {p.status === 'live' ? t.live : p.status === 'soon' ? t.soon : t.dev}
+      </span>
+      {p.link && (
+        <a href={p.link} target="_blank" rel="noreferrer" style={{ color: 'rgba(255,255,255,0.4)', fontSize: 11, textDecoration: 'none', display: 'flex', alignItems: 'center', gap: 4, position: 'relative' }}>
+          {p.link.replace('https://www.', '').replace('https://', '')} <ExternalLink size={10} />
+        </a>
+      )}
+    </div>
+  )
 
   return (
     <div style={{ paddingTop: 72, background: '#fff', color: '#0f172a' }}>
@@ -112,18 +156,8 @@ export default function ProjectsPage() {
               onMouseEnter={e => { const el = e.currentTarget as HTMLElement; el.style.boxShadow = '0 20px 60px rgba(0,0,0,0.1)'; el.style.borderColor = '#bfdbfe' }}
               onMouseLeave={e => { const el = e.currentTarget as HTMLElement; el.style.boxShadow = '0 2px 12px rgba(0,0,0,0.04)'; el.style.borderColor = '#e2e8f0' }}>
 
-              {/* Logo panel */}
-              {i % 2 === 0 && (
-                <div style={{ background: p.logoBg, display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center', padding: 40, gap: 16, minHeight: 280 }}>
-                  <div style={{ width: 120, height: 120, borderRadius: 24, overflow: 'hidden', background: 'rgba(255,255,255,0.1)', display: 'flex', alignItems: 'center', justifyContent: 'center', boxShadow: '0 12px 40px rgba(0,0,0,0.3)' }}>
-                    <Image src={p.logo} alt={p.name} width={120} height={120} style={{ objectFit: 'contain' }} />
-                  </div>
-                  <span style={{ background: p.status === 'live' ? 'rgba(0,230,118,0.15)' : 'rgba(255,255,255,0.1)', color: p.status === 'live' ? '#00e676' : 'rgba(255,255,255,0.6)', border: `1px solid ${p.status === 'live' ? 'rgba(0,230,118,0.3)' : 'rgba(255,255,255,0.2)'}`, borderRadius: 20, padding: '5px 14px', fontSize: 11, fontWeight: 700 }}>
-                    {p.status === 'live' ? t.live : t.dev}
-                  </span>
-                  {p.link && <a href={p.link} target="_blank" rel="noreferrer" style={{ color: 'rgba(255,255,255,0.4)', fontSize: 11, textDecoration: 'none', display: 'flex', alignItems: 'center', gap: 4 }}>{p.link.replace('https://', '')} <ExternalLink size={10} /></a>}
-                </div>
-              )}
+              {/* Logo panel left */}
+              {i % 2 === 0 && <LogoPanel p={p} />}
 
               {/* Content panel */}
               <div style={{ padding: '36px 32px', display: 'flex', flexDirection: 'column', justifyContent: 'center' }}>
@@ -143,23 +177,19 @@ export default function ProjectsPage() {
                     </div>
                   ))}
                 </div>
-                <Link href="/contact" style={{ display: 'inline-flex', alignItems: 'center', gap: 6, background: p.accentColor, color: '#fff', padding: '11px 22px', borderRadius: 8, fontWeight: 700, fontSize: 13, textDecoration: 'none', alignSelf: 'flex-start' }}>
-                  {t.similarBtn} <ArrowRight size={13} />
-                </Link>
+                {p.status === 'soon' && p.link ? (
+                  <a href={p.link} target="_blank" rel="noreferrer" style={{ display: 'inline-flex', alignItems: 'center', gap: 6, background: p.accentColor, color: '#fff', padding: '11px 22px', borderRadius: 8, fontWeight: 700, fontSize: 13, textDecoration: 'none', alignSelf: 'flex-start' }}>
+                    {t.visitBtn} <ExternalLink size={13} />
+                  </a>
+                ) : (
+                  <Link href="/contact" style={{ display: 'inline-flex', alignItems: 'center', gap: 6, background: p.accentColor, color: '#fff', padding: '11px 22px', borderRadius: 8, fontWeight: 700, fontSize: 13, textDecoration: 'none', alignSelf: 'flex-start' }}>
+                    {t.similarBtn} <ArrowRight size={13} />
+                  </Link>
+                )}
               </div>
 
               {/* Logo panel right */}
-              {i % 2 !== 0 && (
-                <div style={{ background: p.logoBg, display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center', padding: 40, gap: 16, minHeight: 280 }}>
-                  <div style={{ width: 120, height: 120, borderRadius: 24, overflow: 'hidden', background: 'rgba(255,255,255,0.1)', display: 'flex', alignItems: 'center', justifyContent: 'center', boxShadow: '0 12px 40px rgba(0,0,0,0.3)' }}>
-                    <Image src={p.logo} alt={p.name} width={120} height={120} style={{ objectFit: 'contain' }} />
-                  </div>
-                  <span style={{ background: p.status === 'live' ? 'rgba(0,230,118,0.15)' : 'rgba(255,255,255,0.1)', color: p.status === 'live' ? '#00e676' : 'rgba(255,255,255,0.6)', border: `1px solid ${p.status === 'live' ? 'rgba(0,230,118,0.3)' : 'rgba(255,255,255,0.2)'}`, borderRadius: 20, padding: '5px 14px', fontSize: 11, fontWeight: 700 }}>
-                    {p.status === 'live' ? t.live : t.dev}
-                  </span>
-                  {p.link && <a href={p.link} target="_blank" rel="noreferrer" style={{ color: 'rgba(255,255,255,0.4)', fontSize: 11, textDecoration: 'none', display: 'flex', alignItems: 'center', gap: 4 }}>{p.link.replace('https://', '')} <ExternalLink size={10} /></a>}
-                </div>
-              )}
+              {i % 2 !== 0 && <LogoPanel p={p} />}
             </div>
           ))}
         </div>
