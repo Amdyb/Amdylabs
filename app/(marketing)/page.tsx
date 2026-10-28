@@ -210,9 +210,10 @@ const SERVICES = [
 const AFRICA_ICONS = [DollarSign, MessageCircle, Languages, Wifi, Coins, Smartphone]
 
 const PROJECTS = [
-  { name: 'CaissePro', link: 'https://caissepro.app', subFr: "Caisse & Gestion d'entreprise", subEn: 'POS & Business Management', descFr: "Système de caisse moderne pour commerçants africains. Reçus WhatsApp, Wave/Orange Money, support CFA.", descEn: 'Modern POS for African merchants. WhatsApp receipts, Wave/Orange Money, CFA support.', logo: '/logo-caissepro.png', logoBg: '#0d1f4a', color: '#1a6ef5' },
-  { name: 'ImmoPro', link: 'https://immopro.agency', subFr: 'Plateforme Immobilière', subEn: 'Real Estate Platform', descFr: 'Plateforme immobilière moderne pour le marché sénégalais. Annonces, agents certifiés.', descEn: 'Modern real estate platform for the Senegalese market. Listings, certified agents.', logo: '/logo-immopro.png', logoBg: '#0a1a6e', color: '#f59e0b' },
-  { name: 'VYBZ Social', link: 'https://vybz.city', subFr: 'Plateforme Sociale — Dakar', subEn: 'Social Platform — Dakar', descFr: '"C\'est quoi les VYBZ ce soir ?" — Événements et vie nocturne à Dakar.', descEn: '"What are the VYBZ tonight?" — Events & nightlife in Dakar.', logo: '/logo-vybz.png', logoBg: '#150020', color: '#8b5cf6' },
+  { name: 'RigCoach', link: 'https://www.rigcoach.com', status: 'soon', subFr: 'Application Mobile · USA', subEn: 'Mobile App · USA', descFr: "L'application financière pour owner-operators : revenu net réel par chargement, IFTA, scan de documents. Conçu par un vrai camionneur.", descEn: 'The money app for truck drivers: real take-home per load, IFTA, paperwork scanning. Built by a trucker.', logo: '/portfolio/rigcoach/logo-on-dark.svg', logoBg: '#0a1628', color: '#00c853' },
+  { name: 'CaissePro', link: 'https://caissepro.app', status: 'live', subFr: "Caisse & Gestion d'entreprise", subEn: 'POS & Business Management', descFr: "Système de caisse moderne pour commerçants africains. Reçus WhatsApp, Wave/Orange Money, support CFA.", descEn: 'Modern POS for African merchants. WhatsApp receipts, Wave/Orange Money, CFA support.', logo: '/logo-caissepro.png', logoBg: '#0d1f4a', color: '#1a6ef5' },
+  { name: 'ImmoPro', link: 'https://immopro.agency', status: 'live', subFr: 'Plateforme Immobilière', subEn: 'Real Estate Platform', descFr: 'Plateforme immobilière moderne pour le marché sénégalais. Annonces, agents certifiés.', descEn: 'Modern real estate platform for the Senegalese market. Listings, certified agents.', logo: '/logo-immopro.png', logoBg: '#0a1a6e', color: '#f59e0b' },
+  { name: 'VYBZ Social', link: 'https://vybz.city', status: 'live', subFr: 'Plateforme Sociale — Dakar', subEn: 'Social Platform — Dakar', descFr: '"C\'est quoi les VYBZ ce soir ?" — Événements et vie nocturne à Dakar.', descEn: '"What are the VYBZ tonight?" — Events & nightlife in Dakar.', logo: '/logo-vybz.png', logoBg: '#150020', color: '#8b5cf6' },
 ]
 
 export default function HomePage() {
@@ -224,6 +225,14 @@ export default function HomePage() {
   const c3 = useCountUp(3, 1600, statsRef.inView)
   const c4 = useCountUp(5, 1600, statsRef.inView)
   const [openFaq, setOpenFaq] = useState<number | null>(null)
+  const carouselRef = useRef<HTMLDivElement>(null)
+
+  const scrollCarousel = (dir: 'left' | 'right') => {
+    if (!carouselRef.current) return
+    const card = carouselRef.current.querySelector('a') as HTMLElement
+    const cardW = card ? card.offsetWidth + 18 : 340
+    carouselRef.current.scrollBy({ left: dir === 'right' ? cardW : -cardW, behavior: 'smooth' })
+  }
 
   return (
     <div>
@@ -394,36 +403,96 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* ══ PROJECTS — light ══════════════════════════════════════════════ */}
-      <section style={{ padding: '90px 24px', background: '#fff' }}>
-        <div style={{ maxWidth: 1200, margin: '0 auto' }}>
-          <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-end', marginBottom: 44, flexWrap: 'wrap', gap: 16 }}>
+      {/* ══ PROJECTS — Netflix carousel ════════════════════════════════════ */}
+      <section style={{ padding: '90px 0', background: '#fff', overflow: 'hidden' }}>
+        <div style={{ maxWidth: 1200, margin: '0 auto', paddingLeft: 24, paddingRight: 24 }}>
+          <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-end', marginBottom: 36, flexWrap: 'wrap', gap: 16 }}>
             <div>
               <p style={{ fontSize: 10, fontWeight: 600, color: '#1a6ef5', letterSpacing: '0.14em', textTransform: 'uppercase', marginBottom: 12 }}>{t.projectsTag}</p>
               <h2 style={{ fontFamily: 'Syne, system-ui', fontSize: 'clamp(28px,4vw,44px)', fontWeight: 800, letterSpacing: '-0.03em', color: '#0f172a' }}>
                 {t.projectsTitle1}<br /><span style={{ color: '#1a6ef5' }}>{t.projectsTitle2}</span>
               </h2>
             </div>
-            <Link href="/projects" style={{ color: '#1a6ef5', textDecoration: 'none', fontSize: 14, fontWeight: 600 }}>{t.seeAll}</Link>
+            <div style={{ display: 'flex', alignItems: 'center', gap: 10 }}>
+              <button onClick={() => scrollCarousel('left')} aria-label="Previous" style={{ width: 38, height: 38, borderRadius: '50%', border: '1.5px solid #e2e8f0', background: '#fff', cursor: 'pointer', display: 'flex', alignItems: 'center', justifyContent: 'center', fontSize: 16, color: '#0f172a', boxShadow: '0 2px 8px rgba(0,0,0,0.07)', transition: 'all 0.2s' }}
+                onMouseEnter={e => { (e.currentTarget as HTMLElement).style.borderColor = '#1a6ef5'; (e.currentTarget as HTMLElement).style.color = '#1a6ef5' }}
+                onMouseLeave={e => { (e.currentTarget as HTMLElement).style.borderColor = '#e2e8f0'; (e.currentTarget as HTMLElement).style.color = '#0f172a' }}>\u2039</button>
+              <button onClick={() => scrollCarousel('right')} aria-label="Next" style={{ width: 38, height: 38, borderRadius: '50%', border: '1.5px solid #e2e8f0', background: '#fff', cursor: 'pointer', display: 'flex', alignItems: 'center', justifyContent: 'center', fontSize: 16, color: '#0f172a', boxShadow: '0 2px 8px rgba(0,0,0,0.07)', transition: 'all 0.2s' }}
+                onMouseEnter={e => { (e.currentTarget as HTMLElement).style.borderColor = '#1a6ef5'; (e.currentTarget as HTMLElement).style.color = '#1a6ef5' }}
+                onMouseLeave={e => { (e.currentTarget as HTMLElement).style.borderColor = '#e2e8f0'; (e.currentTarget as HTMLElement).style.color = '#0f172a' }}>\u203a</button>
+              <Link href="/projects" style={{ color: '#1a6ef5', textDecoration: 'none', fontSize: 14, fontWeight: 600, marginLeft: 8 }}>{t.seeAll}</Link>
+            </div>
           </div>
-          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(300px,1fr))', gap: 18 }}>
-            {PROJECTS.map((p, i) => (
-              <a key={i} href={p.link} target="_blank" rel="noreferrer" style={{ background: 'rgba(255,255,255,0.75)', backdropFilter: 'blur(16px)', WebkitBackdropFilter: 'blur(16px)', border: '1px solid rgba(255,255,255,0.95)', borderRadius: 18, overflow: 'hidden', textDecoration: 'none', transition: 'all 0.25s', display: 'block', boxShadow: '0 4px 24px rgba(26,110,245,0.07)' }}
-                onMouseEnter={e => { const el = e.currentTarget as HTMLElement; el.style.transform = 'translateY(-6px)'; el.style.boxShadow = '0 20px 60px rgba(0,0,0,0.1)'; el.style.borderColor = '#bfdbfe' }}
-                onMouseLeave={e => { const el = e.currentTarget as HTMLElement; el.style.transform = 'none'; el.style.boxShadow = 'none'; el.style.borderColor = '#e2e8f0' }}>
-                <div style={{ height: 160, background: p.logoBg, display: 'flex', alignItems: 'center', justifyContent: 'center', position: 'relative' }}>
-                  <div style={{ width: 90, height: 90, borderRadius: 20, overflow: 'hidden', display: 'flex', alignItems: 'center', justifyContent: 'center', boxShadow: '0 8px 32px rgba(0,0,0,0.4)' }}>
-                    <Image src={p.logo} alt={p.name} width={90} height={90} style={{ objectFit: 'contain' }} />
+        </div>
+
+        {/* Carousel track */}
+        <div style={{ position: 'relative' }}>
+          {/* Left/right fades */}
+          <div style={{ position: 'absolute', left: 0, top: 0, bottom: 0, width: 60, background: 'linear-gradient(to right, #fff, transparent)', zIndex: 2, pointerEvents: 'none' }} />
+          <div style={{ position: 'absolute', right: 0, top: 0, bottom: 0, width: 80, background: 'linear-gradient(to left, #fff, transparent)', zIndex: 2, pointerEvents: 'none' }} />
+
+          <div
+            ref={carouselRef}
+            style={{
+              display: 'flex',
+              gap: 18,
+              overflowX: 'auto',
+              overflowY: 'visible',
+              scrollSnapType: 'x mandatory',
+              scrollBehavior: 'smooth',
+              paddingLeft: 24,
+              paddingRight: 80,
+              paddingBottom: 16,
+              msOverflowStyle: 'none',
+              scrollbarWidth: 'none',
+            } as React.CSSProperties}
+          >
+            {PROJECTS.map((p, i) => {
+              const isSoon = p.status === 'soon'
+              return (
+                <a
+                  key={i}
+                  href={p.link}
+                  target="_blank"
+                  rel="noreferrer"
+                  style={{
+                    flex: '0 0 300px',
+                    background: 'rgba(255,255,255,0.75)',
+                    backdropFilter: 'blur(16px)',
+                    WebkitBackdropFilter: 'blur(16px)',
+                    border: '1px solid rgba(255,255,255,0.95)',
+                    borderRadius: 18,
+                    overflow: 'hidden',
+                    textDecoration: 'none',
+                    transition: 'all 0.25s',
+                    display: 'block',
+                    boxShadow: '0 4px 24px rgba(26,110,245,0.07)',
+                    scrollSnapAlign: 'start',
+                  }}
+                  onMouseEnter={e => { const el = e.currentTarget as HTMLElement; el.style.transform = 'translateY(-6px) scale(1.02)'; el.style.boxShadow = '0 20px 60px rgba(0,0,0,0.12)'; el.style.borderColor = '#bfdbfe' }}
+                  onMouseLeave={e => { const el = e.currentTarget as HTMLElement; el.style.transform = 'none'; el.style.boxShadow = '0 4px 24px rgba(26,110,245,0.07)'; el.style.borderColor = 'rgba(255,255,255,0.95)' }}
+                >
+                  <div style={{ height: 170, background: p.logoBg, display: 'flex', alignItems: 'center', justifyContent: 'center', position: 'relative' }}>
+                    <div style={{ width: 96, height: 96, borderRadius: 22, overflow: 'hidden', display: 'flex', alignItems: 'center', justifyContent: 'center', boxShadow: '0 8px 32px rgba(0,0,0,0.4)' }}>
+                      <Image src={p.logo} alt={p.name} width={96} height={96} style={{ objectFit: 'contain' }} />
+                    </div>
+                    {isSoon ? (
+                      <span style={{ position: 'absolute', top: 12, right: 12, background: 'rgba(0,200,83,0.15)', color: '#00c853', border: '1px solid rgba(0,200,83,0.35)', borderRadius: 20, padding: '3px 10px', fontSize: 10, fontWeight: 700 }}>
+                        {lang === 'fr' ? 'Bient\u00f4t' : 'Coming Soon'}
+                      </span>
+                    ) : (
+                      <span style={{ position: 'absolute', top: 12, right: 12, background: 'rgba(0,230,118,0.15)', color: '#00e676', border: '1px solid rgba(0,230,118,0.3)', borderRadius: 20, padding: '3px 10px', fontSize: 10, fontWeight: 700 }}>Live</span>
+                    )}
+                    <div style={{ position: 'absolute', bottom: 0, left: '50%', transform: 'translateX(-50%)', width: 120, height: 40, background: 'radial-gradient(ellipse, ' + p.color + '30, transparent 70%)', filter: 'blur(8px)', pointerEvents: 'none' }} />
                   </div>
-                  <span style={{ position: 'absolute', top: 12, right: 12, background: 'rgba(0,230,118,0.15)', color: '#00e676', border: '1px solid rgba(0,230,118,0.3)', borderRadius: 20, padding: '3px 10px', fontSize: 10, fontWeight: 700 }}>Live</span>
-                </div>
-                <div style={{ padding: '22px 20px' }}>
-                  <div style={{ fontSize: 10, color: p.color, fontWeight: 600, marginBottom: 6, textTransform: 'uppercase', letterSpacing: '0.06em' }}>{lang === 'fr' ? p.subFr : p.subEn}</div>
-                  <h3 style={{ fontFamily: 'Syne, system-ui', fontSize: 18, fontWeight: 800, color: '#0f172a', marginBottom: 8, letterSpacing: '-0.02em' }}>{p.name}</h3>
-                  <p style={{ fontSize: 13, color: '#64748b', lineHeight: 1.65 }}>{lang === 'fr' ? p.descFr : p.descEn}</p>
-                </div>
-              </a>
-            ))}
+                  <div style={{ padding: '20px 20px 22px' }}>
+                    <div style={{ fontSize: 10, color: p.color, fontWeight: 700, marginBottom: 6, textTransform: 'uppercase', letterSpacing: '0.07em' }}>{lang === 'fr' ? p.subFr : p.subEn}</div>
+                    <h3 style={{ fontFamily: 'Syne, system-ui', fontSize: 18, fontWeight: 800, color: '#0f172a', marginBottom: 8, letterSpacing: '-0.02em' }}>{p.name}</h3>
+                    <p style={{ fontSize: 13, color: '#64748b', lineHeight: 1.65, margin: 0 }}>{lang === 'fr' ? p.descFr : p.descEn}</p>
+                  </div>
+                </a>
+              )
+            })}
           </div>
         </div>
       </section>
@@ -527,6 +596,7 @@ export default function HomePage() {
         @keyframes blink{0%,100%{opacity:1}50%{opacity:0}}
         @keyframes bounce{0%,100%{transform:translateX(-50%) translateY(0)}50%{transform:translateX(-50%) translateY(-8px)}}
         @keyframes marquee{0%{transform:translateX(0)}100%{transform:translateX(-50%)}}
+        div[style*='scrollbarWidth']::-webkit-scrollbar{display:none}
       `}</style>
     </div>
   )
