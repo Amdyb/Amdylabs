@@ -102,7 +102,7 @@ const PROJECTS = [
 
 export default function ProjectsPage() {
   const { lang } = useLang()
-  const t = T[lang]
+  const t = T[lang === 'ar' ? 'en' : lang]
 
   // Helper — logo panel (shared left/right)
   const LogoPanel = ({ p }: { p: typeof PROJECTS[0] }) => (

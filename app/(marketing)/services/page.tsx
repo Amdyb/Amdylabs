@@ -65,7 +65,7 @@ const SERVICES = [
 
 export default function ServicesPage() {
   const { lang } = useLang()
-  const t = T[lang]
+  const t = T[lang === 'ar' ? 'en' : lang]
   const isEn = lang === 'en'
 
   return (

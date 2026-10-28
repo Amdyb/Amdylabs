@@ -84,7 +84,7 @@ const VALUE_ICONS = [Trophy, Handshake, Lightbulb, Lock, Zap, Leaf]
 
 export default function AboutPage() {
   const { lang } = useLang()
-  const t = T[lang]
+  const t = T[lang === 'ar' ? 'en' : lang]
 
   return (
     <div style={{ paddingTop: 72, background: '#fff', color: '#0f172a' }}>

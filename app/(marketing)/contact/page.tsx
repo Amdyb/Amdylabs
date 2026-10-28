@@ -52,7 +52,7 @@ const ICONS_CONTACT = [Phone, Mail, Mail, Mail, MapPin, Clock]
 
 export default function ContactPage() {
   const { lang } = useLang()
-  const t = T[lang]
+  const t = T[lang === 'ar' ? 'en' : lang]
   const [form, setForm] = useState({ name: '', email: '', phone: '', service: '', message: '' })
   const [sent, setSent] = useState(false)
   const [loading, setLoading] = useState(false)
