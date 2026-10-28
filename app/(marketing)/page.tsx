@@ -225,7 +225,7 @@ export default function HomePage() {
       <section style={{
         background: '#0D0E12',
         paddingTop: 'calc(72px + 48px)',
-        paddingBottom: 72,
+        paddingBottom: 56,
         paddingLeft: 24,
         paddingRight: 24,
       }}>
@@ -291,7 +291,7 @@ export default function HomePage() {
       </section>
 
       {/* ── PRODUCTS CAROUSEL ─────────────────────────────────────────────── */}
-      <section style={{ background: '#F7F6F3', padding: '80px 0' }}>
+      <section style={{ background: '#F7F6F3', padding: '56px 0 72px' }}>
         {/* Header row */}
         <div style={{ maxWidth: 1100, margin: '0 auto', paddingLeft: 24, paddingRight: 24, marginBottom: 32, display: 'flex', justifyContent: 'space-between', alignItems: 'baseline', gap: 16, flexWrap: 'wrap' }}>
           <h2 style={{ fontSize: 22, fontWeight: 600, letterSpacing: '-0.02em', color: '#0D0E12' }}>
@@ -418,7 +418,6 @@ export default function HomePage() {
           <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(220px, 1fr))', gap: 1, background: '#1E2130', border: '1px solid #1E2130', borderRadius: 12, overflow: 'hidden' }}>
             {t.services.map((s, i) => (
               <div key={i} style={{ background: '#0D0E12', padding: '28px 24px' }}>
-                <div style={{ fontSize: 13, fontWeight: 600, color: '#1B5FED', marginBottom: 10 }}>0{i + 1}</div>
                 <h3 style={{ fontSize: 16, fontWeight: 600, color: '#F7F6F3', letterSpacing: '-0.01em', marginBottom: 10 }}>{s.name}</h3>
                 <p style={{ fontSize: 13, color: '#5A5F6B', lineHeight: 1.65, margin: 0 }}>{s.desc}</p>
               </div>
