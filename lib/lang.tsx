@@ -11,8 +11,14 @@ export function LangProvider({ children }: { children: ReactNode }) {
   const [lang, setLangState] = useState<Lang>('fr')
 
   useEffect(() => {
+    // 1. Respect explicit user choice stored in localStorage
     const saved = localStorage.getItem('al-lang') as Lang
-    if (saved === 'fr' || saved === 'en') setLangState(saved)
+    if (saved === 'fr' || saved === 'en') { setLangState(saved); return }
+    // 2. Fall back to device/browser locale
+    const preferred = navigator.languages ?? [navigator.language]
+    const match = preferred.find(l => l.startsWith('fr') || l.startsWith('en'))
+    if (match?.startsWith('en')) setLangState('en')
+    // else keep 'fr' as default
   }, [])
 
   const setLang = (l: Lang) => {
