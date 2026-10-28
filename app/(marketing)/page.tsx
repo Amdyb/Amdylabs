@@ -1,8 +1,8 @@
 'use client'
-import { useEffect, useRef, useState } from 'react'
+import React, { useEffect, useRef, useState } from 'react'
 import Link from 'next/link'
 import Image from 'next/image'
-import { ArrowRight, CheckCircle2, ChevronDown, ChevronLeft, ChevronRight, MessageCircle, Rocket } from 'lucide-react'
+import { ArrowRight, CheckCircle2, ChevronLeft, ChevronRight, MessageCircle, Rocket } from 'lucide-react'
 import { useLang } from '@/lib/lang'
 
 /* ─── tiny helpers ──────────────────────────────────────────────────────── */
