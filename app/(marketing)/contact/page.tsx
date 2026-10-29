@@ -48,7 +48,7 @@ const T = {
   }
 }
 
-const ICONS_CONTACT = [Phone, Mail, Mail, Mail, MapPin, Clock]
+const ICONS_CONTACT = [Mail, Mail, Mail, MapPin, Clock]
 
 export default function ContactPage() {
   const { lang } = useLang()

@@ -94,10 +94,10 @@ export default function AboutPage() {
         <div style={{ position: 'absolute', top: -100, right: -100, width: 500, height: 500, background: 'radial-gradient(circle, rgba(26,110,245,0.06) 0%, transparent 70%)', borderRadius: '50%' }} />
         <div style={{ position: 'absolute', bottom: -80, left: -80, width: 400, height: 400, background: 'radial-gradient(circle, rgba(0,230,118,0.05) 0%, transparent 70%)', borderRadius: '50%' }} />
         <div style={{ position: 'relative', maxWidth: 800, margin: '0 auto', textAlign: 'center' }}>
-          <p style={{ fontSize: 10, fontWeight: 600, color: '#1a6ef5', letterSpacing: '0.18em', textTransform: 'uppercase', marginBottom: 20 }}>{t.storyTag}</p>
+          <p style={{ fontSize: 11, fontWeight: 600, color: '#60a5fa', letterSpacing: '0.18em', textTransform: 'uppercase', marginBottom: 20 }}>{t.storyTag}</p>
           <h1 style={{ fontFamily: 'Syne, system-ui', fontSize: 'clamp(38px, 6vw, 68px)', fontWeight: 800, lineHeight: 1.05, letterSpacing: '-0.03em', color: '#f8fafc', marginBottom: 24 }}>
             {t.storyTitle1}<br />
-            <span style={{ color: '#1a6ef5' }}>{t.storyTitle2}</span>
+            <span style={{ color: '#60a5fa' }}>{t.storyTitle2}</span>
           </h1>
           <p style={{ fontSize: 18, color: 'rgba(148,163,184,0.85)', maxWidth: 580, margin: '0 auto', lineHeight: 1.72 }}>{t.storySub}</p>
         </div>
@@ -112,7 +112,7 @@ export default function AboutPage() {
             <p style={{ fontSize: 15, color: 'rgba(148,163,184,0.8)', lineHeight: 1.82 }}>{t.p3}</p>
           </div>
           <div style={{ background: 'rgba(255,255,255,0.05)', backdropFilter: 'blur(16px)', WebkitBackdropFilter: 'blur(16px)', borderRadius: 18, padding: 32, border: '1px solid rgba(255,255,255,0.1)' }}>
-            <p style={{ fontSize: 10, fontWeight: 600, color: '#1a6ef5', letterSpacing: '0.14em', textTransform: 'uppercase', marginBottom: 20 }}>{t.missionTag}</p>
+            <p style={{ fontSize: 11, fontWeight: 600, color: '#60a5fa', letterSpacing: '0.14em', textTransform: 'uppercase', marginBottom: 20 }}>{t.missionTag}</p>
             {t.missionItems.map((item, i) => (
               <div key={i} style={{ display: 'flex', gap: 16, marginBottom: 24 }}>
                 <div style={{ width: 36, height: 36, borderRadius: 10, background: 'rgba(59,130,246,0.15)', display: 'flex', alignItems: 'center', justifyContent: 'center', flexShrink: 0 }}>
@@ -132,9 +132,9 @@ export default function AboutPage() {
       <section style={{ padding: '80px 24px', background: '#060c1f' }}>
         <div style={{ maxWidth: 1100, margin: '0 auto' }}>
           <div style={{ textAlign: 'center', marginBottom: 52 }}>
-            <p style={{ fontSize: 10, fontWeight: 600, color: '#1a6ef5', letterSpacing: '0.18em', textTransform: 'uppercase', marginBottom: 14 }}>{t.teamTag}</p>
+            <p style={{ fontSize: 11, fontWeight: 600, color: '#60a5fa', letterSpacing: '0.18em', textTransform: 'uppercase', marginBottom: 14 }}>{t.teamTag}</p>
             <h2 style={{ fontFamily: 'Syne, system-ui', fontSize: 'clamp(30px, 4vw, 48px)', fontWeight: 800, letterSpacing: '-0.03em', color: '#f8fafc', marginBottom: 14 }}>
-              {t.teamTitle1} <span style={{ color: '#1a6ef5' }}>{t.teamTitle2}</span>
+              {t.teamTitle1} <span style={{ color: '#60a5fa' }}>{t.teamTitle2}</span>
             </h2>
             <p style={{ fontSize: 16, color: 'rgba(148,163,184,0.8)', maxWidth: 480, margin: '0 auto', lineHeight: 1.7 }}>{t.teamSub}</p>
           </div>
@@ -158,9 +158,9 @@ export default function AboutPage() {
       <section style={{ padding: '80px 24px', background: '#07091c' }}>
         <div style={{ maxWidth: 1100, margin: '0 auto' }}>
           <div style={{ textAlign: 'center', marginBottom: 52 }}>
-            <p style={{ fontSize: 10, fontWeight: 600, color: '#1a6ef5', letterSpacing: '0.18em', textTransform: 'uppercase', marginBottom: 14 }}>{t.valuesTag}</p>
+            <p style={{ fontSize: 11, fontWeight: 600, color: '#60a5fa', letterSpacing: '0.18em', textTransform: 'uppercase', marginBottom: 14 }}>{t.valuesTag}</p>
             <h2 style={{ fontFamily: 'Syne, system-ui', fontSize: 'clamp(30px, 4vw, 48px)', fontWeight: 800, letterSpacing: '-0.03em', color: '#f8fafc' }}>
-              {t.valuesTitle1} <span style={{ color: '#1a6ef5' }}>{t.valuesTitle2}</span>
+              {t.valuesTitle1} <span style={{ color: '#60a5fa' }}>{t.valuesTitle2}</span>
             </h2>
           </div>
           <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(260px, 1fr))', gap: 16 }}>
@@ -186,16 +186,16 @@ export default function AboutPage() {
       <section style={{ padding: '80px 24px', background: '#060c1f' }}>
         <div style={{ maxWidth: 1100, margin: '0 auto' }}>
           <div style={{ textAlign: 'center', marginBottom: 44 }}>
-            <p style={{ fontSize: 10, fontWeight: 600, color: '#1a6ef5', letterSpacing: '0.18em', textTransform: 'uppercase', marginBottom: 14 }}>{t.founderTag}</p>
+            <p style={{ fontSize: 11, fontWeight: 600, color: '#60a5fa', letterSpacing: '0.18em', textTransform: 'uppercase', marginBottom: 14 }}>{t.founderTag}</p>
             <h2 style={{ fontFamily: 'Syne, system-ui', fontSize: 'clamp(30px, 4vw, 48px)', fontWeight: 800, letterSpacing: '-0.03em', color: '#f8fafc' }}>
-              {t.founderTitle} <span style={{ color: '#1a6ef5' }}>{t.founderTitle2}</span>
+              {t.founderTitle} <span style={{ color: '#60a5fa' }}>{t.founderTitle2}</span>
             </h2>
           </div>
           <div style={{ maxWidth: 700, margin: '0 auto', background: 'rgba(255,255,255,0.05)', backdropFilter: 'blur(16px)', WebkitBackdropFilter: 'blur(16px)', border: '1px solid rgba(255,255,255,0.12)', borderRadius: 20, padding: '40px 36px', display: 'grid', gridTemplateColumns: 'auto 1fr', gap: 28, alignItems: 'start', boxShadow: '0 4px 24px rgba(0,0,0,0.06)' }}>
             <div style={{ width: 84, height: 84, borderRadius: '50%', background: 'linear-gradient(135deg, #1a6ef5, #00c8ff)', display: 'flex', alignItems: 'center', justifyContent: 'center', fontFamily: 'Syne, system-ui', fontWeight: 800, fontSize: 26, color: '#fff', flexShrink: 0, border: '3px solid #dbeafe' }}>AB</div>
             <div>
               <div style={{ fontFamily: 'Syne, system-ui', fontWeight: 800, fontSize: 20, color: '#f8fafc', marginBottom: 4 }}>Amdy Boubacar</div>
-              <div style={{ fontSize: 12, color: '#1a6ef5', fontWeight: 600, marginBottom: 6, textTransform: 'uppercase', letterSpacing: '0.06em' }}>Founder & CEO — AMDY LABS LLC</div>
+              <div style={{ fontSize: 12, color: '#60a5fa', fontWeight: 600, marginBottom: 6, letterSpacing: '0.05em' }}>Founder & CEO — AMDY LABS LLC</div>
               <div style={{ fontSize: 12, color: 'rgba(148,163,184,0.6)', marginBottom: 16 }}>Detroit, Michigan, USA · Dakar, Sénégal</div>
               <p style={{ fontSize: 14, color: 'rgba(148,163,184,0.8)', lineHeight: 1.72, marginBottom: 18 }}>{t.founderBio}</p>
               <div style={{ display: 'flex', flexWrap: 'wrap', gap: 8, marginBottom: 18 }}>
@@ -218,7 +218,7 @@ export default function AboutPage() {
             <div style={{ position: 'absolute', width: 400, height: 400, background: '#1a6ef5', borderRadius: '50%', filter: 'blur(100px)', top: '50%', left: '50%', transform: 'translate(-50%,-50%)', opacity: 0.08 }} />
             <div style={{ position: 'relative' }}>
               <h2 style={{ fontFamily: 'Syne, system-ui', fontSize: 'clamp(28px, 4vw, 42px)', fontWeight: 800, letterSpacing: '-0.03em', color: '#fff', marginBottom: 14 }}>{t.ctaTitle}</h2>
-              <p style={{ color: '#64748b', fontSize: 16, marginBottom: 36, maxWidth: 400, margin: '0 auto 36px', lineHeight: 1.7 }}>{t.ctaSub}</p>
+              <p style={{ color: 'rgba(148,163,184,0.75)', fontSize: 16, marginBottom: 36, maxWidth: 400, margin: '0 auto 36px', lineHeight: 1.7 }}>{t.ctaSub}</p>
               <div style={{ display: 'flex', gap: 12, justifyContent: 'center', flexWrap: 'wrap' }}>
                 <Link href="/contact" style={{ display: 'inline-flex', alignItems: 'center', gap: 8, background: '#1a6ef5', color: '#fff', padding: '14px 30px', borderRadius: 9, fontWeight: 700, fontSize: 14, textDecoration: 'none' }}>
                   <ArrowRight size={15} /> {t.ctaBtn1}

@@ -79,10 +79,10 @@ export default function ServicesPage() {
         <div style={{ position: 'absolute', top: '30%', left: '15%', width: 180, height: 180, background: 'radial-gradient(circle, rgba(26,110,245,0.05) 0%, transparent 70%)', borderRadius: '50%' }} />
 
         <div style={{ position: 'relative', textAlign: 'center', padding: '80px 24px', maxWidth: 700, margin: '0 auto' }}>
-          <p style={{ fontSize: 10, fontWeight: 600, color: '#1a6ef5', letterSpacing: '0.18em', textTransform: 'uppercase', marginBottom: 20 }}>{t.heroTag}</p>
-          <h1 style={{ fontFamily: 'Syne, system-ui', fontSize: 'clamp(48px, 7vw, 80px)', fontWeight: 800, lineHeight: 1, letterSpacing: '-0.03em', marginBottom: 22, color: '#0f172a' }}>
+          <p style={{ fontSize: 11, fontWeight: 600, color: '#60a5fa', letterSpacing: '0.18em', textTransform: 'uppercase', marginBottom: 20 }}>{t.heroTag}</p>
+          <h1 style={{ fontFamily: 'Syne, system-ui', fontSize: 'clamp(48px, 7vw, 80px)', fontWeight: 800, lineHeight: 1, letterSpacing: '-0.03em', marginBottom: 22, color: '#f8fafc' }}>
             {t.heroTitle1}&nbsp;
-            <span style={{ color: '#1a6ef5', textDecoration: 'underline', textDecorationColor: '#1a6ef5', textUnderlineOffset: 8 }}>{t.heroTitle2}</span>
+            <span style={{ color: '#60a5fa' }}>{t.heroTitle2}</span>
           </h1>
           <p style={{ fontSize: 17, color: 'rgba(148,163,184,0.85)', maxWidth: 520, margin: '0 auto 36px', lineHeight: 1.72 }}>{t.heroSub}</p>
           <a href="#services" style={{ display: 'inline-flex', alignItems: 'center', gap: 8, background: '#1a6ef5', color: '#fff', padding: '14px 32px', borderRadius: 8, fontWeight: 700, fontSize: 14, textDecoration: 'none', letterSpacing: '0.04em', boxShadow: '0 4px 24px rgba(26,110,245,0.25)' }}>
@@ -97,7 +97,7 @@ export default function ServicesPage() {
           <div style={{ textAlign: 'center', marginBottom: 56 }}>
             <h2 style={{ fontFamily: 'Syne, system-ui', fontSize: 'clamp(32px, 4vw, 52px)', fontWeight: 800, letterSpacing: '-0.03em', color: '#f8fafc', marginBottom: 14 }}>
               {t.whyTitle1}&nbsp;
-              <span style={{ color: '#1a6ef5', textDecoration: 'underline', textDecorationColor: '#1a6ef5', textUnderlineOffset: 8 }}>{t.whyTitle2}</span>
+              <span style={{ color: '#60a5fa' }}>{t.whyTitle2}</span>
             </h2>
             <p style={{ fontSize: 16, color: 'rgba(148,163,184,0.8)', maxWidth: 480, margin: '0 auto', lineHeight: 1.7 }}>{t.whySub}</p>
           </div>
@@ -126,7 +126,7 @@ export default function ServicesPage() {
           <div style={{ textAlign: 'center', marginBottom: 56 }}>
             <h2 style={{ fontFamily: 'Syne, system-ui', fontSize: 'clamp(32px, 4vw, 52px)', fontWeight: 800, letterSpacing: '-0.03em', color: '#f8fafc', marginBottom: 14 }}>
               {t.servicesTitle1}&nbsp;
-              <span style={{ color: '#1a6ef5', textDecoration: 'underline', textDecorationColor: '#1a6ef5', textUnderlineOffset: 8 }}>{t.servicesTitle2}</span>
+              <span style={{ color: '#60a5fa' }}>{t.servicesTitle2}</span>
             </h2>
             <p style={{ fontSize: 16, color: 'rgba(148,163,184,0.8)', maxWidth: 480, margin: '0 auto', lineHeight: 1.7 }}>{t.servicesSub}</p>
           </div>
@@ -169,7 +169,7 @@ export default function ServicesPage() {
             <div style={{ position: 'absolute', width: 400, height: 400, background: '#1a6ef5', borderRadius: '50%', filter: 'blur(100px)', top: '50%', left: '50%', transform: 'translate(-50%,-50%)', opacity: 0.08 }} />
             <div style={{ position: 'relative' }}>
               <h2 style={{ fontFamily: 'Syne, system-ui', fontSize: 'clamp(28px, 4vw, 42px)', fontWeight: 800, letterSpacing: '-0.03em', color: '#fff', marginBottom: 14 }}>{t.ctaTitle}</h2>
-              <p style={{ color: '#64748b', fontSize: 16, marginBottom: 36, maxWidth: 440, margin: '0 auto 36px', lineHeight: 1.7 }}>{t.ctaSub}</p>
+              <p style={{ color: 'rgba(148,163,184,0.75)', fontSize: 16, marginBottom: 36, maxWidth: 440, margin: '0 auto 36px', lineHeight: 1.7 }}>{t.ctaSub}</p>
               <div style={{ display: 'flex', gap: 12, justifyContent: 'center', flexWrap: 'wrap' }}>
                 <Link href="/contact" style={{ display: 'inline-flex', alignItems: 'center', gap: 8, background: '#1a6ef5', color: '#fff', padding: '14px 30px', borderRadius: 9, fontWeight: 700, fontSize: 14, textDecoration: 'none', boxShadow: '0 8px 32px rgba(26,110,245,0.35)' }}>
                   <ArrowRight size={15} /> {t.ctaBtn1}
