@@ -143,6 +143,7 @@ export default function ProjectsPage() {
           alt=""
           fill
           priority
+          sizes="100vw"
           style={{ objectFit: 'cover', objectPosition: 'center 40%', opacity: 0.32 }}
         />
         {/* Dark gradient overlay */}

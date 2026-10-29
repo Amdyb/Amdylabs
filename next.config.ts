@@ -5,6 +5,7 @@ const nextConfig: NextConfig = {
     formats: ['image/webp'],
     localPatterns: [
       { pathname: '/logo-**', search: '' },
+      { pathname: '/hero-**', search: '' },
     ],
   },
 };

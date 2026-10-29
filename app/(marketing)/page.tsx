@@ -291,6 +291,7 @@ export default function HomePage() {
           alt=""
           fill
           priority
+          sizes="100vw"
           style={{ objectFit: 'cover', objectPosition: 'center 30%', opacity: 0.35 }}
         />
         {/* Dark gradient overlay */}
