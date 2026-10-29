@@ -136,7 +136,17 @@ export default function ProjectsPage() {
     <div style={{ paddingTop: 72, background: '#060818', color: '#f8fafc' }}>
 
       {/* HERO */}
-      <section style={{ position: 'relative', padding: '100px 24px 80px', background: 'linear-gradient(135deg, #060818 0%, #0d1340 40%, #0a0f2e 70%, #060818 100%)', overflow: 'hidden', textAlign: 'center' }}>
+      <section style={{ position: 'relative', padding: '100px 24px 80px', background: '#060818', overflow: 'hidden', textAlign: 'center' }}>
+        {/* Hero background image */}
+        <Image
+          src="/hero-projects.png"
+          alt=""
+          fill
+          priority
+          style={{ objectFit: 'cover', objectPosition: 'center 40%', opacity: 0.32 }}
+        />
+        {/* Dark gradient overlay */}
+        <div style={{ position: 'absolute', inset: 0, background: 'linear-gradient(180deg, rgba(6,8,24,0.80) 0%, rgba(6,8,24,0.55) 50%, rgba(6,8,24,0.92) 100%)', pointerEvents: 'none' }} />
         <div style={{ position: 'absolute', top: -80, right: 100, width: 400, height: 400, background: 'radial-gradient(circle, rgba(59,130,246,0.12) 0%, transparent 70%)', borderRadius: '50%', pointerEvents: 'none' }} />
         <div style={{ position: 'absolute', bottom: -60, left: 50, width: 300, height: 300, background: 'radial-gradient(circle, rgba(99,102,241,0.08) 0%, transparent 70%)', borderRadius: '50%', pointerEvents: 'none' }} />
         <div style={{ position: 'relative', maxWidth: 700, margin: '0 auto' }}>

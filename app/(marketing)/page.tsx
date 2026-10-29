@@ -283,8 +283,18 @@ export default function HomePage() {
         paddingLeft: 24,
         paddingRight: 24,
         overflow: 'hidden',
-        background: 'linear-gradient(135deg, #060818 0%, #0d1340 40%, #0a0f2e 70%, #060818 100%)',
+        background: '#060818',
       }}>
+        {/* Hero background image */}
+        <Image
+          src="/hero-home.png"
+          alt=""
+          fill
+          priority
+          style={{ objectFit: 'cover', objectPosition: 'center 30%', opacity: 0.35 }}
+        />
+        {/* Dark gradient overlay */}
+        <div style={{ position: 'absolute', inset: 0, background: 'linear-gradient(135deg, rgba(6,8,24,0.85) 0%, rgba(13,19,64,0.65) 45%, rgba(6,8,24,0.90) 100%)', pointerEvents: 'none' }} />
         {/* Ambient orbs */}
         <div style={{ position: 'absolute', top: -120, left: '30%', width: 600, height: 600, borderRadius: '50%', background: 'radial-gradient(circle, rgba(59,130,246,0.18) 0%, transparent 70%)', pointerEvents: 'none' }} />
         <div style={{ position: 'absolute', bottom: -80, right: '10%', width: 400, height: 400, borderRadius: '50%', background: 'radial-gradient(circle, rgba(139,92,246,0.12) 0%, transparent 70%)', pointerEvents: 'none' }} />
