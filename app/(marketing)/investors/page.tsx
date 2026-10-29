@@ -7,37 +7,37 @@ import { ArrowRight, TrendingUp, Globe, Users, DollarSign, Shield, Zap, BarChart
 const METRICS = [
   { value: '38+', label: 'Merchants Active', sub: 'on CaissePro platform' },
   { value: '217+', label: 'Products Tracked', sub: 'across merchant catalogs' },
-  { value: '$712B', label: 'Market by 2050', sub: 'African digital economy' },
+  { value: '$4.5T', label: 'Addressable Market', sub: 'global SMB digital commerce' },
   { value: '4', label: 'Live Products', sub: 'CaissePro · VYBZ · ImmoPro · Mon Livreur' },
 ]
 
 const MARKET = [
-  { stat: '1.4B', desc: 'People in Africa — fastest growing consumer market on earth' },
-  { stat: '43%', desc: 'Mobile money adoption in Sub-Saharan Africa vs 6% credit card usage' },
-  { stat: '$3T', desc: 'Informal economy in Africa — largely undigitized and underserved' },
-  { stat: '70%', desc: 'of African businesses have no digital presence or management tools' },
+  { stat: '400M+', desc: 'Underserved SMBs globally with no digital management tools' },
+  { stat: '60%', desc: 'of small businesses still run on paper or basic spreadsheets' },
+  { stat: '$4.5T', desc: 'Global SMB software market — growing 12% annually' },
+  { stat: '3×', desc: 'Faster mobile commerce growth in emerging markets vs developed ones' },
 ]
 
 const PRODUCTS = [
-  { name: 'CaissePro', url: 'caissepro.app', status: 'Revenue-generating', desc: 'Multi-tenant SaaS POS platform for African merchants. Subscription-based, Wave/Orange Money integrated, WhatsApp-native.', color: '#1a6ef5' },
-  { name: 'ImmoPro', url: 'immopro.agency', status: 'Live', desc: 'Real estate listings and agent management platform for the Senegalese market. First-mover advantage in a $2B+ sector.', color: '#f59e0b' },
-  { name: 'VYBZ', url: 'vybz.city', status: 'Live', desc: 'Social events and nightlife platform for Dakar and the African diaspora. Network-effect growth model.', color: '#8b5cf6' },
-  { name: 'Mon Livreur', url: '', status: 'In Development', desc: 'Last-mile delivery and logistics platform. Targeting the $8B African e-commerce logistics gap.', color: '#00e676' },
+  { name: 'CaissePro', url: 'caissepro.app', status: 'Revenue-generating', desc: 'Multi-tenant SaaS POS platform for merchants. Subscription-based, mobile payment integrated, WhatsApp-native.', color: '#1a6ef5' },
+  { name: 'ImmoPro', url: 'immopro.agency', status: 'Live', desc: 'Real estate listings and agent management platform. First-mover advantage in underdigitized property markets.', color: '#f59e0b' },
+  { name: 'VYBZ', url: 'vybz.city', status: 'Live', desc: 'Social events and nightlife platform. Network-effect growth model targeting urban communities worldwide.', color: '#8b5cf6' },
+  { name: 'Mon Livreur', url: '', status: 'In Development', desc: 'Last-mile delivery and logistics platform. Targeting the fast-growing e-commerce logistics gap in emerging markets.', color: '#00e676' },
 ]
 
 const REVENUE_MODELS = [
   { Icon: DollarSign, title: 'SaaS Subscriptions', desc: 'Monthly recurring revenue from CaissePro merchants. Free to Starter ($5K XOF) to Business ($15K) to Premium ($35K).' },
-  { Icon: BarChart2, title: 'Transaction Fees', desc: 'Micro-commission on Wave and Orange Money transactions processed through our platform.' },
-  { Icon: Globe, title: 'Platform Licensing', desc: 'White-label licensing of our POS and e-commerce infrastructure to banks and telecoms in West Africa.' },
-  { Icon: Users, title: 'Enterprise Contracts', desc: 'Custom development and managed software contracts with African corporations and government agencies.' },
+  { Icon: BarChart2, title: 'Transaction Fees', desc: 'Micro-commission on mobile payment transactions processed through our platform.' },
+  { Icon: Globe, title: 'Platform Licensing', desc: 'White-label licensing of our POS and e-commerce infrastructure to banks, telecoms, and enterprise partners.' },
+  { Icon: Users, title: 'Enterprise Contracts', desc: 'Custom development and managed software contracts with corporations and government agencies.' },
 ]
 
 const COMPETITIVE = [
-  { area: 'Native Wave & Orange Money', us: true, comp: false, note: 'Deep mobile money integration' },
-  { area: 'Offline-First Architecture', us: true, comp: false, note: 'Works on 2G networks' },
-  { area: 'Multilingual (FR/EN/Wolof)', us: true, comp: false, note: 'Built for local markets' },
-  { area: 'WhatsApp-Native Commerce', us: true, comp: false, note: '85%+ penetration via WhatsApp' },
-  { area: 'CFA Currency Support', us: true, comp: true, note: 'XOF, XAF, GHS, NGN' },
+  { area: 'Mobile-First Payment Integration', us: true, comp: false, note: 'Works with local payment gateways' },
+  { area: 'Offline-First Architecture', us: true, comp: false, note: 'Works without stable internet' },
+  { area: 'Multilingual Interface', us: true, comp: false, note: 'Built for diverse local markets' },
+  { area: 'WhatsApp-Native Commerce', us: true, comp: false, note: '2B+ monthly active users globally' },
+  { area: 'Multi-Currency Support', us: true, comp: true, note: 'XOF, XAF, GHS, NGN and more' },
   { area: 'US-Based Legal Entity', us: true, comp: false, note: 'Michigan LLC — US compliant' },
 ]
 
@@ -45,14 +45,14 @@ const TIMELINE = [
   { year: '2023', title: 'Founded', desc: 'AMDY LABS established in Detroit, Michigan. First product concept: CaissePro.' },
   { year: '2024', title: 'First Products Live', desc: 'CaissePro launched with real merchants. ImmoPro and VYBZ deployed.' },
   { year: '2025', title: 'Platform Growth', desc: '38+ active merchants, 4 live products, team across US, France and Senegal.' },
-  { year: '2026', title: 'Seed Round', desc: 'Seeking investment to accelerate merchant acquisition and expand to 5 new African markets.' },
+  { year: '2026', title: 'Seed Round', desc: 'Seeking investment to accelerate merchant acquisition and expand into new global markets.' },
 ]
 
 const FAQ_INV = [
   ['What is the legal structure of AMDY LABS?', 'AMDY LABS is a Michigan-based Limited Liability Company (LLC) founded and operated in the United States. All financial operations comply with US regulations.'],
-  ['What stage is the company at?', 'We are at the pre-seed/seed stage with live revenue-generating products, a distributed team, and proven product-market fit in West Africa.'],
-  ['What is the investment ask?', 'We are currently raising a seed round to accelerate merchant acquisition on CaissePro, expand to 3 additional African markets, and grow our engineering team. Contact us for the full deck.'],
-  ['Who are the founders?', 'AMDY LABS was founded by Amdy Boubacar, a Senegalese-American entrepreneur based in Detroit, Michigan, with deep roots in West African markets and a team across the US, France, and Senegal.'],
+  ['What stage is the company at?', 'We are at the pre-seed/seed stage with live revenue-generating products, a distributed team, and proven product-market fit.'],
+  ['What is the investment ask?', 'We are currently raising a seed round to accelerate merchant acquisition on CaissePro, expand into new markets, and grow our engineering team. Contact us for the full deck.'],
+  ['Who are the founders?', 'AMDY LABS was founded by Amdy Boubacar, a Senegalese-American entrepreneur based in Detroit, Michigan, with a distributed team across the US, France, and Senegal.'],
   ['How do you make money today?', 'CaissePro generates monthly subscription revenue from active merchant accounts. ImmoPro generates listing fees and agent commissions.'],
 ]
 
@@ -73,11 +73,11 @@ export default function InvestorsPage() {
             Investor Relations
           </div>
           <h1 style={{ fontFamily: 'Syne, system-ui', fontSize: 'clamp(36px, 5vw, 62px)', fontWeight: 800, lineHeight: 1.05, letterSpacing: '-0.03em', marginBottom: 22, color: '#fff' }}>
-            Investing in Africa&apos;s<br />
+            Investing in Global<br />
             <span style={{ background: 'linear-gradient(135deg, #60a5fa, #00e676)', WebkitBackgroundClip: 'text', WebkitTextFillColor: 'transparent', backgroundClip: 'text' }}>Digital Infrastructure</span>
           </h1>
           <p style={{ fontSize: 17, color: 'rgba(148,163,184,0.8)', maxWidth: 580, margin: '0 auto 36px', lineHeight: 1.72 }}>
-            AMDY LABS is building the operating system for African commerce — starting with West Africa&apos;s 400M+ undigitized merchants, and scaling globally.
+            AMDY LABS is building the operating system for modern commerce — starting where the opportunity is largest and scaling globally.
           </p>
           <div style={{ display: 'flex', gap: 12, justifyContent: 'center', flexWrap: 'wrap' }}>
             <a href="mailto:contact@amdylabs.com?subject=Investment Inquiry — AMDY LABS" style={{ display: 'inline-flex', alignItems: 'center', gap: 8, background: 'linear-gradient(135deg,#1a6ef5,#0050c8)', color: '#fff', padding: '14px 30px', borderRadius: 10, fontWeight: 700, fontSize: 14, textDecoration: 'none', boxShadow: '0 8px 32px rgba(26,110,245,0.35)' }}>
@@ -108,8 +108,8 @@ export default function InvestorsPage() {
         <div style={{ maxWidth: 1100, margin: '0 auto', display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(300px, 1fr))', gap: 60, alignItems: 'center' }}>
           <div>
             <p style={{ fontSize: 10, fontWeight: 600, color: '#1a6ef5', letterSpacing: '0.14em', textTransform: 'uppercase', marginBottom: 14 }}>Market Opportunity</p>
-            <h2 style={{ fontFamily: 'Syne, system-ui', fontSize: 'clamp(26px, 3.5vw, 42px)', fontWeight: 800, letterSpacing: '-0.03em', lineHeight: 1.05, marginBottom: 18, color: '#fff' }}>The largest untapped<br />market on earth</h2>
-            <p style={{ fontSize: 15, color: 'rgba(148,163,184,0.8)', lineHeight: 1.72, marginBottom: 24 }}>Africa is the world&apos;s youngest continent — 60% under 25. Mobile money adoption is outpacing every other region. AMDY LABS is positioned at the center of this transformation.</p>
+            <h2 style={{ fontFamily: 'Syne, system-ui', fontSize: 'clamp(26px, 3.5vw, 42px)', fontWeight: 800, letterSpacing: '-0.03em', lineHeight: 1.05, marginBottom: 18, color: '#fff' }}>A massive, underserved global market</h2>
+            <p style={{ fontSize: 15, color: 'rgba(148,163,184,0.8)', lineHeight: 1.72, marginBottom: 24 }}>Hundreds of millions of small businesses around the world still operate without reliable digital tools. AMDY LABS is building the infrastructure layer they need — starting in the markets where demand is strongest.</p>
             <Link href="/contact" style={{ display: 'inline-flex', alignItems: 'center', gap: 6, color: '#60a5fa', fontWeight: 600, fontSize: 13, textDecoration: 'none' }}>
               View full market analysis <ArrowRight size={13} />
             </Link>
@@ -231,7 +231,7 @@ export default function InvestorsPage() {
           <div style={{ background: 'linear-gradient(135deg,#0a1628,#0d1f4a)', border: '1px solid rgba(30,45,74,0.6)', borderRadius: 18, padding: '56px 44px', textAlign: 'center', position: 'relative', overflow: 'hidden' }}>
             <div style={{ position: 'absolute', width: 350, height: 350, background: '#1a6ef5', borderRadius: '50%', filter: 'blur(100px)', top: '50%', left: '50%', transform: 'translate(-50%,-50%)', opacity: 0.07 }} />
             <div style={{ position: 'relative' }}>
-              <h2 style={{ fontFamily: 'Syne, system-ui', fontSize: 'clamp(26px, 3.5vw, 40px)', fontWeight: 800, letterSpacing: '-0.03em', marginBottom: 14, color: '#fff' }}>Ready to invest in Africa&apos;s digital future?</h2>
+              <h2 style={{ fontFamily: 'Syne, system-ui', fontSize: 'clamp(26px, 3.5vw, 40px)', fontWeight: 800, letterSpacing: '-0.03em', marginBottom: 14, color: '#fff' }}>Ready to invest in the future of digital commerce?</h2>
               <p style={{ color: 'rgba(148,163,184,0.8)', fontSize: 15, marginBottom: 32, maxWidth: 440, margin: '0 auto 32px', lineHeight: 1.7 }}>We are currently raising our seed round. Request the full investor deck and financial projections.</p>
               <div style={{ display: 'flex', gap: 12, justifyContent: 'center', flexWrap: 'wrap', marginBottom: 28 }}>
                 <a href="mailto:contact@amdylabs.com?subject=Investment Inquiry — AMDY LABS" style={{ display: 'inline-flex', alignItems: 'center', gap: 8, background: 'linear-gradient(135deg,#1a6ef5,#0050c8)', color: '#fff', padding: '13px 28px', borderRadius: 9, fontWeight: 700, fontSize: 14, textDecoration: 'none', boxShadow: '0 8px 32px rgba(26,110,245,0.35)' }}>

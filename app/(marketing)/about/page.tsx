@@ -6,76 +6,76 @@ import { useLang } from '@/lib/lang'
 
 const T = {
   fr: {
-    storyTag: 'Notre Histoire', storyTitle1: 'CONSTRUIT EN AFRIQUE,', storyTitle2: 'POUR L\'AFRIQUE',
-    storySub: 'AMDY LABS a été fondé avec une seule mission : combler le fossé technologique qui empêche les entreprises africaines de rivaliser au niveau mondial.',
-    p1: 'AMDY LABS a été fondé par Amdy Boubacar aux côtés d\'un réseau de talentueux développeurs et créatifs africains vivant aux États-Unis, en Europe et en Afrique.',
-    p2: 'L\'entreprise est née d\'une vision simple mais puissante : les entrepreneurs africains méritent des logiciels de classe mondiale, des outils digitaux modernes et des systèmes d\'entreprise évolutifs — à des prix adaptés aux réalités africaines.',
-    p3: 'De CaissePro, notre système de caisse phare, à VYBZ Social et ImmoPro — chaque produit que nous construisons résout un vrai problème d\'entreprise africaine.',
+    storyTag: 'Notre Histoire', storyTitle1: 'CONSTRUIT POUR', storyTitle2: 'LE MONDE ENTIER',
+    storySub: 'AMDY LABS a été fondé avec une seule mission : donner aux entrepreneurs accès à des outils digitaux de classe mondiale, quelle que soit leur géographie.',
+    p1: 'AMDY LABS a été fondé par Amdy Boubacar aux côtés d\'un réseau de talentueux développeurs et créatifs basés aux États-Unis, en Europe et en Afrique.',
+    p2: 'L\'entreprise est née d\'une vision simple mais puissante : les entrepreneurs du monde entier méritent des logiciels de classe mondiale, des outils digitaux modernes et des systèmes d\'entreprise évolutifs — à des prix accessibles.',
+    p3: 'De CaissePro, notre système de caisse phare, à VYBZ Social et ImmoPro — chaque produit que nous construisons résout un vrai problème d\'entreprise.',
     missionTag: 'Mission & Vision',
     missionItems: [
-      { title: 'Mission', text: 'Aider les entreprises africaines à se moderniser grâce à la technologie en livrant des solutions digitales abordables et de classe mondiale.' },
-      { title: 'Vision', text: 'Devenir l\'un des principaux écosystèmes technologiques africains — en construisant des produits de classe mondiale pour les réalités africaines.' },
-      { title: 'Objectif 2030', text: 'Équiper 10 000+ entreprises africaines d\'outils digitaux dans 20+ pays du continent.' },
+      { title: 'Mission', text: 'Aider les entrepreneurs à se moderniser grâce à la technologie en livrant des solutions digitales abordables et de classe mondiale.' },
+      { title: 'Vision', text: 'Devenir un écosystème technologique de référence — en construisant des produits de classe mondiale pour les réalités du terrain.' },
+      { title: 'Objectif 2030', text: 'Équiper 10 000+ entreprises d\'outils digitaux dans 20+ marchés à travers le monde.' },
     ],
     teamTag: 'Notre Équipe', teamTitle1: 'UN TALENT', teamTitle2: 'DISTRIBUÉ',
-    teamSub: 'Développeurs, designers et stratèges du continent africain et de la diaspora — unis par une mission commune.',
+    teamSub: 'Développeurs, designers et stratèges répartis dans le monde entier — unis par une mission commune.',
     locations: [
       { city: 'Detroit, USA', role: 'Direction & Produit' },
       { city: 'France', role: 'Design & Frontend' },
-      { city: 'Dakar, Sénégal', role: 'Opérations Afrique' },
+      { city: 'Dakar, Sénégal', role: 'Opérations & Support' },
       { city: 'Côte d\'Ivoire', role: 'Développement Mobile' },
       { city: 'Maroc', role: 'Backend & Infrastructure' },
-      { city: 'Afrique & Diaspora', role: 'Talents distribués' },
+      { city: 'Mondial', role: 'Talents distribués' },
     ],
     valuesTag: 'Nos Valeurs', valuesTitle1: 'CE EN QUOI', valuesTitle2: 'NOUS CROYONS',
     values: [
-      { title: 'Excellence', desc: 'Qualité Silicon Valley aux prix africains. Aucun raccourci.' },
+      { title: 'Excellence', desc: 'Qualité Silicon Valley à des prix accessibles. Aucun raccourci.' },
       { title: 'Partenariat', desc: 'Votre partenaire technologique à long terme, pas juste un prestataire.' },
-      { title: 'Innovation', desc: 'Technologie mondiale fusionnée avec la connaissance africaine.' },
+      { title: 'Innovation', desc: 'Technologie mondiale fusionnée avec une connaissance profonde du terrain.' },
       { title: 'Confiance', desc: 'Tarification transparente, communication honnête, livraison fiable.' },
       { title: 'Rapidité', desc: 'Livraison agile. Nous avançons à la vitesse de votre entreprise.' },
-      { title: 'Croissance', desc: 'Chaque produit conçu pour évoluer avec vous à travers l\'Afrique.' },
+      { title: 'Croissance', desc: 'Chaque produit conçu pour évoluer avec vous, quel que soit votre marché.' },
     ],
     founderTag: 'Direction', founderTitle: 'LE', founderTitle2: 'FONDATEUR',
-    founderBio: 'Entrepreneur sénégalo-américain basé à Detroit, Michigan, avec de profondes racines dans les marchés d\'Afrique de l\'Ouest. Amdy a fondé AMDY LABS pour combler le fossé technologique entre les logiciels de qualité Silicon Valley et les réalités des entreprises africaines.',
-    founderSkills: ['SaaS & Produit', 'Marchés Africains', 'Commerce Mobile', 'Detroit, MI'],
+    founderBio: 'Entrepreneur sénégalo-américain basé à Detroit, Michigan. Amdy a fondé AMDY LABS pour que les entrepreneurs de tous horizons puissent accéder à des outils digitaux de qualité — sans compromis sur la performance ni sur le budget.',
+    founderSkills: ['SaaS & Produit', 'Commerce Mobile', 'Marchés Émergents', 'Detroit, MI'],
     linkedinBtn: 'Profil LinkedIn',
     ctaTitle: 'Rejoignez la mission', ctaSub: 'Que vous soyez client, investisseur ou partenaire — construisons ensemble.', ctaBtn1: 'Travailler avec nous', ctaBtn2: 'WhatsApp',
   },
   en: {
-    storyTag: 'Our Story', storyTitle1: 'BUILT IN AFRICA,', storyTitle2: 'FOR AFRICA',
-    storySub: 'AMDY LABS was founded with a single mission: to bridge the technology gap preventing African businesses from competing globally.',
-    p1: 'AMDY LABS was founded by Amdy Boubacar alongside a network of talented African developers and creatives based in the US, Europe, and Africa.',
-    p2: 'The company was born from a simple but powerful vision: African entrepreneurs deserve world-class software, modern digital tools, and scalable business systems — at prices adapted to African realities.',
-    p3: 'From CaissePro, our flagship POS system, to VYBZ Social and ImmoPro — every product we build solves a real African business problem.',
+    storyTag: 'Our Story', storyTitle1: 'BUILT FOR', storyTitle2: 'THE WORLD',
+    storySub: 'AMDY LABS was founded with a single mission: give entrepreneurs everywhere access to world-class digital tools — regardless of where they are.',
+    p1: 'AMDY LABS was founded by Amdy Boubacar alongside a network of talented developers and creatives based in the US, Europe, and Africa.',
+    p2: 'The company was born from a simple but powerful vision: entrepreneurs everywhere deserve world-class software, modern digital tools, and scalable business systems — at prices that make sense.',
+    p3: 'From CaissePro, our flagship POS system, to VYBZ Social and ImmoPro — every product we build solves a real business problem.',
     missionTag: 'Mission & Vision',
     missionItems: [
-      { title: 'Mission', text: 'Help African businesses modernize through technology by delivering affordable, world-class digital solutions.' },
-      { title: 'Vision', text: 'Become one of the leading African tech ecosystems — building world-class products for African realities.' },
-      { title: '2030 Goal', text: 'Equip 10,000+ African businesses with digital tools across 20+ countries on the continent.' },
+      { title: 'Mission', text: 'Help entrepreneurs modernize through technology by delivering affordable, world-class digital solutions.' },
+      { title: 'Vision', text: 'Become a leading global tech ecosystem — building world-class products for real-world business needs.' },
+      { title: '2030 Goal', text: 'Equip 10,000+ businesses with digital tools across 20+ markets worldwide.' },
     ],
     teamTag: 'Our Team', teamTitle1: 'DISTRIBUTED', teamTitle2: 'TALENT',
-    teamSub: 'Developers, designers and strategists from the African continent and diaspora — united by a common mission.',
+    teamSub: 'Developers, designers and strategists distributed across the globe — united by a common mission.',
     locations: [
       { city: 'Detroit, USA', role: 'Leadership & Product' },
       { city: 'France', role: 'Design & Frontend' },
-      { city: 'Dakar, Senegal', role: 'Africa Operations' },
+      { city: 'Dakar, Senegal', role: 'Operations & Support' },
       { city: 'Côte d\'Ivoire', role: 'Mobile Development' },
       { city: 'Morocco', role: 'Backend & Infrastructure' },
-      { city: 'Africa & Diaspora', role: 'Distributed Talent' },
+      { city: 'Worldwide', role: 'Distributed Talent' },
     ],
     valuesTag: 'Our Values', valuesTitle1: 'WHAT WE', valuesTitle2: 'BELIEVE IN',
     values: [
-      { title: 'Excellence', desc: 'Silicon Valley quality at African prices. No shortcuts.' },
+      { title: 'Excellence', desc: 'Silicon Valley quality at accessible prices. No shortcuts.' },
       { title: 'Partnership', desc: 'Your long-term tech partner — not just a vendor.' },
-      { title: 'Innovation', desc: 'Global technology fused with deep African market knowledge.' },
+      { title: 'Innovation', desc: 'Global technology fused with deep on-the-ground market knowledge.' },
       { title: 'Trust', desc: 'Transparent pricing, honest communication, reliable delivery.' },
       { title: 'Speed', desc: 'Agile delivery. We move at the speed of your business.' },
-      { title: 'Growth', desc: 'Every product designed to scale with you across Africa.' },
+      { title: 'Growth', desc: 'Every product designed to scale with you, wherever you operate.' },
     ],
     founderTag: 'Leadership', founderTitle: 'THE', founderTitle2: 'FOUNDER',
-    founderBio: 'Senegalese-American entrepreneur based in Detroit, Michigan, with deep roots in West African markets. Amdy founded AMDY LABS to bridge the technology gap between Silicon Valley-quality software and African business realities.',
-    founderSkills: ['SaaS & Product', 'African Markets', 'Mobile Commerce', 'Detroit, MI'],
+    founderBio: 'Senegalese-American entrepreneur based in Detroit, Michigan. Amdy founded AMDY LABS so that entrepreneurs everywhere can access world-class digital tools — without compromise on performance or budget.',
+    founderSkills: ['SaaS & Product', 'Mobile Commerce', 'Emerging Markets', 'Detroit, MI'],
     linkedinBtn: 'LinkedIn Profile',
     ctaTitle: 'Join the mission', ctaSub: 'Whether you\'re a client, investor or partner — let\'s build together.', ctaBtn1: 'Work With Us', ctaBtn2: 'WhatsApp',
   }
@@ -88,7 +88,7 @@ export default function AboutPage() {
   const t = T[lang === 'ar' ? 'en' : lang]
 
   return (
-    <div style={{ paddingTop: 72, background: '#060818', color: '#e2e8f0' }}>
+    <div style={{ paddingTop: 72, background: '#060818', color: '#e2e8f0', fontFamily: 'Inter, system-ui, sans-serif' }}>
 
       {/* ── HERO ── */}
       <section style={{ position: 'relative', padding: '100px 24px 80px', background: '#060818', overflow: 'hidden' }}>
@@ -199,7 +199,7 @@ export default function AboutPage() {
             <div>
               <div style={{ fontFamily: 'Syne, system-ui', fontWeight: 800, fontSize: 20, color: '#f8fafc', marginBottom: 4 }}>Amdy Boubacar</div>
               <div style={{ fontSize: 12, color: '#60a5fa', fontWeight: 600, marginBottom: 6, letterSpacing: '0.05em' }}>Founder & CEO — AMDY LABS LLC</div>
-              <div style={{ fontSize: 12, color: 'rgba(148,163,184,0.6)', marginBottom: 16 }}>Detroit, Michigan, USA · Dakar, Sénégal</div>
+              <div style={{ fontSize: 12, color: 'rgba(148,163,184,0.6)', marginBottom: 16 }}>Detroit, Michigan, USA</div>
               <p style={{ fontSize: 14, color: 'rgba(148,163,184,0.8)', lineHeight: 1.72, marginBottom: 18 }}>{t.founderBio}</p>
               <div style={{ display: 'flex', flexWrap: 'wrap', gap: 8, marginBottom: 18 }}>
                 {t.founderSkills.map(tag => (

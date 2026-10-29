@@ -8,17 +8,17 @@ const T = {
   fr: {
     heroTag: 'Ce que nous construisons',
     heroTitle1: 'NOS', heroTitle2: 'SERVICES',
-    heroSub: 'Des solutions digitales modernes et complètes pour transformer votre entreprise et conquérir les marchés africains.',
+    heroSub: 'Des solutions digitales modernes et complètes pour transformer votre entreprise et atteindre vos marchés, partout dans le monde.',
     heroCta: 'Explorer nos services',
     whyTitle1: 'POURQUOI', whyTitle2: 'NOUS CHOISIR',
-    whySub: 'Découvrez ce qui nous distingue dans le monde du digital africain',
+    whySub: 'Découvrez ce qui nous distingue dans le monde du digital',
     why: [
-      { title: 'EXPERTISE PROUVÉE', desc: 'Notre équipe apporte des années d\'expérience dans le développement de produits digitaux pour les marchés africains.' },
-      { title: 'SÉCURITÉ', desc: 'Nous priorisons la sécurité de vos données avec des protocoles et pratiques de pointe.' },
-      { title: 'SUPPORT 24/7', desc: 'Surveillance et support en continu pour garantir que vos opérations ne s\'arrêtent jamais.' },
-      { title: 'SOLUTIONS ÉVOLUTIVES', desc: 'Développez votre entreprise avec une infrastructure qui évolue avec vos besoins.' },
-      { title: 'ULTRA RAPIDE', desc: 'Solutions optimisées qui délivrent des performances et une vitesse exceptionnelles.' },
-      { title: 'PORTÉE MONDIALE', desc: 'Déployez vos applications plus près de vos utilisateurs avec notre infrastructure distribuée.' },
+      { title: 'Expertise prouvée', desc: 'Notre équipe apporte des années d\'expérience dans le développement de produits digitaux à impact mondial.' },
+      { title: 'Sécurité', desc: 'Nous priorisons la sécurité de vos données avec des protocoles et pratiques de pointe.' },
+      { title: 'Support 24/7', desc: 'Surveillance et support en continu pour garantir que vos opérations ne s\'arrêtent jamais.' },
+      { title: 'Solutions évolutives', desc: 'Développez votre entreprise avec une infrastructure qui évolue avec vos besoins.' },
+      { title: 'Ultra rapide', desc: 'Solutions optimisées qui délivrent des performances et une vitesse exceptionnelles.' },
+      { title: 'Portée mondiale', desc: 'Déployez vos applications plus près de vos utilisateurs avec notre infrastructure distribuée.' },
     ],
     servicesTitle1: 'TOUS NOS', servicesTitle2: 'SERVICES',
     servicesSub: 'De l\'idée à la production — nous construisons, lançons et soutenons des produits de classe mondiale.',
@@ -30,17 +30,17 @@ const T = {
   en: {
     heroTag: 'What We Build',
     heroTitle1: 'OUR', heroTitle2: 'SERVICES',
-    heroSub: 'Modern, comprehensive digital solutions to transform your business and conquer African markets.',
+    heroSub: 'Modern, comprehensive digital solutions to transform your business and reach your customers — anywhere in the world.',
     heroCta: 'Explore Our Services',
     whyTitle1: 'WHY', whyTitle2: 'CHOOSE US',
-    whySub: 'Discover what sets us apart in the world of African digital solutions',
+    whySub: 'Discover what sets us apart in building world-class digital products',
     why: [
-      { title: 'PROVEN EXPERTISE', desc: 'Our team brings years of experience in building digital products for African markets.' },
-      { title: 'SECURITY', desc: 'We prioritize your data\'s security with industry-leading protocols and practices.' },
-      { title: '24/7 SUPPORT', desc: 'Round-the-clock monitoring and support to ensure your operations never stop.' },
-      { title: 'SCALABLE SOLUTIONS', desc: 'Grow your business with infrastructure that scales with your needs.' },
-      { title: 'LIGHTNING FAST', desc: 'Optimized solutions that deliver exceptional performance and speed.' },
-      { title: 'GLOBAL REACH', desc: 'Deploy your applications closer to your users with our worldwide infrastructure.' },
+      { title: 'Proven expertise', desc: 'Our team brings years of experience building digital products that deliver real-world impact at scale.' },
+      { title: 'Security', desc: 'We prioritize your data\'s security with industry-leading protocols and practices.' },
+      { title: '24/7 support', desc: 'Round-the-clock monitoring and support to ensure your operations never stop.' },
+      { title: 'Scalable solutions', desc: 'Grow your business with infrastructure that scales with your needs.' },
+      { title: 'Lightning fast', desc: 'Optimized solutions that deliver exceptional performance and speed.' },
+      { title: 'Global reach', desc: 'Deploy your applications closer to your users with our worldwide infrastructure.' },
     ],
     servicesTitle1: 'ALL OUR', servicesTitle2: 'SERVICES',
     servicesSub: 'From idea to production — we build, launch, and support world-class digital products.',
@@ -54,14 +54,14 @@ const T = {
 const WHY_ICONS = [Star, Shield, Clock, TrendingUp, Zap, Globe]
 
 const SERVICES = [
-  { Icon: Smartphone, fr: 'Applications Mobiles', en: 'Mobile Apps', color: '#1a6ef5', descFr: 'Applications Android et iOS natives et multiplateformes conçues pour les consommateurs africains. Rapides, utilisables hors connexion et magnifiquement designées.', descEn: 'Native & cross-platform Android and iOS apps built for African consumers. Fast, offline-capable, beautifully designed.', benefits: { fr: ['Android et iOS', 'Mode hors connexion', 'Intégration Mobile Money', 'Notifications WhatsApp'], en: ['Android & iOS', 'Offline mode', 'Mobile Money integration', 'WhatsApp notifications'] } },
-  { Icon: Globe, fr: 'Sites Web', en: 'Websites', color: '#0891b2', descFr: 'Sites web modernes, rapides et responsifs qui transforment vos visiteurs en clients payants.', descEn: 'Modern, fast, responsive websites that turn visitors into paying customers.', benefits: { fr: ['SEO optimisé', 'Design mobile-first', 'Chargement rapide sur 2G', 'CMS facile'], en: ['SEO optimized', 'Mobile-first design', 'Fast on 2G', 'Easy CMS'] } },
-  { Icon: Store, fr: 'Systèmes POS', en: 'POS Systems', color: '#059669', descFr: 'Systèmes de caisse alimentés par CaissePro. Wave, Orange Money, Free Money — tous intégrés nativement.', descEn: 'CaissePro-powered point-of-sale. Wave, Orange Money, Free Money — all natively integrated.', benefits: { fr: ['Wave & Orange Money', 'Gestion des stocks', 'Reçus WhatsApp', 'Rapports quotidiens'], en: ['Wave & Orange Money', 'Inventory management', 'WhatsApp receipts', 'Daily reports'] } },
-  { Icon: Cloud, fr: 'Plateformes SaaS', en: 'SaaS Platforms', color: '#7c3aed', descFr: 'Plateformes logicielles SaaS multi-tenant complètes construites pour évoluer à travers l\'Afrique.', descEn: 'Full multi-tenant SaaS platforms built to scale across Africa.', benefits: { fr: ['Multi-tenant', 'Facturation abonnement', 'Rôles & permissions', 'API-first'], en: ['Multi-tenant', 'Subscription billing', 'Roles & permissions', 'API-first'] } },
-  { Icon: ShoppingCart, fr: 'E-Commerce', en: 'E-Commerce', color: '#dc2626', descFr: 'Boutiques en ligne complètes avec passerelles de paiement africaines et commandes WhatsApp.', descEn: 'Full online stores with African payment gateways and WhatsApp ordering.', benefits: { fr: ['CinetPay & PayDunya', 'Commandes WhatsApp', 'Gestion catalogue', 'Multilingue'], en: ['CinetPay & PayDunya', 'WhatsApp ordering', 'Catalog management', 'Multilingual'] } },
+  { Icon: Smartphone, fr: 'Applications Mobiles', en: 'Mobile Apps', color: '#1a6ef5', descFr: 'Applications Android et iOS natives et multiplateformes — rapides, utilisables hors connexion et magnifiquement designées pour vos utilisateurs.', descEn: 'Native & cross-platform Android and iOS apps — fast, offline-capable, and beautifully designed for your users.', benefits: { fr: ['Android et iOS', 'Mode hors connexion', 'Intégration paiement', 'Notifications push'], en: ['Android & iOS', 'Offline mode', 'Payment integration', 'Push notifications'] } },
+  { Icon: Globe, fr: 'Sites Web', en: 'Websites', color: '#0891b2', descFr: 'Sites web modernes, rapides et responsifs qui transforment vos visiteurs en clients payants.', descEn: 'Modern, fast, responsive websites that turn visitors into paying customers.', benefits: { fr: ['SEO optimisé', 'Design mobile-first', 'Chargement ultra-rapide', 'CMS facile'], en: ['SEO optimized', 'Mobile-first design', 'Ultra-fast loading', 'Easy CMS'] } },
+  { Icon: Store, fr: 'Systèmes POS', en: 'POS Systems', color: '#059669', descFr: 'Systèmes de caisse alimentés par CaissePro. Paiement mobile, carte et espèces — tous intégrés nativement.', descEn: 'CaissePro-powered point-of-sale. Mobile money, card, and cash — all natively integrated.', benefits: { fr: ['Paiements mobiles', 'Gestion des stocks', 'Reçus WhatsApp', 'Rapports quotidiens'], en: ['Mobile payments', 'Inventory management', 'WhatsApp receipts', 'Daily reports'] } },
+  { Icon: Cloud, fr: 'Plateformes SaaS', en: 'SaaS Platforms', color: '#7c3aed', descFr: 'Plateformes logicielles SaaS multi-tenant complètes construites pour évoluer et se déployer à l\'international.', descEn: 'Full multi-tenant SaaS platforms built to scale globally and deploy anywhere.', benefits: { fr: ['Multi-tenant', 'Facturation abonnement', 'Rôles & permissions', 'API-first'], en: ['Multi-tenant', 'Subscription billing', 'Roles & permissions', 'API-first'] } },
+  { Icon: ShoppingCart, fr: 'E-Commerce', en: 'E-Commerce', color: '#dc2626', descFr: 'Boutiques en ligne complètes avec passerelles de paiement locales et internationales et commandes WhatsApp.', descEn: 'Full online stores with local and international payment gateways and WhatsApp ordering.', benefits: { fr: ['Passerelles de paiement', 'Commandes WhatsApp', 'Gestion catalogue', 'Multilingue'], en: ['Payment gateways', 'WhatsApp ordering', 'Catalog management', 'Multilingual'] } },
   { Icon: Zap, fr: 'Automatisation', en: 'Automation', color: '#d97706', descFr: 'Automatisez les tâches répétitives, notifications, rapports et flux de travail pour gagner du temps.', descEn: 'Automate repetitive tasks, notifications, reports and workflows to save time and scale.', benefits: { fr: ['Automatisation WhatsApp', 'Rapports auto', 'Alertes de stock', 'Flux personnalisés'], en: ['WhatsApp automation', 'Auto reports', 'Stock alerts', 'Custom workflows'] } },
   { Icon: Palette, fr: 'Branding & Marketing', en: 'Branding & Marketing', color: '#db2777', descFr: 'Identité de marque professionnelle, réseaux sociaux et campagnes marketing digital.', descEn: 'Professional brand identity, social media management and digital marketing campaigns.', benefits: { fr: ['Logo & identité', 'Contenu réseaux', 'Publicités digitales', 'Stratégie de croissance'], en: ['Logo & identity', 'Social content', 'Digital ads', 'Growth strategy'] } },
-  { Icon: Bot, fr: 'Solutions IA', en: 'AI Solutions', color: '#0891b2', descFr: 'Intégrez l\'IA dans vos produits — chatbots, analyses intelligentes, moteurs de personnalisation.', descEn: 'Integrate AI into your products — chatbots, smart analytics, personalization engines.', benefits: { fr: ['Chatbots IA', 'Analyses intelligentes', 'Recommandations', 'NLP Français/Wolof'], en: ['AI Chatbots', 'Smart analytics', 'Recommendations', 'French/Wolof NLP'] } },
+  { Icon: Bot, fr: 'Solutions IA', en: 'AI Solutions', color: '#0891b2', descFr: 'Intégrez l\'IA dans vos produits — chatbots, analyses intelligentes, moteurs de personnalisation.', descEn: 'Integrate AI into your products — chatbots, smart analytics, personalization engines.', benefits: { fr: ['Chatbots IA', 'Analyses intelligentes', 'Recommandations', 'NLP multilingue'], en: ['AI Chatbots', 'Smart analytics', 'Recommendations', 'Multilingual NLP'] } },
 ]
 
 export default function ServicesPage() {
@@ -114,7 +114,7 @@ export default function ServicesPage() {
                   <div style={{ width: 56, height: 56, background: 'rgba(59,130,246,0.15)', borderRadius: 14, display: 'flex', alignItems: 'center', justifyContent: 'center', margin: '0 auto 20px' }}>
                     <Icon size={24} color="#1a6ef5" />
                   </div>
-                  <h4 style={{ fontFamily: 'Syne, system-ui', fontSize: 13, fontWeight: 800, letterSpacing: '0.1em', color: '#f8fafc', marginBottom: 12 }}>{item.title}</h4>
+                  <h4 style={{ fontFamily: 'Syne, system-ui', fontSize: 15, fontWeight: 800, letterSpacing: '-0.02em', color: '#f8fafc', marginBottom: 12 }}>{item.title}</h4>
                   <p style={{ fontSize: 14, color: 'rgba(148,163,184,0.75)', lineHeight: 1.7 }}>{item.desc}</p>
                 </div>
               )
