@@ -1,5 +1,6 @@
 'use client'
 import Link from 'next/link'
+import Image from 'next/image'
 import { Trophy, Handshake, Lightbulb, Lock, Zap, Leaf, Target, Telescope, Globe, MessageCircle, ArrowRight, Link2, MapPin, Users, TrendingUp } from 'lucide-react'
 import { useLang } from '@/lib/lang'
 
@@ -90,7 +91,9 @@ export default function AboutPage() {
     <div style={{ paddingTop: 72, background: '#060818', color: '#e2e8f0' }}>
 
       {/* ── HERO ── */}
-      <section style={{ position: 'relative', padding: '100px 24px 80px', background: 'linear-gradient(160deg, #060818 0%, #0d1340 50%, #0a0f2e 100%)', overflow: 'hidden' }}>
+      <section style={{ position: 'relative', padding: '100px 24px 80px', background: '#060818', overflow: 'hidden' }}>
+        <Image src="/hero-about.png" alt="" fill priority sizes="100vw" style={{ objectFit: 'cover', objectPosition: 'center 25%', opacity: 0.30 }} />
+        <div style={{ position: 'absolute', inset: 0, background: 'linear-gradient(160deg, rgba(6,8,24,0.88) 0%, rgba(13,19,64,0.60) 50%, rgba(6,8,24,0.92) 100%)', pointerEvents: 'none' }} />
         <div style={{ position: 'absolute', top: -100, right: -100, width: 500, height: 500, background: 'radial-gradient(circle, rgba(26,110,245,0.06) 0%, transparent 70%)', borderRadius: '50%' }} />
         <div style={{ position: 'absolute', bottom: -80, left: -80, width: 400, height: 400, background: 'radial-gradient(circle, rgba(0,230,118,0.05) 0%, transparent 70%)', borderRadius: '50%' }} />
         <div style={{ position: 'relative', maxWidth: 800, margin: '0 auto', textAlign: 'center' }}>

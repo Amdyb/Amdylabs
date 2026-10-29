@@ -1,5 +1,6 @@
 'use client'
 import Link from 'next/link'
+import Image from 'next/image'
 import { Smartphone, Globe, Store, Cloud, ShoppingCart, Zap, Palette, Bot, CheckCircle2, ArrowRight, MessageCircle, Star, Shield, Clock, TrendingUp, Award, Users } from 'lucide-react'
 import { useLang } from '@/lib/lang'
 
@@ -72,7 +73,9 @@ export default function ServicesPage() {
     <div style={{ paddingTop: 72, background: '#060818', color: '#f8fafc', fontFamily: 'Inter, system-ui, sans-serif' }}>
 
       {/* ── HERO ── */}
-      <section style={{ position: 'relative', minHeight: 420, display: 'flex', alignItems: 'center', justifyContent: 'center', overflow: 'hidden', background: 'linear-gradient(135deg, #060818 0%, #0d1340 50%, #0a0f2e 100%)' }}>
+      <section style={{ position: 'relative', minHeight: 420, display: 'flex', alignItems: 'center', justifyContent: 'center', overflow: 'hidden', background: '#060818' }}>
+        <Image src="/hero-services.png" alt="" fill priority sizes="100vw" style={{ objectFit: 'cover', objectPosition: 'center 40%', opacity: 0.32 }} />
+        <div style={{ position: 'absolute', inset: 0, background: 'linear-gradient(135deg, rgba(6,8,24,0.85) 0%, rgba(13,19,64,0.65) 50%, rgba(6,8,24,0.90) 100%)', pointerEvents: 'none' }} />
         {/* Decorative blobs */}
         <div style={{ position: 'absolute', top: -80, right: -80, width: 360, height: 360, background: 'radial-gradient(circle, rgba(26,110,245,0.08) 0%, transparent 70%)', borderRadius: '50%' }} />
         <div style={{ position: 'absolute', bottom: -60, left: -60, width: 300, height: 300, background: 'radial-gradient(circle, rgba(0,230,118,0.07) 0%, transparent 70%)', borderRadius: '50%' }} />

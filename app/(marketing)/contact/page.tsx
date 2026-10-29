@@ -1,4 +1,5 @@
 'use client'
+import Image from 'next/image'
 import { useState } from 'react'
 import { Mail, Phone, MapPin, Clock, MessageCircle, X, Link2, Globe2, Share2, ArrowRight, Calendar } from 'lucide-react'
 import { useLang } from '@/lib/lang'
@@ -76,7 +77,9 @@ export default function ContactPage() {
     <div style={{ paddingTop: 72, background: '#060818', color: '#f8fafc' }}>
 
       {/* HERO */}
-      <section style={{ position: 'relative', padding: '100px 24px 70px', background: 'linear-gradient(135deg, #060818 0%, #0d1340 40%, #0a0f2e 70%, #060818 100%)', overflow: 'hidden', textAlign: 'center' }}>
+      <section style={{ position: 'relative', padding: '100px 24px 70px', background: '#060818', overflow: 'hidden', textAlign: 'center' }}>
+        <Image src="/hero-contact.png" alt="" fill priority sizes="100vw" style={{ objectFit: 'cover', objectPosition: 'center 35%', opacity: 0.30 }} />
+        <div style={{ position: 'absolute', inset: 0, background: 'linear-gradient(135deg, rgba(6,8,24,0.88) 0%, rgba(13,19,64,0.62) 40%, rgba(6,8,24,0.92) 100%)', pointerEvents: 'none' }} />
         <div style={{ position: 'absolute', top: -60, right: -60, width: 360, height: 360, background: 'radial-gradient(circle, rgba(59,130,246,0.12) 0%, transparent 70%)', borderRadius: '50%', pointerEvents: 'none' }} />
         <div style={{ position: 'absolute', bottom: -40, left: -40, width: 280, height: 280, background: 'radial-gradient(circle, rgba(99,102,241,0.1) 0%, transparent 70%)', borderRadius: '50%', pointerEvents: 'none' }} />
         <div style={{ position: 'relative', maxWidth: 700, margin: '0 auto' }}>

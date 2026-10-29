@@ -6,6 +6,7 @@ const nextConfig: NextConfig = {
     localPatterns: [
       { pathname: '/logo-**', search: '' },
       { pathname: '/hero-**', search: '' },
+      { pathname: '/portfolio/**', search: '' },
     ],
   },
 };

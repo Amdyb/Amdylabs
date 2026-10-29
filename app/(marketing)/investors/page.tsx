@@ -1,5 +1,6 @@
 'use client'
 import Link from 'next/link'
+import Image from 'next/image'
 import { useState } from 'react'
 import { ArrowRight, TrendingUp, Globe, Users, DollarSign, Shield, Zap, BarChart2, CheckCircle2, MessageCircle, Mail, MapPin, Link2 } from 'lucide-react'
 
@@ -62,8 +63,9 @@ export default function InvestorsPage() {
     <div style={{ paddingTop: 72, fontFamily: 'Inter, system-ui, sans-serif', background: '#060818', color: '#f8fafc' }}>
 
       {/* HERO */}
-      <section style={{ position: 'relative', padding: '100px 24px 70px', overflow: 'hidden', background: 'linear-gradient(135deg, #060818 0%, #0d1340 50%, #0a0f2e 100%)' }}>
-        <div style={{ position: 'absolute', inset: 0, background: 'radial-gradient(ellipse 80% 60% at 50% 0%, #0b1d4a 0%, transparent 70%)' }} />
+      <section style={{ position: 'relative', padding: '100px 24px 70px', overflow: 'hidden', background: '#060818' }}>
+        <Image src="/hero-investors.png" alt="" fill priority sizes="100vw" style={{ objectFit: 'cover', objectPosition: 'center 20%', opacity: 0.35 }} />
+        <div style={{ position: 'absolute', inset: 0, background: 'linear-gradient(135deg, rgba(6,8,24,0.82) 0%, rgba(13,19,64,0.60) 50%, rgba(6,8,24,0.90) 100%)', pointerEvents: 'none' }} />
         <div style={{ position: 'absolute', top: '40%', right: '10%', width: 400, height: 400, background: '#1a6ef5', borderRadius: '50%', filter: 'blur(120px)', opacity: 0.06 }} />
         <div style={{ position: 'relative', maxWidth: 860, margin: '0 auto', textAlign: 'center' }}>
           <div style={{ display: 'inline-flex', alignItems: 'center', gap: 8, background: 'rgba(26,110,245,0.1)', border: '1px solid rgba(26,110,245,0.3)', borderRadius: 100, padding: '6px 18px 6px 12px', fontSize: 11, fontWeight: 600, color: '#60a5fa', marginBottom: 28, letterSpacing: '0.08em', textTransform: 'uppercase' }}>
