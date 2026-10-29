@@ -273,31 +273,35 @@ export default function HomePage() {
   }
 
   return (
-    <div dir={isRTL ? 'rtl' : 'ltr'} style={{ fontFamily: isRTL ? '"Noto Sans Arabic", "Segoe UI", system-ui, sans-serif' : 'Inter, system-ui, sans-serif', color: '#0D0E12', background: '#F7F6F3' }}>
+    <div dir={isRTL ? 'rtl' : 'ltr'} style={{ fontFamily: isRTL ? '"Noto Sans Arabic", "Segoe UI", system-ui, sans-serif' : 'Inter, system-ui, sans-serif', color: '#e2e8f0', background: '#060818' }}>
 
       {/* ── HERO ──────────────────────────────────────────────────────────── */}
       <section style={{
-        background: '#0D0E12',
-        paddingTop: 'calc(72px + 48px)',
-        paddingBottom: 56,
+        position: 'relative',
+        paddingTop: 'calc(72px + 56px)',
+        paddingBottom: 72,
         paddingLeft: 24,
         paddingRight: 24,
+        overflow: 'hidden',
+        background: 'linear-gradient(135deg, #060818 0%, #0d1340 40%, #0a0f2e 70%, #060818 100%)',
       }}>
-        <div style={{ maxWidth: 1100, margin: '0 auto' }}>
+        {/* Ambient orbs */}
+        <div style={{ position: 'absolute', top: -120, left: '30%', width: 600, height: 600, borderRadius: '50%', background: 'radial-gradient(circle, rgba(59,130,246,0.18) 0%, transparent 70%)', pointerEvents: 'none' }} />
+        <div style={{ position: 'absolute', bottom: -80, right: '10%', width: 400, height: 400, borderRadius: '50%', background: 'radial-gradient(circle, rgba(139,92,246,0.12) 0%, transparent 70%)', pointerEvents: 'none' }} />
 
+        <div style={{ maxWidth: 1100, margin: '0 auto', position: 'relative', zIndex: 1 }}>
           {/* Studio label */}
-          <p style={{ fontSize: 13, fontWeight: 500, color: '#5A5F6B', letterSpacing: '0.02em', marginBottom: 28 }}>
+          <p style={{ fontSize: 12, fontWeight: 600, color: 'rgba(148,163,184,0.7)', letterSpacing: '0.1em', textTransform: 'uppercase', marginBottom: 32 }}>
             AMDY LABS &nbsp;·&nbsp; {t.tagline}
           </p>
 
-          {/* Headline — the bold thing on this page */}
           <h1 style={{
             fontFamily: 'Inter, system-ui, sans-serif',
             fontSize: 'clamp(38px, 6vw, 80px)',
             fontWeight: 700,
             lineHeight: 1.06,
             letterSpacing: '-0.035em',
-            color: '#F7F6F3',
+            color: '#f8fafc',
             marginBottom: 28,
             maxWidth: 820,
             whiteSpace: 'pre-line',
@@ -305,39 +309,50 @@ export default function HomePage() {
             {t.h1}
           </h1>
 
-          <p style={{ fontSize: 17, color: '#5A5F6B', lineHeight: 1.7, maxWidth: 520, marginBottom: 44 }}>
+          <p style={{ fontSize: 17, color: 'rgba(148,163,184,0.85)', lineHeight: 1.7, maxWidth: 520, marginBottom: 44 }}>
             {t.sub}
           </p>
 
           <div style={{ display: 'flex', gap: 12, flexWrap: 'wrap', marginBottom: 72 }}>
             <Link href="/contact" style={{
               display: 'inline-flex', alignItems: 'center', gap: 8,
-              background: '#1B5FED', color: '#fff',
-              padding: '13px 24px', borderRadius: 8,
+              background: 'linear-gradient(135deg, #3b82f6, #1d4ed8)',
+              color: '#fff',
+              padding: '13px 26px', borderRadius: 10,
               fontWeight: 600, fontSize: 14, textDecoration: 'none',
-              letterSpacing: '-0.01em',
+              boxShadow: '0 0 24px rgba(59,130,246,0.35)',
             }}>
               {t.cta1}
             </Link>
             <Link href="/projects" style={{
               display: 'inline-flex', alignItems: 'center', gap: 8,
-              background: 'transparent', color: '#F7F6F3',
-              padding: '13px 24px', borderRadius: 8,
+              background: 'rgba(255,255,255,0.06)',
+              backdropFilter: 'blur(12px)',
+              WebkitBackdropFilter: 'blur(12px)',
+              color: 'rgba(226,232,240,0.9)',
+              padding: '13px 26px', borderRadius: 10,
               fontWeight: 500, fontSize: 14, textDecoration: 'none',
-              border: '1px solid #2A2D36',
+              border: '1px solid rgba(255,255,255,0.12)',
             }}>
               {t.cta2}
             </Link>
           </div>
 
-          {/* Stats — restrained, inline */}
-          <div ref={statsSection.ref} style={{ display: 'flex', gap: 48, flexWrap: 'wrap', borderTop: '1px solid #1E2130', paddingTop: 32 }}>
+          {/* Stats — glass pills */}
+          <div ref={statsSection.ref} style={{ display: 'flex', gap: 16, flexWrap: 'wrap' }}>
             {t.stats.map((s, i) => (
-              <div key={i}>
-                <div style={{ fontSize: 36, fontWeight: 700, color: '#F7F6F3', letterSpacing: '-0.04em', lineHeight: 1 }}>
+              <div key={i} style={{
+                background: 'rgba(255,255,255,0.05)',
+                backdropFilter: 'blur(16px)',
+                WebkitBackdropFilter: 'blur(16px)',
+                border: '1px solid rgba(255,255,255,0.1)',
+                borderRadius: 12,
+                padding: '16px 24px',
+              }}>
+                <div style={{ fontSize: 32, fontWeight: 700, color: '#f8fafc', letterSpacing: '-0.04em', lineHeight: 1 }}>
                   {counts[i]}{s.suffix}
                 </div>
-                <div style={{ fontSize: 13, color: '#5A5F6B', marginTop: 6 }}>{s.label}</div>
+                <div style={{ fontSize: 12, color: 'rgba(148,163,184,0.7)', marginTop: 6 }}>{s.label}</div>
               </div>
             ))}
           </div>
@@ -345,111 +360,86 @@ export default function HomePage() {
       </section>
 
       {/* ── PRODUCTS CAROUSEL ─────────────────────────────────────────────── */}
-      <section style={{ background: '#F7F6F3', padding: '56px 0 72px' }}>
-        {/* Header row */}
-        <div style={{ maxWidth: 1100, margin: '0 auto', paddingLeft: 24, paddingRight: 24, marginBottom: 32, display: 'flex', justifyContent: 'space-between', alignItems: 'baseline', gap: 16, flexWrap: 'wrap' }}>
-          <h2 style={{ fontSize: 22, fontWeight: 600, letterSpacing: '-0.02em', color: '#0D0E12' }}>
+      <section style={{ background: '#060c1f', padding: '64px 0 80px', borderTop: '1px solid rgba(255,255,255,0.06)' }}>
+        <div style={{ maxWidth: 1100, margin: '0 auto', paddingLeft: 24, paddingRight: 24, marginBottom: 36, display: 'flex', justifyContent: 'space-between', alignItems: 'baseline', gap: 16, flexWrap: 'wrap' }}>
+          <h2 style={{ fontSize: 22, fontWeight: 600, letterSpacing: '-0.02em', color: '#f8fafc' }}>
             {t.productsLabel}
           </h2>
           <div style={{ display: 'flex', alignItems: 'center', gap: 8 }}>
-            <button
-              onClick={() => slide(-1)}
-              aria-label="Previous"
-              style={{ width: 36, height: 36, borderRadius: '50%', border: '1px solid #E3E1DC', background: '#fff', cursor: 'pointer', display: 'flex', alignItems: 'center', justifyContent: 'center', color: '#0D0E12' }}
-            >
+            <button onClick={() => slide(-1)} aria-label="Previous" style={{ width: 36, height: 36, borderRadius: '50%', border: '1px solid rgba(255,255,255,0.12)', background: 'rgba(255,255,255,0.06)', backdropFilter: 'blur(8px)', cursor: 'pointer', display: 'flex', alignItems: 'center', justifyContent: 'center', color: '#e2e8f0' }}>
               <ChevronLeft size={16} />
             </button>
-            <button
-              onClick={() => slide(1)}
-              aria-label="Next"
-              style={{ width: 36, height: 36, borderRadius: '50%', border: '1px solid #E3E1DC', background: '#fff', cursor: 'pointer', display: 'flex', alignItems: 'center', justifyContent: 'center', color: '#0D0E12' }}
-            >
+            <button onClick={() => slide(1)} aria-label="Next" style={{ width: 36, height: 36, borderRadius: '50%', border: '1px solid rgba(255,255,255,0.12)', background: 'rgba(255,255,255,0.06)', backdropFilter: 'blur(8px)', cursor: 'pointer', display: 'flex', alignItems: 'center', justifyContent: 'center', color: '#e2e8f0' }}>
               <ChevronRight size={16} />
             </button>
-            <Link href="/projects" style={{ fontSize: 14, fontWeight: 500, color: '#1B5FED', textDecoration: 'none', marginLeft: 8, display: 'flex', alignItems: 'center', gap: 4 }}>
+            <Link href="/projects" style={{ fontSize: 14, fontWeight: 500, color: '#60a5fa', textDecoration: 'none', marginLeft: 8, display: 'flex', alignItems: 'center', gap: 4 }}>
               {t.seeAll} <ArrowRight size={13} />
             </Link>
           </div>
         </div>
 
-        {/* Track */}
         <div style={{ position: 'relative' }}>
-          {/* Edge fade — left */}
-          <div style={{ position: 'absolute', left: 0, top: 0, bottom: 0, width: 48, background: 'linear-gradient(to right, #F7F6F3, transparent)', zIndex: 1, pointerEvents: 'none' }} />
-          {/* Edge fade — right */}
-          <div style={{ position: 'absolute', right: 0, top: 0, bottom: 0, width: 80, background: 'linear-gradient(to left, #F7F6F3, transparent)', zIndex: 1, pointerEvents: 'none' }} />
+          <div style={{ position: 'absolute', left: 0, top: 0, bottom: 0, width: 48, background: 'linear-gradient(to right, #060c1f, transparent)', zIndex: 1, pointerEvents: 'none' }} />
+          <div style={{ position: 'absolute', right: 0, top: 0, bottom: 0, width: 80, background: 'linear-gradient(to left, #060c1f, transparent)', zIndex: 1, pointerEvents: 'none' }} />
 
-          <div
-            ref={carouselRef}
-            style={{
-              display: 'flex',
-              gap: 20,
-              overflowX: 'auto',
-              scrollSnapType: 'x mandatory',
-              scrollbarWidth: 'none',
-              paddingLeft: 24,
-              paddingRight: 80,
-              paddingBottom: 8,
-            } as React.CSSProperties}
-          >
+          <div ref={carouselRef} style={{ display: 'flex', gap: 16, overflowX: 'auto', scrollSnapType: 'x mandatory', scrollbarWidth: 'none', paddingLeft: 24, paddingRight: 80, paddingBottom: 8 } as React.CSSProperties}>
             {PROJECTS.map((p, i) => {
               const isSoon = p.status === 'soon'
               return (
-                <a
-                  key={i}
-                  data-card
-                  href={p.link}
-                  target="_blank"
-                  rel="noreferrer"
+                <a key={i} data-card href={p.link} target="_blank" rel="noreferrer"
                   style={{
-                    flex: '0 0 280px',
-                    background: '#fff',
-                    border: '1px solid #E3E1DC',
-                    borderRadius: 12,
+                    flex: '0 0 272px',
+                    background: 'rgba(255,255,255,0.05)',
+                    backdropFilter: 'blur(20px)',
+                    WebkitBackdropFilter: 'blur(20px)',
+                    border: '1px solid rgba(255,255,255,0.1)',
+                    borderRadius: 16,
                     overflow: 'hidden',
                     textDecoration: 'none',
                     color: 'inherit',
                     scrollSnapAlign: 'start',
-                    transition: 'box-shadow 0.18s, transform 0.18s',
+                    transition: 'border-color 0.2s, box-shadow 0.2s, transform 0.2s',
                   }}
                   onMouseEnter={e => {
                     const el = e.currentTarget as HTMLElement
-                    el.style.boxShadow = '0 12px 40px rgba(0,0,0,0.10)'
-                    el.style.transform = 'translateY(-3px)'
+                    el.style.borderColor = `${p.accent}55`
+                    el.style.boxShadow = `0 0 32px ${p.accent}22, 0 16px 40px rgba(0,0,0,0.4)`
+                    el.style.transform = 'translateY(-4px)'
                   }}
                   onMouseLeave={e => {
                     const el = e.currentTarget as HTMLElement
+                    el.style.borderColor = 'rgba(255,255,255,0.1)'
                     el.style.boxShadow = 'none'
                     el.style.transform = 'none'
                   }}
                 >
-                  {/* Logo panel */}
-                  <div style={{ height: 156, background: p.logoBg, display: 'flex', alignItems: 'center', justifyContent: 'center', position: 'relative' }}>
-                    <div style={{ width: 80, height: 80, borderRadius: 18, overflow: 'hidden', display: 'flex', alignItems: 'center', justifyContent: 'center', boxShadow: '0 6px 24px rgba(0,0,0,0.35)' }}>
-                      <Image src={p.logo} alt={p.name} width={80} height={80} style={{ objectFit: 'contain' }} />
+                  <div style={{ height: 148, background: p.logoBg, display: 'flex', alignItems: 'center', justifyContent: 'center', position: 'relative' }}>
+                    {/* Accent glow behind logo */}
+                    <div style={{ position: 'absolute', inset: 0, background: `radial-gradient(circle at 50% 60%, ${p.accent}22 0%, transparent 65%)`, pointerEvents: 'none' }} />
+                    <div style={{ width: 76, height: 76, borderRadius: 18, overflow: 'hidden', display: 'flex', alignItems: 'center', justifyContent: 'center', boxShadow: `0 0 20px ${p.accent}44, 0 6px 24px rgba(0,0,0,0.5)`, position: 'relative' }}>
+                      <Image src={p.logo} alt={p.name} width={76} height={76} style={{ objectFit: 'contain' }} />
                     </div>
-                    {/* Status pill */}
                     <span style={{
-                      position: 'absolute', top: 12, right: 12,
-                      fontSize: 11, fontWeight: 600,
+                      position: 'absolute', top: 10, right: 10,
+                      fontSize: 10, fontWeight: 700,
                       padding: '3px 10px', borderRadius: 20,
-                      background: isSoon ? 'rgba(0,165,80,0.14)' : 'rgba(27,95,237,0.12)',
-                      color: isSoon ? '#00A550' : '#1B5FED',
-                      border: `1px solid ${isSoon ? 'rgba(0,165,80,0.25)' : 'rgba(27,95,237,0.2)'}`,
+                      background: isSoon ? 'rgba(0,200,83,0.15)' : 'rgba(59,130,246,0.15)',
+                      color: isSoon ? '#4ade80' : '#60a5fa',
+                      border: `1px solid ${isSoon ? 'rgba(74,222,128,0.3)' : 'rgba(96,165,250,0.3)'}`,
+                      backdropFilter: 'blur(8px)',
                     }}>
                       {isSoon ? (lang === 'fr' ? 'Bientôt' : lang === 'ar' ? 'قريباً' : 'Coming soon') : 'Live'}
                     </span>
                   </div>
 
-                  {/* Text */}
-                  <div style={{ padding: '18px 20px 22px' }}>
-                    <div style={{ fontSize: 11, fontWeight: 600, color: p.accent, marginBottom: 5, textTransform: 'uppercase', letterSpacing: '0.07em' }}>
+                  <div style={{ padding: '16px 18px 20px' }}>
+                    <div style={{ fontSize: 10, fontWeight: 700, color: p.accent, marginBottom: 5, textTransform: 'uppercase', letterSpacing: '0.08em' }}>
                       {lang === 'fr' ? p.subFr : lang === 'ar' ? p.subAr : p.subEn}
                     </div>
-                    <h3 style={{ fontSize: 17, fontWeight: 700, letterSpacing: '-0.02em', color: '#0D0E12', marginBottom: 8 }}>
+                    <h3 style={{ fontSize: 16, fontWeight: 700, letterSpacing: '-0.02em', color: '#f8fafc', marginBottom: 7 }}>
                       {p.name}
                     </h3>
-                    <p style={{ fontSize: 13, color: '#5A5F6B', lineHeight: 1.6, margin: 0 }}>
+                    <p style={{ fontSize: 13, color: 'rgba(148,163,184,0.75)', lineHeight: 1.6, margin: 0 }}>
                       {lang === 'fr' ? p.descFr : lang === 'ar' ? p.descAr : p.descEn}
                     </p>
                   </div>
@@ -461,19 +451,30 @@ export default function HomePage() {
       </section>
 
       {/* ── SERVICES ──────────────────────────────────────────────────────── */}
-      <section style={{ background: '#0D0E12', padding: '80px 24px' }}>
+      <section style={{ background: '#07091c', padding: '80px 24px', borderTop: '1px solid rgba(255,255,255,0.06)' }}>
         <div style={{ maxWidth: 1100, margin: '0 auto' }}>
-          <p style={{ fontSize: 13, fontWeight: 500, color: '#5A5F6B', marginBottom: 20 }}>{t.servicesLabel}</p>
-          <h2 style={{ fontSize: 'clamp(26px, 4vw, 42px)', fontWeight: 700, letterSpacing: '-0.03em', color: '#F7F6F3', marginBottom: 16, maxWidth: 600 }}>
+          <p style={{ fontSize: 12, fontWeight: 600, color: 'rgba(148,163,184,0.6)', marginBottom: 20, textTransform: 'uppercase', letterSpacing: '0.1em' }}>{t.servicesLabel}</p>
+          <h2 style={{ fontSize: 'clamp(26px, 4vw, 42px)', fontWeight: 700, letterSpacing: '-0.03em', color: '#f8fafc', marginBottom: 16, maxWidth: 600 }}>
             {t.servicesTitle}
           </h2>
-          <p style={{ fontSize: 15, color: '#5A5F6B', lineHeight: 1.7, maxWidth: 480, marginBottom: 56 }}>{t.servicesSub}</p>
+          <p style={{ fontSize: 15, color: 'rgba(148,163,184,0.75)', lineHeight: 1.7, maxWidth: 480, marginBottom: 56 }}>{t.servicesSub}</p>
 
-          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(220px, 1fr))', gap: 1, background: '#1E2130', border: '1px solid #1E2130', borderRadius: 12, overflow: 'hidden' }}>
+          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(220px, 1fr))', gap: 12 }}>
             {t.services.map((s, i) => (
-              <div key={i} style={{ background: '#0D0E12', padding: '28px 24px' }}>
-                <h3 style={{ fontSize: 16, fontWeight: 600, color: '#F7F6F3', letterSpacing: '-0.01em', marginBottom: 10 }}>{s.name}</h3>
-                <p style={{ fontSize: 13, color: '#5A5F6B', lineHeight: 1.65, margin: 0 }}>{s.desc}</p>
+              <div key={i} style={{
+                background: 'rgba(255,255,255,0.04)',
+                backdropFilter: 'blur(16px)',
+                WebkitBackdropFilter: 'blur(16px)',
+                border: '1px solid rgba(255,255,255,0.08)',
+                borderRadius: 14,
+                padding: '28px 24px',
+                transition: 'border-color 0.2s, background 0.2s',
+              }}
+                onMouseEnter={e => { (e.currentTarget as HTMLElement).style.borderColor = 'rgba(59,130,246,0.3)'; (e.currentTarget as HTMLElement).style.background = 'rgba(59,130,246,0.06)' }}
+                onMouseLeave={e => { (e.currentTarget as HTMLElement).style.borderColor = 'rgba(255,255,255,0.08)'; (e.currentTarget as HTMLElement).style.background = 'rgba(255,255,255,0.04)' }}
+              >
+                <h3 style={{ fontSize: 16, fontWeight: 600, color: '#f8fafc', letterSpacing: '-0.01em', marginBottom: 10 }}>{s.name}</h3>
+                <p style={{ fontSize: 13, color: 'rgba(148,163,184,0.7)', lineHeight: 1.65, margin: 0 }}>{s.desc}</p>
               </div>
             ))}
           </div>
@@ -481,20 +482,23 @@ export default function HomePage() {
       </section>
 
       {/* ── WHY ───────────────────────────────────────────────────────────── */}
-      <section style={{ background: '#F7F6F3', padding: '80px 24px', borderTop: '1px solid #E3E1DC' }}>
+      <section style={{ background: '#060818', padding: '80px 24px', borderTop: '1px solid rgba(255,255,255,0.06)' }}>
         <div style={{ maxWidth: 1100, margin: '0 auto', display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(300px, 1fr))', gap: 64, alignItems: 'start' }}>
           <div>
-            <p style={{ fontSize: 13, fontWeight: 500, color: '#5A5F6B', marginBottom: 20 }}>{t.whyLabel}</p>
-            <h2 style={{ fontSize: 'clamp(26px, 4vw, 40px)', fontWeight: 700, letterSpacing: '-0.03em', color: '#0D0E12', marginBottom: 16, lineHeight: 1.15 }}>
+            <p style={{ fontSize: 12, fontWeight: 600, color: 'rgba(148,163,184,0.6)', marginBottom: 20, textTransform: 'uppercase', letterSpacing: '0.1em' }}>{t.whyLabel}</p>
+            <h2 style={{ fontSize: 'clamp(26px, 4vw, 40px)', fontWeight: 700, letterSpacing: '-0.03em', color: '#f8fafc', marginBottom: 16, lineHeight: 1.15 }}>
               {t.whyTitle}
             </h2>
-            <p style={{ fontSize: 15, color: '#5A5F6B', lineHeight: 1.7, marginBottom: 36 }}>{t.whySub}</p>
+            <p style={{ fontSize: 15, color: 'rgba(148,163,184,0.75)', lineHeight: 1.7, marginBottom: 36 }}>{t.whySub}</p>
             <Link href="/contact" style={{
               display: 'inline-flex', alignItems: 'center', gap: 8,
-              background: '#0D0E12', color: '#F7F6F3',
-              padding: '13px 22px', borderRadius: 8,
+              background: 'rgba(255,255,255,0.08)',
+              backdropFilter: 'blur(12px)',
+              WebkitBackdropFilter: 'blur(12px)',
+              color: '#f8fafc',
+              padding: '13px 22px', borderRadius: 10,
               fontWeight: 600, fontSize: 14, textDecoration: 'none',
-              letterSpacing: '-0.01em',
+              border: '1px solid rgba(255,255,255,0.15)',
             }}>
               {t.buildWith} <ArrowRight size={14} />
             </Link>
@@ -502,9 +506,9 @@ export default function HomePage() {
 
           <ul style={{ listStyle: 'none', padding: 0, margin: 0, display: 'flex', flexDirection: 'column', gap: 0 }}>
             {t.checks.map((c, i) => (
-              <li key={i} style={{ display: 'flex', alignItems: 'flex-start', gap: 14, padding: '18px 0', borderBottom: i < t.checks.length - 1 ? '1px solid #E3E1DC' : 'none' }}>
-                <CheckCircle2 size={16} color="#00A550" style={{ flexShrink: 0, marginTop: 2 }} />
-                <span style={{ fontSize: 14, color: '#0D0E12', lineHeight: 1.55 }}>{c}</span>
+              <li key={i} style={{ display: 'flex', alignItems: 'flex-start', gap: 14, padding: '18px 0', borderBottom: i < t.checks.length - 1 ? '1px solid rgba(255,255,255,0.07)' : 'none' }}>
+                <CheckCircle2 size={16} color="#4ade80" style={{ flexShrink: 0, marginTop: 2 }} />
+                <span style={{ fontSize: 14, color: 'rgba(226,232,240,0.85)', lineHeight: 1.55 }}>{c}</span>
               </li>
             ))}
           </ul>
@@ -512,14 +516,14 @@ export default function HomePage() {
       </section>
 
       {/* ── TRUST BAR ─────────────────────────────────────────────────────── */}
-      <section style={{ background: '#fff', borderTop: '1px solid #E3E1DC', padding: '40px 24px' }}>
+      <section style={{ background: 'rgba(255,255,255,0.03)', borderTop: '1px solid rgba(255,255,255,0.07)', borderBottom: '1px solid rgba(255,255,255,0.07)', padding: '40px 24px' }}>
         <div style={{ maxWidth: 1100, margin: '0 auto' }}>
-          <p style={{ fontSize: 12, fontWeight: 500, color: '#5A5F6B', marginBottom: 24 }}>{t.trustLabel}</p>
+          <p style={{ fontSize: 11, fontWeight: 600, color: 'rgba(148,163,184,0.5)', marginBottom: 24, textTransform: 'uppercase', letterSpacing: '0.1em' }}>{t.trustLabel}</p>
           <div style={{ display: 'flex', flexWrap: 'wrap', gap: 40 }}>
             {t.trust.map(({ label, sub }, i) => (
               <div key={i}>
-                <div style={{ fontSize: 14, fontWeight: 600, color: '#0D0E12', marginBottom: 3 }}>{label}</div>
-                <div style={{ fontSize: 12, color: '#5A5F6B' }}>{sub}</div>
+                <div style={{ fontSize: 14, fontWeight: 600, color: '#e2e8f0', marginBottom: 3 }}>{label}</div>
+                <div style={{ fontSize: 12, color: 'rgba(148,163,184,0.6)' }}>{sub}</div>
               </div>
             ))}
           </div>
@@ -527,29 +531,35 @@ export default function HomePage() {
       </section>
 
       {/* ── CTA ───────────────────────────────────────────────────────────── */}
-      <section style={{ background: '#1B5FED', padding: '80px 24px' }}>
-        <div style={{ maxWidth: 1100, margin: '0 auto', display: 'flex', justifyContent: 'space-between', alignItems: 'center', flexWrap: 'wrap', gap: 32 }}>
+      <section style={{ position: 'relative', background: '#060818', padding: '96px 24px', overflow: 'hidden' }}>
+        <div style={{ position: 'absolute', inset: 0, background: 'radial-gradient(ellipse at 50% 50%, rgba(59,130,246,0.15) 0%, transparent 65%)', pointerEvents: 'none' }} />
+        <div style={{ maxWidth: 1100, margin: '0 auto', position: 'relative', zIndex: 1, display: 'flex', justifyContent: 'space-between', alignItems: 'center', flexWrap: 'wrap', gap: 40 }}>
           <div>
-            <h2 style={{ fontSize: 'clamp(28px, 4vw, 46px)', fontWeight: 700, letterSpacing: '-0.03em', color: '#fff', marginBottom: 12, lineHeight: 1.1 }}>
+            <h2 style={{ fontSize: 'clamp(28px, 4vw, 46px)', fontWeight: 700, letterSpacing: '-0.03em', color: '#f8fafc', marginBottom: 12, lineHeight: 1.1 }}>
               {t.ctaTitle}
             </h2>
-            <p style={{ fontSize: 16, color: 'rgba(255,255,255,0.65)', lineHeight: 1.6 }}>{t.ctaSub}</p>
+            <p style={{ fontSize: 16, color: 'rgba(148,163,184,0.75)', lineHeight: 1.6 }}>{t.ctaSub}</p>
           </div>
           <div style={{ display: 'flex', gap: 12, flexWrap: 'wrap' }}>
             <Link href="/contact" style={{
               display: 'inline-flex', alignItems: 'center', gap: 8,
-              background: '#fff', color: '#1B5FED',
-              padding: '14px 28px', borderRadius: 8,
+              background: 'linear-gradient(135deg, #3b82f6, #1d4ed8)',
+              color: '#fff',
+              padding: '14px 28px', borderRadius: 10,
               fontWeight: 700, fontSize: 14, textDecoration: 'none',
+              boxShadow: '0 0 28px rgba(59,130,246,0.4)',
             }}>
               <Rocket size={15} /> {t.ctaBtn1}
             </Link>
             <a href="https://wa.me/15863442378" target="_blank" rel="noreferrer" style={{
               display: 'inline-flex', alignItems: 'center', gap: 8,
-              background: 'rgba(255,255,255,0.12)', color: '#fff',
-              padding: '14px 28px', borderRadius: 8,
+              background: 'rgba(255,255,255,0.07)',
+              backdropFilter: 'blur(12px)',
+              WebkitBackdropFilter: 'blur(12px)',
+              color: '#e2e8f0',
+              padding: '14px 28px', borderRadius: 10,
               fontWeight: 600, fontSize: 14, textDecoration: 'none',
-              border: '1px solid rgba(255,255,255,0.25)',
+              border: '1px solid rgba(255,255,255,0.15)',
             }}>
               <MessageCircle size={15} /> {t.ctaBtn2}
             </a>
@@ -558,22 +568,22 @@ export default function HomePage() {
       </section>
 
       {/* ── FAQ ───────────────────────────────────────────────────────────── */}
-      <section style={{ background: '#F7F6F3', padding: '80px 24px', borderTop: '1px solid #E3E1DC' }}>
+      <section style={{ background: '#07091c', padding: '80px 24px', borderTop: '1px solid rgba(255,255,255,0.06)' }}>
         <div style={{ maxWidth: 680, margin: '0 auto' }}>
-          <p style={{ fontSize: 13, fontWeight: 500, color: '#5A5F6B', marginBottom: 16 }}>{t.faqLabel}</p>
-          <h2 style={{ fontSize: 'clamp(24px, 3.5vw, 36px)', fontWeight: 700, letterSpacing: '-0.025em', color: '#0D0E12', marginBottom: 44, lineHeight: 1.2 }}>
+          <p style={{ fontSize: 12, fontWeight: 600, color: 'rgba(148,163,184,0.6)', marginBottom: 16, textTransform: 'uppercase', letterSpacing: '0.1em' }}>{t.faqLabel}</p>
+          <h2 style={{ fontSize: 'clamp(24px, 3.5vw, 36px)', fontWeight: 700, letterSpacing: '-0.025em', color: '#f8fafc', marginBottom: 44, lineHeight: 1.2 }}>
             {t.faqTitle}
           </h2>
           <div style={{ display: 'flex', flexDirection: 'column' }}>
             {t.faq.map(([q, a], i) => (
-              <div key={i} style={{ borderTop: '1px solid #E3E1DC' }}>
+              <div key={i} style={{ borderTop: '1px solid rgba(255,255,255,0.08)' }}>
                 <button
                   onClick={() => setOpenFaq(openFaq === i ? null : i)}
                   style={{
                     width: '100%', display: 'flex', justifyContent: 'space-between',
                     alignItems: 'center', padding: '20px 0',
                     background: 'none', border: 'none', cursor: 'pointer',
-                    fontSize: 15, fontWeight: 500, color: '#0D0E12',
+                    fontSize: 15, fontWeight: 500, color: '#e2e8f0',
                     textAlign: 'left', gap: 24, fontFamily: 'inherit',
                     letterSpacing: '-0.01em',
                   }}
@@ -581,19 +591,20 @@ export default function HomePage() {
                   <span>{q}</span>
                   <span style={{
                     flexShrink: 0, width: 24, height: 24, borderRadius: '50%',
-                    border: '1px solid #E3E1DC', display: 'flex', alignItems: 'center', justifyContent: 'center',
-                    fontSize: 16, color: '#5A5F6B',
+                    border: '1px solid rgba(255,255,255,0.15)',
+                    background: 'rgba(255,255,255,0.05)',
+                    display: 'flex', alignItems: 'center', justifyContent: 'center',
+                    fontSize: 16, color: 'rgba(148,163,184,0.7)',
                     transform: openFaq === i ? 'rotate(45deg)' : 'none',
                     transition: 'transform 0.2s',
                   }}>+</span>
                 </button>
                 {openFaq === i && (
-                  <div style={{ paddingBottom: 24, fontSize: 14, color: '#5A5F6B', lineHeight: 1.7 }}>{a}</div>
+                  <div style={{ paddingBottom: 24, fontSize: 14, color: 'rgba(148,163,184,0.75)', lineHeight: 1.7 }}>{a}</div>
                 )}
               </div>
             ))}
-            {/* last border */}
-            <div style={{ borderTop: '1px solid #E3E1DC' }} />
+            <div style={{ borderTop: '1px solid rgba(255,255,255,0.08)' }} />
           </div>
         </div>
       </section>
