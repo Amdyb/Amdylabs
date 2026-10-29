@@ -59,10 +59,10 @@ export default function InvestorsPage() {
   const [openFaq, setOpenFaq] = useState<number | null>(null)
 
   return (
-    <div style={{ paddingTop: 72, fontFamily: "'DM Sans', system-ui, sans-serif" }}>
+    <div style={{ paddingTop: 72, fontFamily: 'Inter, system-ui, sans-serif', background: '#060818', color: '#f8fafc' }}>
 
       {/* HERO */}
-      <section style={{ position: 'relative', padding: '100px 24px 70px', overflow: 'hidden' }}>
+      <section style={{ position: 'relative', padding: '100px 24px 70px', overflow: 'hidden', background: 'linear-gradient(135deg, #060818 0%, #0d1340 50%, #0a0f2e 100%)' }}>
         <div style={{ position: 'absolute', inset: 0, background: 'radial-gradient(ellipse 80% 60% at 50% 0%, #0b1d4a 0%, transparent 70%)' }} />
         <div style={{ position: 'absolute', top: '40%', right: '10%', width: 400, height: 400, background: '#1a6ef5', borderRadius: '50%', filter: 'blur(120px)', opacity: 0.06 }} />
         <div style={{ position: 'relative', maxWidth: 860, margin: '0 auto', textAlign: 'center' }}>
@@ -74,7 +74,7 @@ export default function InvestorsPage() {
             Investing in Africa&apos;s<br />
             <span style={{ background: 'linear-gradient(135deg, #60a5fa, #00e676)', WebkitBackgroundClip: 'text', WebkitTextFillColor: 'transparent', backgroundClip: 'text' }}>Digital Infrastructure</span>
           </h1>
-          <p style={{ fontSize: 17, color: '#64748b', maxWidth: 580, margin: '0 auto 36px', lineHeight: 1.72 }}>
+          <p style={{ fontSize: 17, color: 'rgba(148,163,184,0.8)', maxWidth: 580, margin: '0 auto 36px', lineHeight: 1.72 }}>
             AMDY LABS is building the operating system for African commerce — starting with West Africa&apos;s 400M+ undigitized merchants, and scaling globally.
           </p>
           <div style={{ display: 'flex', gap: 12, justifyContent: 'center', flexWrap: 'wrap' }}>
@@ -107,7 +107,7 @@ export default function InvestorsPage() {
           <div>
             <p style={{ fontSize: 10, fontWeight: 600, color: '#1a6ef5', letterSpacing: '0.14em', textTransform: 'uppercase', marginBottom: 14 }}>Market Opportunity</p>
             <h2 style={{ fontFamily: 'Syne, system-ui', fontSize: 'clamp(26px, 3.5vw, 42px)', fontWeight: 800, letterSpacing: '-0.03em', lineHeight: 1.05, marginBottom: 18, color: '#fff' }}>The largest untapped<br />market on earth</h2>
-            <p style={{ fontSize: 15, color: '#64748b', lineHeight: 1.72, marginBottom: 24 }}>Africa is the world&apos;s youngest continent — 60% under 25. Mobile money adoption is outpacing every other region. AMDY LABS is positioned at the center of this transformation.</p>
+            <p style={{ fontSize: 15, color: 'rgba(148,163,184,0.8)', lineHeight: 1.72, marginBottom: 24 }}>Africa is the world&apos;s youngest continent — 60% under 25. Mobile money adoption is outpacing every other region. AMDY LABS is positioned at the center of this transformation.</p>
             <Link href="/contact" style={{ display: 'inline-flex', alignItems: 'center', gap: 6, color: '#60a5fa', fontWeight: 600, fontSize: 13, textDecoration: 'none' }}>
               View full market analysis <ArrowRight size={13} />
             </Link>
@@ -116,7 +116,7 @@ export default function InvestorsPage() {
             {MARKET.map((m, i) => (
               <div key={i} style={{ background: 'rgba(26,110,245,0.05)', border: '1px solid rgba(30,45,74,0.6)', borderRadius: 14, padding: '20px 16px' }}>
                 <div style={{ fontFamily: 'Syne, system-ui', fontSize: 34, fontWeight: 800, color: '#60a5fa', letterSpacing: '-0.03em', marginBottom: 8, lineHeight: 1 }}>{m.stat}</div>
-                <div style={{ fontSize: 12, color: '#64748b', lineHeight: 1.6 }}>{m.desc}</div>
+                <div style={{ fontSize: 12, color: 'rgba(148,163,184,0.8)', lineHeight: 1.6 }}>{m.desc}</div>
               </div>
             ))}
           </div>
@@ -128,7 +128,7 @@ export default function InvestorsPage() {
         <div style={{ maxWidth: 1100, margin: '0 auto' }}>
           <p style={{ fontSize: 10, fontWeight: 600, color: '#1a6ef5', letterSpacing: '0.14em', textTransform: 'uppercase', marginBottom: 14 }}>Product Portfolio</p>
           <h2 style={{ fontFamily: 'Syne, system-ui', fontSize: 'clamp(26px, 3.5vw, 42px)', fontWeight: 800, letterSpacing: '-0.03em', marginBottom: 12, color: '#fff' }}>Four products. One platform.</h2>
-          <p style={{ fontSize: 15, color: '#64748b', maxWidth: 540, lineHeight: 1.7, marginBottom: 36 }}>Each product targets a distinct vertical while sharing infrastructure — reducing costs and increasing platform defensibility.</p>
+          <p style={{ fontSize: 15, color: 'rgba(148,163,184,0.8)', maxWidth: 540, lineHeight: 1.7, marginBottom: 36 }}>Each product targets a distinct vertical while sharing infrastructure — reducing costs and increasing platform defensibility.</p>
           <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(240px, 1fr))', gap: 12, marginBottom: 60 }}>
             {PRODUCTS.map((p, i) => (
               <div key={i} style={{ background: 'rgba(13,20,37,0.8)', border: '1px solid rgba(30,45,74,0.5)', borderRadius: 14, padding: 22, display: 'flex', flexDirection: 'column', gap: 10 }}>
@@ -137,7 +137,7 @@ export default function InvestorsPage() {
                   <span style={{ fontSize: 10, fontWeight: 600, color: p.status === 'Revenue-generating' ? '#00e676' : p.status === 'Live' ? '#60a5fa' : '#475569', background: p.status === 'Revenue-generating' ? 'rgba(0,230,118,0.1)' : p.status === 'Live' ? 'rgba(96,165,250,0.1)' : 'rgba(71,85,105,0.15)', border: `1px solid ${p.status === 'Revenue-generating' ? 'rgba(0,230,118,0.25)' : p.status === 'Live' ? 'rgba(96,165,250,0.25)' : 'rgba(71,85,105,0.3)'}`, borderRadius: 20, padding: '3px 9px', whiteSpace: 'nowrap', flexShrink: 0 }}>{p.status}</span>
                 </div>
                 {p.url && <div style={{ fontSize: 11, color: p.color, fontWeight: 500 }}>{p.url}</div>}
-                <p style={{ fontSize: 13, color: '#64748b', lineHeight: 1.65, flex: 1 }}>{p.desc}</p>
+                <p style={{ fontSize: 13, color: 'rgba(148,163,184,0.8)', lineHeight: 1.65, flex: 1 }}>{p.desc}</p>
               </div>
             ))}
           </div>
@@ -151,7 +151,7 @@ export default function InvestorsPage() {
                   <Icon size={19} color="#60a5fa" />
                 </div>
                 <h4 style={{ fontFamily: 'Syne, system-ui', fontSize: 14, fontWeight: 700, letterSpacing: '-0.02em', marginBottom: 8, color: '#e2e8f0' }}>{title}</h4>
-                <p style={{ fontSize: 13, color: '#64748b', lineHeight: 1.65 }}>{desc}</p>
+                <p style={{ fontSize: 13, color: 'rgba(148,163,184,0.8)', lineHeight: 1.65 }}>{desc}</p>
               </div>
             ))}
           </div>
@@ -197,7 +197,7 @@ export default function InvestorsPage() {
                 </div>
                 <div style={{ background: 'rgba(13,20,37,0.8)', border: '1px solid rgba(30,45,74,0.5)', borderRadius: 12, padding: '16px 20px', flex: 1 }}>
                   <div style={{ fontFamily: 'Syne, system-ui', fontSize: 14, fontWeight: 700, letterSpacing: '-0.02em', marginBottom: 5, color: i === TIMELINE.length - 1 ? '#60a5fa' : '#e2e8f0' }}>{item.title}{i === TIMELINE.length - 1 && ' — Now'}</div>
-                  <div style={{ fontSize: 13, color: '#64748b', lineHeight: 1.65 }}>{item.desc}</div>
+                  <div style={{ fontSize: 13, color: 'rgba(148,163,184,0.8)', lineHeight: 1.65 }}>{item.desc}</div>
                 </div>
               </div>
             ))}
@@ -216,7 +216,7 @@ export default function InvestorsPage() {
                 <button onClick={() => setOpenFaq(openFaq === i ? null : i)} style={{ width: '100%', display: 'flex', justifyContent: 'space-between', alignItems: 'center', padding: '16px 20px', background: 'none', border: 'none', color: '#e2e8f0', cursor: 'pointer', fontSize: 14, fontWeight: 600, textAlign: 'left', gap: 16, fontFamily: 'inherit' }}>
                   {q}<span style={{ fontSize: 18, color: '#1a6ef5', transform: openFaq === i ? 'rotate(45deg)' : 'none', transition: 'transform 0.25s', flexShrink: 0 }}>+</span>
                 </button>
-                {openFaq === i && <div style={{ padding: '0 20px 16px', fontSize: 13, color: '#64748b', lineHeight: 1.72 }}>{a}</div>}
+                {openFaq === i && <div style={{ padding: '0 20px 16px', fontSize: 13, color: 'rgba(148,163,184,0.8)', lineHeight: 1.72 }}>{a}</div>}
               </div>
             ))}
           </div>
@@ -230,7 +230,7 @@ export default function InvestorsPage() {
             <div style={{ position: 'absolute', width: 350, height: 350, background: '#1a6ef5', borderRadius: '50%', filter: 'blur(100px)', top: '50%', left: '50%', transform: 'translate(-50%,-50%)', opacity: 0.07 }} />
             <div style={{ position: 'relative' }}>
               <h2 style={{ fontFamily: 'Syne, system-ui', fontSize: 'clamp(26px, 3.5vw, 40px)', fontWeight: 800, letterSpacing: '-0.03em', marginBottom: 14, color: '#fff' }}>Ready to invest in Africa&apos;s digital future?</h2>
-              <p style={{ color: '#64748b', fontSize: 15, marginBottom: 32, maxWidth: 440, margin: '0 auto 32px', lineHeight: 1.7 }}>We are currently raising our seed round. Request the full investor deck and financial projections.</p>
+              <p style={{ color: 'rgba(148,163,184,0.8)', fontSize: 15, marginBottom: 32, maxWidth: 440, margin: '0 auto 32px', lineHeight: 1.7 }}>We are currently raising our seed round. Request the full investor deck and financial projections.</p>
               <div style={{ display: 'flex', gap: 12, justifyContent: 'center', flexWrap: 'wrap', marginBottom: 28 }}>
                 <a href="mailto:contact@amdylabs.com?subject=Investment Inquiry — AMDY LABS" style={{ display: 'inline-flex', alignItems: 'center', gap: 8, background: 'linear-gradient(135deg,#1a6ef5,#0050c8)', color: '#fff', padding: '13px 28px', borderRadius: 9, fontWeight: 700, fontSize: 14, textDecoration: 'none', boxShadow: '0 8px 32px rgba(26,110,245,0.35)' }}>
                   <Mail size={15} /> Request Full Deck

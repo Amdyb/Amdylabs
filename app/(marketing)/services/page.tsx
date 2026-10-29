@@ -69,7 +69,7 @@ export default function ServicesPage() {
   const isEn = lang === 'en'
 
   return (
-    <div style={{ paddingTop: 72, background: '#060818', color: '#e2e8f0' }}>
+    <div style={{ paddingTop: 72, background: '#060818', color: '#f8fafc', fontFamily: 'Inter, system-ui, sans-serif' }}>
 
       {/* ── HERO ── */}
       <section style={{ position: 'relative', minHeight: 420, display: 'flex', alignItems: 'center', justifyContent: 'center', overflow: 'hidden', background: 'linear-gradient(135deg, #060818 0%, #0d1340 50%, #0a0f2e 100%)' }}>
