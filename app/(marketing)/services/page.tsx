@@ -69,10 +69,10 @@ export default function ServicesPage() {
   const isEn = lang === 'en'
 
   return (
-    <div style={{ paddingTop: 72, background: '#fff', color: '#1a1a2e' }}>
+    <div style={{ paddingTop: 72, background: '#060818', color: '#e2e8f0' }}>
 
       {/* ── HERO ── */}
-      <section style={{ position: 'relative', minHeight: 420, display: 'flex', alignItems: 'center', justifyContent: 'center', overflow: 'hidden', background: 'linear-gradient(135deg, #e8f4fd 0%, #f0f9ff 40%, #e8f0fe 100%)' }}>
+      <section style={{ position: 'relative', minHeight: 420, display: 'flex', alignItems: 'center', justifyContent: 'center', overflow: 'hidden', background: 'linear-gradient(135deg, #060818 0%, #0d1340 50%, #0a0f2e 100%)' }}>
         {/* Decorative blobs */}
         <div style={{ position: 'absolute', top: -80, right: -80, width: 360, height: 360, background: 'radial-gradient(circle, rgba(26,110,245,0.08) 0%, transparent 70%)', borderRadius: '50%' }} />
         <div style={{ position: 'absolute', bottom: -60, left: -60, width: 300, height: 300, background: 'radial-gradient(circle, rgba(0,230,118,0.07) 0%, transparent 70%)', borderRadius: '50%' }} />
@@ -84,7 +84,7 @@ export default function ServicesPage() {
             {t.heroTitle1}&nbsp;
             <span style={{ color: '#1a6ef5', textDecoration: 'underline', textDecorationColor: '#1a6ef5', textUnderlineOffset: 8 }}>{t.heroTitle2}</span>
           </h1>
-          <p style={{ fontSize: 17, color: '#64748b', maxWidth: 520, margin: '0 auto 36px', lineHeight: 1.72 }}>{t.heroSub}</p>
+          <p style={{ fontSize: 17, color: 'rgba(148,163,184,0.85)', maxWidth: 520, margin: '0 auto 36px', lineHeight: 1.72 }}>{t.heroSub}</p>
           <a href="#services" style={{ display: 'inline-flex', alignItems: 'center', gap: 8, background: '#1a6ef5', color: '#fff', padding: '14px 32px', borderRadius: 8, fontWeight: 700, fontSize: 14, textDecoration: 'none', letterSpacing: '0.04em', boxShadow: '0 4px 24px rgba(26,110,245,0.25)' }}>
             {t.heroCta} <ArrowRight size={15} />
           </a>
@@ -92,27 +92,27 @@ export default function ServicesPage() {
       </section>
 
       {/* ── WHY CHOOSE US ── */}
-      <section style={{ padding: '90px 24px', background: 'linear-gradient(180deg, #f8fafc 0%, #fff 100%)' }}>
+      <section style={{ padding: '90px 24px', background: '#07091c' }}>
         <div style={{ maxWidth: 1100, margin: '0 auto' }}>
           <div style={{ textAlign: 'center', marginBottom: 56 }}>
-            <h2 style={{ fontFamily: 'Syne, system-ui', fontSize: 'clamp(32px, 4vw, 52px)', fontWeight: 800, letterSpacing: '-0.03em', color: '#0f172a', marginBottom: 14 }}>
+            <h2 style={{ fontFamily: 'Syne, system-ui', fontSize: 'clamp(32px, 4vw, 52px)', fontWeight: 800, letterSpacing: '-0.03em', color: '#f8fafc', marginBottom: 14 }}>
               {t.whyTitle1}&nbsp;
               <span style={{ color: '#1a6ef5', textDecoration: 'underline', textDecorationColor: '#1a6ef5', textUnderlineOffset: 8 }}>{t.whyTitle2}</span>
             </h2>
-            <p style={{ fontSize: 16, color: '#64748b', maxWidth: 480, margin: '0 auto', lineHeight: 1.7 }}>{t.whySub}</p>
+            <p style={{ fontSize: 16, color: 'rgba(148,163,184,0.8)', maxWidth: 480, margin: '0 auto', lineHeight: 1.7 }}>{t.whySub}</p>
           </div>
           <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(280px, 1fr))', gap: 20 }}>
             {t.why.map((item, i) => {
               const Icon = WHY_ICONS[i]
               return (
-                <div key={i} style={{ background: 'rgba(255,255,255,0.72)', backdropFilter: 'blur(20px)', WebkitBackdropFilter: 'blur(20px)', borderRadius: 16, padding: '36px 28px', textAlign: 'center', boxShadow: '0 4px 32px rgba(26,110,245,0.08), inset 0 1px 0 rgba(255,255,255,0.9)', border: '1px solid rgba(255,255,255,0.85)', transition: 'all 0.3s' }}
-                  onMouseEnter={e => { const el = e.currentTarget as HTMLElement; el.style.transform = 'translateY(-6px)'; el.style.boxShadow = '0 20px 60px rgba(26,110,245,0.12)'; el.style.borderColor = '#dbeafe' }}
-                  onMouseLeave={e => { const el = e.currentTarget as HTMLElement; el.style.transform = 'none'; el.style.boxShadow = '0 2px 20px rgba(0,0,0,0.06)'; el.style.borderColor = '#f1f5f9' }}>
-                  <div style={{ width: 56, height: 56, background: 'linear-gradient(135deg, #eff6ff, #dbeafe)', borderRadius: 14, display: 'flex', alignItems: 'center', justifyContent: 'center', margin: '0 auto 20px' }}>
+                <div key={i} style={{ background: 'rgba(255,255,255,0.05)', backdropFilter: 'blur(16px)', WebkitBackdropFilter: 'blur(16px)', borderRadius: 16, padding: '36px 28px', textAlign: 'center', border: '1px solid rgba(255,255,255,0.1)', transition: 'all 0.3s' }}
+                  onMouseEnter={e => { const el = e.currentTarget as HTMLElement; el.style.transform = 'translateY(-6px)'; el.style.boxShadow = '0 0 32px rgba(59,130,246,0.2)'; el.style.borderColor = 'rgba(59,130,246,0.4)' }}
+                  onMouseLeave={e => { const el = e.currentTarget as HTMLElement; el.style.transform = 'none'; el.style.boxShadow = 'none'; el.style.borderColor = 'rgba(255,255,255,0.1)' }}>
+                  <div style={{ width: 56, height: 56, background: 'rgba(59,130,246,0.15)', borderRadius: 14, display: 'flex', alignItems: 'center', justifyContent: 'center', margin: '0 auto 20px' }}>
                     <Icon size={24} color="#1a6ef5" />
                   </div>
-                  <h4 style={{ fontFamily: 'Syne, system-ui', fontSize: 13, fontWeight: 800, letterSpacing: '0.1em', color: '#0f172a', marginBottom: 12 }}>{item.title}</h4>
-                  <p style={{ fontSize: 14, color: '#64748b', lineHeight: 1.7 }}>{item.desc}</p>
+                  <h4 style={{ fontFamily: 'Syne, system-ui', fontSize: 13, fontWeight: 800, letterSpacing: '0.1em', color: '#f8fafc', marginBottom: 12 }}>{item.title}</h4>
+                  <p style={{ fontSize: 14, color: 'rgba(148,163,184,0.75)', lineHeight: 1.7 }}>{item.desc}</p>
                 </div>
               )
             })}
@@ -121,33 +121,33 @@ export default function ServicesPage() {
       </section>
 
       {/* ── ALL SERVICES ── */}
-      <section id="services" style={{ padding: '80px 24px 100px', background: '#f8fafc' }}>
+      <section id="services" style={{ padding: '80px 24px 100px', background: '#060c1f' }}>
         <div style={{ maxWidth: 1100, margin: '0 auto' }}>
           <div style={{ textAlign: 'center', marginBottom: 56 }}>
-            <h2 style={{ fontFamily: 'Syne, system-ui', fontSize: 'clamp(32px, 4vw, 52px)', fontWeight: 800, letterSpacing: '-0.03em', color: '#0f172a', marginBottom: 14 }}>
+            <h2 style={{ fontFamily: 'Syne, system-ui', fontSize: 'clamp(32px, 4vw, 52px)', fontWeight: 800, letterSpacing: '-0.03em', color: '#f8fafc', marginBottom: 14 }}>
               {t.servicesTitle1}&nbsp;
               <span style={{ color: '#1a6ef5', textDecoration: 'underline', textDecorationColor: '#1a6ef5', textUnderlineOffset: 8 }}>{t.servicesTitle2}</span>
             </h2>
-            <p style={{ fontSize: 16, color: '#64748b', maxWidth: 480, margin: '0 auto', lineHeight: 1.7 }}>{t.servicesSub}</p>
+            <p style={{ fontSize: 16, color: 'rgba(148,163,184,0.8)', maxWidth: 480, margin: '0 auto', lineHeight: 1.7 }}>{t.servicesSub}</p>
           </div>
 
           <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(320px, 1fr))', gap: 20 }}>
             {SERVICES.map((s, i) => (
-              <div key={i} style={{ background: 'rgba(255,255,255,0.72)', backdropFilter: 'blur(20px)', WebkitBackdropFilter: 'blur(20px)', borderRadius: 16, padding: '32px 28px', boxShadow: '0 4px 32px rgba(0,0,0,0.06), inset 0 1px 0 rgba(255,255,255,0.9)', border: '1px solid rgba(255,255,255,0.85)', transition: 'all 0.3s' }}
-                onMouseEnter={e => { const el = e.currentTarget as HTMLElement; el.style.transform = 'translateY(-4px)'; el.style.boxShadow = `0 20px 60px rgba(0,0,0,0.1)`; el.style.borderColor = '#dbeafe' }}
-                onMouseLeave={e => { const el = e.currentTarget as HTMLElement; el.style.transform = 'none'; el.style.boxShadow = '0 2px 20px rgba(0,0,0,0.05)'; el.style.borderColor = '#f1f5f9' }}>
+              <div key={i} style={{ background: 'rgba(255,255,255,0.05)', backdropFilter: 'blur(16px)', WebkitBackdropFilter: 'blur(16px)', borderRadius: 16, padding: '32px 28px', border: '1px solid rgba(255,255,255,0.1)', transition: 'all 0.3s' }}
+                onMouseEnter={e => { const el = e.currentTarget as HTMLElement; el.style.transform = 'translateY(-4px)'; el.style.boxShadow = '0 0 24px rgba(59,130,246,0.15)'; el.style.borderColor = 'rgba(59,130,246,0.3)' }}
+                onMouseLeave={e => { const el = e.currentTarget as HTMLElement; el.style.transform = 'none'; el.style.boxShadow = 'none'; el.style.borderColor = 'rgba(255,255,255,0.1)' }}>
                 {/* Icon */}
                 <div style={{ width: 52, height: 52, background: `${s.color}14`, borderRadius: 13, display: 'flex', alignItems: 'center', justifyContent: 'center', marginBottom: 20 }}>
                   <s.Icon size={24} color={s.color} />
                 </div>
                 {/* Title */}
-                <h3 style={{ fontFamily: 'Syne, system-ui', fontSize: 17, fontWeight: 800, letterSpacing: '-0.02em', color: '#0f172a', marginBottom: 10 }}>{isEn ? s.en : s.fr}</h3>
+                <h3 style={{ fontFamily: 'Syne, system-ui', fontSize: 17, fontWeight: 800, letterSpacing: '-0.02em', color: '#f8fafc', marginBottom: 10 }}>{isEn ? s.en : s.fr}</h3>
                 {/* Description */}
-                <p style={{ fontSize: 13, color: '#64748b', lineHeight: 1.7, marginBottom: 18 }}>{isEn ? s.descEn : s.descFr}</p>
+                <p style={{ fontSize: 13, color: 'rgba(148,163,184,0.75)', lineHeight: 1.7, marginBottom: 18 }}>{isEn ? s.descEn : s.descFr}</p>
                 {/* Benefits */}
                 <ul style={{ listStyle: 'none', padding: 0, display: 'flex', flexDirection: 'column', gap: 8, marginBottom: 20 }}>
                   {s.benefits[lang === 'ar' ? 'en' : lang].map(b => (
-                    <li key={b} style={{ display: 'flex', alignItems: 'center', gap: 9, fontSize: 13, color: '#475569' }}>
+                    <li key={b} style={{ display: 'flex', alignItems: 'center', gap: 9, fontSize: 13, color: 'rgba(148,163,184,0.8)' }}>
                       <CheckCircle2 size={14} color={s.color} style={{ flexShrink: 0 }} />
                       {b}
                     </li>
@@ -163,7 +163,7 @@ export default function ServicesPage() {
       </section>
 
       {/* ── CTA ── */}
-      <section style={{ padding: '80px 24px', background: '#fff' }}>
+      <section style={{ padding: '80px 24px', background: '#060818' }}>
         <div style={{ maxWidth: 860, margin: '0 auto' }}>
           <div style={{ background: 'linear-gradient(135deg, #04081a, #0d1f4a)', borderRadius: 20, padding: '64px 48px', textAlign: 'center', position: 'relative', overflow: 'hidden' }}>
             <div style={{ position: 'absolute', width: 400, height: 400, background: '#1a6ef5', borderRadius: '50%', filter: 'blur(100px)', top: '50%', left: '50%', transform: 'translate(-50%,-50%)', opacity: 0.08 }} />

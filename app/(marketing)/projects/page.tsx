@@ -133,56 +133,57 @@ export default function ProjectsPage() {
   )
 
   return (
-    <div style={{ paddingTop: 72, background: '#fff', color: '#0f172a' }}>
+    <div style={{ paddingTop: 72, background: '#060818', color: '#f8fafc' }}>
 
       {/* HERO */}
-      <section style={{ position: 'relative', padding: '100px 24px 80px', background: 'linear-gradient(160deg, #f8fafc 0%, #eff6ff 50%, #f0fff8 100%)', overflow: 'hidden', textAlign: 'center' }}>
-        <div style={{ position: 'absolute', top: -80, right: 100, width: 400, height: 400, background: 'radial-gradient(circle, rgba(26,110,245,0.07) 0%, transparent 70%)', borderRadius: '50%' }} />
+      <section style={{ position: 'relative', padding: '100px 24px 80px', background: 'linear-gradient(135deg, #060818 0%, #0d1340 40%, #0a0f2e 70%, #060818 100%)', overflow: 'hidden', textAlign: 'center' }}>
+        <div style={{ position: 'absolute', top: -80, right: 100, width: 400, height: 400, background: 'radial-gradient(circle, rgba(59,130,246,0.12) 0%, transparent 70%)', borderRadius: '50%', pointerEvents: 'none' }} />
+        <div style={{ position: 'absolute', bottom: -60, left: 50, width: 300, height: 300, background: 'radial-gradient(circle, rgba(99,102,241,0.08) 0%, transparent 70%)', borderRadius: '50%', pointerEvents: 'none' }} />
         <div style={{ position: 'relative', maxWidth: 700, margin: '0 auto' }}>
-          <p style={{ fontSize: 10, fontWeight: 600, color: '#1a6ef5', letterSpacing: '0.18em', textTransform: 'uppercase', marginBottom: 20 }}>{t.tag}</p>
-          <h1 style={{ fontFamily: 'Syne, system-ui', fontSize: 'clamp(38px, 6vw, 66px)', fontWeight: 800, lineHeight: 1.05, letterSpacing: '-0.03em', color: '#0f172a', marginBottom: 22 }}>
-            {t.title1}<br /><span style={{ color: '#1a6ef5' }}>{t.title2}</span>
+          <p style={{ fontSize: 10, fontWeight: 600, color: '#60a5fa', letterSpacing: '0.18em', textTransform: 'uppercase', marginBottom: 20 }}>{t.tag}</p>
+          <h1 style={{ fontFamily: 'Syne, system-ui', fontSize: 'clamp(38px, 6vw, 66px)', fontWeight: 800, lineHeight: 1.05, letterSpacing: '-0.03em', color: '#f8fafc', marginBottom: 22 }}>
+            {t.title1}<br /><span style={{ color: '#60a5fa' }}>{t.title2}</span>
           </h1>
-          <p style={{ fontSize: 17, color: '#64748b', maxWidth: 520, margin: '0 auto', lineHeight: 1.72 }}>{t.sub}</p>
+          <p style={{ fontSize: 17, color: 'rgba(148,163,184,0.85)', maxWidth: 520, margin: '0 auto', lineHeight: 1.72 }}>{t.sub}</p>
         </div>
       </section>
 
       {/* PROJECTS */}
-      <section style={{ padding: '60px 24px 80px', background: '#fff' }}>
+      <section style={{ padding: '60px 24px 80px', background: '#07091c' }}>
         <div style={{ maxWidth: 1100, margin: '0 auto', display: 'flex', flexDirection: 'column', gap: 24 }}>
           {PROJECTS.map((p, i) => (
-            <div key={p.name} style={{ background: '#f8fafc', border: '1px solid #e2e8f0', borderRadius: 20, overflow: 'hidden', display: 'grid', gridTemplateColumns: i % 2 === 0 ? '320px 1fr' : '1fr 320px', transition: 'all 0.3s', boxShadow: '0 2px 12px rgba(0,0,0,0.04)' }}
+            <div key={p.name} style={{ background: 'rgba(255,255,255,0.04)', border: '1px solid rgba(255,255,255,0.08)', borderRadius: 20, overflow: 'hidden', display: 'grid', gridTemplateColumns: i % 2 === 0 ? '320px 1fr' : '1fr 320px', transition: 'all 0.3s', backdropFilter: 'blur(16px)', WebkitBackdropFilter: 'blur(16px)' }}
               className="proj-card"
-              onMouseEnter={e => { const el = e.currentTarget as HTMLElement; el.style.boxShadow = '0 20px 60px rgba(0,0,0,0.1)'; el.style.borderColor = '#bfdbfe' }}
-              onMouseLeave={e => { const el = e.currentTarget as HTMLElement; el.style.boxShadow = '0 2px 12px rgba(0,0,0,0.04)'; el.style.borderColor = '#e2e8f0' }}>
+              onMouseEnter={e => { const el = e.currentTarget as HTMLElement; el.style.borderColor = `${p.accentColor}55`; el.style.boxShadow = `0 0 40px ${p.accentColor}18` }}
+              onMouseLeave={e => { const el = e.currentTarget as HTMLElement; el.style.boxShadow = 'none'; el.style.borderColor = 'rgba(255,255,255,0.08)' }}>
 
               {/* Logo panel left */}
               {i % 2 === 0 && <LogoPanel p={p} />}
 
               {/* Content panel */}
               <div style={{ padding: '36px 32px', display: 'flex', flexDirection: 'column', justifyContent: 'center' }}>
-                <div style={{ display: 'inline-block', background: `${p.accentColor}12`, border: `1px solid ${p.accentColor}30`, borderRadius: 6, padding: '4px 12px', fontSize: 11, color: p.accentColor, fontWeight: 600, marginBottom: 14, alignSelf: 'flex-start' }}>
+                <div style={{ display: 'inline-block', background: `${p.accentColor}18`, border: `1px solid ${p.accentColor}40`, borderRadius: 6, padding: '4px 12px', fontSize: 11, color: p.accentColor, fontWeight: 600, marginBottom: 14, alignSelf: 'flex-start' }}>
                   {lang === 'fr' ? p.subFr : p.subEn}
                 </div>
-                <h2 style={{ fontFamily: 'Syne, system-ui', fontSize: 32, fontWeight: 800, letterSpacing: '-0.03em', color: '#0f172a', marginBottom: 12 }}>{p.name}</h2>
-                <p style={{ fontSize: 14, color: '#64748b', lineHeight: 1.75, marginBottom: 20 }}>{lang === 'fr' ? p.descFr : p.descEn}</p>
+                <h2 style={{ fontFamily: 'Syne, system-ui', fontSize: 32, fontWeight: 800, letterSpacing: '-0.03em', color: '#f8fafc', marginBottom: 12 }}>{p.name}</h2>
+                <p style={{ fontSize: 14, color: 'rgba(148,163,184,0.75)', lineHeight: 1.75, marginBottom: 20 }}>{lang === 'fr' ? p.descFr : p.descEn}</p>
                 <div style={{ display: 'flex', flexWrap: 'wrap', gap: 6, marginBottom: 20 }}>
-                  {p.tags.map(tag => <span key={tag} style={{ background: '#f1f5f9', border: '1px solid #e2e8f0', borderRadius: 5, padding: '3px 10px', fontSize: 11, color: '#64748b' }}>{tag}</span>)}
+                  {p.tags.map(tag => <span key={tag} style={{ background: 'rgba(255,255,255,0.06)', border: '1px solid rgba(255,255,255,0.1)', borderRadius: 5, padding: '3px 10px', fontSize: 11, color: 'rgba(148,163,184,0.8)' }}>{tag}</span>)}
                 </div>
                 <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: 7, marginBottom: 24 }}>
                   {p.features[lang === 'ar' ? 'en' : lang].map(f => (
-                    <div key={f} style={{ display: 'flex', alignItems: 'center', gap: 7, fontSize: 12, color: '#64748b' }}>
+                    <div key={f} style={{ display: 'flex', alignItems: 'center', gap: 7, fontSize: 12, color: 'rgba(148,163,184,0.75)' }}>
                       <span style={{ width: 14, height: 14, background: p.accentColor, color: '#fff', borderRadius: '50%', display: 'inline-flex', alignItems: 'center', justifyContent: 'center', fontSize: 8, fontWeight: 900, flexShrink: 0 }}>✓</span>
                       {f}
                     </div>
                   ))}
                 </div>
                 {p.status === 'soon' && p.link ? (
-                  <a href={p.link} target="_blank" rel="noreferrer" style={{ display: 'inline-flex', alignItems: 'center', gap: 6, background: p.accentColor, color: '#fff', padding: '11px 22px', borderRadius: 8, fontWeight: 700, fontSize: 13, textDecoration: 'none', alignSelf: 'flex-start' }}>
+                  <a href={p.link} target="_blank" rel="noreferrer" style={{ display: 'inline-flex', alignItems: 'center', gap: 6, background: p.accentColor, color: '#fff', padding: '11px 22px', borderRadius: 8, fontWeight: 700, fontSize: 13, textDecoration: 'none', alignSelf: 'flex-start', boxShadow: `0 4px 20px ${p.accentColor}40` }}>
                     {t.visitBtn} <ExternalLink size={13} />
                   </a>
                 ) : (
-                  <Link href="/contact" style={{ display: 'inline-flex', alignItems: 'center', gap: 6, background: p.accentColor, color: '#fff', padding: '11px 22px', borderRadius: 8, fontWeight: 700, fontSize: 13, textDecoration: 'none', alignSelf: 'flex-start' }}>
+                  <Link href="/contact" style={{ display: 'inline-flex', alignItems: 'center', gap: 6, background: p.accentColor, color: '#fff', padding: '11px 22px', borderRadius: 8, fontWeight: 700, fontSize: 13, textDecoration: 'none', alignSelf: 'flex-start', boxShadow: `0 4px 20px ${p.accentColor}40` }}>
                     {t.similarBtn} <ArrowRight size={13} />
                   </Link>
                 )}
@@ -196,23 +197,23 @@ export default function ProjectsPage() {
       </section>
 
       {/* MORE */}
-      <section style={{ padding: '60px 24px 80px', background: '#f8fafc', borderTop: '1px solid #e2e8f0' }}>
+      <section style={{ padding: '60px 24px 80px', background: '#060c1f', borderTop: '1px solid rgba(255,255,255,0.06)' }}>
         <div style={{ maxWidth: 1100, margin: '0 auto' }}>
           <div style={{ marginBottom: 36 }}>
-            <p style={{ fontSize: 10, fontWeight: 600, color: '#1a6ef5', letterSpacing: '0.18em', textTransform: 'uppercase', marginBottom: 14 }}>{t.moreTag}</p>
-            <h2 style={{ fontFamily: 'Syne, system-ui', fontSize: 'clamp(26px, 3.5vw, 40px)', fontWeight: 800, letterSpacing: '-0.03em', color: '#0f172a', marginBottom: 10 }}>
-              {t.moreTitle1} <span style={{ color: '#1a6ef5' }}>{t.moreTitle2}</span>
+            <p style={{ fontSize: 10, fontWeight: 600, color: '#60a5fa', letterSpacing: '0.18em', textTransform: 'uppercase', marginBottom: 14 }}>{t.moreTag}</p>
+            <h2 style={{ fontFamily: 'Syne, system-ui', fontSize: 'clamp(26px, 3.5vw, 40px)', fontWeight: 800, letterSpacing: '-0.03em', color: '#f8fafc', marginBottom: 10 }}>
+              {t.moreTitle1} <span style={{ color: '#60a5fa' }}>{t.moreTitle2}</span>
             </h2>
-            <p style={{ fontSize: 15, color: '#64748b' }}>{t.moreSub}</p>
+            <p style={{ fontSize: 15, color: 'rgba(148,163,184,0.75)' }}>{t.moreSub}</p>
           </div>
           <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(230px, 1fr))', gap: 14 }}>
             {t.others.map(o => (
-              <div key={o.name} style={{ background: '#fff', border: '1px solid #e2e8f0', borderRadius: 14, padding: '24px 22px', transition: 'all 0.2s' }}
-                onMouseEnter={e => { const el = e.currentTarget as HTMLElement; el.style.borderColor = '#bfdbfe'; el.style.boxShadow = '0 8px 24px rgba(26,110,245,0.08)' }}
-                onMouseLeave={e => { const el = e.currentTarget as HTMLElement; el.style.borderColor = '#e2e8f0'; el.style.boxShadow = 'none' }}>
-                <div style={{ display: 'inline-block', background: '#eff6ff', border: '1px solid #bfdbfe', borderRadius: 4, padding: '3px 9px', fontSize: 10, color: '#1a6ef5', marginBottom: 12 }}>{o.tag}</div>
-                <h4 style={{ fontFamily: 'Syne, system-ui', fontSize: 15, fontWeight: 700, color: '#0f172a', marginBottom: 8 }}>{o.name}</h4>
-                <p style={{ fontSize: 13, color: '#64748b', lineHeight: 1.65 }}>{o.desc}</p>
+              <div key={o.name} style={{ background: 'rgba(255,255,255,0.04)', border: '1px solid rgba(255,255,255,0.08)', borderRadius: 14, padding: '24px 22px', transition: 'all 0.2s', backdropFilter: 'blur(12px)', WebkitBackdropFilter: 'blur(12px)' }}
+                onMouseEnter={e => { const el = e.currentTarget as HTMLElement; el.style.borderColor = 'rgba(59,130,246,0.4)'; el.style.boxShadow = '0 8px 24px rgba(59,130,246,0.12)' }}
+                onMouseLeave={e => { const el = e.currentTarget as HTMLElement; el.style.borderColor = 'rgba(255,255,255,0.08)'; el.style.boxShadow = 'none' }}>
+                <div style={{ display: 'inline-block', background: 'rgba(59,130,246,0.15)', border: '1px solid rgba(59,130,246,0.3)', borderRadius: 4, padding: '3px 9px', fontSize: 10, color: '#60a5fa', marginBottom: 12 }}>{o.tag}</div>
+                <h4 style={{ fontFamily: 'Syne, system-ui', fontSize: 15, fontWeight: 700, color: '#f8fafc', marginBottom: 8 }}>{o.name}</h4>
+                <p style={{ fontSize: 13, color: 'rgba(148,163,184,0.7)', lineHeight: 1.65 }}>{o.desc}</p>
               </div>
             ))}
           </div>
@@ -220,14 +221,14 @@ export default function ProjectsPage() {
       </section>
 
       {/* CTA */}
-      <section style={{ padding: '70px 24px', background: '#fff' }}>
+      <section style={{ padding: '70px 24px', background: '#060818' }}>
         <div style={{ maxWidth: 800, margin: '0 auto' }}>
-          <div style={{ background: 'linear-gradient(135deg, #04081a, #0d1f4a)', borderRadius: 20, padding: '60px 44px', textAlign: 'center', position: 'relative', overflow: 'hidden' }}>
-            <div style={{ position: 'absolute', width: 350, height: 350, background: '#1a6ef5', borderRadius: '50%', filter: 'blur(100px)', top: '50%', left: '50%', transform: 'translate(-50%,-50%)', opacity: 0.07 }} />
+          <div style={{ background: 'linear-gradient(135deg, #07091c, #0d1340)', borderRadius: 20, padding: '60px 44px', textAlign: 'center', position: 'relative', overflow: 'hidden', border: '1px solid rgba(255,255,255,0.08)' }}>
+            <div style={{ position: 'absolute', width: 350, height: 350, background: '#1a6ef5', borderRadius: '50%', filter: 'blur(100px)', top: '50%', left: '50%', transform: 'translate(-50%,-50%)', opacity: 0.1, pointerEvents: 'none' }} />
             <div style={{ position: 'relative' }}>
-              <h2 style={{ fontFamily: 'Syne, system-ui', fontSize: 'clamp(26px, 4vw, 40px)', fontWeight: 800, letterSpacing: '-0.03em', color: '#fff', marginBottom: 14 }}>{t.ctaTitle}</h2>
-              <p style={{ color: '#64748b', fontSize: 15, marginBottom: 32, maxWidth: 400, margin: '0 auto 32px', lineHeight: 1.7 }}>{t.ctaSub}</p>
-              <Link href="/contact" style={{ display: 'inline-flex', alignItems: 'center', gap: 8, background: '#1a6ef5', color: '#fff', padding: '14px 32px', borderRadius: 9, fontWeight: 700, fontSize: 15, textDecoration: 'none', boxShadow: '0 8px 32px rgba(26,110,245,0.35)' }}>
+              <h2 style={{ fontFamily: 'Syne, system-ui', fontSize: 'clamp(26px, 4vw, 40px)', fontWeight: 800, letterSpacing: '-0.03em', color: '#f8fafc', marginBottom: 14 }}>{t.ctaTitle}</h2>
+              <p style={{ color: 'rgba(148,163,184,0.75)', fontSize: 15, marginBottom: 32, maxWidth: 400, margin: '0 auto 32px', lineHeight: 1.7 }}>{t.ctaSub}</p>
+              <Link href="/contact" style={{ display: 'inline-flex', alignItems: 'center', gap: 8, background: 'linear-gradient(135deg,#1a6ef5,#0050c8)', color: '#fff', padding: '14px 32px', borderRadius: 9, fontWeight: 700, fontSize: 15, textDecoration: 'none', boxShadow: '0 8px 32px rgba(26,110,245,0.4)' }}>
                 <ArrowRight size={15} /> {t.ctaBtn}
               </Link>
             </div>
