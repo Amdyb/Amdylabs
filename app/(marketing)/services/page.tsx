@@ -80,7 +80,7 @@ export default function ServicesPage() {
 
         <div style={{ position: 'relative', textAlign: 'center', maxWidth: 700, margin: '0 auto' }}>
           <p style={{ fontSize: 11, fontWeight: 600, color: '#60a5fa', letterSpacing: '0.18em', textTransform: 'uppercase', marginBottom: 20 }}>{t.heroTag}</p>
-          <h1 style={{ fontFamily: 'Syne, system-ui', fontSize: 'clamp(36px, 5.5vw, 62px)', fontWeight: 800, lineHeight: 1.05, letterSpacing: '-0.03em', marginBottom: 22, color: '#f8fafc' }}>
+          <h1 style={{ fontFamily: 'Syne, system-ui', fontSize: 'clamp(38px, 6vw, 66px)', fontWeight: 800, lineHeight: 1.05, letterSpacing: '-0.03em', marginBottom: 22, color: '#f8fafc' }}>
             {t.heroTitle1}&nbsp;
             <span style={{ color: '#60a5fa' }}>{t.heroTitle2}</span>
           </h1>
@@ -95,7 +95,7 @@ export default function ServicesPage() {
       <section style={{ padding: '90px 24px', background: '#07091c' }}>
         <div style={{ maxWidth: 1100, margin: '0 auto' }}>
           <div style={{ textAlign: 'center', marginBottom: 56 }}>
-            <h2 style={{ fontFamily: 'Syne, system-ui', fontSize: 'clamp(26px, 3.5vw, 42px)', fontWeight: 800, letterSpacing: '-0.03em', color: '#f8fafc', marginBottom: 14 }}>
+            <h2 style={{ fontFamily: 'Syne, system-ui', fontSize: 'clamp(28px, 4vw, 46px)', fontWeight: 800, letterSpacing: '-0.03em', color: '#f8fafc', marginBottom: 14 }}>
               {t.whyTitle1}&nbsp;
               <span style={{ color: '#60a5fa' }}>{t.whyTitle2}</span>
             </h2>
@@ -124,7 +124,7 @@ export default function ServicesPage() {
       <section id="services" style={{ padding: '80px 24px 100px', background: '#060c1f' }}>
         <div style={{ maxWidth: 1100, margin: '0 auto' }}>
           <div style={{ textAlign: 'center', marginBottom: 56 }}>
-            <h2 style={{ fontFamily: 'Syne, system-ui', fontSize: 'clamp(26px, 3.5vw, 42px)', fontWeight: 800, letterSpacing: '-0.03em', color: '#f8fafc', marginBottom: 14 }}>
+            <h2 style={{ fontFamily: 'Syne, system-ui', fontSize: 'clamp(28px, 4vw, 46px)', fontWeight: 800, letterSpacing: '-0.03em', color: '#f8fafc', marginBottom: 14 }}>
               {t.servicesTitle1}&nbsp;
               <span style={{ color: '#60a5fa' }}>{t.servicesTitle2}</span>
             </h2>

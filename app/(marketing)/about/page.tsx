@@ -136,7 +136,7 @@ export default function AboutPage() {
         <div style={{ maxWidth: 1100, margin: '0 auto' }}>
           <div style={{ textAlign: 'center', marginBottom: 52 }}>
             <p style={{ fontSize: 11, fontWeight: 600, color: '#60a5fa', letterSpacing: '0.18em', textTransform: 'uppercase', marginBottom: 14 }}>{t.teamTag}</p>
-            <h2 style={{ fontFamily: 'Syne, system-ui', fontSize: 'clamp(30px, 4vw, 48px)', fontWeight: 800, letterSpacing: '-0.03em', color: '#f8fafc', marginBottom: 14 }}>
+            <h2 style={{ fontFamily: 'Syne, system-ui', fontSize: 'clamp(28px, 4vw, 46px)', fontWeight: 800, letterSpacing: '-0.03em', color: '#f8fafc', marginBottom: 14 }}>
               {t.teamTitle1} <span style={{ color: '#60a5fa' }}>{t.teamTitle2}</span>
             </h2>
             <p style={{ fontSize: 16, color: 'rgba(148,163,184,0.8)', maxWidth: 480, margin: '0 auto', lineHeight: 1.7 }}>{t.teamSub}</p>
@@ -162,7 +162,7 @@ export default function AboutPage() {
         <div style={{ maxWidth: 1100, margin: '0 auto' }}>
           <div style={{ textAlign: 'center', marginBottom: 52 }}>
             <p style={{ fontSize: 11, fontWeight: 600, color: '#60a5fa', letterSpacing: '0.18em', textTransform: 'uppercase', marginBottom: 14 }}>{t.valuesTag}</p>
-            <h2 style={{ fontFamily: 'Syne, system-ui', fontSize: 'clamp(30px, 4vw, 48px)', fontWeight: 800, letterSpacing: '-0.03em', color: '#f8fafc' }}>
+            <h2 style={{ fontFamily: 'Syne, system-ui', fontSize: 'clamp(28px, 4vw, 46px)', fontWeight: 800, letterSpacing: '-0.03em', color: '#f8fafc' }}>
               {t.valuesTitle1} <span style={{ color: '#60a5fa' }}>{t.valuesTitle2}</span>
             </h2>
           </div>
@@ -190,7 +190,7 @@ export default function AboutPage() {
         <div style={{ maxWidth: 1100, margin: '0 auto' }}>
           <div style={{ textAlign: 'center', marginBottom: 44 }}>
             <p style={{ fontSize: 11, fontWeight: 600, color: '#60a5fa', letterSpacing: '0.18em', textTransform: 'uppercase', marginBottom: 14 }}>{t.founderTag}</p>
-            <h2 style={{ fontFamily: 'Syne, system-ui', fontSize: 'clamp(30px, 4vw, 48px)', fontWeight: 800, letterSpacing: '-0.03em', color: '#f8fafc' }}>
+            <h2 style={{ fontFamily: 'Syne, system-ui', fontSize: 'clamp(28px, 4vw, 46px)', fontWeight: 800, letterSpacing: '-0.03em', color: '#f8fafc' }}>
               {t.founderTitle} <span style={{ color: '#60a5fa' }}>{t.founderTitle2}</span>
             </h2>
           </div>

@@ -307,15 +307,16 @@ export default function HomePage() {
           </p>
 
           <h1 style={{
-            fontFamily: 'Inter, system-ui, sans-serif',
-            fontSize: 'clamp(38px, 6vw, 80px)',
-            fontWeight: 700,
-            lineHeight: 1.06,
-            letterSpacing: '-0.035em',
+            fontFamily: 'Syne, system-ui',
+            fontSize: 'clamp(38px, 6vw, 72px)',
+            fontWeight: 800,
+            lineHeight: 1.05,
+            letterSpacing: '-0.03em',
             color: '#f8fafc',
             marginBottom: 28,
             maxWidth: 820,
             whiteSpace: 'pre-line',
+            textTransform: 'uppercase',
           }}>
             {t.h1}
           </h1>

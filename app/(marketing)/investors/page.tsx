@@ -72,7 +72,7 @@ export default function InvestorsPage() {
             <span style={{ width: 7, height: 7, background: '#00e676', borderRadius: '50%', display: 'inline-block' }} />
             Investor Relations
           </div>
-          <h1 style={{ fontFamily: 'Syne, system-ui', fontSize: 'clamp(36px, 5vw, 62px)', fontWeight: 800, lineHeight: 1.05, letterSpacing: '-0.03em', marginBottom: 22, color: '#fff' }}>
+          <h1 style={{ fontFamily: 'Syne, system-ui', fontSize: 'clamp(38px, 6vw, 66px)', fontWeight: 800, lineHeight: 1.05, letterSpacing: '-0.03em', marginBottom: 22, color: '#fff' }}>
             Investing in Global<br />
             <span style={{ background: 'linear-gradient(135deg, #60a5fa, #00e676)', WebkitBackgroundClip: 'text', WebkitTextFillColor: 'transparent', backgroundClip: 'text' }}>Digital Infrastructure</span>
           </h1>
@@ -108,7 +108,7 @@ export default function InvestorsPage() {
         <div style={{ maxWidth: 1100, margin: '0 auto', display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(300px, 1fr))', gap: 60, alignItems: 'center' }}>
           <div>
             <p style={{ fontSize: 10, fontWeight: 600, color: '#1a6ef5', letterSpacing: '0.14em', textTransform: 'uppercase', marginBottom: 14 }}>Market Opportunity</p>
-            <h2 style={{ fontFamily: 'Syne, system-ui', fontSize: 'clamp(26px, 3.5vw, 42px)', fontWeight: 800, letterSpacing: '-0.03em', lineHeight: 1.05, marginBottom: 18, color: '#fff' }}>A massive, underserved global market</h2>
+            <h2 style={{ fontFamily: 'Syne, system-ui', fontSize: 'clamp(28px, 4vw, 46px)', fontWeight: 800, letterSpacing: '-0.03em', lineHeight: 1.05, marginBottom: 18, color: '#fff' }}>A massive, underserved global market</h2>
             <p style={{ fontSize: 15, color: 'rgba(148,163,184,0.8)', lineHeight: 1.72, marginBottom: 24 }}>Hundreds of millions of small businesses around the world still operate without reliable digital tools. AMDY LABS is building the infrastructure layer they need — starting in the markets where demand is strongest.</p>
             <Link href="/contact" style={{ display: 'inline-flex', alignItems: 'center', gap: 6, color: '#60a5fa', fontWeight: 600, fontSize: 13, textDecoration: 'none' }}>
               View full market analysis <ArrowRight size={13} />
@@ -129,7 +129,7 @@ export default function InvestorsPage() {
       <section style={{ padding: '70px 24px' }}>
         <div style={{ maxWidth: 1100, margin: '0 auto' }}>
           <p style={{ fontSize: 10, fontWeight: 600, color: '#1a6ef5', letterSpacing: '0.14em', textTransform: 'uppercase', marginBottom: 14 }}>Product Portfolio</p>
-          <h2 style={{ fontFamily: 'Syne, system-ui', fontSize: 'clamp(26px, 3.5vw, 42px)', fontWeight: 800, letterSpacing: '-0.03em', marginBottom: 12, color: '#fff' }}>Four products. One platform.</h2>
+          <h2 style={{ fontFamily: 'Syne, system-ui', fontSize: 'clamp(28px, 4vw, 46px)', fontWeight: 800, letterSpacing: '-0.03em', marginBottom: 12, color: '#fff' }}>Four products. One platform.</h2>
           <p style={{ fontSize: 15, color: 'rgba(148,163,184,0.8)', maxWidth: 540, lineHeight: 1.7, marginBottom: 36 }}>Each product targets a distinct vertical while sharing infrastructure — reducing costs and increasing platform defensibility.</p>
           <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(240px, 1fr))', gap: 12, marginBottom: 60 }}>
             {PRODUCTS.map((p, i) => (
@@ -145,7 +145,7 @@ export default function InvestorsPage() {
           </div>
 
           <p style={{ fontSize: 10, fontWeight: 600, color: '#1a6ef5', letterSpacing: '0.14em', textTransform: 'uppercase', marginBottom: 14 }}>Revenue Models</p>
-          <h2 style={{ fontFamily: 'Syne, system-ui', fontSize: 'clamp(26px, 3.5vw, 42px)', fontWeight: 800, letterSpacing: '-0.03em', marginBottom: 32, color: '#fff' }}>Multiple paths to revenue</h2>
+          <h2 style={{ fontFamily: 'Syne, system-ui', fontSize: 'clamp(28px, 4vw, 46px)', fontWeight: 800, letterSpacing: '-0.03em', marginBottom: 32, color: '#fff' }}>Multiple paths to revenue</h2>
           <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(240px, 1fr))', gap: 12 }}>
             {REVENUE_MODELS.map(({ Icon, title, desc }, i) => (
               <div key={i} style={{ background: 'rgba(13,20,37,0.8)', border: '1px solid rgba(30,45,74,0.5)', borderRadius: 14, padding: 22 }}>
@@ -164,7 +164,7 @@ export default function InvestorsPage() {
       <section style={{ padding: '70px 24px', background: '#080d1a', borderTop: '1px solid rgba(30,45,74,0.4)', borderBottom: '1px solid rgba(30,45,74,0.4)' }}>
         <div style={{ maxWidth: 860, margin: '0 auto' }}>
           <p style={{ fontSize: 10, fontWeight: 600, color: '#1a6ef5', letterSpacing: '0.14em', textTransform: 'uppercase', marginBottom: 14 }}>Competitive Position</p>
-          <h2 style={{ fontFamily: 'Syne, system-ui', fontSize: 'clamp(26px, 3.5vw, 42px)', fontWeight: 800, letterSpacing: '-0.03em', marginBottom: 32, color: '#fff' }}>Built for markets others ignore</h2>
+          <h2 style={{ fontFamily: 'Syne, system-ui', fontSize: 'clamp(28px, 4vw, 46px)', fontWeight: 800, letterSpacing: '-0.03em', marginBottom: 32, color: '#fff' }}>Built for markets others ignore</h2>
           <div style={{ background: 'rgba(13,20,37,0.8)', border: '1px solid rgba(30,45,74,0.5)', borderRadius: 14, overflow: 'hidden' }}>
             <div style={{ display: 'grid', gridTemplateColumns: '1fr 120px 120px', padding: '12px 22px', background: 'rgba(26,110,245,0.06)', borderBottom: '1px solid rgba(30,45,74,0.5)', fontSize: 11, fontWeight: 700, color: '#475569', textTransform: 'uppercase', letterSpacing: '0.08em', gap: 16 }}>
               <div>Capability</div>
@@ -189,7 +189,7 @@ export default function InvestorsPage() {
       <section style={{ padding: '70px 24px' }}>
         <div style={{ maxWidth: 860, margin: '0 auto' }}>
           <p style={{ fontSize: 10, fontWeight: 600, color: '#1a6ef5', letterSpacing: '0.14em', textTransform: 'uppercase', marginBottom: 14 }}>Company Timeline</p>
-          <h2 style={{ fontFamily: 'Syne, system-ui', fontSize: 'clamp(26px, 3.5vw, 42px)', fontWeight: 800, letterSpacing: '-0.03em', marginBottom: 40, color: '#fff' }}>From idea to platform</h2>
+          <h2 style={{ fontFamily: 'Syne, system-ui', fontSize: 'clamp(28px, 4vw, 46px)', fontWeight: 800, letterSpacing: '-0.03em', marginBottom: 40, color: '#fff' }}>From idea to platform</h2>
           <div style={{ position: 'relative', paddingLeft: 20 }}>
             <div style={{ position: 'absolute', left: 19, top: 0, bottom: 0, width: 1, background: 'linear-gradient(180deg, #1a6ef5 0%, rgba(30,45,74,0.3) 100%)' }} />
             {TIMELINE.map((item, i) => (
@@ -211,7 +211,7 @@ export default function InvestorsPage() {
       <section style={{ padding: '60px 24px', background: '#080d1a', borderTop: '1px solid rgba(30,45,74,0.4)' }}>
         <div style={{ maxWidth: 780, margin: '0 auto' }}>
           <p style={{ fontSize: 10, fontWeight: 600, color: '#1a6ef5', letterSpacing: '0.14em', textTransform: 'uppercase', marginBottom: 14 }}>Due Diligence</p>
-          <h2 style={{ fontFamily: 'Syne, system-ui', fontSize: 'clamp(26px, 3.5vw, 42px)', fontWeight: 800, letterSpacing: '-0.03em', marginBottom: 32, color: '#fff' }}>Investor FAQ</h2>
+          <h2 style={{ fontFamily: 'Syne, system-ui', fontSize: 'clamp(28px, 4vw, 46px)', fontWeight: 800, letterSpacing: '-0.03em', marginBottom: 32, color: '#fff' }}>Investor FAQ</h2>
           <div style={{ display: 'flex', flexDirection: 'column', gap: 8 }}>
             {FAQ_INV.map(([q, a], i) => (
               <div key={i} style={{ background: 'rgba(13,20,37,0.8)', border: '1px solid rgba(30,45,74,0.5)', borderRadius: 11, overflow: 'hidden' }}>
@@ -231,7 +231,7 @@ export default function InvestorsPage() {
           <div style={{ background: 'linear-gradient(135deg,#0a1628,#0d1f4a)', border: '1px solid rgba(30,45,74,0.6)', borderRadius: 18, padding: '56px 44px', textAlign: 'center', position: 'relative', overflow: 'hidden' }}>
             <div style={{ position: 'absolute', width: 350, height: 350, background: '#1a6ef5', borderRadius: '50%', filter: 'blur(100px)', top: '50%', left: '50%', transform: 'translate(-50%,-50%)', opacity: 0.07 }} />
             <div style={{ position: 'relative' }}>
-              <h2 style={{ fontFamily: 'Syne, system-ui', fontSize: 'clamp(26px, 3.5vw, 40px)', fontWeight: 800, letterSpacing: '-0.03em', marginBottom: 14, color: '#fff' }}>Ready to invest in the future of digital commerce?</h2>
+              <h2 style={{ fontFamily: 'Syne, system-ui', fontSize: 'clamp(28px, 4vw, 44px)', fontWeight: 800, letterSpacing: '-0.03em', marginBottom: 14, color: '#fff' }}>Ready to invest in the future of digital commerce?</h2>
               <p style={{ color: 'rgba(148,163,184,0.8)', fontSize: 15, marginBottom: 32, maxWidth: 440, margin: '0 auto 32px', lineHeight: 1.7 }}>We are currently raising our seed round. Request the full investor deck and financial projections.</p>
               <div style={{ display: 'flex', gap: 12, justifyContent: 'center', flexWrap: 'wrap', marginBottom: 28 }}>
                 <a href="mailto:contact@amdylabs.com?subject=Investment Inquiry — AMDY LABS" style={{ display: 'inline-flex', alignItems: 'center', gap: 8, background: 'linear-gradient(135deg,#1a6ef5,#0050c8)', color: '#fff', padding: '13px 28px', borderRadius: 9, fontWeight: 700, fontSize: 14, textDecoration: 'none', boxShadow: '0 8px 32px rgba(26,110,245,0.35)' }}>

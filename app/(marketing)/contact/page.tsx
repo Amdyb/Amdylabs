@@ -84,7 +84,7 @@ export default function ContactPage() {
         <div style={{ position: 'absolute', bottom: -40, left: -40, width: 280, height: 280, background: 'radial-gradient(circle, rgba(99,102,241,0.1) 0%, transparent 70%)', borderRadius: '50%', pointerEvents: 'none' }} />
         <div style={{ position: 'relative', maxWidth: 700, margin: '0 auto' }}>
           <p style={{ fontSize: 10, fontWeight: 600, color: '#60a5fa', letterSpacing: '0.18em', textTransform: 'uppercase', marginBottom: 20 }}>{t.tag}</p>
-          <h1 style={{ fontFamily: 'Syne, system-ui', fontSize: 'clamp(36px, 5.5vw, 62px)', fontWeight: 800, lineHeight: 1.05, letterSpacing: '-0.03em', color: '#f8fafc', marginBottom: 22 }}>
+          <h1 style={{ fontFamily: 'Syne, system-ui', fontSize: 'clamp(38px, 6vw, 66px)', fontWeight: 800, lineHeight: 1.05, letterSpacing: '-0.03em', color: '#f8fafc', marginBottom: 22 }}>
             {t.title1}<br /><span style={{ color: '#60a5fa' }}>{t.title2}</span>
           </h1>
           <p style={{ fontSize: 17, color: 'rgba(148,163,184,0.85)', maxWidth: 500, margin: '0 auto', lineHeight: 1.72 }}>{t.sub}</p>
