@@ -73,8 +73,8 @@ export default function InvestorsPage() {
             Investor Relations
           </div>
           <h1 style={{ fontFamily: 'Syne, system-ui', fontSize: 'clamp(22px, 2.8vw, 36px)', fontWeight: 800, lineHeight: 1.1, letterSpacing: '-0.03em', marginBottom: 22, color: '#fff' }}>
-            Imagine it.<br />
-            <span style={{ background: 'linear-gradient(135deg, #60a5fa, #00e676)', WebkitBackgroundClip: 'text', WebkitTextFillColor: 'transparent', backgroundClip: 'text' }}>Let us make it happen.</span>
+            IMAGINE IT.<br />
+            <span style={{ background: 'linear-gradient(135deg, #60a5fa, #00e676)', WebkitBackgroundClip: 'text', WebkitTextFillColor: 'transparent', backgroundClip: 'text' }}>LET US MAKE IT HAPPEN.</span>
           </h1>
           <p style={{ fontSize: 16, color: 'rgba(148,163,184,0.8)', maxWidth: 540, margin: '0 auto 36px', lineHeight: 1.72 }}>
             AMDY LABS is building the operating system for modern commerce — starting where the opportunity is largest and scaling globally.
