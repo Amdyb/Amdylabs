@@ -80,7 +80,7 @@ const PROJECTS = [
     taglineEn: 'The must-have app for truck drivers',
     descFr: 'L\'application financière pour owner-operators et camionneurs : revenu net réel par chargement, vérification des sous-paiements, carburant et IFTA, numérisation des documents, alertes météo sur votre route. Conçu par un vrai camionneur.',
     descEn: 'The money app for owner-operators and truck drivers: real take-home on every load, short-pay checks, fuel and IFTA, paperwork scanning, weather alerts on your route. Built by a trucker.',
-    logo: '/portfolio/rigcoach/logo-on-dark.svg', logoBg: '#0a1628',
+    logo: '/logo-rigcoach.png', logoBg: '#0a1628',
     screenshot: '/portfolio/rigcoach/store/play-screenshots/01-know-your-real-take-home.png',
     accentColor: '#00c853',
     tags: ['React Native', 'Expo', 'iOS', 'Android', 'USA'],
