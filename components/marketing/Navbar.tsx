@@ -51,8 +51,9 @@ export default function Navbar() {
         <div style={{ maxWidth: 1200, margin: '0 auto', display: 'flex', alignItems: 'center', justifyContent: 'space-between', height: 72 }}>
           <Link href="/" style={{ display: 'flex', alignItems: 'center', gap: 10, textDecoration: 'none' }}>
             <Image src="/logo-amdylabs.png" alt="AMDY LABS" width={44} height={44} style={{ borderRadius: '50%', objectFit: 'cover' }} priority />
-            <span style={{ fontFamily: 'Syne, system-ui', fontWeight: 800, fontSize: 17, color: '#fff', letterSpacing: '-0.01em' }}>
-              AMDY <span style={{ color: '#60a5fa' }}>LABS</span>
+            <span style={{ fontFamily: 'Syne, system-ui', fontWeight: 800, fontSize: 17, color: '#fff', letterSpacing: '-0.01em', lineHeight: 1, display: 'flex', flexDirection: 'column', alignItems: 'flex-end' }}>
+              <span>AMDY</span>
+              <span style={{ color: '#60a5fa', marginTop: -3 }}>LABS</span>
             </span>
           </Link>
 
