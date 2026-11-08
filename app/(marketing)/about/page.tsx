@@ -198,7 +198,7 @@ export default function AboutPage() {
             <div style={{ width: 84, height: 84, borderRadius: '50%', background: 'linear-gradient(135deg, #1a6ef5, #00c8ff)', display: 'flex', alignItems: 'center', justifyContent: 'center', fontFamily: 'Syne, system-ui', fontWeight: 800, fontSize: 26, color: '#fff', flexShrink: 0, border: '3px solid #dbeafe' }}>AB</div>
             <div>
               <div style={{ fontFamily: 'Syne, system-ui', fontWeight: 800, fontSize: 20, color: '#f8fafc', marginBottom: 4 }}>Amdy Boubacar</div>
-              <div style={{ fontSize: 12, color: '#60a5fa', fontWeight: 600, marginBottom: 6, letterSpacing: '0.05em' }}>Founder & CEO — AMDY LABS LLC</div>
+              <div style={{ fontSize: 12, color: '#60a5fa', fontWeight: 600, marginBottom: 6, letterSpacing: '0.05em' }}>Founder & CEO — AMDYLABS LLC</div>
               <div style={{ fontSize: 12, color: 'rgba(148,163,184,0.6)', marginBottom: 16 }}>Detroit, Michigan, USA</div>
               <p style={{ fontSize: 14, color: 'rgba(148,163,184,0.8)', lineHeight: 1.72, marginBottom: 18 }}>{t.founderBio}</p>
               <div style={{ display: 'flex', flexWrap: 'wrap', gap: 8, marginBottom: 18 }}>

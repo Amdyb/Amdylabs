@@ -73,7 +73,7 @@ const T = {
     buildWith: 'Travailler avec nous',
     trustLabel: 'Crédibilité',
     trust: [
-      { label: 'AMDY LABS LLC', sub: 'Société enregistrée au Michigan, USA' },
+      { label: 'AMDYLABS LLC', sub: 'Société enregistrée au Michigan, USA' },
       { label: 'Detroit, Michigan', sub: '10629 W 7 Mile, Suite 1, 48221' },
       { label: '4 produits en ligne', sub: 'caissepro.app · vybz.city · immopro.agency' },
       { label: '38+ marchands', sub: 'Revenus réels, traction réelle' },
@@ -126,7 +126,7 @@ const T = {
     buildWith: 'Work with us',
     trustLabel: 'Credibility',
     trust: [
-      { label: 'AMDY LABS LLC', sub: 'US-registered company, Michigan' },
+      { label: 'AMDYLABS LLC', sub: 'US-registered company, Michigan' },
       { label: 'Detroit, Michigan', sub: '10629 W 7 Mile, Suite 1, 48221' },
       { label: '4 live products', sub: 'caissepro.app · vybz.city · immopro.agency' },
       { label: '38+ merchants', sub: 'Real revenue, real traction' },
@@ -179,7 +179,7 @@ const T = {
   buildWith: 'اعمل معنا',
   trustLabel: 'المصداقية',
   trust: [
-    { label: 'AMDY LABS LLC', sub: 'شركة مسجلة في ميشيغان، الولايات المتحدة' },
+    { label: 'AMDYLABS LLC', sub: 'شركة مسجلة في ميشيغان، الولايات المتحدة' },
     { label: 'ديترويت، ميشيغان', sub: '10629 W 7 Mile, Suite 1, 48221' },
     { label: '4 منتجات مطلقة', sub: 'caissepro.app · vybz.city · immopro.agency' },
     { label: '38+ تاجر', sub: 'إيرادات حقيقية، نمو حقيقي' },
